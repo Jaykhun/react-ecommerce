@@ -1,0 +1,85 @@
+@import "../../../styles/mixin";
+
+.singin-popup {
+  &__inner {
+    width: 260px;
+  }
+
+  .singin {
+    &__title {
+      @include fontArguments($mainFont, 700);
+      font-size: 15px;
+      color: $titleColor;
+      padding: 0 0 50px;
+      text-transform: uppercase;
+    }
+
+    &__form {
+      label {
+        margin-bottom: 5px;
+      }
+    }
+
+    &__login {
+      margin-bottom: 20px;
+    }
+
+    &__footer {
+      @include flex(space-between, center);
+    }
+
+    &__forgot {
+      @include fontArguments($mainFont);
+      font-size: 15px;
+      display: block;
+      position: relative;
+      color: $titleColor;
+      @include pseudo() {
+        bottom: -2px;
+        left: 0;
+        width: 100%;
+        height: 1px;
+        background-color: $titleColor;
+      }
+    }
+
+    &__submit {
+      padding: 18px 26px;
+      border-radius: 6px;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .singin-popup {
+    &__inner {
+      width: 100%;
+    }
+
+    &__close {
+      top: 11px;
+    }
+
+    .singin {
+      &__submit {
+        margin-top: 20px;
+      }
+    }
+  }
+}
+
+
+@media screen and (max-width: 576px) {
+  .singin-popup {
+    .singin {
+      &__footer {
+        flex-direction: column;
+      }
+
+      &__submit {
+        width: 100%;
+        margin-top: 20px;
+      }
+    }
+  }
+}

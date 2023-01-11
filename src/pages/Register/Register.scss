@@ -1,0 +1,24 @@
+.content__register {
+  .form {
+    &__submit {
+      padding: 20px 30px;
+      border-radius: 6px;
+    }
+  }
+}
+
+@media screen and (max-width:1260px) {
+  .content__register{
+    margin-bottom: 30px;
+  }
+}
+
+@media screen and (max-width:600px) {
+  .content__register{
+    .form {
+      &__submit {
+        width: 100%;
+      }
+    }
+  }
+}

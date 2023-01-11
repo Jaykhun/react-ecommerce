@@ -1,0 +1,31 @@
+.input-style {
+    @include fontArguments($textfont);
+    font-size: 16px;
+    width: 100%;
+    height: auto;
+    outline: none;
+    padding: 15px 15px;
+    color: $textColor;
+    background-color: #f7f7f7;
+    border-radius: 6px;
+    border: 2px solid transparent;
+    box-shadow: none;
+    transition: all 0.2s;
+    &:focus {
+        border-color: $btnBorderColor;
+        background-color: #fff;
+    }
+}
+
+.input-text {
+    display: block;
+    @include fontArguments($mainFont, 600);
+    font-size: 14px;
+    color: #3e3e3e;
+    margin-bottom: 5px;
+    letter-spacing: 0.7px;
+}
+
+.required-form{
+    color: $btnBorderColor;
+}

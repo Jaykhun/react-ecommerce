@@ -1,0 +1,51 @@
+.product-name {
+    color: rgba(16, 16, 16, 0.7);
+    font-size: 16px;
+    @include fontArguments($textfont);
+}
+
+.price-current {
+    @include fontArguments($mainFont, 700);
+    color: $titleColor;
+    font-size: 17px;
+}
+
+.price-later {
+    display: inline-block;
+    @include fontArguments($mainFont);
+    color: rgba(16, 16, 16, 0.3);
+    font-size: 16px;
+    @include pseudo() {
+        top: 50%;
+        left: -4%;
+        transform: translate(0%, -50%);
+        width: 112%;
+        height: 2px;
+        background-color: $btnBorderColor;
+    }
+}
+
+.word-sale {
+    display: inline-block;
+    @include fontArguments($mainFont, 700);
+    font-size: 12px;
+    text-transform: uppercase;
+    color: $btnBorderColor;
+    @include pseudo() {
+        bottom: 2px;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background-color: $btnBorderColor;
+    }
+}
+
+.price-discount {
+    display: inline-block;
+    @include fontArguments($mainFont, 700);
+    font-size: 12px;
+    color: $btnBorderColor;
+    background-color: rgba(233, 46, 46, 0.15);
+    padding: 3.5px 10px 3.5px;
+    border-radius: 50px;
+}

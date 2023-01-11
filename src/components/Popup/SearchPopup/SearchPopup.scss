@@ -1,0 +1,180 @@
+@import "../../../styles/mixin";
+@import "../../../styles/variables";
+
+.search-popup {
+  .mobile-search-popup-title {
+    display: none;
+  }
+
+  &__inner {
+    width: 240px;
+  }
+
+  &__header {
+    @include fontArguments($mainFont, 700);
+    font-size: 15px;
+    text-transform: uppercase;
+    color: #101010;
+    padding: 0 0 35px;
+  }
+
+  &__title {
+    position: relative;
+
+    span {
+      position: absolute;
+      top: -1px;
+      right: -10px;
+      z-index: 10;
+      width: 30px;
+      height: 30px;
+      display: block;
+      background: url(data:image/svg+xml,%3Csvg%20version%3D%221.1%22%20baseProfile%3D%22full%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20xmlns%3Aev%3D%22http%3A%2F%2Fwww.w3.org%2F2001%2Fxml-events%22%20xml%3Aspace%3D%22preserve%22%20x%3D%220px%22%20y%3D%220px%22%20width%3D%2220px%22%20height%3D%2218px%22%20%20viewBox%3D%220%200%2020%2018%22%20preserveAspectRatio%3D%22none%22%20shape-rendering%3D%22geometricPrecision%22%3E%22%3Cpath%20fill%3D%22%23101010%22%20d%3D%22M3.9593%205.12417C3.9593%205.12417%203.95167%201.67427%203.95167%200H5.95167L5.94404%205.12417C7.66971%205.56457%208.95909%207.12626%208.95909%209C8.95909%2010.871%207.67351%2012.4308%205.95167%2012.8739V18H3.95167V12.8739C2.22981%2012.4308%200.944221%2010.871%200.944221%209C0.944221%207.12625%202.23362%205.56455%203.9593%205.12417ZM4.95166%2011C6.05623%2011%206.95909%2010.1046%206.95909%209C6.95909%207.89543%206.05623%207%204.95166%207C3.84709%207%202.94422%207.89543%202.94422%209C2.94422%2010.1046%203.84709%2011%204.95166%2011ZM16.9849%2012.8758C16.9849%2012.8758%2016.9926%2016.3317%2016.9926%2018H14.9926C14.9926%2016.3317%2015.0002%2012.8758%2015.0002%2012.8758C13.2745%2012.4354%2011.9851%2010.8738%2011.9851%209C11.9851%207.12901%2013.2707%205.56917%2014.9926%205.12612V0H16.9926V5.12612C18.7144%205.56917%2020%207.12901%2020%209C20%2010.8737%2018.7106%2012.4354%2016.9849%2012.8758ZM15.9926%207C14.888%207%2013.9851%207.89543%2013.9851%209C13.9851%2010.1046%2014.888%2011%2015.9926%2011C17.0971%2011%2018%2010.1046%2018%209C18%207.89543%2017.0971%207%2015.9926%207Z%22%2F%3E%3C%2Fsvg%3E) right 0px top 0px no-repeat;
+    }
+  }
+
+  &__search {
+    display: none;
+  }
+
+  .search-form {
+    input {
+      &:focus {
+        border-color: $btnBorderColor;
+        background-color: #fff;
+      }
+    }
+
+    &__price {
+      margin: 15px 0px;
+    }
+
+    &__name {
+      margin: 15px 0px;
+    }
+
+    &__text {
+      margin: 15px 0px;
+    }
+
+    &__category {
+      margin: 25px 0px;
+    }
+
+    &__submit {
+      padding: 18px 16px;
+      margin-bottom: 18px;
+    }
+  }
+
+  .search-price {
+    &__input {
+      @include flex(space-between);
+      gap: 10px;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .search-popup {
+    .mobile-search-popup-title {
+      display: block;
+      font-size: 14px;
+      padding: 12px 16px 10px;
+      font-weight: 700;
+    }
+
+    &__inner {
+      max-width: 100%;
+      width: 100%;
+    }
+
+    &__header {
+      display: inline-flex;
+      background: #f7f7f7;
+      border-radius: 6px;
+      padding: 2px;
+    }
+
+    &__row {
+      position: relative;
+    }
+
+    &__form {
+      width: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      overflow: hidden;
+      opacity: 0;
+      pointer-events: none;
+      margin-top: 30px;
+      transition: all 0.3s;
+      transform: translateY(-20px);
+
+      &.popup-active {
+        overflow: visible;
+        opacity: 1;
+        transform: translateY(0px);
+        pointer-events: all;
+      }
+    }
+
+    &__title {
+      display: none;
+    }
+
+    &__search {
+      width: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      transform: translateY(-20px);
+      display: block;
+      overflow: hidden;
+      pointer-events: none;
+      opacity: 0;
+      margin-top: 30px;
+      transition: all 0.3s;
+
+      &.popup-active {
+        overflow: visible;
+        opacity: 1;
+        pointer-events: all;
+        transform: translateY(0px);
+      }
+
+      input {
+        width: 100%;
+        @include fontArguments($mainFont, 600);
+        @include adaptivFont(15, 15);
+        min-height: 54px;
+        padding-left: 24px;
+        background-color: #f7f7f7;
+        border-radius: 6px;
+        border: 2px solid transparent;
+        color: #393939;
+        transition: all 0.2s;
+
+        &::-webkit-input-placeholder {
+          color: #393939;
+        }
+
+        &:focus {
+          border-color: $btnBorderColor;
+          background-color: #fff;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .search-popup {
+    .search-form {
+      &__submit {
+        width: 100%;
+      }
+    }
+  }
+}

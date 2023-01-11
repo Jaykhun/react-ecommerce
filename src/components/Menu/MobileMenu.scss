@@ -1,0 +1,271 @@
+@import "../../styles/mixin";
+
+.mobile-menu {
+  display: none;
+}
+
+@media screen and (max-width: 1260px) {
+  .mobile-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    width: 100%;
+    display: block;
+    background-color: #0009;
+    height: 100%;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: all 0.3s;
+    &.menu-active {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: all;
+    }
+
+    &__content {
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 320px;
+      height: 100vh;
+      overflow: auto;
+      background-color: $bcgColor;
+      transition: all 0.5s;
+
+      &.menu-active {
+        left: 0;
+      }
+    }
+
+    &__header {
+      background-color: #000;
+    }
+
+    &__top {
+      position: relative;
+      @include flex(space-between, center);
+      @include fontArguments($mainFont, 700);
+      background: #000;
+      font-size: 14px;
+      color: #fff;
+      padding: 18.5px 16px 18.5px 16px;
+      width: 100%;
+      border-bottom: 1px solid #fff1;
+    }
+
+    &__menu {
+      @include pseudo() {
+        top: 3px;
+        right: -30px;
+        width: 20px;
+        height: 10px;
+        background-image: url(data:image/svg+xml,%3Csvg%20version%3D%221.1%22%20baseProfile%3D%22full%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20xmlns%3Aev%3D%22http%3A%2F%2Fwww.w3.org%2F2001%2Fxml-events%22%20xml%3Aspace%3D%22preserve%22%20x%3D%220px%22%20y%3D%220px%22%20width%3D%2220px%22%20height%3D%2210px%22%20%20viewBox%3D%220%200%2020%2010%22%20preserveAspectRatio%3D%22none%22%20shape-rendering%3D%22geometricPrecision%22%3E%3Cpath%20fill%3D%22%23fff%22%20d%3D%22M2%205L1.29289%204.29289L0.585786%205L1.29289%205.70711L2%205ZM6.70711%208.29289L2.70711%204.29289L1.29289%205.70711L5.29289%209.70711L6.70711%208.29289ZM2.70711%205.70711L6.70711%201.70711L5.29289%200.292893L1.29289%204.29289L2.70711%205.70711ZM20%204H2V6H20V4Z%22%2F%3E%3C%2Fsvg%3E);
+        background-repeat: no-repeat;
+        background-position: 0 0;
+        transform: rotate(180deg);
+      }
+    }
+
+    &__close {
+      background: url(data:image/svg+xml,%3Csvg%20version%3D%221.1%22%20baseProfile%3D%22full%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20xmlns%3Aev%3D%22http%3A%2F%2Fwww.w3.org%2F2001%2Fxml-events%22%20xml%3Aspace%3D%22preserve%22%20x%3D%220px%22%20y%3D%220px%22%20width%3D%2213px%22%20height%3D%2213px%22%20%20viewBox%3D%220%200%2013%2013%22%20preserveAspectRatio%3D%22none%22%20shape-rendering%3D%22geometricPrecision%22%3E%22%3Cpath%20fill%3D%22%23ffffff%22%20d%3D%22M4.94975%206.36396L0%2011.3137L1.41421%2012.7279L6.36396%207.77817L11.3137%2012.7279L12.7279%2011.3137L7.77817%206.36396L12.7279%201.41421L11.3137%203.37175e-07L6.36396%204.94975L1.41421%200L6.7435e-07%201.41421L4.94975%206.36396Z%22%2F%3E%3C%2Fsvg%3E)
+      50% 50% no-repeat;
+      background-size: 13px 13px;
+      width: 60px;
+      height: 60.5px;
+      border: none;
+      box-shadow: none;
+      outline: none;
+      position: absolute;
+      padding: 0;
+      font-size: 0;
+      top: -3px;
+      right: 0;
+      z-index: 2;
+    }
+
+    &__form {
+      display: flex;
+      padding: 16px;
+
+      a, span {
+        display: block;
+        @include fontArguments($textfont);
+        font-size: 16px;
+        color: #fff;
+        &:last-child {
+          margin-left: 55px;
+        }
+      }
+    }
+
+    &__list {
+      position: relative;
+    }
+
+    &__item {
+      @include flex(flex-start, center);
+      width: 100%;
+      top: 50%;
+      background: #f7f7f7;
+      border-bottom: 1px solid #1010100d;
+      pointer-events: all;
+      padding: 10px;
+    }
+  }
+  .item {
+    &__body {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      padding: 10px;
+    }
+    &__icon {
+      margin-right: 16px;
+      width: 30px;
+      height: 35px;
+      pointer-events: none;
+    }
+
+    &__name {
+      @include fontArguments($textfont, 500);
+      font-size: 16px;
+      pointer-events: none;
+    }
+
+    &__menu {
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100vh;
+      min-height: 100px;
+      transition: all 0.3s;
+      background-color: #fff;
+      z-index: 1;
+      overflow-y: auto;
+      &.active-menu {
+        left: 0;
+      }
+    }
+
+    &__back {
+      display: block;
+      width: 100%;
+      @include fontArguments($mainFont, 600);
+      font-size: 14px;
+      color: #101010;
+      position: relative;
+      display: block;
+      padding: 18.5px 0 18.5px 46px;
+      background: #f7f7f7;
+    }
+
+    &__title {
+      @include fontArguments($mainFont, 600);
+      font-size: 15px;
+      position: relative;
+      padding: 19.5px 16px 12.5px;
+      color: #101010;
+    }
+
+    &__sublevel {
+      &.menu-active {
+        .sublevel__body {
+          left: 0%;
+        }
+      }
+    }
+
+    &__link {
+      position: relative;
+
+      a {
+        @include fontArguments($textfont);
+        display: block;
+        padding: 13.5px 16px;
+        font-size: 15px;
+        color: #10101080;
+      }
+    }
+  }
+
+  .sublevel {
+    &__body {
+      position: absolute;
+      top: 0;
+      left: -100%;
+      transition: all 0.3s;
+    }
+  }
+
+  .menu-next {
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 150vh;
+    overflow-y: auto;
+    background-color: #000;
+    z-index: 2;
+    padding: 0px 15px;
+    transition: all 0.3s;
+    &.menu-active {
+      left: 0%;
+    }
+
+    &__close {
+      font-weight: 600;
+      @include pseudo() {
+        top: 3px;
+        left: -28px;
+        width: 20px;
+        height: 10px;
+        background-image: url(data:image/svg+xml,%3Csvg%20version%3D%221.1%22%20baseProfile%3D%22full%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20xmlns%3Aev%3D%22http%3A%2F%2Fwww.w3.org%2F2001%2Fxml-events%22%20xml%3Aspace%3D%22preserve%22%20x%3D%220px%22%20y%3D%220px%22%20width%3D%2220px%22%20height%3D%2210px%22%20%20viewBox%3D%220%200%2020%2010%22%20preserveAspectRatio%3D%22none%22%20shape-rendering%3D%22geometricPrecision%22%3E%22%3Cpath%20fill%3D%22%23f7f7f7%22%20opacity%3D%220.3%22%20d%3D%22M2%205L1.29289%204.29289L0.585786%205L1.29289%205.70711L2%205ZM6.70711%208.29289L2.70711%204.29289L1.29289%205.70711L5.29289%209.70711L6.70711%208.29289ZM2.70711%205.70711L6.70711%201.70711L5.29289%200.292893L1.29289%204.29289L2.70711%205.70711ZM20%204H2V6H20V4Z%22%2F%3E%3C%2Fsvg%3E);
+        background-repeat: no-repeat;
+        background-position: 0 0;
+      }
+    }
+
+    &__header {
+      width: 40%;
+      position: absolute;
+      padding: 18.5px 16px 18.5px 29px;
+      background-color: #000;
+      z-index: 9;
+    }
+
+    &__menu {
+      position: relative;
+      top: 60px;
+    }
+
+    &__item {
+      padding: 8px 0px;
+      ul {
+        padding: 10px 0 10px 10px;
+        margin: -5px 0 0;
+      }
+    }
+
+    &__link {
+      display: block;
+      font-weight: 400;
+      color: #fff;
+      padding: 6px 0px;
+    }
+
+    .top-link {
+      font-weight: 600;
+    }
+  }
+
+  @media screen and (max-width: 420px) {
+    .mobile-menu {
+      &__content {
+        width: 100%;
+      }
+    }
+  }
+}

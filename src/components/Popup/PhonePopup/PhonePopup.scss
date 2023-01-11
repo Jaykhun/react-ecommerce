@@ -1,0 +1,124 @@
+@import "../../../styles/mixin";
+
+.phone-popup {
+  .popup__content {
+    border-radius: 6px;
+    padding: 40px;
+  }
+
+  &__inner {
+    width: 260px;
+  }
+
+  &__close {
+    background: url(data:image/svg+xml,%3Csvg%20version%3D%221.1%22%20baseProfile%3D%22full%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20xmlns%3Aev%3D%22http%3A%2F%2Fwww.w3.org%2F2001%2Fxml-events%22%20xml%3Aspace%3D%22preserve%22%20x%3D%220px%22%20y%3D%220px%22%20width%3D%2213px%22%20height%3D%2213px%22%20%20viewBox%3D%220%200%2013%2013%22%20preserveAspectRatio%3D%22none%22%20shape-rendering%3D%22geometricPrecision%22%3E%22%3Cpath%20fill%3D%22%23101010%22%20d%3D%22M4.94975%206.36396L0%2011.3137L1.41421%2012.7279L6.36396%207.77817L11.3137%2012.7279L12.7279%2011.3137L7.77817%206.36396L12.7279%201.41421L11.3137%203.37175e-07L6.36396%204.94975L1.41421%200L6.7435e-07%201.41421L4.94975%206.36396Z%22%2F%3E%3C%2Fsvg%3E) 50% 50% no-repeat;
+    background-size: 13px 13px;
+    width: 60px;
+    height: 60px;
+    border: none;
+    box-shadow: none;
+    outline: none;
+    position: absolute;
+    background-color: transparent;
+    padding: 0;
+    font-size: 0;
+    top: 0;
+    right: 0px;
+    cursor: pointer;
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
+  }
+
+  .contacts {
+    &__item {
+      padding: 0 30px;
+    }
+
+    &__recall {
+      position: relative;
+      display: none;
+    }
+  }
+
+  .item {
+    @include fontArguments($textfont);
+    @include adaptivFont(15, 15);
+    color: $textColorLighter;
+    margin-bottom: 20px;
+
+    &:last-child {
+      margin-bottom: 0px;
+    }
+
+    &__text {
+      margin-bottom: 4px;
+    }
+
+    &__number {
+      @include fontArguments($mainFont, 700);
+      font-size: 20px;
+      color: #000;
+    }
+  }
+
+  .messengers {
+    @include flex(center, center);
+    min-height: 20px;
+    background-color: #2ea8e3;
+    border-radius: 6px;
+    padding: 20px;
+    margin-top: 30px;
+    cursor: pointer;
+
+    &__title {
+      @include fontArguments($mainFont, 600);
+      color: #fff;
+      font-size: 15px;
+    }
+
+    &__icon {
+      height: 18px;
+      width: 18px;
+      margin-left: 15px;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .phone-popup {
+    .popup__content {
+      padding: 40px 20px;
+      border-radius: 0px;
+    }
+
+    &__inner {
+      width: 100%;
+    }
+
+    &__close {
+      width: 50px;
+      height: 50px;
+      top: 8px;
+      right: 8px;
+      background-color: #f7f7f7;
+      border-radius: 6px;
+    }
+
+    .contacts {
+      &__recall {
+        margin-top: 30px;
+        display: block;
+
+        .w-r-btn {
+          background-color: $btnBorderColor;
+          color: #fff;
+        }
+      }
+    }
+
+    .messengers {
+      margin-top: 20px;
+      padding: 16px 20px;
+    }
+  }
+}

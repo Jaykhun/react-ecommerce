@@ -1,0 +1,126 @@
+.btn {
+    @include fontArguments($mainFont, 600);
+    cursor: pointer;
+}
+
+.w-r-btn {
+    @include adaptivFont(15, 15);
+    display: block;
+    border: 2px solid $btnBorderColor;
+    border-radius: 6px;
+    color: $btnBorderColor;
+    text-align: center;
+    transition: all 0.3s;
+    @include pseudo($loc: after) {
+        top: 0;
+        right: 0;
+        width: 0;
+        height: 100%;
+        z-index: -1;
+        background: $btnBorderColor;
+        transition: all 0.3s;
+    }
+
+    &:hover {
+        color: #fff;
+        &::after {
+            width: 100%;
+        }
+    }
+}
+
+.w-bg-r-btn {
+    @include adaptivFont(18, 16);
+    display: block;
+    border-radius: 6px;
+    color: #fff;
+    background-color: $btnBorderColor;
+    text-align: center;
+    transition: all 0.3s;
+}
+
+.w-btn {
+    @include adaptivFont(15, 15);
+    background-color: transparent;
+    color: #000;
+}
+
+.w-opacity {
+    @include pseudo($loc: after) {
+        top: 0;
+        left: 0;
+        width: 0;
+        height: 100%;
+        background-color: #fff5;
+        transition: all 0.3s;
+    }
+
+    &:hover {
+        color: #fff;
+        &::after {
+            width: 100%;
+        }
+    }
+}
+
+.r-opacity {
+    z-index: 1;
+    @include pseudo($loc: after) {
+        top: 0;
+        left: 0;
+        width: 0;
+        height: 100%;
+        background: $btnBorderColor;
+        transition: all 0.3s;
+        border-radius: 6px;
+        z-index: -1;
+    }
+
+    &:hover {
+        &::after {
+            width: 100%;
+        }
+    }
+}
+
+.r-btn {
+    @include adaptivFont(18, 15);
+    background-color: $btnBorderColor;
+    color: #fff;
+}
+
+.r-active-btn {
+    color: $btnBorderColor;
+    background-color: #ffffff;
+    border-radius: 4px;
+}
+
+@media screen and (max-width: 1260px) {
+    .r-opacity {
+        &::after {
+            border-radius: 0;
+        }
+    }
+}
+
+.b-opacity {
+    z-index: 1;
+    color: $titleColor;
+    @include pseudo($loc: after) {
+        top: 0;
+        left: 0;
+        width: 0;
+        height: 100%;
+        background-color: #000;
+        transition: all 0.3s;
+        z-index: -1;
+        border-radius: 6px;
+    }
+
+    &:hover {
+        color: #fff;
+        &::after {
+            width: 100%;
+        }
+    }
+}
