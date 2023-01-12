@@ -1,7 +1,7 @@
 import {createApi, fetchBaseQuery, retry} from "@reduxjs/toolkit/query/react";
 import {IProduct} from "./productTypes";
 
-const url = 'https://fakestoreapi.com/'
+const url = 'https://ecommerce-h6sh.onrender.com/'
 
 export const productApi = createApi({
     reducerPath: 'productApi',
