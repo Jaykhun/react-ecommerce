@@ -3,7 +3,7 @@ import {Link, NavLink, Outlet} from "react-router-dom";
 import {useActions} from "../hooks/useActions";
 import {useTypedSelector} from "../hooks/useTypedSelector";
 
-const AdminLayout = () => {
+const Dashboard = () => {
     const {onAdminMenuClick} = useActions()
     const {isAdminMenuOpen} = useTypedSelector(state => state.menu)
 
@@ -91,4 +91,4 @@ const AdminLayout = () => {
     );
 };
 
-export default AdminLayout;
+export default Dashboard;

@@ -28,6 +28,7 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+
     img {
       height: 100%;
     }
@@ -54,5 +55,11 @@
     width: 25px;
     height: 25px;
     cursor: pointer;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .uploadFile {
+    width: 100%;
   }
 }

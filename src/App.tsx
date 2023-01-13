@@ -1,13 +1,11 @@
 import React from 'react';
 import {BrowserRouter, Route, Routes} from "react-router-dom";
-import LayoutWithoutSidebar from "./pages/LayoutWithoutSidebar";
-import AdminLayout from "./pages/AdminLayout";
-import Layout from "./pages/Layout";
+import {Layout, LayoutWithoutSidebar, Dashboard} from "./routes";
+import {Admin, Products, Users, Orders} from "./pages/Admin";
 import Home from "./pages/Home";
 import Cart from "./pages/Cart";
 import Register from "./pages/Register";
-import {Admin, AllProducts, AllUsers, Orders} from "./pages/Admin";
-import ProductItem from "./pages/Product/ProductItem/ProductItem";
+import {ProductItem} from "./pages/Product";
 
 const App = () => {
     return (
@@ -23,11 +21,11 @@ const App = () => {
                     <Route path="cart" element={<Cart/>}/>
                 </Route>
 
-                <Route path="admin" element={<AdminLayout/>}>
+                <Route path="admin" element={<Dashboard/>}>
                     <Route index element={<Admin/>}/>
-                    <Route path="/admin/products" element={<AllProducts/>}/>
-                    <Route path="/admin/users" element={<AllUsers/>}/>
-                    <Route path="/admin/orders" element={<Orders/>}/>
+                    <Route path="products" element={<Products/>}/>
+                    <Route path="users" element={<Users/>}/>
+                    <Route path="orders" element={<Orders/>}/>
                 </Route>
             </Routes>
         </BrowserRouter>

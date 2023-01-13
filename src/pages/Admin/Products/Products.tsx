@@ -1,13 +1,12 @@
 import React from 'react';
-import "./AllProducts.scss"
-import SelectComponent from "../../../components/UI/Select/SelectComponent";
+import "./Products.scss"
+import SelectComponent from "../../../components/UI/Select";
 import UploadFile from "./UploadFile";
 import {useGetAllProductsQuery} from "../../../store/product/productApi";
-import AllProductsItem from "./AllProductsItem/AllProductsItem";
+import ProductsItem from "./ProductsItem";
 
-const AllProducts = () => {
+const Products = () => {
     const {data, isLoading, error} = useGetAllProductsQuery();
-    console.log(data)
     return (
         <div className="all-products">
             <div className="all-products__header">
@@ -41,21 +40,26 @@ const AllProducts = () => {
                             <label htmlFor="productDescription" className="input-text">описание продукта</label>
                             <textarea id="productDescription" className="input-style"></textarea>
                         </div>
-
                     </div>
-
 
                     <button className="btn r-btn w-opacity form__submit">Добавить</button>
                 </form>
             </div>
+
             <div className="all-products__body">
-                {
-                    isLoading ? 'Loading' : error ? `error ${error}` :
-                        <div>{data?.map((item: any) => <AllProductsItem product={item}/>)}</div>
-                }
+                <div className="all-products__title title">Products</div>
+                <div className="all-products__content">
+                    {
+                        isLoading ?
+                            'Loading'
+                            : error ?
+                                `error ${error}`
+                                : <>{data?.map((item: any) => <ProductsItem product={item} key={item.title}/>)}</>
+                    }
+                </div>
             </div>
         </div>
     );
 };
 
-export default AllProducts;
+export default Products;

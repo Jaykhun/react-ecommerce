@@ -1,6 +1,6 @@
 import React from 'react';
 
-const AllUsers = () => {
+const Users = () => {
     return (
         <div>
             <h1>users</h1>
@@ -8,4 +8,4 @@ const AllUsers = () => {
     );
 };
 
-export default AllUsers;
+export default Users;

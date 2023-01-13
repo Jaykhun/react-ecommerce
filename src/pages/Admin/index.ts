@@ -1,6 +1,6 @@
-import AllProducts from "./AllProducts/AllProducts";
-import AllUsers from "./AllUsers/AllUsers";
-import Orders from "./Orders/Orders";
-import Admin from "./Admin";;
+import {Products} from "./Products";
+import {Users} from "./Users";
+import {Orders} from "./Orders";
+import Admin from "./Admin";
 
-export {Admin, AllProducts, AllUsers, Orders};
+export {Admin, Products, Users, Orders};
