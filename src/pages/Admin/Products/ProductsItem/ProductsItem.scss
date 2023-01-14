@@ -3,6 +3,7 @@
 
 .all-products {
   .item {
+    min-height: 170px;
     padding: 30px 0px;
     border-bottom: 1px solid rgba(218, 218, 218, 0.4);
 
@@ -165,14 +166,19 @@
   .all-products {
     .item {
       padding: 15px 0px;
+
+      &__buttons {
+        button {
+          cursor: none;
+        }
+      }
       &__description {
         display: none;
       }
 
-      &__image{
+      &__image {
         width: 150px;
       }
     }
   }
 }
-
