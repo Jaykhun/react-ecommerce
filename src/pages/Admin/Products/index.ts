@@ -1,6 +1,6 @@
 import Products from "./Products";
 import ProductsItem from "./ProductsItem";
 import UploadFile from "./UploadFile";
-import AddProductsForm from "./AddProductsForm";
+import ProductsForm from "./ProductsForm";
 
-export {Products, ProductsItem, AddProductsForm, UploadFile};
+export {Products, ProductsItem, ProductsForm, UploadFile};

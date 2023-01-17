@@ -13,27 +13,21 @@
     }
 
     &__top {
-      @include flex(space-between, center);
+      @include flex(space-between, flex-start);
       gap: 25px;
-      margin-bottom: 30px;
+      min-height: 110px;
     }
 
-    &__item {
-      margin-bottom: 25px;
+    &__description {
+      min-height: 225px;
     }
 
     &__productName {
-      position: relative;
       flex: 0 0 50%;
-      .input-error{
-        position: absolute;
-        left: 0;
-        bottom: -15px;
-      }
     }
 
     &__price {
-      @include flex(space-between, center);
+      @include flex(space-between, flex-start);
       gap: 20px;
     }
 

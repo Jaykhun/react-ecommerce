@@ -1,30 +1,47 @@
-import React from 'react';
-import Select from 'react-select';
-import makeAnimated from 'react-select/animated';
+import React, {FC} from 'react';
 import "./SelectComponent.scss";
+import AsyncSelect from "react-select/async";
+import makeAnimated from 'react-select/animated';
+import {ICategory} from "../../../store/category/categoryType";
 
-const SelectComponent = () => {
-    const animatedComponents = makeAnimated();
+interface SelectProps {
+    error: any,
+    onBlur: any,
+    data?: ICategory[]
+}
 
-    const options = [
-        {value: 'computer', label: 'Computer'},
-        {value: 'laptop', label: 'Laptop'},
-        {value: 'phone', label: 'Phone'},
-    ]
+const SelectComponent: FC<SelectProps> = ({error, onBlur, data}) => {
+    const animatedComponents = makeAnimated()
+
+    const loadOptions = (searchValue: string, callback: any) => {
+        const filteredOptions = data?.filter((option) =>
+            option.name.toLowerCase().includes(searchValue.toLowerCase())
+        )
+
+        callback(filteredOptions)
+    }
 
     return (
-        <div className="select">
-            <label htmlFor="select" className="custom-select__label">Выберите категории</label>
-            <Select
-                id="select"
-                classNamePrefix="custom-select"
-                options={options}
-                placeholder={false}
-                closeMenuOnSelect={false}
-                components={animatedComponents}
-                isMulti
-            />
-        </div>
+        <>
+            {data && <div className="select">
+                <label htmlFor="select" className="custom-select__label">Выберите категории</label>
+                <AsyncSelect
+                    id="select"
+                    classNamePrefix="custom-select"
+                    placeholder={false}
+                    closeMenuOnSelect={false}
+                    components={animatedComponents}
+                    onBlur={onBlur}
+                    isMulti
+                    cacheOptions
+                    defaultOptions
+                    loadOptions={loadOptions}
+                />
+
+                {error &&
+                    <span className="input-error">{error.message}</span>}
+            </div>}
+        </>
     );
 };
 

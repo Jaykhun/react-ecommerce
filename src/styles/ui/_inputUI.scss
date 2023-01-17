@@ -30,8 +30,9 @@
     @include fontArguments($textfont, 600);
     display: block;
     font-size: 12px;
+    line-height: 130%;
     color: $btnBorderColor;
-    text-transform: lowercase;
+    margin-top: 8px;
 }
 
 .required-form{

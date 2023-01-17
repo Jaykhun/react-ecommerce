@@ -2,30 +2,38 @@ import {createApi, fetchBaseQuery} from "@reduxjs/toolkit/query/react";
 import {IProduct} from "./productTypes";
 
 const url = 'https://fakestoreapi.com/'
-const urlApi = 'https://ecommerce-h6sh.onrender.com/products/'
+const urlApi = 'https://ecommerce-h6sh.onrender.com'
 
 export const productApi = createApi({
     reducerPath: 'productApi',
-    baseQuery: fetchBaseQuery({baseUrl: url}),
+    baseQuery: fetchBaseQuery({
+        baseUrl: urlApi,
+        headers: {
+            'Content-type': 'application/json; charset=UTF-8',
+        }
+    }),
     tagTypes: ['Products'],
     endpoints: build => ({
-        getAllProducts: build.query<any[], void>({
+        getAllProducts: build.query<IProduct[], void>({
             query: () => 'products',
             providesTags: ['Products']
         }),
-        getSingleProduct: build.query<any[], void>({
+        getSingleProduct: build.query<IProduct[], void>({
             query: (id) => `products/${id}`,
             providesTags: ['Products']
         }),
-        addProduct: build.mutation<any, any>({
+        addProduct: build.mutation<IProduct, any>({
             query: (product) => ({
                 url: `products`,
                 method: 'Post',
-                body: product
+                body: product,
+                headers: {
+                    'Content-type': 'application/json: charset=UTF-8'
+                }
             }),
             invalidatesTags: ['Products']
         }),
-        updateProduct: build.mutation<void, any>({
+        updateProduct: build.mutation<void, IProduct>({
             query: ({id, ...rest}) => ({
                 url: `products/${id}`,
                 method: 'PUT',
@@ -33,7 +41,7 @@ export const productApi = createApi({
             }),
             invalidatesTags: ['Products']
         }),
-        deleteProduct: build.mutation<any, any>({
+        deleteProduct: build.mutation<IProduct, number>({
             query: (id) => ({
                 url: `products/${id}`,
                 method: 'DELETE'
