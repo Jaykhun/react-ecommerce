@@ -1,17 +1,18 @@
-import {useGetAllProductsQuery} from "../../../store/product/productApi";
-import {ProductsItem, ProductsForm} from "./index";
-import "./Products.scss"
+import {useAddProductMutation, useGetAllProductsQuery} from "../../../store/product/productApi";
+import {IProduct} from "../../../store/product/productTypes";
+import {ProductsItem, ProductsForm, ProductsLoader} from "./index";
+import {Error} from "../../../components/UI";
 import {v4 as keyId} from "uuid"
-import ProductsLoader from "./ProductsLoader/ProductsLoader";
-import Error from "../../../components/UI/Error";
+import "./Products.scss";
 
 const Products = () => {
     const {data, isLoading, error} = useGetAllProductsQuery();
+    const [addProduct] = useAddProductMutation()
 
     return (
         <div className="all-products">
             <div className="all-products__header">
-                <ProductsForm/>
+                <ProductsForm action={addProduct} buttonValue='Добваить'/>
             </div>
 
             <div className="all-products__body">
@@ -21,9 +22,9 @@ const Products = () => {
                         isLoading ?
                             <ProductsLoader/>
                             : error ?
-                                <Error/>
+                                <Error error={error}/>
                                 : <>
-                                    {data?.map((item: any) => <ProductsItem product={item} key={keyId()}/>)}
+                                    {data?.map((item: IProduct) => <ProductsItem product={item} key={keyId()}/>)}
                                 </>
                     }
                 </div>

@@ -1,0 +1,25 @@
+import {Popup} from "../../../../components/UI";
+import {useActions} from "../../../../hooks/useActions";
+import {useTypedSelector} from "../../../../hooks/useTypedSelector";
+import {ProductsForm} from "../index";
+import "./ProductsEdit.scss";
+import {useUpdateProductMutation} from "../../../../store/product/productApi";
+
+const ProductsEdit = () => {
+    const {onEditPopupClick} = useActions()
+    const {isEditModalOpen} = useTypedSelector(state => state.admin)
+    const [updateProduct] = useUpdateProductMutation()
+
+    return (
+        <Popup isOpen={isEditModalOpen} onClose={onEditPopupClick}>
+            <div className="popup-edit">
+                <div className="popup-edit__inner">
+                    <div className="popup-edit__title">Изменить продукт</div>
+                    <ProductsForm action={updateProduct} buttonValue='Изменить'/>
+                </div>
+            </div>
+        </Popup>
+    );
+};
+
+export default ProductsEdit;

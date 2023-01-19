@@ -1,7 +1,5 @@
 import {FC, ReactNode} from 'react';
-import Portal from "../Portal";
-import "./Popup.scss";
-import "../SearchPopup/SearchPopup.scss";
+import Portal from "./Portal";
 
 interface popupPropsType {
     isOpen: boolean,

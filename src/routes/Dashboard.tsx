@@ -2,10 +2,11 @@ import React from 'react';
 import {Link, NavLink, Outlet} from "react-router-dom";
 import {useActions} from "../hooks/useActions";
 import {useTypedSelector} from "../hooks/useTypedSelector";
+import ProductsEdit from "../pages/Admin/Products/ProductsEdit";
 
 const Dashboard = () => {
     const {onAdminMenuClick} = useActions()
-    const {isAdminMenuOpen} = useTypedSelector(state => state.menu)
+    const {isAdminMenuOpen} = useTypedSelector(state => state.admin)
 
     return (
         <div className="wrapper">
@@ -87,6 +88,7 @@ const Dashboard = () => {
                     </div>
                 </div>
             </div>
+            <ProductsEdit/>
         </div>
     );
 };

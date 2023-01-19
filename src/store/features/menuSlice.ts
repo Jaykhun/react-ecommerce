@@ -4,16 +4,14 @@ interface menuTypes {
     isMenuOpen: boolean,
     isNavMenuOpen: boolean,
     isSubMenuOpen: boolean,
-    isCatalogMenuOpen: boolean,
-    isAdminMenuOpen: boolean
+    isCatalogMenuOpen: boolean
 }
 
 const initialState: menuTypes = {
     isMenuOpen: false,
     isNavMenuOpen: false,
     isSubMenuOpen: false,
-    isCatalogMenuOpen: false,
-    isAdminMenuOpen: false
+    isCatalogMenuOpen: false
 }
 
 const menuSlice = createSlice({
@@ -36,10 +34,6 @@ const menuSlice = createSlice({
 
         onCatalogMenuClick: (state) =>{
             state.isCatalogMenuOpen = ! state.isCatalogMenuOpen
-        },
-
-        onAdminMenuClick: (state) =>{
-            state.isAdminMenuOpen = ! state.isAdminMenuOpen
         }
     }
 })

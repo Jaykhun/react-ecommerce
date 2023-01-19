@@ -1,5 +1,5 @@
 import {createApi, fetchBaseQuery} from "@reduxjs/toolkit/query/react";
-import {ICategory} from "./categoryType";
+import {ICategory} from "./categoryTypes";
 
 const url = 'https://ecommerce-h6sh.onrender.com/'
 

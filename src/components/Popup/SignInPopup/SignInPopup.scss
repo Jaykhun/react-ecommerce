@@ -1,11 +1,11 @@
 @import "../../../styles/mixin";
 
-.singin-popup {
+.signin-popup {
   &__inner {
     width: 260px;
   }
 
-  .singin {
+  .signin {
     &__title {
       @include fontArguments($mainFont, 700);
       font-size: 15px;
@@ -51,7 +51,7 @@
 }
 
 @media screen and (max-width: 768px) {
-  .singin-popup {
+  .signin-popup {
     &__inner {
       width: 100%;
     }
@@ -60,7 +60,7 @@
       top: 11px;
     }
 
-    .singin {
+    .signin {
       &__submit {
         margin-top: 20px;
       }
@@ -70,8 +70,8 @@
 
 
 @media screen and (max-width: 576px) {
-  .singin-popup {
-    .singin {
+  .signin-popup {
+    .signin {
       &__footer {
         flex-direction: column;
       }

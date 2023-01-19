@@ -1,7 +1,5 @@
 import {FC, ReactNode} from 'react';
 import {createPortal} from "react-dom";
-import "./Popup/Popup.scss"
-import "./SearchPopup/SearchPopup.scss"
 
 interface PortalPropsType {
     popupOpen: boolean,

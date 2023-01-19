@@ -1,0 +1,10 @@
+@import "../../../styles/mixin";
+
+.input-error{
+  @include fontArguments($textfont, 600);
+  display: block;
+  font-size: 12px;
+  line-height: 130%;
+  color: $btnBorderColor;
+  margin-top: 8px;
+}

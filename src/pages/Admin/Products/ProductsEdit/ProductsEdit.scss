@@ -1,0 +1,53 @@
+@import "../../../../styles/mixin";
+@import "../../../../styles/variables";
+
+.popup-edit {
+  &__title {
+    @include fontArguments($mainFont, 700);
+    font-size: 15px;
+    text-transform: uppercase;
+    color: #101010;
+    padding: 0 0 35px;
+  }
+
+  .form {
+    label {
+      text-transform: capitalize;
+    }
+
+    &__top {
+      @include flex(space-between, normal, column);
+      gap: 25px;
+    }
+
+    &__price {
+      @include flex(space-between, normal, column);
+      gap: 25px;
+      margin-bottom: 25px;
+    }
+
+    &__description {
+      padding: 10px 0px;
+      min-height: 200px;
+    }
+
+    &__file {
+      .select {
+        min-height: 135px;
+      }
+
+      margin-bottom: 25px;
+    }
+
+    &__submit {
+      padding: 18px 26px;
+      border-radius: 6px;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 150px;
+    }
+  }
+
+}

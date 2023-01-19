@@ -1,10 +1,14 @@
-import React from 'react';
+import React, {FC} from 'react';
 import "./Error.scss";
 
-const Error = () => {
-    return (
-        <div>
+interface ErrorPropsType {
+    error: any
+}
 
+const Error: FC<ErrorPropsType> = ({error}) => {
+    return (
+        <div className="fetching-error">
+            {error.status}
         </div>
     );
 };

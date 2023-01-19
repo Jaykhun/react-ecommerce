@@ -2,15 +2,17 @@ import React, {FC} from 'react';
 import "./SelectComponent.scss";
 import AsyncSelect from "react-select/async";
 import makeAnimated from 'react-select/animated';
-import {ICategory} from "../../../store/category/categoryType";
+import {ICategory} from "../../../store/category/categoryTypes";
+import InputError from "../InputError";
 
 interface SelectProps {
     error: any,
     onBlur: any,
-    data?: ICategory[]
+    data?: ICategory[],
+    id: string
 }
 
-const SelectComponent: FC<SelectProps> = ({error, onBlur, data}) => {
+const SelectComponent: FC<SelectProps> = ({error, onBlur, data, id}) => {
     const animatedComponents = makeAnimated()
 
     const loadOptions = (searchValue: string, callback: any) => {
@@ -26,7 +28,7 @@ const SelectComponent: FC<SelectProps> = ({error, onBlur, data}) => {
             {data && <div className="select">
                 <label htmlFor="select" className="custom-select__label">Выберите категории</label>
                 <AsyncSelect
-                    id="select"
+                    id={id}
                     classNamePrefix="custom-select"
                     placeholder={false}
                     closeMenuOnSelect={false}
@@ -38,8 +40,7 @@ const SelectComponent: FC<SelectProps> = ({error, onBlur, data}) => {
                     loadOptions={loadOptions}
                 />
 
-                {error &&
-                    <span className="input-error">{error.message}</span>}
+                {error && <InputError message={error.message}/>}
             </div>}
         </>
     );

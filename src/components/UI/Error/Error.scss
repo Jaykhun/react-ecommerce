@@ -1,0 +1,10 @@
+@import "../../../styles/mixin";
+@import "../../../styles/variables";
+
+.fetching-error{
+  @include fontArguments($textfont, 600);
+  color: $btnBorderColor;
+  letter-spacing: 0.5px;
+  text-align: center;
+  font-size: 16px;
+}
