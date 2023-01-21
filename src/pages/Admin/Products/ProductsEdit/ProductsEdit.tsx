@@ -7,7 +7,7 @@ import {useUpdateProductMutation} from "../../../../store/product/productApi";
 
 const ProductsEdit = () => {
     const {onEditPopupClick} = useActions()
-    const {isEditModalOpen} = useTypedSelector(state => state.admin)
+    const {isEditModalOpen, productEdit} = useTypedSelector(state => state.admin)
     const [updateProduct] = useUpdateProductMutation()
 
     return (
@@ -15,7 +15,11 @@ const ProductsEdit = () => {
             <div className="popup-edit">
                 <div className="popup-edit__inner">
                     <div className="popup-edit__title">Изменить продукт</div>
-                    <ProductsForm action={updateProduct} buttonValue='Изменить'/>
+                    <ProductsForm
+                        action={updateProduct}
+                        product={productEdit}
+                        buttonValue='Изменить'
+                    />
                 </div>
             </div>
         </Popup>

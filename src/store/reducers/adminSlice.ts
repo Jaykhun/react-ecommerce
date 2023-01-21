@@ -1,13 +1,16 @@
-import {createSlice} from "@reduxjs/toolkit";
+import {createSlice, PayloadAction} from "@reduxjs/toolkit";
+import {IProduct} from "../product/productTypes";
 
 export interface adminSliceTypes {
     isAdminMenuOpen: boolean,
     isEditModalOpen: boolean,
+    productEdit: IProduct
 }
 
 const initialState: adminSliceTypes = {
     isAdminMenuOpen: false,
-    isEditModalOpen: false
+    isEditModalOpen: false,
+    productEdit: {} as IProduct
 }
 
 const adminSlice = createSlice({
@@ -19,8 +22,11 @@ const adminSlice = createSlice({
         },
 
         onEditPopupClick: (state) => {
-            console.log(state.isEditModalOpen)
             state.isEditModalOpen = !state.isEditModalOpen
+        },
+
+        productEdit: (state, action: PayloadAction<IProduct>) =>{
+            state.productEdit = action.payload
         }
     }
 })

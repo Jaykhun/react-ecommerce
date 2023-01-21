@@ -5,42 +5,58 @@ import {FieldError} from "react-hook-form";
 interface UploadFilePropsType {
     props: any,
     error?: FieldError,
-    setValue: any,
     id: string
+    defaultValue?: any
+    mode: any,
+    setValue: any
 }
 
-const UploadFile: FC<UploadFilePropsType> = ({props, error, setValue, id}) => {
-    const [image, setImage] = useState('');
-    const [fileName, setFileName] = useState(error?.message);
+const UploadFile: FC<UploadFilePropsType> = ({props, error, id, defaultValue, mode, setValue}) => {
+    const [uploadedPhotos, setUploadedPhotos] = useState<any>([]);
+    const [photoPreview, setPhotoPreview] = useState<any>([]);
 
-    image && setValue(image)
+    const handleUpload = (e: any) => {
+        console.log(e.target.files)
+        const files = e.target.files[0];
+        setUploadedPhotos([...uploadedPhotos, files]);
+        setPhotoPreview(
+            uploadedPhotos.map((photo: any) =>
+                Object.assign(photo, {
+                    preview: URL.createObjectURL(photo)
+                })
+            )
+        );
+        setValue(uploadedPhotos)
+    };
 
     return (
         <div className="uploadFile">
             <div className="uploadFile__choose">
                 <label htmlFor={id} className="uploadFile__label input-text">выбрать картинку</label>
-                <input type="file" id={id} className="input-style"
-                       accept="image/*" hidden={true}
-                       onChange={({target: {files}}: any) => {
-                           files[0] && setFileName(files[0].name)
-                           setImage(URL.createObjectURL(files[0]))
-                       }}
+                <input type="file"
+                       id={id}
+                       className="input-style"
+                       accept="image/png, image/jpeg"
+                       multiple={true}
+                       hidden={true}
+                       onChange={handleUpload}
+                       onBlur={mode}
                        {...props}
                 />
 
                 {
-                    image &&
-                    <div className="uploadFile__img">
-                        <img src={image} alt={fileName}/>
-                    </div>
+                    photoPreview.map((photo: any) =>
+                        <div className="uploadFile__img">
+                            <img src={photo} alt={photo.preview}/>
+                        </div>
+                    )
                 }
             </div>
 
             <div className="uploadFile__info">
-                <div className="uploadFile__name input-text">{fileName}</div>
+                <div className="uploadFile__name input-text">{photoPreview.map((item: any) => item.name)}</div>
                 <div className="uploadFile__delete" onClick={() => {
-                    setImage('');
-                    setFileName(error?.message);
+                    setPhotoPreview('');
                 }}></div>
             </div>
         </div>

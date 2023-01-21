@@ -1,5 +1,6 @@
 import {FC, ReactNode} from 'react';
 import Portal from "./Portal";
+import {CSSTransition, TransitionGroup} from "react-transition-group";
 
 interface popupPropsType {
     isOpen: boolean,
@@ -9,20 +10,23 @@ interface popupPropsType {
 
 const Popup: FC<popupPropsType> = ({isOpen, onClose, children}) => {
     return (
-        <>
-            {isOpen &&
-                <Portal popupOpen={isOpen}>
-                    <div className={`popup ${isOpen ? "popup-active" : ''}`} onClick={onClose}>
-                        <div className="popup__body">
-                            <div className="popup__content" onClick={(e) => e.stopPropagation()}>
-                                <div className="popup__close" onClick={onClose}></div>
-                                {children}
-                            </div>
+        <CSSTransition
+            in={isOpen}
+            timeout={200}
+            classNames="popup"
+            unmountOnExit
+        >
+            <Portal popupOpen={isOpen}>
+                <div className={`popup ${isOpen ? "popup-active" : ''}`} onClick={onClose}>
+                    <div className="popup__body">
+                        <div className="popup__content" onClick={(e) => e.stopPropagation()}>
+                            <div className="popup__close" onClick={onClose}></div>
+                            {children}
                         </div>
                     </div>
-                </Portal>
-            }
-        </>
+                </div>
+            </Portal>
+        </CSSTransition>
     )
 };
 

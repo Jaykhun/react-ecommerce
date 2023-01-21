@@ -3,6 +3,7 @@ import "./ProductForm.scss";
 import {Controller, SubmitHandler, useForm} from "react-hook-form";
 import {useGetAllCategoriesQuery} from "../../../../store/category/category";
 import {InputError, Select, UploadFile} from "../../../../components/UI";
+import {IProduct} from "../../../../store/product/productTypes";
 
 type FormValues = {
     name: string,
@@ -10,15 +11,16 @@ type FormValues = {
     discount: number,
     description: string,
     category: string,
-    images: string
+    file: string
 };
 
 interface ProductsFormPropsType {
     action: any,
-    buttonValue: string
+    buttonValue: string,
+    product?: IProduct
 }
 
-const ProductsForm: FC<ProductsFormPropsType> = ({action, buttonValue}) => {
+const ProductsForm: FC<ProductsFormPropsType> = ({action, buttonValue, product}) => {
     const {data: categories} = useGetAllCategoriesQuery()
     const name = useId()
     const price = useId()
@@ -29,7 +31,7 @@ const ProductsForm: FC<ProductsFormPropsType> = ({action, buttonValue}) => {
 
     const {
         register,
-        formState: {errors},
+        formState: {errors, isDirty},
         handleSubmit,
         reset,
         control,
@@ -37,7 +39,9 @@ const ProductsForm: FC<ProductsFormPropsType> = ({action, buttonValue}) => {
     } = useForm<FormValues>({mode: 'onBlur'})
 
     const onSubmit: SubmitHandler<FormValues> = (data) => {
-        action(data)
+        product
+            ? action(product)
+            : action(data)
         reset();
     }
 
@@ -50,8 +54,9 @@ const ProductsForm: FC<ProductsFormPropsType> = ({action, buttonValue}) => {
                     </label>
                     <input
                         type="text"
-                        className="input-style"
                         id={name}
+                        className="input-style"
+                        defaultValue={product && product.name}
                         {...register(
                             'name',
                             {
@@ -71,6 +76,7 @@ const ProductsForm: FC<ProductsFormPropsType> = ({action, buttonValue}) => {
                             type="number"
                             id={price}
                             className="input-style"
+                            defaultValue={product && product.price}
                             {...register(
                                 'edit',
                                 {
@@ -86,8 +92,9 @@ const ProductsForm: FC<ProductsFormPropsType> = ({action, buttonValue}) => {
                     <div className="discount">
                         <label htmlFor={discount} className="input-text">скидка &#37;</label>
                         <input type="number"
-                               className="input-style"
                                id={discount}
+                               className="input-style"
+                               defaultValue={product && product.discount}
                                {...register(
                                    'discount',
                                    {
@@ -106,26 +113,41 @@ const ProductsForm: FC<ProductsFormPropsType> = ({action, buttonValue}) => {
                     control={control}
                     name="category"
                     rules={{required: 'Поле обязательно к заполнению'}}
-                    render={
-                        ({
-                             field: {onBlur},
-                             fieldState: {error}
-                         }) =>
-                            <Select error={error} onBlur={onBlur} data={categories} id={category}/>
+                    render={({field: {onBlur}, fieldState: {error}}) =>
+                        <Select
+                            id={category}
+                            error={error}
+                            onBlur={onBlur}
+                            data={categories}
+                        />
                     }
                 />
-                <UploadFile
-                    props={{...register('images')}}
-                    error={errors.images}
-                    setValue={setValue}
-                    id={file}
-                />
+
+                <Controller
+                    control={control}
+                    name="file"
+                    rules={{required: 'Поле обязательно к заполнению'}}
+                    render={
+                        ({field: {onBlur}, fieldState: {error}}) =>
+                            <UploadFile
+                                id={file}
+                                error={error}
+                                mode={onBlur}
+                                setValue={setValue}
+                                props={
+                                    {
+                                        ...register('file')
+                                    }
+                                }
+                            />
+                    }/>
             </div>
 
             <div className="form__description">
                 <label htmlFor={description} className="input-text">описание продукта</label>
                 <textarea id={description}
                           className="input-style"
+                          defaultValue={product && product.description}
                           {...register(
                               'description',
                               {
@@ -138,7 +160,11 @@ const ProductsForm: FC<ProductsFormPropsType> = ({action, buttonValue}) => {
                 {errors?.description && <InputError message={errors.description.message}/>}
             </div>
 
-            <button className="btn r-btn w-opacity form__submit">{buttonValue}</button>
+            {product ? <button disabled={!isDirty}
+                               className={`btn ${isDirty ? 'r-btn w-opacity' : 'error-btn'} form__submit`}>
+                    {buttonValue}</button>
+                : <button className={`btn r-btn w-opacity form__submit`}>{buttonValue}</button>
+            }
         </form>
     );
 };

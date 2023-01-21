@@ -12,11 +12,11 @@ const Products = () => {
     return (
         <div className="all-products">
             <div className="all-products__header">
-                <ProductsForm action={addProduct} buttonValue='Добваить'/>
+                <ProductsForm action={addProduct} buttonValue='Добавить'/>
             </div>
 
             <div className="all-products__body">
-                <div className="all-products__title title">Products</div>
+                <div className="all-products__title title">Продукты</div>
                 <div className="all-products__content">
                     {
                         isLoading ?
