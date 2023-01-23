@@ -36,7 +36,10 @@ export const productApi = createApi({
             query: ({id, ...rest}) => ({
                 url: `products/${id}`,
                 method: 'PUT',
-                body: rest
+                body: rest,
+                headers: {
+                    'Content-type': 'application/json; charset=UTF-8',
+                }
             }),
             invalidatesTags: ['Products']
         }),

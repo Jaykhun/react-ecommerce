@@ -5,6 +5,7 @@ import {productApi} from "./product/productApi";
 import {setupListeners} from "@reduxjs/toolkit/query";
 import {categoryApi} from "./category/category";
 import {adminReducer} from "./reducers/adminSlice";
+import {userApi} from "./user/userApi";
 
 export const store = configureStore({
     reducer: {
@@ -12,9 +13,15 @@ export const store = configureStore({
         menu: menuReducer,
         admin: adminReducer,
         [productApi.reducerPath]: productApi.reducer,
-        [categoryApi.reducerPath]: categoryApi.reducer
+        [categoryApi.reducerPath]: categoryApi.reducer,
+        [userApi.reducerPath]: userApi.reducer
     },
-    middleware: getDefaultMiddleware => getDefaultMiddleware({serializableCheck: false}).concat(productApi.middleware, categoryApi.middleware)
+    middleware: getDefaultMiddleware => getDefaultMiddleware({serializableCheck: false})
+        .concat(
+            productApi.middleware,
+            categoryApi.middleware,
+            userApi.middleware
+        )
 })
 
 setupListeners(store.dispatch)

@@ -1,16 +1,21 @@
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
 import {IProduct} from "../product/productTypes";
+import {IUser} from "../user/userTypes";
 
 export interface adminSliceTypes {
     isAdminMenuOpen: boolean,
-    isEditModalOpen: boolean,
+    isProductEditModalOpen: boolean,
+    isUserEditModalOpen: boolean,
     productEdit: IProduct
+    userEdit: IUser
 }
 
 const initialState: adminSliceTypes = {
     isAdminMenuOpen: false,
-    isEditModalOpen: false,
-    productEdit: {} as IProduct
+    isProductEditModalOpen: false,
+    isUserEditModalOpen: false,
+    productEdit: {} as IProduct,
+    userEdit: {} as IUser
 }
 
 const adminSlice = createSlice({
@@ -21,12 +26,20 @@ const adminSlice = createSlice({
             state.isAdminMenuOpen = !state.isAdminMenuOpen
         },
 
-        onEditPopupClick: (state) => {
-            state.isEditModalOpen = !state.isEditModalOpen
+        onProductEditPopupClick: (state) => {
+            state.isProductEditModalOpen = !state.isProductEditModalOpen
         },
 
-        productEdit: (state, action: PayloadAction<IProduct>) =>{
+        onUserEditPopupClick: (state) => {
+            state.isUserEditModalOpen = !state.isUserEditModalOpen
+        },
+
+        productEdit: (state, action: PayloadAction<IProduct>) => {
             state.productEdit = action.payload
+        },
+
+        userEdit: (state, action: PayloadAction<IUser>) => {
+            state.userEdit = action.payload
         }
     }
 })

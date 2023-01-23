@@ -1,0 +1,31 @@
+@import "../../../../styles/mixin";
+@import "../../../../styles/variables";
+
+.popup-edit {
+  .form {
+    &__inner {
+      width: 450px;
+      margin-bottom: 20px;
+    }
+
+    &__info {
+      @include flex(space-between, normal, column);
+      gap: 20px;
+    }
+
+    &__body {
+      @include flex(space-between, normal, column);
+      gap: 20px;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .popup-edit {
+    .form {
+      &__inner {
+        width: 100%;
+      }
+    }
+  }
+}

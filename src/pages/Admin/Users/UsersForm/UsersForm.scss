@@ -1,0 +1,60 @@
+@import "../../../../styles/mixin";
+@import "../../../../styles/variables";
+
+.all-users {
+  .form {
+    &__inner {
+      @include flex(space-between, flex-start);
+      gap: 20px;
+      margin-bottom: 20px;
+    }
+
+    &__info {
+      width: 50%;
+
+      div {
+        min-height: 115px;
+      }
+    }
+
+    &__body {
+      width: 50%;
+    }
+
+    &__image{
+      margin-top: 20px;
+    }
+
+    &__city, &__street, &__code{
+      min-height: 115px;
+    }
+
+    &__submit {
+      margin-top: 20px;
+      padding: 18px 26px;
+      border-radius: 6px;
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .all-users {
+    .form {
+      &__inner {
+        flex-direction: column;
+      }
+
+      &__info {
+        width: 100%;
+
+        div {
+          min-height: 115px;
+        }
+      }
+
+      &__body {
+        width: 100%;
+      }
+    }
+  }
+}

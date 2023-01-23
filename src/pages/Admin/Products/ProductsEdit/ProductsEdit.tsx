@@ -6,12 +6,12 @@ import "./ProductsEdit.scss";
 import {useUpdateProductMutation} from "../../../../store/product/productApi";
 
 const ProductsEdit = () => {
-    const {onEditPopupClick} = useActions()
-    const {isEditModalOpen, productEdit} = useTypedSelector(state => state.admin)
+    const {onProductEditPopupClick} = useActions()
+    const {isProductEditModalOpen, productEdit} = useTypedSelector(state => state.admin)
     const [updateProduct] = useUpdateProductMutation()
 
     return (
-        <Popup isOpen={isEditModalOpen} onClose={onEditPopupClick}>
+        <Popup isOpen={isProductEditModalOpen} onClose={onProductEditPopupClick}>
             <div className="popup-edit">
                 <div className="popup-edit__inner">
                     <div className="popup-edit__title">Изменить продукт</div>

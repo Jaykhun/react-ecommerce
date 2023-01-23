@@ -1,6 +1,6 @@
 import {FC, ReactNode} from 'react';
 import Portal from "./Portal";
-import {CSSTransition, TransitionGroup} from "react-transition-group";
+import {CSSTransition} from "react-transition-group";
 
 interface popupPropsType {
     isOpen: boolean,

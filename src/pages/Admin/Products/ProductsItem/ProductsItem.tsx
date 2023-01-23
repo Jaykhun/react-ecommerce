@@ -16,11 +16,14 @@ interface ProductsItemProps {
 }
 
 const ProductsItem: FC<ProductsItemProps> = ({product}) => {
-    const {onEditPopupClick, productEdit} = useActions()
+    const {onProductEditPopupClick, productEdit} = useActions()
     const {name, id, price, description, discount, images, category} = product
     const [deleteProduct] = useDeleteProductMutation()
 
-    product && productEdit(product)
+    const onEdit = () => {
+        onProductEditPopupClick()
+        product && productEdit(product)
+    }
 
     const handleDeleteProduct = async () => {
         await deleteProduct(id)
@@ -64,7 +67,7 @@ const ProductsItem: FC<ProductsItemProps> = ({product}) => {
                     <div className="item__discount">{discount} &#37;</div>
 
                     <div className="item__buttons">
-                        <button className="item__change" onClick={() => onEditPopupClick()}></button>
+                        <button className="item__change" onClick={onEdit}></button>
                         <button className="item__delete" onClick={handleDeleteProduct}></button>
                     </div>
                 </div>

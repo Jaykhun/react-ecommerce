@@ -1,0 +1,11 @@
+@import "../../../styles/mixin";
+@import "../../../styles/variables";
+
+.all-users {
+  margin: 20px 0px;
+
+  &__title {
+    text-align: center;
+    margin-top: 60px;
+  }
+}

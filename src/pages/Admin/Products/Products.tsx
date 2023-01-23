@@ -11,9 +11,7 @@ const Products = () => {
 
     return (
         <div className="all-products">
-            <div className="all-products__header">
-                <ProductsForm action={addProduct} buttonValue='Добавить'/>
-            </div>
+            <ProductsForm action={addProduct} buttonValue='Добавить'/>
 
             <div className="all-products__body">
                 <div className="all-products__title title">Продукты</div>

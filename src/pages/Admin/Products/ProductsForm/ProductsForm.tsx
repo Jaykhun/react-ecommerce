@@ -1,4 +1,4 @@
-import {FC, useId} from "react";
+import React, {FC, useId} from "react";
 import "./ProductForm.scss";
 import {Controller, SubmitHandler, useForm} from "react-hook-form";
 import {useGetAllCategoriesQuery} from "../../../../store/category/category";
@@ -34,11 +34,11 @@ const ProductsForm: FC<ProductsFormPropsType> = ({action, buttonValue, product})
         formState: {errors, isDirty},
         handleSubmit,
         reset,
-        control,
-        setValue
+        control
     } = useForm<FormValues>({mode: 'onBlur'})
 
     const onSubmit: SubmitHandler<FormValues> = (data) => {
+        console.log(data)
         product
             ? action(product)
             : action(data)
@@ -112,35 +112,35 @@ const ProductsForm: FC<ProductsFormPropsType> = ({action, buttonValue, product})
                 <Controller
                     control={control}
                     name="category"
+                    defaultValue={product && product.category.name}
                     rules={{required: 'Поле обязательно к заполнению'}}
-                    render={({field: {onBlur}, fieldState: {error}}) =>
+                    render={({field: {onBlur, value, name, onChange}, fieldState: {error}}) =>
                         <Select
                             id={category}
+                            name={category}
                             error={error}
+                            onChange={onChange}
                             onBlur={onBlur}
                             data={categories}
+                            value={value}
                         />
                     }
                 />
 
-                <Controller
-                    control={control}
-                    name="file"
-                    rules={{required: 'Поле обязательно к заполнению'}}
-                    render={
-                        ({field: {onBlur}, fieldState: {error}}) =>
-                            <UploadFile
-                                id={file}
-                                error={error}
-                                mode={onBlur}
-                                setValue={setValue}
-                                props={
-                                    {
-                                        ...register('file')
-                                    }
-                                }
-                            />
-                    }/>
+                <UploadFile
+                    id={file}
+                    name={file}
+                    error={errors}
+                    defaultValue={product && product.images}
+                    props={{
+                        ...register(
+                            'file',
+                            {
+                                required: 'Поле обязательно к заполнению'
+                            }
+                        )
+                    }}
+                />
             </div>
 
             <div className="form__description">
