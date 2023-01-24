@@ -1,6 +1,12 @@
-import React, {FC, useState} from 'react';
-import "./UploadFile.scss";
+import {Swiper, SwiperSlide} from "swiper/react";
+import UploadFileItem from "./UploadFileItem";
+import {FC, useState} from 'react';
 import {v4 as keyId} from "uuid"
+import {Navigation} from "swiper";
+
+import "swiper/css";
+import "swiper/css/navigation";
+import "./UploadFile.scss";
 
 interface UploadFilePropsType {
     error?: any,
@@ -10,15 +16,16 @@ interface UploadFilePropsType {
     onBlur?: any,
     onChange?: any,
     value?: string
-    props: any
+    props: any,
+    isMulti: boolean
 }
 
-interface Image {
+export interface Image {
     name: string,
     url: string
 }
 
-const UploadFile: FC<UploadFilePropsType> = ({error, id, defaultValue, name, props}) => {
+const UploadFile: FC<UploadFilePropsType> = ({error, id, defaultValue, name, props, isMulti}) => {
     const [images, setImg] = useState<Image[]>([])
 
     const handleChange = (e: any) => {
@@ -34,40 +41,31 @@ const UploadFile: FC<UploadFilePropsType> = ({error, id, defaultValue, name, pro
 
     return (
         <div className="uploadFile">
-            <div className="uploadFile__choose">
-                <label htmlFor={id} className="uploadFile__label input-text">выбрать картинку</label>
-                <input type="file"
-                       id={id}
-                       name={name}
-                       className="input-style"
-                       accept="image/png, image/jpeg"
-                       multiple={true}
-                       hidden={true}
-                       onChange={handleChange}
-                />
+            {images.length === 0 &&
+                <div className="uploadFile__choose">
+                    <label htmlFor={id} className="uploadFile__label input-text">выбрать картинку</label>
+                    <input type="file"
+                           id={id}
+                           name={name}
+                           className="input-style"
+                           accept="image/png, image/jpeg"
+                           multiple={isMulti}
+                           hidden={true}
+                           onChange={handleChange}
+                    />
+                </div>}
 
-                {
-                    images && images.map(item =>
-                        <div className="uploadFile__img" key={keyId()}>
-                            <img src={item.url} alt={item.name}/>
-                        </div>
-                    )
-                }
-            </div>
-
-            <div className="uploadFile__info">
-                <div className="uploadFile__name input-text">
-                    {error
-                        ? ''
-                        : images.map(item => item.name)
-                    }
-
+            {images &&
+                <div className="uploadFile__images">
+                    <Swiper navigation={true} modules={[Navigation]} className="uploadFile__swiper">
+                        {images.map(item =>
+                            <SwiperSlide className='uploadFile__item' key={keyId()}>
+                                <UploadFileItem image={item} images={images} setImg={setImg}/>
+                            </SwiperSlide>
+                        )}
+                    </Swiper>
                 </div>
-                <div className="uploadFile__delete" onClick={() => {
-                    setImg([]);
-                }}>
-                </div>
-            </div>
+            }
         </div>
     );
 };

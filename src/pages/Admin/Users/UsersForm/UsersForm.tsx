@@ -174,18 +174,19 @@ const UsersForm: FC<UsersFormPropsType> = ({action, user, buttonValue}) => {
 
                     <div className="form__image">
 
-                        {/*<UploadFile*/}
-                        {/*    id={user_image}*/}
-                        {/*    name={user_image}*/}
-                        {/*    error={errors}*/}
-                        {/*    props={*/}
-                        {/*        {*/}
-                        {/*            ...register('user_image', {*/}
-                        {/*                required: 'Поле обязательно к заполнению',*/}
-                        {/*            })*/}
-                        {/*        }*/}
-                        {/*    }*/}
-                        {/*/>*/}
+                        <UploadFile
+                            id={user_image}
+                            name={user_image}
+                            error={errors}
+                            isMulti={false}
+                            props={
+                                {
+                                    ...register('user_image', {
+                                        required: 'Поле обязательно к заполнению',
+                                    })
+                                }
+                            }
+                        />
                     </div>
                 </div>
             </div>

@@ -132,6 +132,7 @@ const ProductsForm: FC<ProductsFormPropsType> = ({action, buttonValue, product})
                     name={file}
                     error={errors}
                     defaultValue={product && product.images}
+                    isMulti={true}
                     props={{
                         ...register(
                             'file',
