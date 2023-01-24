@@ -1,0 +1,10 @@
+@import "../../../styles/mixin";
+
+.message {
+    @include fontArguments($textfont, 600);
+    display: block;
+    font-size: 12px;
+    color: $btnBorderColor;
+    text-transform: capitalize;
+    text-align: center;
+}

@@ -1,21 +1,31 @@
-import React from 'react';
 import UsersForm from "./UsersForm";
+import { v4 as keyId } from "uuid"
+import { useAddUserMutation, useGetAllUsersQuery } from "../../../store/user/userApi";
+import { UsersItem, UsersLoader } from "./index";
+import { Error, Message } from "../../../components/UI";
+import { IUser } from "../../../store/user/userTypes";
 import "./Users.scss";
-import {useAddUserMutation, useGetAllUsersQuery} from "../../../store/user/userApi";
-import {UsersItem} from "./index";
-import {v4 as keyId} from "uuid"
 
 const Users = () => {
-    const {data, isLoading, isError} = useGetAllUsersQuery()
+    const { data, isLoading, isError, error } = useGetAllUsersQuery()
     const [addUser] = useAddUserMutation()
+
     return (
         <div className="all-users">
-            <UsersForm action={addUser} buttonValue='Добавить'/>
+            <UsersForm action={addUser} buttonValue='Добавить' />
 
             <div className="all-users__body">
                 <div className="all-users__title title">Пользователи</div>
                 <div className="all-users__content">
-                    {data?.map(user => <UsersItem user={user} key={keyId()}/>)}
+                    {
+                        isLoading ?
+                            <UsersLoader />
+                            : error
+                                ? <Error error={error} />
+                                : data?.length === 0
+                                    ? <Message value="нет пользователи" />
+                                    : data?.map((item: IUser) => <UsersItem user={item} key={keyId()} />)
+                    }
                 </div>
             </div>
         </div>
