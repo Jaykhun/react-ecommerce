@@ -1,27 +1,29 @@
-import React, {FC, useId} from "react";
+import React, { FC, useId } from "react";
 import "./ProductForm.scss";
-import {Controller, SubmitHandler, useForm} from "react-hook-form";
-import {useGetAllCategoriesQuery} from "../../../../store/category/category";
-import {InputError, Select, UploadFile} from "../../../../components/UI";
-import {IProduct} from "../../../../store/product/productTypes";
+import { Controller, SubmitHandler, useForm } from "react-hook-form";
+import { useGetAllCategoriesQuery } from "../../../../store/category/category";
+import { InputError, Select, UploadFile } from "../../../../components/UI";
+import { IProduct } from "../../../../store/product/productTypes";
+import { useUpdateProductMutation, useAddProductMutation } from "../../../../store/product/productApi";
+import { ProductCategory } from "../../../../store/product/productTypes";
 
 type FormValues = {
     name: string,
     edit: number,
     discount: number,
     description: string,
-    category: string,
+    //  ! change in the future the types
+    category: any,
     file: string
 };
 
 interface ProductsFormPropsType {
-    action: any,
     buttonValue: string,
     product?: IProduct
 }
 
-const ProductsForm: FC<ProductsFormPropsType> = ({action, buttonValue, product}) => {
-    const {data: categories} = useGetAllCategoriesQuery()
+const ProductsForm: FC<ProductsFormPropsType> = ({ buttonValue, product }) => {
+    const { data: categories } = useGetAllCategoriesQuery()
     const name = useId()
     const price = useId()
     const discount = useId()
@@ -29,19 +31,24 @@ const ProductsForm: FC<ProductsFormPropsType> = ({action, buttonValue, product})
     const file = useId()
     const description = useId()
 
+    const [updateProduct] = useUpdateProductMutation()
+    const [addProduct] = useAddProductMutation()
+
     const {
         register,
-        formState: {errors, isDirty},
+        formState: { errors, isDirty },
         handleSubmit,
         reset,
         control
-    } = useForm<FormValues>({mode: 'onBlur'})
+    } = useForm<FormValues>({ mode: 'onBlur' })
 
     const onSubmit: SubmitHandler<FormValues> = (data) => {
-        console.log(data)
-        product
-            ? action(product)
-            : action(data)
+        console.log(data, 'data')
+
+        // product
+        //     ? updateProduct(data)
+        //     : addProduct(data)
+
         reset();
     }
 
@@ -61,12 +68,12 @@ const ProductsForm: FC<ProductsFormPropsType> = ({action, buttonValue, product})
                             'name',
                             {
                                 required: 'Поле обязательно к заполнению',
-                                minLength: {value: 5, message: 'Минимум 5 символов'},
-                                maxLength: {value: 20, message: 'Максимум 20 символов'}
+                                minLength: { value: 5, message: 'Минимум 5 символов' },
+                                maxLength: { value: 30, message: 'Максимум 30 символов' }
                             }
                         )}
                     />
-                    {errors?.name && <InputError message={errors.name.message}/>}
+                    {errors?.name && <InputError message={errors.name.message} />}
                 </div>
 
                 <div className="form__price">
@@ -81,29 +88,29 @@ const ProductsForm: FC<ProductsFormPropsType> = ({action, buttonValue, product})
                                 'edit',
                                 {
                                     required: 'Поле обязательно к заполнению',
-                                    minLength: {value: 1, message: 'Минимум цена 1 доллар'},
-                                    maxLength: {value: 5, message: 'Максимум цена 10000 доллар'}
+                                    minLength: { value: 1, message: 'Минимум цена 1 доллар' },
+                                    maxLength: { value: 5, message: 'Максимум цена 10000 доллар' }
                                 }
                             )}
                         />
-                        {errors?.edit && <InputError message={errors.edit.message}/>}
+                        {errors?.edit && <InputError message={errors.edit.message} />}
                     </div>
 
                     <div className="discount">
                         <label htmlFor={discount} className="input-text">скидка &#37;</label>
                         <input type="number"
-                               id={discount}
-                               className="input-style"
-                               defaultValue={product && product.discount}
-                               {...register(
-                                   'discount',
-                                   {
-                                       min: 0,
-                                       max: 99,
-                                   }
-                               )}
+                            id={discount}
+                            className="input-style"
+                            defaultValue={product && product.discount}
+                            {...register(
+                                'discount',
+                                {
+                                    min: 0,
+                                    max: 99,
+                                }
+                            )}
                         />
-                        {errors?.discount && <InputError message={errors.discount.message}/>}
+                        {errors?.discount && <InputError message={errors.discount.message} />}
                     </div>
                 </div>
             </div>
@@ -112,9 +119,9 @@ const ProductsForm: FC<ProductsFormPropsType> = ({action, buttonValue, product})
                 <Controller
                     control={control}
                     name="category"
-                    defaultValue={product && product.category.name}
-                    rules={{required: 'Поле обязательно к заполнению'}}
-                    render={({field: {onBlur, value, name, onChange}, fieldState: {error}}) =>
+                    defaultValue={product && product.category}
+                    rules={{ required: 'Поле обязательно к заполнению' }}
+                    render={({ field: { onBlur, value, name, onChange }, fieldState: { error } }) =>
                         <Select
                             id={category}
                             name={category}
@@ -127,7 +134,27 @@ const ProductsForm: FC<ProductsFormPropsType> = ({action, buttonValue, product})
                     }
                 />
 
-                <UploadFile
+                <div className="form__file">
+                    <div className="file">
+                        <label htmlFor={file} className="input-text">Картика</label>
+                        <input
+                            type="text"
+                            id={file}
+                            className="input-style"
+                            defaultValue={product && product.images[0].image_path}
+                            {...register(
+                                'file',
+                                {
+                                    required: 'Поле обязательно к заполнению',
+                                    minLength: { value: 1, message: 'Добавитье ссылку' },
+                                }
+                            )}
+                        />
+                        {errors?.file && <InputError message={errors.file.message} />}
+                    </div>
+                </div>
+
+                {/* <UploadFile
                     id={file}
                     name={file}
                     error={errors}
@@ -141,29 +168,29 @@ const ProductsForm: FC<ProductsFormPropsType> = ({action, buttonValue, product})
                             }
                         )
                     }}
-                />
+                /> */}
             </div>
 
             <div className="form__description">
                 <label htmlFor={description} className="input-text">описание продукта</label>
                 <textarea id={description}
-                          className="input-style"
-                          defaultValue={product && product.description}
-                          {...register(
-                              'description',
-                              {
-                                  required: 'Поле обязательно к заполнению',
-                                  minLength: {value: 10, message: 'Минимум 10 символов'},
-                                  maxLength: {value: 100, message: 'Максимум 50 символов'}
-                              }
-                          )}
+                    className="input-style"
+                    defaultValue={product && product.description}
+                    {...register(
+                        'description',
+                        {
+                            required: 'Поле обязательно к заполнению',
+                            minLength: { value: 10, message: 'Минимум 10 символов' },
+                            maxLength: { value: 100, message: 'Максимум 50 символов' }
+                        }
+                    )}
                 />
-                {errors?.description && <InputError message={errors.description.message}/>}
+                {errors?.description && <InputError message={errors.description.message} />}
             </div>
 
             {product ? <button disabled={!isDirty}
-                               className={`btn ${isDirty ? 'r-btn w-opacity' : 'error-btn'} form__submit`}>
-                    {buttonValue}</button>
+                className={`btn ${isDirty ? 'r-btn w-opacity' : 'error-btn'} form__submit`}>
+                {buttonValue}</button>
                 : <button className={`btn r-btn w-opacity form__submit`}>{buttonValue}</button>
             }
         </form>

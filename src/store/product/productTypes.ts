@@ -10,7 +10,7 @@ interface Category{
     id: number
 }
 
-interface ProductCategory{
+export interface ProductCategory{
     name: string,
     id: number
     children_category: Category[]

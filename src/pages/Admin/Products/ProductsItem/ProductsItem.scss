@@ -9,7 +9,6 @@
     &__inner {
       @include flex(space-between, flex-start);
       gap: 20px;
-      overflow: auto;
     }
 
     &__images {
@@ -25,10 +24,9 @@
     }
 
     &__control {
-      @include flex(space-between, center);
+      @include flex(space-between, flex-start);
       flex: 1 1 auto;
       gap: 20px;
-      padding-top: 10px;
     }
 
     &__name {
@@ -74,6 +72,7 @@
 
     &__buttons {
       @include flex(space-between, center);
+      margin-top: -10px;
 
       button {
         display: block;

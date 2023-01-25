@@ -3,12 +3,10 @@ import {useActions} from "../../../../hooks/useActions";
 import {useTypedSelector} from "../../../../hooks/useTypedSelector";
 import {ProductsForm} from "../index";
 import "./ProductsEdit.scss";
-import {useUpdateProductMutation} from "../../../../store/product/productApi";
 
 const ProductsEdit = () => {
     const {onProductEditPopupClick} = useActions()
     const {isProductEditModalOpen, productEdit} = useTypedSelector(state => state.admin)
-    const [updateProduct] = useUpdateProductMutation()
 
     return (
         <Popup isOpen={isProductEditModalOpen} onClose={onProductEditPopupClick}>
@@ -16,7 +14,6 @@ const ProductsEdit = () => {
                 <div className="popup-edit__inner">
                     <div className="popup-edit__title">Изменить продукт</div>
                     <ProductsForm
-                        action={updateProduct}
                         product={productEdit}
                         buttonValue='Изменить'
                     />
