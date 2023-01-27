@@ -1,6 +1,7 @@
 import Location from "../../components/Location";
 import "./Cart.scss";
 import CatalogMenu from "../../components/Menu/CatalogMenu";
+import {ProductControl} from "../../components/UI";
 
 const Cart = () => {
     return (
@@ -73,11 +74,7 @@ const Cart = () => {
 
                                     <div className="product__control">
                                         <div className="product__price">500 &#36;</div>
-                                        <div className="product__amount">
-                                            <button className="product__decrease disable-btn"></button>
-                                            <input type="number" className="product__count" value="1" max="10" min="1"/>
-                                            <button className="product__increase"></button>
-                                        </div>
+                                        <ProductControl/>
                                         <div className="product__sum">1000 &#36;</div>
                                         <div className="product__delete"></div>
                                     </div>

@@ -1,3 +1,5 @@
 import Home from "./Home";
+import Product from "./Product";
+import ProductItem from "./ProductItem";
 
-export default Home;
+export {Home, Product, ProductItem};

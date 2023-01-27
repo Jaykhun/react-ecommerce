@@ -2,10 +2,10 @@ import React from 'react';
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import {Layout, LayoutWithoutSidebar, Dashboard} from "./routes";
 import {Admin, Products, Users, Orders} from "./pages/Admin";
-import Home from "./pages/Home";
+import {Home} from "./pages/Home";
 import Cart from "./pages/Cart";
 import Register from "./pages/Register";
-import {ProductItem} from "./pages/Product";
+import {ProductDetails} from "./pages/Product";
 
 const App = () => {
     return (
@@ -14,7 +14,7 @@ const App = () => {
                 <Route path="/" element={<Layout/>}>
                     <Route index element={<Home/>}/>
                     <Route path="register" element={<Register/>}/>
-                    <Route path="product" element={<ProductItem/>}/>
+                    <Route path="product" element={<ProductDetails/>}/>
                 </Route>
 
                 <Route path="/" element={<LayoutWithoutSidebar/>}>
