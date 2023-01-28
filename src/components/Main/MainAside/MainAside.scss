@@ -2,13 +2,13 @@
 
 .main-content {
   @include flex();
-  gap: 30px;
+  gap: 22px;
   margin-top: 30px;
   margin-bottom: 40px;
 
   .content {
     &__aside {
-      flex: 0 0 280px;
+      flex: 0 1 280px;
     }
 
     &__body {

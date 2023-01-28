@@ -18,7 +18,6 @@ const Product = () => {
     return (
         <div className="product__slider">
             <Swiper
-                cssMode={true}
                 slidesPerView={3}
                 spaceBetween={40}
                 scrollbar={{draggable: true}}

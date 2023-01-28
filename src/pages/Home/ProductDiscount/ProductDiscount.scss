@@ -1,0 +1,77 @@
+@import "../../../styles/mixin";
+@import "../../../styles/variables";
+
+.content__product{
+  flex: 1 1 auto;
+}
+
+.product__discount {
+    margin-bottom: 30px;
+  border-radius: 6px;
+
+  .discount {
+    border-radius: 6px;
+
+    &__body {
+      display: flex;
+      background-image: url('https://universal-shop-pro.21.oml.ru/thumb/2/Nb_m3ixZ8iVsD2FD9U0I9Q/1120c420/d/54969262_11.jpg');
+      background-repeat: no-repeat;
+      background-position: 50% 50%;
+      background-size: cover;
+      height: 420px;
+      border-radius: 6px;
+      @include pseudo() {
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.3);
+        border-radius: 6px;
+        z-index: 1;
+      }
+
+      .info {
+        position: sticky;
+        padding: 20px;
+        width: 50%;
+        font-family: Montserrat, sans-serif;
+        color: #fff;
+        font-weight: 700;
+        z-index: 2;
+        margin-top: 10%;
+
+        &__title {
+          margin-top: 8px;
+          margin-bottom: 8px;
+          font-size: 36px;
+          line-height: 1.1em;
+          display: block;
+        }
+
+        &__txt {
+          margin-top: 8px;
+          margin-bottom: 8px;
+          color: #fff;
+          font-size: 22px;
+          display: block;
+        }
+
+        &__discount{
+          display: inline-block;
+          background-color: $btnBorderColor;
+          font-family: Montserrat, sans-serif;
+          border-radius: 50px;
+          color: #fff;
+          font-size: 18px;
+          line-height: 22px;
+          font-weight: 700;
+          text-align: center;
+          margin-top: 20px;
+          margin-bottom: 7px;
+          padding: 5px 15px;
+          min-width: 76px;
+        }
+      }
+    }
+  }
+}
