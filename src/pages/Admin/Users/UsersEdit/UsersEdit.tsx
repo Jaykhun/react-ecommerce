@@ -3,13 +3,13 @@ import "./UsersEdit.scss";
 import {Popup} from "../../../../components/UI";
 import {useActions} from "../../../../hooks/useActions";
 import {useTypedSelector} from "../../../../hooks/useTypedSelector";
-import {useUpdateUserMutation} from "../../../../store/user/userApi";
 import {UsersForm} from "../index";
 
 const UsersEdit = () => {
     const {onUserEditPopupClick} = useActions()
     const {isUserEditModalOpen, userEdit} = useTypedSelector(state => state.admin)
-    const [updateUser] = useUpdateUserMutation()
+
+    console.log(userEdit)
 
     return (
         <Popup isOpen={isUserEditModalOpen} onClose={onUserEditPopupClick}>
@@ -17,7 +17,6 @@ const UsersEdit = () => {
                 <div className="popup-edit__inner">
                     <div className="popup-edit__title">Изменить данные</div>
                     <UsersForm
-                        action={updateUser}
                         user={userEdit}
                         buttonValue='Изменить'
                     />

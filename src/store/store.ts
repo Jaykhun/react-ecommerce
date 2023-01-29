@@ -6,12 +6,14 @@ import {setupListeners} from "@reduxjs/toolkit/query";
 import {categoryApi} from "./category/category";
 import {adminReducer} from "./reducers/adminSlice";
 import {userApi} from "./user/userApi";
+import {productReducer} from "./reducers/productSlice";
 
 export const store = configureStore({
     reducer: {
         popup: popupReducer,
         menu: menuReducer,
         admin: adminReducer,
+        product: productReducer,
         [productApi.reducerPath]: productApi.reducer,
         [categoryApi.reducerPath]: categoryApi.reducer,
         [userApi.reducerPath]: userApi.reducer

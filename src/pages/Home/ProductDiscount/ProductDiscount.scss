@@ -1,12 +1,12 @@
 @import "../../../styles/mixin";
 @import "../../../styles/variables";
 
-.content__product{
+.content__product {
   flex: 1 1 auto;
 }
 
 .product__discount {
-    margin-bottom: 30px;
+  margin-bottom: 30px;
   border-radius: 6px;
 
   .discount {
@@ -31,32 +31,29 @@
       }
 
       .info {
-        position: sticky;
-        padding: 20px;
+        @include fontArguments($mainFont, 700);
         width: 50%;
-        font-family: Montserrat, sans-serif;
-        color: #fff;
-        font-weight: 700;
+        position: sticky;
         z-index: 1;
+        padding: 20px;
+        color: #fff;
         margin-top: 10%;
 
         &__title {
+          @include adaptivFont(36, 20);
           margin-top: 8px;
           margin-bottom: 8px;
-          font-size: 36px;
           line-height: 1.1em;
-          display: block;
         }
 
         &__txt {
+          @include adaptivFont(22, 16);
           margin-top: 8px;
           margin-bottom: 8px;
           color: #fff;
-          font-size: 22px;
-          display: block;
         }
 
-        &__discount{
+        &__discount {
           display: inline-block;
           background-color: $btnBorderColor;
           font-family: Montserrat, sans-serif;
@@ -70,6 +67,19 @@
           margin-bottom: 7px;
           padding: 5px 15px;
           min-width: 76px;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .product__discount{
+    .discount{
+      &__body{
+        height: 250px;
+        .info{
+          width: 100%;
         }
       }
     }

@@ -3,11 +3,13 @@ import {bindActionCreators} from "@reduxjs/toolkit";
 import {popupActions} from "../store/features/popupSlice";
 import {menuActions} from "../store/features/menuSlice";
 import {adminActions} from "../store/reducers/adminSlice";
+import {productActions} from "../store/reducers/productSlice";
 
 const allActions = {
     ...popupActions,
     ...menuActions,
-    ...adminActions
+    ...adminActions,
+    ...productActions
 }
 
 export const useActions = () => {

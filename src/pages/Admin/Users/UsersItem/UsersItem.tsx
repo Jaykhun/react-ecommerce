@@ -1,21 +1,21 @@
 import React, {FC} from 'react';
 import "./UsersItem.scss";
-import {IUser} from "../../../../store/user/userTypes";
+import {IUser, NewUserRoot} from "../../../../store/user/userTypes";
 import {useActions} from "../../../../hooks/useActions";
 import {useDeleteUserMutation} from "../../../../store/user/userApi";
 
 interface UsersItemPropsType {
-    user: IUser
+    userInfo: IUser
 }
 
-const UsersItem: FC<UsersItemPropsType> = ({user}) => {
-    const {id, user_detail, is_admin, username, phone_numbers, addresses} = user
+const UsersItem: FC<UsersItemPropsType> = ({userInfo}) => {
+    const {user_detail, id, username, is_admin, phone_numbers, addresses} = userInfo
     const {onUserEditPopupClick, userEdit} = useActions()
     const [deleteUser] = useDeleteUserMutation()
 
     const onEdit = () => {
         onUserEditPopupClick()
-        user && userEdit(user)
+        userInfo && userEdit(userInfo)
     }
 
     const handleDeleteUser = async () => {

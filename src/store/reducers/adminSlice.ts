@@ -1,6 +1,6 @@
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
 import {IProduct} from "../product/productTypes";
-import {IUser} from "../user/userTypes";
+import {IUser, NewUserRoot} from "../user/userTypes";
 
 export interface adminSliceTypes {
     isAdminMenuOpen: boolean,

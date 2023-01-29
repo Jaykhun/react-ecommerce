@@ -48,11 +48,7 @@ const Cart = () => {
 
                                     <div className="product__control">
                                         <div className="product__price">500 &#36;</div>
-                                        <div className="product__amount">
-                                            <button className="product__decrease"></button>
-                                            <input type="number" className="product__count" value="2"/>
-                                            <button className="product__increase"></button>
-                                        </div>
+                                        <ProductControl/>
                                         <div className="product__sum">1000 &#36;</div>
                                         <div className="product__delete"></div>
                                     </div>

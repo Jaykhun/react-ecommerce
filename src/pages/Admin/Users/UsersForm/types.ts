@@ -1,16 +1,15 @@
-import {IUser} from "../../../../store/user/userTypes";
+import {IUser, NewUserRoot} from "../../../../store/user/userTypes";
 
 export interface UsersFormPropsType {
-    action: any,
-    user?: IUser,
+    user?: NewUserRoot | IUser,
     buttonValue: string
 }
 
 export type FormValues = {
     email: string,
-    password: number,
+    password: string,
     user_name: string,
-    number: number,
+    number: string,
     first_name: string,
     last_name: string,
     is_admin: boolean,

@@ -12,9 +12,6 @@ import "./Product.scss";
 
 const Product = () => {
     const {data, error, isLoading} = useGetAllProductsQuery()
-
-    console.log(data)
-
     return (
         <div className="product__slider">
             <Swiper

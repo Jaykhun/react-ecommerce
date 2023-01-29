@@ -37,7 +37,7 @@ const ProductsItem: FC<ProductsItemProps> = ({product}) => {
                         <Swiper
                             pagination={{dynamicBullets: true}}
                             modules={[Pagination]}
-                            className="mySwiper"
+                            className="productSwiper"
                         >
                             {images.map(pImage =>
                                 <SwiperSlide key={keyId()}>

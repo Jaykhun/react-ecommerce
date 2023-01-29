@@ -13,7 +13,7 @@ const ProductItem: FC<ProductItemPropsType> = ({product}) => {
 
     return (
         <div className="item__row">
-            <Link to="/" className="item__top">
+            <Link to={`product/${id}`} className="item__top">
                 <div className="item__img">
                     <img src={images[0].image_path} alt={name}/>
                 </div>
