@@ -1,22 +1,22 @@
 import React, {FC, useCallback} from 'react';
-import "./SelectComponent.scss";
 import AsyncSelect from "react-select/async";
 import makeAnimated from 'react-select/animated';
 import {ICategory} from "../../../store/category/categoryTypes";
-import InputError from "../InputError";
+import {ControllerRenderProps, FieldError} from "react-hook-form";
+import "./SelectComponent.scss";
 
 interface SelectProps {
-    error: any,
-    onBlur: any,
     data?: ICategory[],
     id: string,
-    value: string,
-    name: string,
-    onChange: any
+    multi: boolean
+    field: ControllerRenderProps | any,
+    errors?: FieldError
 }
 
-const SelectComponent: FC<SelectProps> = ({error, onBlur, onChange, data, id, value, name}) => {
+const SelectComponent: FC<SelectProps> = ({data, id, multi, field, errors}) => {
     const animatedComponents = makeAnimated()
+
+    const {name, onBlur, onChange, value} = field
 
     const loadOptions = useCallback(
         (searchValue: string, callback: any) => {
@@ -36,19 +36,19 @@ const SelectComponent: FC<SelectProps> = ({error, onBlur, onChange, data, id, va
                     name={name}
                     classNamePrefix="custom-select"
                     placeholder={false}
-                    closeMenuOnSelect={false}
+                    closeMenuOnSelect={multi}
                     components={animatedComponents}
                     onBlur={onBlur}
-                    isMulti
+                    isMulti={multi}
                     cacheOptions
                     defaultOptions
                     loadOptions={loadOptions}
                     getOptionValue={value => value.name}
                     getOptionLabel={value => value.name}
-                    value={data?.find(c => c.name === value)}
-                    onChange={(newValue: any) => onChange(newValue.name)}
+                    value={data?.find(c => c.name === value.name)}
+                    onChange={newValue => onChange?.(newValue)}
                 />
-                {error && <InputError message={error.message}/>}
+                {/*{errors && <InputError message={errors}/>}*/}
             </div>}
         </>
     );

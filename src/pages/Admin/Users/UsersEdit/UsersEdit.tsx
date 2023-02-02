@@ -9,8 +9,6 @@ const UsersEdit = () => {
     const {onUserEditPopupClick} = useActions()
     const {isUserEditModalOpen, userEdit} = useTypedSelector(state => state.admin)
 
-    console.log(userEdit)
-
     return (
         <Popup isOpen={isUserEditModalOpen} onClose={onUserEditPopupClick}>
             <div className="popup-edit">

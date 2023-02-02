@@ -6,7 +6,7 @@ import "./ProductsEdit.scss";
 
 const ProductsEdit = () => {
     const {onProductEditPopupClick} = useActions()
-    const {isProductEditModalOpen, productEdit} = useTypedSelector(state => state.admin)
+    const {isProductEditModalOpen, productId} = useTypedSelector(state => state.admin)
 
     return (
         <Popup isOpen={isProductEditModalOpen} onClose={onProductEditPopupClick}>
@@ -14,7 +14,7 @@ const ProductsEdit = () => {
                 <div className="popup-edit__inner">
                     <div className="popup-edit__title">Изменить продукт</div>
                     <ProductsForm
-                        product={productEdit}
+                        id={productId}
                         buttonValue='Изменить'
                     />
                 </div>

@@ -17,7 +17,7 @@ export const productApi = createApi({
             query: () => 'products',
             providesTags: ['Products']
         }),
-        getSingleProduct: build.query<IProduct, number>({
+        getSingleProduct: build.query<IProduct, number | undefined>({
             query: (id) => `products/${id}`,
             providesTags: ['Products']
         }),

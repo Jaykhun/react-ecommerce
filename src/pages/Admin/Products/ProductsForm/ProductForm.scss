@@ -18,6 +18,18 @@
       min-height: 110px;
     }
 
+    &__body{
+      @include flex(space-between, flex-start);
+      gap: 25px;
+    }
+
+    &__quantity{
+      flex: 0 0 20%;
+      input{
+        height: 70px;
+      }
+    }
+
     &__description {
       min-height: 225px;
     }
@@ -43,7 +55,7 @@
     }
 
     &__category {
-      flex: 0 0 40%;
+      flex: 1 1 auto;
 
       select {
         cursor: pointer;
@@ -60,12 +72,22 @@
         align-items: normal;
       }
 
+      &__body{
+        flex-direction: column;
+      }
+
+      &__quantity{
+        flex: 1 1 auto;
+        width: 100%;
+      }
+
       &__productName {
         flex: 1 1 auto;
       }
 
       &__category {
         flex: 1 1 auto;
+        width: 100%;
       }
 
       &__file {

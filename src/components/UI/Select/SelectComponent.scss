@@ -7,6 +7,8 @@
 }
 
 .custom-select {
+  @include fontArguments($mainFont, 600);
+
   &__control {
     flex: 1 1 auto !important;
     background-color: $bcgColor !important;
@@ -17,6 +19,12 @@
     transition: all .3s !important;
   }
 
+  &__value-container{
+    @include fontArguments($mainFont, 600);
+    font-size: 14px !important;
+    text-transform: capitalize;
+  }
+
   &__label {
     @include fontArguments($mainFont, 600);
     display: block;
@@ -25,6 +33,10 @@
     margin-bottom: 5px !important;
     letter-spacing: 0.7px !important;
     transition: all .3s !important;
+  }
+
+  &__input-container{
+    @include fontArguments($mainFont, 600);
   }
 
   &__control--is-focused {
@@ -83,6 +95,7 @@
     border: 2px solid transparent !important;
     transition: background-color, color .2s !important;
     border-radius: 4px;
+    text-transform: capitalize;
 
     &:hover {
       background-color: #ec4d4d !important;

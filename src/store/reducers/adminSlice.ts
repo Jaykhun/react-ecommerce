@@ -6,7 +6,7 @@ export interface adminSliceTypes {
     isAdminMenuOpen: boolean,
     isProductEditModalOpen: boolean,
     isUserEditModalOpen: boolean,
-    productEdit: IProduct
+    productId: number
     userEdit: IUser
 }
 
@@ -14,7 +14,7 @@ const initialState: adminSliceTypes = {
     isAdminMenuOpen: false,
     isProductEditModalOpen: false,
     isUserEditModalOpen: false,
-    productEdit: {} as IProduct,
+    productId: 0,
     userEdit: {} as IUser
 }
 
@@ -34,8 +34,8 @@ const adminSlice = createSlice({
             state.isUserEditModalOpen = !state.isUserEditModalOpen
         },
 
-        productEdit: (state, action: PayloadAction<IProduct>) => {
-            state.productEdit = action.payload
+        productEdit: (state, action: PayloadAction<number>) => {
+            state.productId = action.payload
         },
 
         userEdit: (state, action: PayloadAction<IUser>) => {

@@ -11,6 +11,8 @@ interface ProductItemPropsType {
 const ProductItem: FC<ProductItemPropsType> = ({product}) => {
     const {name, images, category, id, price, discount, quantity, description} = product
 
+    console.log(discount)
+
     return (
         <div className="item__row">
             <Link to={`product/${id}`} className="item__top">
@@ -20,7 +22,7 @@ const ProductItem: FC<ProductItemPropsType> = ({product}) => {
 
                 <div className="item__prices">
                     <div className="item__price price-current">{price} &#36;</div>
-                    {discount && <div className="item__discount price-discount">{discount}</div>}
+                    {discount > 1 ? <div className="item__discount price-discount">{discount}</div> : ''}
                 </div>
             </Link>
 
@@ -28,7 +30,6 @@ const ProductItem: FC<ProductItemPropsType> = ({product}) => {
                 <div className="item__info">
                     <div className="item__name product-name">{name}</div>
                 </div>
-
 
                 <div className="item__control control">
                     <div className="item__sale">
