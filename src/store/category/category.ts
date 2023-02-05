@@ -14,7 +14,7 @@ export const categoryApi = createApi({
     tagTypes: ['Categories'],
     endpoints: build => ({
         getAllCategories: build.query<ICategory[], void>({
-            query: () => 'categories',
+            query: () => 'categories/',
             providesTags: ['Categories']
         })
     })

@@ -1,10 +1,10 @@
-import {FC, useId, useMemo} from "react";
+import {FC, useId} from "react";
 import "./ProductForm.scss";
 import {Controller, SubmitHandler, useForm} from "react-hook-form";
-import {InputError, Select, UploadFile} from "../../../../components/UI";
-import {useGetAllCategoriesQuery} from "../../../../store/category/category";
-import {IProduct, ProductImage, ProductCategory} from "../../../../store/product/productTypes";
 import {ErrorMessage} from "@hookform/error-message/dist";
+import {ActionAlert, ActionLoader, InputError, Select} from "../../../../components/UI";
+import {useGetAllCategoriesQuery} from "../../../../store/category/category";
+import {IProduct} from "../../../../store/product/productTypes";
 import {
     useUpdateProductMutation,
     useAddProductMutation,
@@ -18,17 +18,27 @@ interface ProductsFormPropsType {
 }
 
 const ProductsForm: FC<ProductsFormPropsType> = ({buttonValue, id}) => {
-    const {data} = useGetAllCategoriesQuery()
-    const {data: product, isSuccess} = useGetSingleProductQuery(id, {
-        skip: !id,
-        selectFromResult: ({data, isSuccess}) => ({data, isSuccess})
-    })
-    const [updateProduct] = useUpdateProductMutation()
-    const [addProduct] = useAddProductMutation()
     const {onProductEditPopupClick} = useActions()
-
-    console.log(isSuccess, 'fetch')
-    console.log(product, 'product')
+    const {data} = useGetAllCategoriesQuery()
+    const {data: product, isSuccess, isLoading: singProductIsLoading} =
+        useGetSingleProductQuery(id, {
+            skip: !id,
+            selectFromResult: ({data, isSuccess, isLoading}) => ({data, isSuccess, isLoading})
+        })
+    const [updateProduct,
+        {
+            isError: updateIsError,
+            isLoading: updateIsLoading,
+            isSuccess: updateIsSuccess,
+            error: updateError
+        }] = useUpdateProductMutation()
+    const [addProduct,
+        {
+            isError: addIsError,
+            isLoading: addIsLoading,
+            isSuccess: addIsSuccess,
+            error: addError
+        }] = useAddProductMutation()
 
     const initialVales = {
         name: isSuccess ? product?.name : '',
@@ -61,195 +71,190 @@ const ProductsForm: FC<ProductsFormPropsType> = ({buttonValue, id}) => {
 
         if (product) {
             updateProduct(data)
-            onProductEditPopupClick()
+            return updateIsSuccess ? onProductEditPopupClick() : ''
         } else {
             addProduct(data)
-            // reset();
+            return addIsSuccess ? reset() : ''
         }
     }
 
-
     return (
-        <form className="all-products__form form" onSubmit={handleSubmit(onSubmit)}>
-            <div className="form__top">
-                <div className="form__productName">
-                    <label htmlFor={name} className="input-text">
-                        название продукта
-                    </label>
-                    <input
-                        type="text"
-                        id={name}
-                        className="input-style"
-                        {...register(
-                            'name',
-                            {
-                                required: 'Поле обязательно к заполнению',
-                                minLength: {value: 5, message: 'Минимум 5 символов'},
-                                maxLength: {value: 30, message: 'Максимум 30 символов'}
-                            }
-                        )}
+        <>
+            <form className="all-products__form form" onSubmit={handleSubmit(onSubmit)}>
+                <div className="form__top">
+                    <div className="form__productName">
+                        <label htmlFor={name} className="input-text">
+                            название продукта
+                        </label>
+                        <input
+                            type="text"
+                            id={name}
+                            className="input-style"
+                            {...register(
+                                'name',
+                                {
+                                    required: 'Поле обязательно к заполнению',
+                                    minLength: {value: 5, message: 'Минимум 5 символов'},
+                                    maxLength: {value: 30, message: 'Максимум 30 символов'}
+                                }
+                            )}
+                        />
+                        <ErrorMessage name={'name'}
+                                      errors={errors}
+                                      render={({message}) => <InputError message={message}/>}
+                        />
+                    </div>
+
+                    <div className="form__price">
+                        <div className="price">
+                            <label htmlFor={price} className="input-text">цена &#36;</label>
+                            <input
+                                type="number"
+                                id={price}
+                                className="input-style"
+                                {...register(
+                                    'price',
+                                    {
+                                        valueAsNumber: true,
+                                        required: 'Поле обязательно к заполнению',
+                                        min: {value: 1, message: 'Минимум цена 1 доллар'},
+                                        max: {value: 10000, message: 'Максимум цена 10000 доллар'}
+                                    }
+                                )}
+                            />
+                            <ErrorMessage name={'price'}
+                                          errors={errors}
+                                          render={({message}) => <InputError message={message}/>}
+                            />
+                        </div>
+
+                        <div className="discount">
+                            <label htmlFor={discount} className="input-text">скидка &#37;</label>
+                            <input type="number"
+                                   id={discount}
+                                   className="input-style"
+                                   {...register(
+                                       'discount',
+                                       {
+                                           valueAsNumber: true,
+                                           min: {value: 0, message: 'Минимум скидка 1 %'},
+                                           max: {value: 99, message: 'Максимум скидка 99 %'}
+                                       }
+                                   )}
+                            />
+                            <ErrorMessage name={'discount'}
+                                          errors={errors}
+                                          render={({message}) => <InputError message={message}/>}
+                            />
+                        </div>
+                    </div>
+                </div>
+
+                <div className="form__file">
+                    <div className="form__body">
+                        <div className="form__category">
+                            <Controller
+                                control={control}
+                                name={'category'}
+                                rules={
+                                    {required: 'Поле обязательно к заполнению'}
+                                }
+                                render={({field, fieldState: {error}}) =>
+                                    <Select
+                                        id={category}
+                                        data={data}
+                                        multi={false}
+                                        field={field}
+                                        errors={error}
+                                    />
+                                }
+                            />
+
+                            <ErrorMessage name={'category'}
+                                          errors={errors}
+                                          render={({message}) => <InputError message={message}/>}
+                            />
+                        </div>
+
+                        <div className="form__quantity">
+                            <label htmlFor={quantity} className="input-text">Количество</label>
+                            <input
+                                type="number"
+                                id={quantity}
+                                className="input-style"
+                                {...register(
+                                    'quantity',
+                                    {
+                                        valueAsNumber: true,
+                                        required: 'Поле обязательно к заполнению',
+                                        min: {value: 10, message: 'Количество продуктов должна быть не менее 10-ти'},
+                                        max: {value: 1000, message: 'Количество продуктов должна быть не больше 1000'}
+                                    }
+                                )}
+                            />
+                            <ErrorMessage name={'quantity'}
+                                          errors={errors}
+                                          render={({message}) => <InputError message={message}/>}
+                            />
+                        </div>
+                    </div>
+
+                    <div className="form__file">
+                        <div className="file">
+                            <label htmlFor={images} className="input-text">Картинка</label>
+                            <input
+                                type="text"
+                                id={images}
+                                className="input-style"
+                                {...register(
+                                    'images',
+                                    {
+                                        required: 'Поле обязательно к заполнению',
+                                        minLength: {value: 1, message: 'Добавитье ссылку'},
+                                    }
+                                )}
+                            />
+                            <ErrorMessage name={'images'}
+                                          errors={errors}
+                                          render={({message}) => <InputError message={message}/>}
+                            />
+                        </div>
+                    </div>
+                </div>
+
+                <div className="form__description">
+                    <label htmlFor={description} className="input-text">описание продукта</label>
+                    <textarea id={description}
+                              className="input-style"
+                              {...register(
+                                  'description',
+                                  {
+                                      required: 'Поле обязательно к заполнению',
+                                      minLength: {value: 10, message: 'Минимум 10 символов'},
+                                      maxLength: {value: 100, message: 'Максимум 50 символов'}
+                                  }
+                              )}
                     />
-                    <ErrorMessage name={'name'}
+                    <ErrorMessage name={'description'}
                                   errors={errors}
                                   render={({message}) => <InputError message={message}/>}
                     />
                 </div>
 
-                <div className="form__price">
-                    <div className="price">
-                        <label htmlFor={price} className="input-text">цена &#36;</label>
-                        <input
-                            type="number"
-                            id={price}
-                            className="input-style"
-                            {...register(
-                                'price',
-                                {
-                                    required: 'Поле обязательно к заполнению',
-                                    min: {value: 1, message: 'Минимум цена 1 доллар'},
-                                    max: {value: 10000, message: 'Максимум цена 10000 доллар'}
-                                }
-                            )}
-                        />
-                        <ErrorMessage name={'price'}
-                                      errors={errors}
-                                      render={({message}) => <InputError message={message}/>}
-                        />
-                    </div>
-
-                    <div className="discount">
-                        <label htmlFor={discount} className="input-text">скидка &#37;</label>
-                        <input type="number"
-                               id={discount}
-                               className="input-style"
-                               {...register(
-                                   'discount',
-                                   {
-                                       min: {value: 0, message: 'Минимум скидка 1 %'},
-                                       max: {value: 99, message: 'Максимум скидка 99 %'}
-                                   }
-                               )}
-                        />
-                        <ErrorMessage name={'discount'}
-                                      errors={errors}
-                                      render={({message}) => <InputError message={message}/>}
-                        />
-                    </div>
-                </div>
-            </div>
-
-            <div className="form__file">
-                <div className="form__body">
-                    <div className="form__category">
-                        <Controller
-                            control={control}
-                            name={'category'}
-                            rules={
-                                {required: 'Поле обязательно к заполнению'}
-                            }
-                            render={({field, fieldState: {error}}) =>
-                                <Select
-                                    id={category}
-                                    data={data}
-                                    multi={false}
-                                    field={field}
-                                    errors={error}
-                                />
-                            }
-                        />
-
-                        <ErrorMessage name={'category'}
-                                      errors={errors}
-                                      render={({message}) => <InputError message={message}/>}
-                        />
-                    </div>
-
-                    <div className="form__quantity">
-                        <label htmlFor={quantity} className="input-text">Количество</label>
-                        <input
-                            type="number"
-                            id={quantity}
-                            className="input-style"
-                            {...register(
-                                'quantity',
-                                {
-                                    required: 'Поле обязательно к заполнению',
-                                    min: {value: 10, message: 'Количество продуктов должна быть не менее 10-ти'},
-                                    max: {value: 1000, message: 'Количество продуктов должна быть не больше 1000'}
-                                }
-                            )}
-                        />
-                        <ErrorMessage name={'quantity'}
-                                      errors={errors}
-                                      render={({message}) => <InputError message={message}/>}
-                        />
-                    </div>
-                </div>
-
-                <div className="form__file">
-                    <div className="file">
-                        <label htmlFor={images} className="input-text">Картинка</label>
-                        <input
-                            type="text"
-                            id={images}
-                            className="input-style"
-                            {...register(
-                                'images',
-                                {
-                                    required: 'Поле обязательно к заполнению',
-                                    minLength: {value: 1, message: 'Добавитье ссылку'},
-                                }
-                            )}
-                        />
-                        <ErrorMessage name={'images'}
-                                      errors={errors}
-                                      render={({message}) => <InputError message={message}/>}
-                        />
-                    </div>
-                </div>
-
-                {/* <UploadFile
-                    id={file}
-                    name={file}
-                    error={errors}
-                    defaultValue={product && product.images}
-                    isMulti={true}
-                    props={{
-                        ...register(
-                            'file',
-                            {
-                                required: 'Поле обязательно к заполнению'
-                            }
-                        )
-                    }}
-                /> */}
-            </div>
-
-            <div className="form__description">
-                <label htmlFor={description} className="input-text">описание продукта</label>
-                <textarea id={description}
-                          className="input-style"
-                          {...register(
-                              'description',
-                              {
-                                  required: 'Поле обязательно к заполнению',
-                                  minLength: {value: 10, message: 'Минимум 10 символов'},
-                                  maxLength: {value: 100, message: 'Максимум 50 символов'}
-                              }
-                          )}
-                />
-                <ErrorMessage name={'description'}
-                              errors={errors}
-                              render={({message}) => <InputError message={message}/>}
-                />
-            </div>
-
-            {product ? <button disabled={!isDirty}
-                               className={`btn ${isDirty ? 'r-btn w-opacity' : 'error-btn'} form__submit`}>
-                    {buttonValue}</button>
-                : <button className={`btn r-btn w-opacity form__submit`}>{buttonValue}</button>
-            }
-        </form>
+                {product ? <button disabled={!isDirty}
+                                   className={`btn ${isDirty ? 'r-btn w-opacity' : 'error-btn'} form__submit`}>
+                        {buttonValue}</button>
+                    : <button className={`btn r-btn w-opacity form__submit`}>{buttonValue}</button>
+                }
+            </form>
+            {addIsLoading && <ActionLoader/>}
+            {updateIsLoading && <ActionLoader/>}
+            {singProductIsLoading && <ActionLoader/>}
+            {addIsError && <ActionAlert message={'Error'} error={addError}/>}
+            {updateIsError && <ActionAlert message={'Error on update'} error={updateError}/>}
+            {addIsSuccess && <ActionAlert message={'Success'} success={addIsSuccess}/>}
+            {updateIsSuccess && <ActionAlert message={'Success'} success={updateIsSuccess}/>}
+        </>
     );
 };
 

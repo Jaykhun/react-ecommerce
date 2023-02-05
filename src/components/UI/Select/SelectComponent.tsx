@@ -4,6 +4,7 @@ import makeAnimated from 'react-select/animated';
 import {ICategory} from "../../../store/category/categoryTypes";
 import {ControllerRenderProps, FieldError} from "react-hook-form";
 import "./SelectComponent.scss";
+import SelectLoader from "./SelectLoader";
 
 interface SelectProps {
     data?: ICategory[],
@@ -29,7 +30,7 @@ const SelectComponent: FC<SelectProps> = ({data, id, multi, field, errors}) => {
 
     return (
         <>
-            {data && <div className="select">
+            {data ? <div className="select">
                 <label htmlFor={name} className="custom-select__label">Выберите категории</label>
                 <AsyncSelect
                     id={id}
@@ -49,7 +50,7 @@ const SelectComponent: FC<SelectProps> = ({data, id, multi, field, errors}) => {
                     onChange={newValue => onChange?.(newValue)}
                 />
                 {/*{errors && <InputError message={errors}/>}*/}
-            </div>}
+            </div> : <SelectLoader/>}
         </>
     );
 };

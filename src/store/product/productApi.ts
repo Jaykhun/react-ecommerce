@@ -14,17 +14,17 @@ export const productApi = createApi({
     tagTypes: ['Products'],
     endpoints: build => ({
         getAllProducts: build.query<IProduct[], void>({
-            query: () => 'products',
+            query: () => 'products/',
             providesTags: ['Products']
         }),
         getSingleProduct: build.query<IProduct, number | undefined>({
             query: (id) => `products/${id}`,
             providesTags: ['Products']
         }),
-        addProduct: build.mutation<IProduct, any>({
+        addProduct: build.mutation<IProduct, Partial<IProduct>>({
             query: (product) => ({
-                url: `products`,
-                method: 'Post',
+                url: `products/`,
+                method: 'POST',
                 body: product,
                 headers: {
                     'Content-type': 'application/json: charset=UTF-8'

@@ -54,6 +54,21 @@ const Sidebar = () => {
                                 <span>Продукты</span>
                             </NavLink>
                         </li>
+                        <li className="sidebar__item">
+                            <NavLink to="/admin/categories" className={({isActive}) =>
+                                isActive ? "active-item" : undefined}>
+                                <span className="icon-category icon"></span>
+                                <span>Категории</span>
+                            </NavLink>
+                        </li>
+                        <li className="sidebar__item">
+                            <NavLink to="/admin/countries" className={({isActive}) =>
+                                isActive ? "active-item" : undefined}>
+                                <span className="icon-country icon"></span>
+                                <span>Страны</span>
+                            </NavLink>
+                        </li>
+
                     </ul>
                 </nav>
             </div>

@@ -1,7 +1,7 @@
 import React from 'react';
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import {Layout, LayoutWithoutSidebar, Dashboard} from "./routes";
-import {Admin, Products, Users, Orders} from "./pages/Admin";
+import {Admin, Products, Users, Orders, Countries, Categories} from "./pages/Admin";
 import {Home} from "./pages/Home";
 import Cart from "./pages/Cart";
 import Register from "./pages/Register";
@@ -27,6 +27,8 @@ const App = () => {
                     <Route path="products" element={<Products/>}/>
                     <Route path="users" element={<Users/>}/>
                     <Route path="orders" element={<Orders/>}/>
+                    <Route path="countries" element={<Countries/>}/>
+                    <Route path="categories" element={<Categories/>}/>
                 </Route>
             </Routes>
         </BrowserRouter>

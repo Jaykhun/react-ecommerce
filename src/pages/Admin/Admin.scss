@@ -131,6 +131,11 @@
     padding: 15px 10px;
   }
 
+  &__body{
+    overflow: auto;
+    height: 70vh;
+  }
+
   &__logo {
     @include fontArguments($mainFont, 700);
     font-size: 20px;
