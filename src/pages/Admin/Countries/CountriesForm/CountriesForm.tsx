@@ -1,17 +1,27 @@
-import React, { useId } from 'react';
+import React, { useId, useCallback, memo } from 'react';
 import { SubmitHandler, useForm } from "react-hook-form";
 import { NewCountry } from "../../../../store/country/countryTypes";
 import { ErrorMessage } from "@hookform/error-message";
 import { ActionLoader, InputError, ActionAlert } from "../../../../components/UI";
 import "./CountriesForm.scss";
 import { useAddCountryMutation } from '../../../../store/country/countryApi';
+import useWhyDidYouUpdate from 'ahooks/lib/useWhyDidYouUpdate';
 
 const CountriesForm = () => {
-    const [addCountry, { isError: addIsError, isLoading: addIsLoading, isSuccess: addIsSucces, error: addError }] = useAddCountryMutation()
+    console.log(useWhyDidYouUpdate('CountriesForm', {}));
+    
+    const [addCountry,
+        { isError: addIsError, isLoading: addIsLoading,
+            isSuccess: addIsSucces, error: addError
+        }] = useAddCountryMutation()
+
     const countryName = useId()
+
     const initialVales = {
         country_name: ''
     }
+
+    console.log(addIsLoading);
 
     const {
         register,
@@ -20,10 +30,12 @@ const CountriesForm = () => {
         reset
     } = useForm<NewCountry>({ mode: 'onBlur', defaultValues: initialVales })
 
-    const onSubmit: SubmitHandler<NewCountry> = (data) => {
+    const onSubmit: SubmitHandler<NewCountry> = useCallback((data) => {
         addCountry(data)
-        return addIsSucces ? reset() : ''
-    }
+        if (addIsSucces) {
+            reset()
+        }
+    }, [])
 
     return (
         <form className="countries-form form" onSubmit={handleSubmit(onSubmit)}>
@@ -47,7 +59,7 @@ const CountriesForm = () => {
             <button className="btn w-opacity r-btn form__submit">Добавить</button>
             {addIsLoading && <ActionLoader />}
             {addIsError && <ActionAlert error={addError} message='Error on add' />}
-            {addIsSucces && <ActionAlert success={true} message='Success added' />}
+            {addIsSucces && <ActionAlert success={true} message='Added successfully' />}
         </form>
     );
 };

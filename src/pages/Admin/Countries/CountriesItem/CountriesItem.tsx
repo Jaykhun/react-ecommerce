@@ -1,8 +1,9 @@
-import React, { FC } from 'react';
+import React, { FC, useCallback, useEffect } from 'react';
 import "./CountriesItem.scss";
 import { ICountry } from "../../../../store/country/countryTypes";
 import { useDeleteCountryMutation } from '../../../../store/country/countryApi';
 import { ActionAlert, ActionLoader } from '../../../../components/UI';
+import useWhyDidYouUpdate from 'ahooks/lib/useWhyDidYouUpdate';
 
 interface CountriesItemPropsType {
     country: ICountry
@@ -13,10 +14,10 @@ const CountriesItem: FC<CountriesItemPropsType> = ({ country }) => {
     const { country_name, id } = country
 
     const handleDelete = () => {
-        deleteCountry(id)        
+        deleteCountry(id)
     }
 
-    console.log(isError, isSuccess);
+    // console.log(isError, isSuccess);
 
     return (
         <>
@@ -28,8 +29,8 @@ const CountriesItem: FC<CountriesItemPropsType> = ({ country }) => {
                 </div>
             </div>
             {isLoading && <ActionLoader />}
-            {isError && <ActionAlert message={'Error'} error={error} />}
-            {isSuccess && <ActionAlert message={'Success'} success={true} />}
+            {isError && <ActionAlert message={'Error on Delete'} error={error} />}
+            {isSuccess && <ActionAlert message={'Deleted Successfully'} success={true} />}
         </>
     );
 };
