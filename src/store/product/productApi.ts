@@ -1,5 +1,5 @@
-import {createApi, fetchBaseQuery} from "@reduxjs/toolkit/query/react";
-import {IProduct} from "./productTypes";
+import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+import { IProduct } from "./productTypes";
 
 const url = 'https://ecommerce-h6sh.onrender.com'
 
@@ -33,7 +33,7 @@ export const productApi = createApi({
             invalidatesTags: ['Products']
         }),
         updateProduct: build.mutation<IProduct, Partial<IProduct>>({
-            query: ({id, ...rest}) => ({
+            query: ({ id, ...rest }) => ({
                 url: `products/${id}`,
                 method: 'PUT',
                 body: rest,
@@ -46,7 +46,10 @@ export const productApi = createApi({
         deleteProduct: build.mutation<IProduct, number>({
             query: (id) => ({
                 url: `products/${id}`,
-                method: 'DELETE'
+                method: 'DELETE',
+                headers: {
+                    'Content-type': 'application/json; charset=UTF-8',
+                }
             }),
             invalidatesTags: ['Products']
         })

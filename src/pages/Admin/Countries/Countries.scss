@@ -1,5 +1,8 @@
 .countries{
   margin: 20px 0px;
+  &__body{
+    margin-top: 20px;
+  }
   .form{
     &__name{
       min-height: 115px;

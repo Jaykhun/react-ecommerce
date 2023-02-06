@@ -1,29 +1,29 @@
-import {FC, useId} from "react";
+import { FC, useId } from "react";
 import "./ProductForm.scss";
-import {Controller, SubmitHandler, useForm} from "react-hook-form";
-import {ErrorMessage} from "@hookform/error-message/dist";
-import {ActionAlert, ActionLoader, InputError, Select} from "../../../../components/UI";
-import {useGetAllCategoriesQuery} from "../../../../store/category/category";
-import {IProduct} from "../../../../store/product/productTypes";
+import { Controller, SubmitHandler, useForm } from "react-hook-form";
+import { ErrorMessage } from "@hookform/error-message/dist";
+import { ActionAlert, ActionLoader, InputError, Select } from "../../../../components/UI";
+import { useGetAllCategoriesQuery } from "../../../../store/category/category";
+import { IProduct } from "../../../../store/product/productTypes";
 import {
     useUpdateProductMutation,
     useAddProductMutation,
     useGetSingleProductQuery
 } from "../../../../store/product/productApi";
-import {useActions} from "../../../../hooks/useActions";
+import { useActions } from "../../../../hooks/useActions";
 
 interface ProductsFormPropsType {
     buttonValue: string,
     id?: number
 }
 
-const ProductsForm: FC<ProductsFormPropsType> = ({buttonValue, id}) => {
-    const {onProductEditPopupClick} = useActions()
-    const {data} = useGetAllCategoriesQuery()
-    const {data: product, isSuccess, isLoading: singProductIsLoading} =
+const ProductsForm: FC<ProductsFormPropsType> = ({ buttonValue, id }) => {
+    const { onProductEditPopupClick } = useActions()
+    const { data } = useGetAllCategoriesQuery()
+    const { data: product, isSuccess, isLoading: singProductIsLoading } =
         useGetSingleProductQuery(id, {
             skip: !id,
-            selectFromResult: ({data, isSuccess, isLoading}) => ({data, isSuccess, isLoading})
+            selectFromResult: ({ data, isSuccess, isLoading }) => ({ data, isSuccess, isLoading })
         })
     const [updateProduct,
         {
@@ -60,11 +60,11 @@ const ProductsForm: FC<ProductsFormPropsType> = ({buttonValue, id}) => {
 
     const {
         register,
-        formState: {errors, isDirty},
+        formState: { errors, isDirty },
         handleSubmit,
         reset,
         control
-    } = useForm<IProduct>({mode: 'onBlur', defaultValues: initialVales})
+    } = useForm<IProduct>({ mode: 'onBlur', defaultValues: initialVales })
 
     const onSubmit: SubmitHandler<IProduct> = (data) => {
         console.log(data, 'data')
@@ -94,14 +94,14 @@ const ProductsForm: FC<ProductsFormPropsType> = ({buttonValue, id}) => {
                                 'name',
                                 {
                                     required: 'Поле обязательно к заполнению',
-                                    minLength: {value: 5, message: 'Минимум 5 символов'},
-                                    maxLength: {value: 30, message: 'Максимум 30 символов'}
+                                    minLength: { value: 5, message: 'Минимум 5 символов' },
+                                    maxLength: { value: 30, message: 'Максимум 30 символов' }
                                 }
                             )}
                         />
                         <ErrorMessage name={'name'}
-                                      errors={errors}
-                                      render={({message}) => <InputError message={message}/>}
+                            errors={errors}
+                            render={({ message }) => <InputError message={message} />}
                         />
                     </div>
 
@@ -117,34 +117,34 @@ const ProductsForm: FC<ProductsFormPropsType> = ({buttonValue, id}) => {
                                     {
                                         valueAsNumber: true,
                                         required: 'Поле обязательно к заполнению',
-                                        min: {value: 1, message: 'Минимум цена 1 доллар'},
-                                        max: {value: 10000, message: 'Максимум цена 10000 доллар'}
+                                        min: { value: 1, message: 'Минимум цена 1 доллар' },
+                                        max: { value: 10000, message: 'Максимум цена 10000 доллар' }
                                     }
                                 )}
                             />
                             <ErrorMessage name={'price'}
-                                          errors={errors}
-                                          render={({message}) => <InputError message={message}/>}
+                                errors={errors}
+                                render={({ message }) => <InputError message={message} />}
                             />
                         </div>
 
                         <div className="discount">
                             <label htmlFor={discount} className="input-text">скидка &#37;</label>
                             <input type="number"
-                                   id={discount}
-                                   className="input-style"
-                                   {...register(
-                                       'discount',
-                                       {
-                                           valueAsNumber: true,
-                                           min: {value: 0, message: 'Минимум скидка 1 %'},
-                                           max: {value: 99, message: 'Максимум скидка 99 %'}
-                                       }
-                                   )}
+                                id={discount}
+                                className="input-style"
+                                {...register(
+                                    'discount',
+                                    {
+                                        valueAsNumber: true,
+                                        min: { value: 0, message: 'Минимум скидка 1 %' },
+                                        max: { value: 99, message: 'Максимум скидка 99 %' }
+                                    }
+                                )}
                             />
                             <ErrorMessage name={'discount'}
-                                          errors={errors}
-                                          render={({message}) => <InputError message={message}/>}
+                                errors={errors}
+                                render={({ message }) => <InputError message={message} />}
                             />
                         </div>
                     </div>
@@ -157,9 +157,9 @@ const ProductsForm: FC<ProductsFormPropsType> = ({buttonValue, id}) => {
                                 control={control}
                                 name={'category'}
                                 rules={
-                                    {required: 'Поле обязательно к заполнению'}
+                                    { required: 'Поле обязательно к заполнению' }
                                 }
-                                render={({field, fieldState: {error}}) =>
+                                render={({ field, fieldState: { error } }) =>
                                     <Select
                                         id={category}
                                         data={data}
@@ -171,8 +171,8 @@ const ProductsForm: FC<ProductsFormPropsType> = ({buttonValue, id}) => {
                             />
 
                             <ErrorMessage name={'category'}
-                                          errors={errors}
-                                          render={({message}) => <InputError message={message}/>}
+                                errors={errors}
+                                render={({ message }) => <InputError message={message} />}
                             />
                         </div>
 
@@ -187,14 +187,14 @@ const ProductsForm: FC<ProductsFormPropsType> = ({buttonValue, id}) => {
                                     {
                                         valueAsNumber: true,
                                         required: 'Поле обязательно к заполнению',
-                                        min: {value: 10, message: 'Количество продуктов должна быть не менее 10-ти'},
-                                        max: {value: 1000, message: 'Количество продуктов должна быть не больше 1000'}
+                                        min: { value: 10, message: 'Количество продуктов должна быть не менее 10-ти' },
+                                        max: { value: 1000, message: 'Количество продуктов должна быть не больше 1000' }
                                     }
                                 )}
                             />
                             <ErrorMessage name={'quantity'}
-                                          errors={errors}
-                                          render={({message}) => <InputError message={message}/>}
+                                errors={errors}
+                                render={({ message }) => <InputError message={message} />}
                             />
                         </div>
                     </div>
@@ -210,13 +210,13 @@ const ProductsForm: FC<ProductsFormPropsType> = ({buttonValue, id}) => {
                                     'images',
                                     {
                                         required: 'Поле обязательно к заполнению',
-                                        minLength: {value: 1, message: 'Добавитье ссылку'},
+                                        minLength: { value: 1, message: 'Добавитье ссылку' },
                                     }
                                 )}
                             />
                             <ErrorMessage name={'images'}
-                                          errors={errors}
-                                          render={({message}) => <InputError message={message}/>}
+                                errors={errors}
+                                render={({ message }) => <InputError message={message} />}
                             />
                         </div>
                     </div>
@@ -225,35 +225,35 @@ const ProductsForm: FC<ProductsFormPropsType> = ({buttonValue, id}) => {
                 <div className="form__description">
                     <label htmlFor={description} className="input-text">описание продукта</label>
                     <textarea id={description}
-                              className="input-style"
-                              {...register(
-                                  'description',
-                                  {
-                                      required: 'Поле обязательно к заполнению',
-                                      minLength: {value: 10, message: 'Минимум 10 символов'},
-                                      maxLength: {value: 100, message: 'Максимум 50 символов'}
-                                  }
-                              )}
+                        className="input-style"
+                        {...register(
+                            'description',
+                            {
+                                required: 'Поле обязательно к заполнению',
+                                minLength: { value: 10, message: 'Минимум 10 символов' },
+                                maxLength: { value: 100, message: 'Максимум 50 символов' }
+                            }
+                        )}
                     />
                     <ErrorMessage name={'description'}
-                                  errors={errors}
-                                  render={({message}) => <InputError message={message}/>}
+                        errors={errors}
+                        render={({ message }) => <InputError message={message} />}
                     />
                 </div>
 
                 {product ? <button disabled={!isDirty}
-                                   className={`btn ${isDirty ? 'r-btn w-opacity' : 'error-btn'} form__submit`}>
-                        {buttonValue}</button>
+                    className={`btn ${isDirty ? 'r-btn w-opacity' : 'error-btn'} form__submit`}>
+                    {buttonValue}</button>
                     : <button className={`btn r-btn w-opacity form__submit`}>{buttonValue}</button>
                 }
             </form>
-            {addIsLoading && <ActionLoader/>}
-            {updateIsLoading && <ActionLoader/>}
-            {singProductIsLoading && <ActionLoader/>}
-            {addIsError && <ActionAlert message={'Error'} error={addError}/>}
-            {updateIsError && <ActionAlert message={'Error on update'} error={updateError}/>}
-            {addIsSuccess && <ActionAlert message={'Success'} success={addIsSuccess}/>}
-            {updateIsSuccess && <ActionAlert message={'Success'} success={updateIsSuccess}/>}
+            {addIsLoading && <ActionLoader />}
+            {updateIsLoading && <ActionLoader />}
+            {singProductIsLoading && <ActionLoader />}
+            {addIsError && <ActionAlert message={'Error'} error={addError} />}
+            {updateIsError && <ActionAlert message={'Error on update'} error={updateError} />}
+            {addIsSuccess && <ActionAlert message={'Success'} success={addIsSuccess} />}
+            {updateIsSuccess && <ActionAlert message={'Success'} success={updateIsSuccess} />}
         </>
     );
 };

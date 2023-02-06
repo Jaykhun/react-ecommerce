@@ -1,26 +1,28 @@
-import React, {useId} from 'react';
-import {SubmitHandler, useForm} from "react-hook-form";
-import {NewCountry} from "../../../../store/country/countryTypes";
-import {ErrorMessage} from "@hookform/error-message";
-import {InputError} from "../../../../components/UI";
+import React, { useId } from 'react';
+import { SubmitHandler, useForm } from "react-hook-form";
+import { NewCountry } from "../../../../store/country/countryTypes";
+import { ErrorMessage } from "@hookform/error-message";
+import { ActionLoader, InputError, ActionAlert } from "../../../../components/UI";
 import "./CountriesForm.scss";
+import { useAddCountryMutation } from '../../../../store/country/countryApi';
 
 const CountriesForm = () => {
+    const [addCountry, { isError: addIsError, isLoading: addIsLoading, isSuccess: addIsSucces, error: addError }] = useAddCountryMutation()
+    const countryName = useId()
     const initialVales = {
         country_name: ''
     }
 
-    const countryName = useId()
     const {
         register,
-        formState: {errors, isDirty},
+        formState: { errors, isDirty },
         handleSubmit,
         reset
-    } = useForm<NewCountry>({mode: 'onBlur', defaultValues: initialVales})
+    } = useForm<NewCountry>({ mode: 'onBlur', defaultValues: initialVales })
 
     const onSubmit: SubmitHandler<NewCountry> = (data) => {
-        console.log(data, 'data')
-
+        addCountry(data)
+        return addIsSucces ? reset() : ''
     }
 
     return (
@@ -33,16 +35,19 @@ const CountriesForm = () => {
                     className="input-style"
                     {...register("country_name", {
                         required: 'Поле обязательно к заполнению',
-                        minLength: {value: 5, message: 'Минимум 5 символов'},
-                        maxLength: {value: 30, message: 'Максимум 30 символов'}
+                        minLength: { value: 5, message: 'Минимум 5 символов' },
+                        maxLength: { value: 30, message: 'Максимум 30 символов' }
                     })}
                 />
                 <ErrorMessage name={'country_name'}
-                              errors={errors}
-                              render={({message}) => <InputError message={message}/>}
+                    errors={errors}
+                    render={({ message }) => <InputError message={message} />}
                 />
             </div>
             <button className="btn w-opacity r-btn form__submit">Добавить</button>
+            {addIsLoading && <ActionLoader />}
+            {addIsError && <ActionAlert error={addError} message='Error on add' />}
+            {addIsSucces && <ActionAlert success={true} message='Success added' />}
         </form>
     );
 };

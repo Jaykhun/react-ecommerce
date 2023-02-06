@@ -1,11 +1,11 @@
-import {FC} from 'react';
-import {IProduct} from "../../../../store/product/productTypes";
-import {useDeleteProductMutation} from "../../../../store/product/productApi";
-import {ActionAlert, ActionLoader} from "../../../../components/UI";
-import {useActions} from "../../../../hooks/useActions";
-import {Swiper, SwiperSlide} from "swiper/react";
-import {Pagination} from "swiper";
-import {v4 as keyId} from "uuid"
+import { FC } from 'react';
+import { IProduct } from "../../../../store/product/productTypes";
+import { useDeleteProductMutation } from "../../../../store/product/productApi";
+import { ActionAlert, ActionLoader } from "../../../../components/UI";
+import { useActions } from "../../../../hooks/useActions";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination } from "swiper";
+import { v4 as keyId } from "uuid"
 
 import "swiper/css";
 import "swiper/css/pagination";
@@ -16,9 +16,9 @@ interface ProductsItemProps {
     product: IProduct
 }
 
-const ProductsItem: FC<ProductsItemProps> = ({product}) => {
-    const {onProductEditPopupClick, productEdit} = useActions()
-    const {name, id, price, description, discount, images, category} = product
+const ProductsItem: FC<ProductsItemProps> = ({ product }) => {
+    const { onProductEditPopupClick, productEdit } = useActions()
+    const { name, id, price, description, discount, images, category } = product
     const [deleteProduct, result] = useDeleteProductMutation()
 
     const onEdit = () => {
@@ -26,8 +26,8 @@ const ProductsItem: FC<ProductsItemProps> = ({product}) => {
         product && productEdit(id)
     }
 
-    const handleDeleteProduct = async () => {
-        await deleteProduct(id)
+    const handleDeleteProduct = () => {
+        deleteProduct(id)
     }
 
     return (
@@ -37,13 +37,13 @@ const ProductsItem: FC<ProductsItemProps> = ({product}) => {
                     <div className="item__info">
                         <div className="item__images">
                             <Swiper
-                                pagination={{dynamicBullets: true}}
+                                pagination={{ dynamicBullets: true }}
                                 modules={[Pagination]}
                                 className="productSwiper"
                             >
                                 {images.map(pImage =>
                                     <SwiperSlide key={keyId()}>
-                                        <img src={pImage.image_path} alt={name}/>
+                                        <img src={pImage.image_path} alt={name} />
                                     </SwiperSlide>)}
                             </Swiper>
                         </div>
@@ -75,9 +75,9 @@ const ProductsItem: FC<ProductsItemProps> = ({product}) => {
                     </div>
                 </div>
             </div>
-            {result.isLoading && <ActionLoader/>}
-            {result.isError && <ActionAlert message={'Error'} error={result.error}/>}
-            {result.isSuccess && <ActionAlert message={'Success'} success={true}/>}
+            {result.isLoading && <ActionLoader />}
+            {result.isError && <ActionAlert message={'Error'} error={result.error} />}
+            {result.isSuccess && <ActionAlert message={'Success'} success={true} />}
         </>
     );
 };
