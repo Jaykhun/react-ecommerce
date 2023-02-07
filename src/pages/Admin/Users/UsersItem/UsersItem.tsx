@@ -1,6 +1,6 @@
 import React, {FC} from 'react';
 import "./UsersItem.scss";
-import {IUser, NewUserRoot} from "../../../../store/user/userTypes";
+import {IUser} from "../../../../store/user/userTypes";
 import {useActions} from "../../../../hooks/useActions";
 import {useDeleteUserMutation} from "../../../../store/user/userApi";
 
@@ -15,7 +15,7 @@ const UsersItem: FC<UsersItemPropsType> = ({userInfo}) => {
 
     const onEdit = () => {
         onUserEditPopupClick()
-        userInfo && userEdit(userInfo)
+        userEdit(userInfo)
     }
 
     const handleDeleteUser = async () => {
@@ -36,10 +36,10 @@ const UsersItem: FC<UsersItemPropsType> = ({userInfo}) => {
 
                 <div className="item__control">
                     <div className="item__number">
-                        <a href={`tel:${phone_numbers[0].phone_number}`}>{phone_numbers[0].phone_number}</a>
+                        <a href={`tel:${phone_numbers.phone_number}`}>{phone_numbers.phone_number}</a>
                     </div>
-                    <div className="item__city">{addresses[0].city}</div>
-                    <div className="item__street">{addresses[0].street_address}</div>
+                    <div className="item__city">{addresses.city}</div>
+                    <div className="item__street">{addresses.street_address}</div>
                     <div className="item__button">
                         <button className="item__change edit-btn" onClick={onEdit}></button>
                         <button className="item__delete delete-btn" onClick={handleDeleteUser}></button>

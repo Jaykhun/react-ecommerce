@@ -8,8 +8,9 @@
     }
 
     textarea {
-      resize: vertical;
+      resize: none;
       min-height: 150px;
+      overflow: auto;
     }
 
     &__top {

@@ -4,8 +4,13 @@
 .all-users {
   margin: 20px 0px;
 
+  &__content{
+    padding: 10px 0px;
+  }
+
   &__title {
     text-align: center;
     margin-top: 60px;
+    margin-bottom: 20px;
   }
 }

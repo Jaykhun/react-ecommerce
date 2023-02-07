@@ -23,7 +23,7 @@ const ProductsItem: FC<ProductsItemProps> = ({product}) => {
 
     const onEdit = () => {
         onProductEditPopupClick()
-        product && productEdit(id)
+        productEdit(id)
     }
 
     const handleDeleteProduct = async () => {

@@ -1,5 +1,5 @@
 import {createApi, fetchBaseQuery} from "@reduxjs/toolkit/query/react";
-import {IUser, NewUserRoot, UpdateUserRoot} from "./userTypes";
+import {IUser} from "./userTypes";
 
 const url = 'https://ecommerce-h6sh.onrender.com'
 
@@ -21,7 +21,7 @@ export const userApi = createApi({
             query: (id) => `users/${id}`,
             providesTags: ['Users']
         }),
-        addUser: build.mutation<NewUserRoot, Partial<NewUserRoot>>({
+        addUser: build.mutation<IUser, Partial<IUser>>({
             query: (user) => ({
                 url: `users`,
                 method: 'Post',
@@ -32,7 +32,7 @@ export const userApi = createApi({
             }),
             invalidatesTags: ['Users']
         }),
-        updateUser: build.mutation<UpdateUserRoot, Partial<any>>({
+        updateUser: build.mutation<IUser, Partial<IUser>>({
             query: ({id, ...rest}) => ({
                 url: `users/${id}`,
                 method: 'PUT',
@@ -40,7 +40,7 @@ export const userApi = createApi({
             }),
             invalidatesTags: ['Users']
         }),
-        deleteUser: build.mutation<IUser, number>({
+        deleteUser: build.mutation<IUser, number | undefined>({
             query: (id) => ({
                 url: `users/${id}`,
                 method: 'DELETE'

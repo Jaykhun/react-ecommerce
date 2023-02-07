@@ -1,6 +1,13 @@
-.countries{
+.countries {
   margin: 20px 0px;
-  &__body{
+
+  &__title {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+
+
+  &__body {
     margin-top: 20px;
   }
 }

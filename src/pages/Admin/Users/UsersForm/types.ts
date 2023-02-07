@@ -1,7 +1,7 @@
-import {IUser, NewUserRoot} from "../../../../store/user/userTypes";
+import {IUser} from "../../../../store/user/userTypes";
 
 export interface UsersFormPropsType {
-    user?: NewUserRoot | IUser,
+    user?: IUser,
     buttonValue: string
 }
 

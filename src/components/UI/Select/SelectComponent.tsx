@@ -1,13 +1,12 @@
 import React, {FC, useCallback} from 'react';
 import AsyncSelect from "react-select/async";
 import makeAnimated from 'react-select/animated';
-import {ICategory} from "../../../store/category/categoryTypes";
 import {ControllerRenderProps, FieldError} from "react-hook-form";
-import "./SelectComponent.scss";
 import SelectLoader from "./SelectLoader";
+import "./SelectComponent.scss";
 
 interface SelectProps {
-    data?: ICategory[],
+    data?: any,
     id: string,
     multi: boolean
     field: ControllerRenderProps | any,
@@ -21,7 +20,7 @@ const SelectComponent: FC<SelectProps> = ({data, id, multi, field, errors}) => {
 
     const loadOptions = useCallback(
         (searchValue: string, callback: any) => {
-            const filteredOptions = data?.filter((option) =>
+            const filteredOptions = data?.filter((option : any) =>
                 option.name.toLowerCase().includes(searchValue.toLowerCase())
             )
 
@@ -46,10 +45,9 @@ const SelectComponent: FC<SelectProps> = ({data, id, multi, field, errors}) => {
                     loadOptions={loadOptions}
                     getOptionValue={value => value.name}
                     getOptionLabel={value => value.name}
-                    value={data?.find(c => c.name === value.name)}
+                    value={data?.find((c: any) => c.name === value.name)}
                     onChange={newValue => onChange?.(newValue)}
                 />
-                {/*{errors && <InputError message={errors}/>}*/}
             </div> : <SelectLoader/>}
         </>
     );
