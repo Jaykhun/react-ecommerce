@@ -17,13 +17,13 @@ export const countryApi = createApi({
             query: () => 'countries/',
             providesTags: ['Countries']
         }),
-        getSingleCountry: build.query<ICountry, string | undefined>({
+        getSingleCountry: build.query<ICountry, number | undefined>({
             query: (id) => `countries/${id}`,
             providesTags: ['Countries']
         }),
         addCountry: build.mutation<NewCountry, Partial<NewCountry>>({
             query: (country) => ({
-                url: 'countries',
+                url: 'countries/',
                 method: 'POST',
                 body: country,
                 headers: {

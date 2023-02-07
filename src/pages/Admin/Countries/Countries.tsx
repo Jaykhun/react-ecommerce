@@ -10,7 +10,7 @@ const Countries = () => {
 
     return (
         <div className="countries">
-            <CountriesForm />
+            <CountriesForm buttonValue='Добавить'/>
             <div className="countries__body">
                 {
                     isLoading ?
