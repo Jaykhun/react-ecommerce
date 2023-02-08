@@ -45,7 +45,7 @@ const UsersForm: FC<UsersFormPropsType> = ({ id, buttonValue }) => {
     const { onUserEditPopupClick } = useActions()
 
     const { data: countries } = useGetAllCountriesQuery()
-    const { data: user, isSuccess: userIsSuccess, isLoading: singleCountryIsLoading } =
+    const { data: user, isSuccess: userIsSuccess, isLoading: singleCountryIsLoading, error: countryError, isError: IsCountryError } =
         useGetSingleUserQuery(id, {
             skip: !id
         })
@@ -172,6 +172,9 @@ const UsersForm: FC<UsersFormPropsType> = ({ id, buttonValue }) => {
                                 <Select
                                     id={country_name}
                                     data={countries}
+                                    isLoading={singleCountryIsLoading}
+                                    isError={IsCountryError}
+                                    error={countryError}
                                     multi={false}
                                     field={field}
                                     errors={error}

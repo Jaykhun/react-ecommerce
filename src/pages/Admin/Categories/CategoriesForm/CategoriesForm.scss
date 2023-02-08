@@ -1,0 +1,15 @@
+.categories {
+  margin-top: 20px;
+  &__submit {
+    padding: 18px 26px;
+    border-radius: 6px;
+  }
+
+  &__name{
+    min-height: 110px;
+    text-transform: capitalize;
+  }
+
+  &__category{
+  }
+}

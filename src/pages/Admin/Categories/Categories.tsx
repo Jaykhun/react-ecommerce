@@ -8,7 +8,7 @@ const Categories = () => {
 
     return (
         <div className='categories'>
-            <CategoriesForm />
+            <CategoriesForm buttonValue='Добавить'/>
             <div className="categories__title title">Категории</div>
             <div className="categories__body">
                 {isLoading

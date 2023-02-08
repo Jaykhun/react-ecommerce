@@ -1,0 +1,26 @@
+import React from 'react';
+import {Popup} from "../../../../components/UI";
+import {CountriesForm} from "../../Countries";
+import {useActions} from "../../../../hooks/useActions";
+import {useTypedSelector} from "../../../../hooks/useTypedSelector";
+
+const CategoriesEdit = () => {
+    const {onCategoryEditModalOpen} = useActions()
+    const {isCategoryEditModalOpen, categoryId} = useTypedSelector(state => state.admin)
+
+    return (
+        <Popup isOpen={isCategoryEditModalOpen} onClose={onCategoryEditModalOpen}>
+            <div className="popup-edit">
+                <div className="popup-edit__inner">
+                    <div className="popup-edit__title">Изменить страну</div>
+                    <CountriesForm
+                        id={categoryId}
+                        buttonValue='Изменить'
+                    />
+                </div>
+            </div>
+        </Popup>
+    );
+};
+
+export default CategoriesEdit;

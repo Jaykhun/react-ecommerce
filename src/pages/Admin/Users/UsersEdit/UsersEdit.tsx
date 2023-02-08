@@ -7,7 +7,7 @@ import {UsersForm} from "../index";
 
 const UsersEdit = () => {
     const {onUserEditPopupClick} = useActions()
-    const {isUserEditModalOpen, userEdit} = useTypedSelector(state => state.admin)
+    const {isUserEditModalOpen, userId} = useTypedSelector(state => state.admin)
 
     return (
         <Popup isOpen={isUserEditModalOpen} onClose={onUserEditPopupClick}>
@@ -15,7 +15,7 @@ const UsersEdit = () => {
                 <div className="popup-edit__inner">
                     <div className="popup-edit__title">Изменить данные</div>
                     <UsersForm
-                        id={userEdit}
+                        id={userId}
                         buttonValue='Изменить'
                     />
                 </div>

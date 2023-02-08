@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="aeb7fb1c-63e7-4c2d-bca3-f65942e640de" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/pages/Admin/Categories/CategoriesEdit/CategoriesEdit.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/Admin/Categories/CategoriesEdit/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/UI/Select/SelectComponent.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/UI/Select/SelectComponent.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Admin/Categories/Categories.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Admin/Categories/Categories.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Admin/Categories/CategoriesForm/CategoriesForm.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Admin/Categories/CategoriesForm/CategoriesForm.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Admin/Categories/CategoriesForm/CategoriesForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Admin/Categories/CategoriesForm/CategoriesForm.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Admin/Products/ProductsForm/ProductsForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Admin/Products/ProductsForm/ProductsForm.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Admin/Users/UsersEdit/UsersEdit.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Admin/Users/UsersEdit/UsersEdit.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Admin/Users/UsersForm/UsersForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Admin/Users/UsersForm/UsersForm.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/category/category.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/category/category.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/reducers/adminSlice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/reducers/adminSlice.ts" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2Jzy1CDjdPgi011Fuu2KEkP48GP" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "D:/react-projects/react-ecommerce/src/assets",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.standard": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.standard": "",
+    "nodejs_interpreter_path": "node",
+    "nodejs_package_manager_path": "npm",
+    "ts.external.directory.path": "D:\\react-projects\\react-ecommerce\\node_modules\\typescript\\lib",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\react-projects\react-ecommerce\src\assets" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\react-projects\react-ecommerce\src\pages\Home" />
+      <recent name="D:\react-projects\react-ecommerce\src\pages\Admin\Products" />
+      <recent name="D:\react-projects\react-ecommerce\src\store\reducers" />
+      <recent name="D:\react-projects\react-ecommerce\src\components\UI" />
+      <recent name="D:\react-projects\react-ecommerce\src\components\Popup" />
+    </key>
+  </component>
+  <component name="RunManager" selected="npm.npm start">
+    <configuration name="Debug Application" type="JavascriptDebugType" uri="http://localhost:3000">
+      <method v="2" />
+    </configuration>
+    <configuration name="npm start" type="js.build_tools.npm">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="start" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="aeb7fb1c-63e7-4c2d-bca3-f65942e640de" name="Changes" comment="" />
+      <created>1673094989880</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1673094989880</updated>
+      <workItem from="1673094991339" duration="4358000" />
+      <workItem from="1673110760338" duration="7590000" />
+      <workItem from="1673195649239" duration="5527000" />
+      <workItem from="1673223582227" duration="7124000" />
+      <workItem from="1673261466160" duration="4528000" />
+      <workItem from="1673283482389" duration="3995000" />
+      <workItem from="1673354582793" duration="8084000" />
+      <workItem from="1673372242863" duration="5413000" />
+      <workItem from="1673420641152" duration="5088000" />
+      <workItem from="1673457497440" duration="10330000" />
+      <workItem from="1673540286266" duration="1411000" />
+      <workItem from="1673542777858" duration="4304000" />
+      <workItem from="1673553621082" duration="5401000" />
+      <workItem from="1673628109055" duration="7214000" />
+      <workItem from="1673636172057" duration="169000" />
+      <workItem from="1673696041895" duration="14344000" />
+      <workItem from="1673786970323" duration="5921000" />
+      <workItem from="1673800891287" duration="7114000" />
+      <workItem from="1673866240955" duration="4651000" />
+      <workItem from="1673878966710" duration="11245000" />
+      <workItem from="1673946766622" duration="604000" />
+      <workItem from="1673952974706" duration="357000" />
+      <workItem from="1673958353980" duration="6862000" />
+      <workItem from="1674039050015" duration="8736000" />
+      <workItem from="1674055249817" duration="4710000" />
+      <workItem from="1674142106754" duration="8993000" />
+      <workItem from="1674216271804" duration="4053000" />
+      <workItem from="1674221702982" duration="9583000" />
+      <workItem from="1674303319160" duration="13696000" />
+      <workItem from="1674388669264" duration="8701000" />
+      <workItem from="1674474288167" duration="9767000" />
+      <workItem from="1674494073062" duration="4694000" />
+      <workItem from="1674561583686" duration="7299000" />
+      <workItem from="1674656081448" duration="3122000" />
+      <workItem from="1674667047324" duration="1718000" />
+      <workItem from="1674751684540" duration="6712000" />
+      <workItem from="1674801603443" duration="5157000" />
+      <workItem from="1674915295959" duration="12151000" />
+      <workItem from="1674976567093" duration="11663000" />
+      <workItem from="1675015304993" duration="579000" />
+      <workItem from="1675088363005" duration="9771000" />
+      <workItem from="1675179337041" duration="7197000" />
+      <workItem from="1675255629159" duration="12026000" />
+      <workItem from="1675347554712" duration="5247000" />
+      <workItem from="1675363149101" duration="799000" />
+      <workItem from="1675433112438" duration="8642000" />
+      <workItem from="1675537414330" duration="7216000" />
+      <workItem from="1675597161173" duration="4749000" />
+      <workItem from="1675612227605" duration="5639000" />
+      <workItem from="1675773793865" duration="9028000" />
+      <workItem from="1675794751336" duration="805000" />
+      <workItem from="1675873296927" duration="276000" />
+      <workItem from="1675873581148" duration="3145000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

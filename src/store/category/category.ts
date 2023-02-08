@@ -17,7 +17,7 @@ export const categoryApi = createApi({
             query: () => 'categories/',
             providesTags: ['Categories']
         }),
-        getSingleCategory: build.query<ICategory, number>({
+        getSingleCategory: build.query<ICategory, number | undefined>({
             query: (id) => `categories/${id}`,
             providesTags: ['Categories']
         }),
