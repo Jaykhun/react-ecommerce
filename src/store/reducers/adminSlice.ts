@@ -8,7 +8,7 @@ export interface adminSliceTypes {
     isCountryEditModalOpen: boolean,
     productId: number,
     countryId: number,
-    userEdit: IUser
+    userEdit: number
 }
 
 const initialState: adminSliceTypes = {
@@ -18,7 +18,7 @@ const initialState: adminSliceTypes = {
     isCountryEditModalOpen: false,
     productId: 0,
     countryId: 0,
-    userEdit: {} as IUser
+    userEdit: 0
 }
 
 const adminSlice = createSlice({
@@ -49,7 +49,7 @@ const adminSlice = createSlice({
             state.countryId = action.payload
         },
 
-        userEdit: (state, action: PayloadAction<IUser>) => {
+        userEdit: (state, action: PayloadAction<number>) => {
             state.userEdit = action.payload
         }
     }

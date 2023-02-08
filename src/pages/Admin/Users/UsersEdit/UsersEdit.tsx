@@ -15,7 +15,7 @@ const UsersEdit = () => {
                 <div className="popup-edit__inner">
                     <div className="popup-edit__title">Изменить данные</div>
                     <UsersForm
-                        user={userEdit}
+                        id={userEdit}
                         buttonValue='Изменить'
                     />
                 </div>

@@ -2,10 +2,10 @@ export interface IUser {
     username: string
     password: string
     is_admin: boolean
-    id?: number
+    id: number
     user_detail: UserDetail
-    phone_numbers: PhoneNumber
-    addresses: Address
+    phone_numbers: PhoneNumber[]
+    addresses: Address[]
 }
 
 export interface UserDetail {

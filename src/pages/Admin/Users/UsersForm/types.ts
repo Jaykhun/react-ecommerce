@@ -1,7 +1,7 @@
 import {IUser} from "../../../../store/user/userTypes";
 
 export interface UsersFormPropsType {
-    user?: IUser,
+    id?: number,
     buttonValue: string
 }
 

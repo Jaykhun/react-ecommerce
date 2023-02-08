@@ -1,4 +1,4 @@
-interface ChildrenCategory {
+export interface ChildrenCategory {
     name: string,
     id: number
 }

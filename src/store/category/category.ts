@@ -1,5 +1,5 @@
-import {createApi, fetchBaseQuery} from "@reduxjs/toolkit/query/react";
-import {ICategory} from "./categoryTypes";
+import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+import { ICategory } from "./categoryTypes";
 
 const url = 'https://ecommerce-h6sh.onrender.com/'
 
@@ -16,8 +16,44 @@ export const categoryApi = createApi({
         getAllCategories: build.query<ICategory[], void>({
             query: () => 'categories/',
             providesTags: ['Categories']
+        }),
+        getSingleCategory: build.query<ICategory, number>({
+            query: (id) => `categories/${id}`,
+            providesTags: ['Categories']
+        }),
+        addCategory: build.mutation<ICategory, Partial<ICategory>>({
+            query: (category) => ({
+                url: 'categories/',
+                method: 'POST',
+                body: category,
+                headers: {
+                    'Content-type': 'application/json: charset=UTF-8'
+                }
+            })
+        }),
+        updateCategory: build.mutation<ICategory, Partial<ICategory>>({
+            query: ({ id, ...rest }) => ({
+                url: `categories/${id}`,
+                method: 'PUT',
+                body: rest,
+                headers: {
+                    'Content-type': 'application/json; charset=UTF-8',
+                }
+            })
+        }),
+        deleteCountry: build.mutation<ICategory, number>({
+            query: (id) => ({
+                url: `categories/${id}`,
+                method: 'DELETE',
+                headers: {
+                    'Content-type': 'application/json; charset=UTF-8',
+                }
+            })
         })
     })
 })
 
-export const {useGetAllCategoriesQuery} = categoryApi
+export const { useGetAllCategoriesQuery, useGetSingleCategoryQuery,
+    useAddCategoryMutation, useDeleteCountryMutation,
+    useUpdateCategoryMutation
+} = categoryApi

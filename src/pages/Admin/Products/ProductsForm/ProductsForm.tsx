@@ -1,4 +1,4 @@
-import { FC, useId } from "react";
+import { FC, useId, useCallback } from "react";
 import "./ProductForm.scss";
 import { Controller, SubmitHandler, useForm } from "react-hook-form";
 import { ErrorMessage } from "@hookform/error-message/dist";
@@ -66,7 +66,7 @@ const ProductsForm: FC<ProductsFormPropsType> = ({ buttonValue, id }) => {
         control
     } = useForm<IProduct>({ mode: 'onBlur', defaultValues: initialVales })
 
-    const onSubmit: SubmitHandler<IProduct> = (data) => {
+    const onSubmit: SubmitHandler<IProduct> = useCallback((data) => {
         console.log(data, 'data')
 
         if (product) {
@@ -76,7 +76,7 @@ const ProductsForm: FC<ProductsFormPropsType> = ({ buttonValue, id }) => {
             addProduct(data)
             return addIsSuccess ? reset() : ''
         }
-    }
+    }, [])
 
     return (
         <>
