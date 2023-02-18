@@ -17,6 +17,10 @@
       text-transform: capitalize;
     }
 
+    &__name{
+      margin-bottom: 20px;
+    }
+
     &__top {
       @include flex(space-between, normal, column);
       gap: 25px;

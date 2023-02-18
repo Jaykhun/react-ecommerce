@@ -1,4 +1,4 @@
-import React, {FC, useCallback, useEffect} from 'react';
+import React, {FC} from 'react';
 import "./CountriesItem.scss";
 import {ICountry} from "../../../../store/country/countryTypes";
 import {useDeleteCountryMutation} from '../../../../store/country/countryApi';
@@ -23,8 +23,6 @@ const CountriesItem: FC<CountriesItemPropsType> = ({country}) => {
         onCountryEditPopupClick()
         countryEdit(id)
     }
-
-    // console.log(isError, isSuccess);
 
     return (
         <>

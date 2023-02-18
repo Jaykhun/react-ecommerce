@@ -2,17 +2,26 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="aeb7fb1c-63e7-4c2d-bca3-f65942e640de" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/pages/Admin/Categories/CategoriesEdit/CategoriesEdit.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/Admin/Categories/CategoriesEdit/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/UI/Popup/Popup.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/UI/Popup/Popup.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/UI/Select/SelectComponent.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/UI/Select/SelectComponent.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Admin/Categories/Categories.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Admin/Categories/Categories.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Admin/Categories/CategoriesForm/CategoriesForm.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Admin/Categories/CategoriesForm/CategoriesForm.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Admin/Categories/CategoriesEdit/CategoriesEdit.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Admin/Categories/CategoriesEdit/CategoriesEdit.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/Admin/Categories/CategoriesForm/CategoriesForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Admin/Categories/CategoriesForm/CategoriesForm.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Admin/Categories/CategoriesItem/CategoriesItem.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Admin/Categories/CategoriesItem/CategoriesItem.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Admin/Categories/CategoriesItem/CategoriesItem.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Admin/Categories/CategoriesItem/CategoriesItem.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Admin/Countries/CountriesForm/CountriesForm.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Admin/Countries/CountriesForm/CountriesForm.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Admin/Countries/CountriesForm/CountriesForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Admin/Countries/CountriesForm/CountriesForm.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Admin/Countries/CountriesItem/CountriesItem.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Admin/Countries/CountriesItem/CountriesItem.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Admin/Products/ProductsEdit/ProductsEdit.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Admin/Products/ProductsEdit/ProductsEdit.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/Admin/Products/ProductsForm/ProductsForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Admin/Products/ProductsForm/ProductsForm.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Admin/Users/UsersEdit/UsersEdit.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Admin/Users/UsersEdit/UsersEdit.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Admin/Users/UsersForm/UsersForm.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Admin/Users/UsersForm/UsersForm.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/Admin/Users/UsersForm/UsersForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Admin/Users/UsersForm/UsersForm.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/store/category/category.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/category/category.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/category/categoryTypes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/category/categoryTypes.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/country/countryApi.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/country/countryApi.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/product/productApi.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/product/productApi.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/store/reducers/adminSlice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/reducers/adminSlice.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/user/userApi.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/user/userApi.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,24 +42,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "D:/react-projects/react-ecommerce/src/assets",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.standard": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.standard": "",
-    "nodejs_interpreter_path": "node",
-    "nodejs_package_manager_path": "npm",
-    "ts.external.directory.path": "D:\\react-projects\\react-ecommerce\\node_modules\\typescript\\lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/react-projects/react-ecommerce/src/assets&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.standard&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.standard&quot;: &quot;&quot;,
+    &quot;nodejs_interpreter_path&quot;: &quot;node&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;D:\\react-projects\\react-ecommerce\\node_modules\\typescript\\lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\react-projects\react-ecommerce\src\assets" />
@@ -138,7 +147,13 @@
       <workItem from="1675773793865" duration="9028000" />
       <workItem from="1675794751336" duration="805000" />
       <workItem from="1675873296927" duration="276000" />
-      <workItem from="1675873581148" duration="3145000" />
+      <workItem from="1675873581148" duration="3286000" />
+      <workItem from="1675947468285" duration="935000" />
+      <workItem from="1676119132077" duration="1825000" />
+      <workItem from="1676217729288" duration="1670000" />
+      <workItem from="1676482570661" duration="1316000" />
+      <workItem from="1676546321248" duration="5604000" />
+      <workItem from="1676742867563" duration="5164000" />
     </task>
     <servers />
   </component>

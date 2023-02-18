@@ -1,7 +1,7 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { ICountry, NewCountry } from "./countryTypes";
 
-const url = 'https://ecommerce-h6sh.onrender.com'
+const url = 'https://ecommerce.icedev.uz/'
 
 export const countryApi = createApi({
     reducerPath: 'countryApi',
@@ -32,7 +32,7 @@ export const countryApi = createApi({
             }),
             invalidatesTags: ['Countries']
         }),
-        updateCountry: build.mutation<NewCountry, Partial<ICountry>>({
+        updateCountry: build.mutation<ICountry, Partial<ICountry>>({
             query: ({ id, ...rest }) => ({
                 url: `countries/${id}`,
                 method: 'PUT',

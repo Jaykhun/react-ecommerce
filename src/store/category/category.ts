@@ -1,7 +1,7 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { ICategory } from "./categoryTypes";
 
-const url = 'https://ecommerce-h6sh.onrender.com/'
+const url = 'https://ecommerce.icedev.uz/'
 
 export const categoryApi = createApi({
     reducerPath: 'categoryApi',
@@ -29,7 +29,8 @@ export const categoryApi = createApi({
                 headers: {
                     'Content-type': 'application/json: charset=UTF-8'
                 }
-            })
+            }),
+            invalidatesTags: ['Categories']
         }),
         updateCategory: build.mutation<ICategory, Partial<ICategory>>({
             query: ({ id, ...rest }) => ({
@@ -39,21 +40,23 @@ export const categoryApi = createApi({
                 headers: {
                     'Content-type': 'application/json; charset=UTF-8',
                 }
-            })
+            }),
+            invalidatesTags: ['Categories']
         }),
-        deleteCountry: build.mutation<ICategory, number>({
+        deleteCategory: build.mutation<ICategory, number>({
             query: (id) => ({
                 url: `categories/${id}`,
                 method: 'DELETE',
                 headers: {
                     'Content-type': 'application/json; charset=UTF-8',
                 }
-            })
+            }),
+            invalidatesTags: ['Categories']
         })
     })
 })
 
 export const { useGetAllCategoriesQuery, useGetSingleCategoryQuery,
-    useAddCategoryMutation, useDeleteCountryMutation,
+    useAddCategoryMutation, useDeleteCategoryMutation,
     useUpdateCategoryMutation
 } = categoryApi

@@ -5,11 +5,11 @@ import {useActions} from "../../../../hooks/useActions";
 import {useTypedSelector} from "../../../../hooks/useTypedSelector";
 
 const CategoriesEdit = () => {
-    const {onCategoryEditModalOpen} = useActions()
+    const {onCategoryEditPopupClick} = useActions()
     const {isCategoryEditModalOpen, categoryId} = useTypedSelector(state => state.admin)
 
     return (
-        <Popup isOpen={isCategoryEditModalOpen} onClose={onCategoryEditModalOpen}>
+        <Popup isOpen={isCategoryEditModalOpen} onClose={onCategoryEditPopupClick}>
             <div className="popup-edit">
                 <div className="popup-edit__inner">
                     <div className="popup-edit__title">Изменить страну</div>

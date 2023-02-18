@@ -9,7 +9,7 @@ export interface adminSliceTypes {
     productId: number,
     countryId: number,
     userId: number,
-    categoryId: number
+    categoryId: number,
 }
 
 const initialState: adminSliceTypes = {
@@ -44,7 +44,7 @@ const adminSlice = createSlice({
             state.isCountryEditModalOpen = !state.isCountryEditModalOpen
         },
 
-        onCategoryEditModalOpen: (state) => {
+        onCategoryEditPopupClick: (state) => {
             state.isCategoryEditModalOpen = !state.isCategoryEditModalOpen
         },
 

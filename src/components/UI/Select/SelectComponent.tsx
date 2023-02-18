@@ -5,6 +5,7 @@ import {ControllerRenderProps, FieldError} from "react-hook-form";
 import SelectLoader from "./SelectLoader";
 import "./SelectComponent.scss";
 import {Error} from "../index";
+import {log} from "util";
 
 interface SelectProps {
     isLoading: boolean
@@ -14,10 +15,11 @@ interface SelectProps {
     id: string,
     multi: boolean
     field: ControllerRenderProps | any,
-    errors?: FieldError
+    errors?: FieldError,
+    labelText: string
 }
 
-const SelectComponent: FC<SelectProps> = ({data, id, multi, field, isLoading, error, isError}) => {
+const SelectComponent: FC<SelectProps> = ({data, id, multi, field, isLoading, error, isError, labelText}) => {
     const animatedComponents = makeAnimated()
 
     const {name, onBlur, onChange, value} = field
@@ -38,7 +40,7 @@ const SelectComponent: FC<SelectProps> = ({data, id, multi, field, isLoading, er
                 : isError
                     ? <Error error={error}/>
                     : <div className="select">
-                        <label htmlFor={name} className="custom-select__label">Выберите категории</label>
+                        <label htmlFor={name} className="custom-select__label">Выберите {labelText}</label>
                         <AsyncSelect
                             id={id}
                             name={name}
@@ -53,7 +55,7 @@ const SelectComponent: FC<SelectProps> = ({data, id, multi, field, isLoading, er
                             loadOptions={loadOptions}
                             getOptionValue={value => value.name}
                             getOptionLabel={value => value.name}
-                            value={data?.find((c: any) => c.name === value.name)}
+                            value={data?.find((c: any) => c.name === value)}
                             onChange={newValue => onChange?.(newValue)}
                         />
                     </div>

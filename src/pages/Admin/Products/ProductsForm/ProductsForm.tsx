@@ -20,7 +20,13 @@ interface ProductsFormPropsType {
 const ProductsForm: FC<ProductsFormPropsType> = ({buttonValue, id}) => {
     const {onProductEditPopupClick} = useActions()
     const {data} = useGetAllCategoriesQuery()
-    const {data: product, isSuccess, isLoading: singProductIsLoading, error: singleProductError, isError: isProductError} =
+    const {
+        data: product,
+        isSuccess,
+        isLoading: singProductIsLoading,
+        error: singleProductError,
+        isError: isProductError
+    } =
         useGetSingleProductQuery(id, {
             skip: !id,
         })
@@ -73,8 +79,9 @@ const ProductsForm: FC<ProductsFormPropsType> = ({buttonValue, id}) => {
             return updateIsSuccess ? onProductEditPopupClick() : ''
         } else {
             addProduct(data)
-            return addIsSuccess ? reset() : ''
         }
+
+        reset()
     }, [])
 
     return (
@@ -168,6 +175,7 @@ const ProductsForm: FC<ProductsFormPropsType> = ({buttonValue, id}) => {
                                         multi={false}
                                         field={field}
                                         errors={error}
+                                        labelText='категории'
                                     />
                                 }
                             />

@@ -1,0 +1,21 @@
+@import "../../../../styles/mixin";
+
+.category {
+  &__item {
+    @include flex(space-between, center);
+    gap: 20px;
+    min-height: 70px;
+    border-bottom: 1px solid rgba(218, 218, 218, 0.4);
+  }
+
+  &__action {
+    @include flex(space-between, center);
+    gap: 20px;
+  }
+
+  &__name {
+    @include fontArguments($textfont);
+    font-size: 15px;
+    text-transform: capitalize;
+  }
+}

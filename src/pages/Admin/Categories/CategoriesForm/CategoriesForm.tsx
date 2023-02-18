@@ -1,4 +1,4 @@
-import {FC, useCallback, useId} from "react"
+import {FC, useCallback, useId, useState} from "react"
 import {
     useAddCategoryMutation,
     useGetAllCategoriesQuery, useGetSingleCategoryQuery,
@@ -7,7 +7,7 @@ import {
 import {Controller, SubmitHandler, useForm} from "react-hook-form";
 import {ErrorMessage} from "@hookform/error-message/dist";
 import {ICategory} from "../../../../store/category/categoryTypes";
-import {Select, InputError} from "../../../../components/UI";
+import {Select, InputError, ActionLoader} from "../../../../components/UI";
 import "./CategoriesForm.scss"
 
 interface CategoriesFormPropsType {
@@ -17,20 +17,24 @@ interface CategoriesFormPropsType {
 
 const CategoriesForm: FC<CategoriesFormPropsType> = ({buttonValue, id}) => {
     const {data: categories} = useGetAllCategoriesQuery()
-    const {data: singleCategory, isSuccess, isLoading: categoryLoading, error: categoryError, isError: IsCategoryError} = useGetSingleCategoryQuery(id, {skip: !id})
+    const {
+        data: singleCategory,
+        isSuccess,
+        isLoading: categoryLoading,
+        error: categoryError,
+        isError: IsCategoryError
+    } = useGetSingleCategoryQuery(id, {skip: !id})
     const [addCategory] = useAddCategoryMutation()
     const [updateCategory] = useUpdateCategoryMutation()
 
     const name = useId()
     const category = useId()
+    const [isAction, setAction] = useState(false)
 
     const initialVales = {
         name: isSuccess ? singleCategory.name : '',
-        children_category: isSuccess ? singleCategory.children_category : [],
-        parent_category: isSuccess ? singleCategory.parent_category : ''
+        parent_category_id: isSuccess ? singleCategory.parent_category_id : null
     }
-
-    console.log(categoryError)
 
     const {
         register,
@@ -50,59 +54,55 @@ const CategoriesForm: FC<CategoriesFormPropsType> = ({buttonValue, id}) => {
     }, [])
 
     return (
-        <form className="categories__form" onSubmit={handleSubmit(onSubmit)}>
-            <div className="categories__name">
-                <label htmlFor={name} className="input-text">название категории</label>
-                <input type="text" id={name}
-                       className="input-style"
-                       {...register(
-                           'name',
-                           {
-                               required: 'Поле обязательно к заполнению',
-                               minLength: {value: 5, message: 'Минимум 5 символов'},
-                               maxLength: {value: 30, message: 'Максимум 30 символов'}
-                           }
-                       )}
-                />
-                <ErrorMessage name={'name'}
-                              errors={errors}
-                              render={({message}) => <InputError message={message}/>}
-                />
-            </div>
+        <>
+            <form className="categories__form" onSubmit={handleSubmit(onSubmit)}>
+                <div className="categories__name">
+                    <label htmlFor={name} className="input-text">название категории</label>
+                    <input type="text" id={name}
+                           className="input-style"
+                           {...register(
+                               'name',
+                               {
+                                   required: 'Поле обязательно к заполнению',
+                                   minLength: {value: 5, message: 'Минимум 5 символов'},
+                                   maxLength: {value: 30, message: 'Максимум 30 символов'}
+                               }
+                           )}
+                    />
+                    <ErrorMessage name={'name'}
+                                  errors={errors}
+                                  render={({message}) => <InputError message={message}/>}
+                    />
+                </div>
 
-            <div className="categories__category">
-                <Controller
-                    control={control}
-                    name={'children_category'}
-                    rules={
-                        {required: 'Поле обязательно к заполнению'}
-                    }
-                    render={({field, fieldState: {error}}) =>
-                        <Select
-                            id={category}
-                            data={categories}
-                            isLoading={categoryLoading}
-                            isError={IsCategoryError}
-                            error={categoryError}
-                            multi={false}
-                            field={field}
-                            errors={error}
-                        />
-                    }
-                />
+                <div className="categories__category">
+                    <Controller
+                        control={control}
+                        name={'parent_category_id'}
+                        render={({field, fieldState: {error}}) =>
+                            <Select
+                                id={category}
+                                data={categories}
+                                isLoading={categoryLoading}
+                                isError={IsCategoryError}
+                                error={categoryError}
+                                multi={false}
+                                field={field}
+                                errors={error}
+                                labelText='категории'
+                            />
+                        }
+                    />
+                </div>
 
-                <ErrorMessage name={'children_category'}
-                              errors={errors}
-                              render={({message}) => <InputError message={message}/>}
-                />
-            </div>
-
-            {singleCategory ? <button disabled={!isDirty}
-                                      className={`btn ${isDirty ? 'r-btn w-opacity' : 'error-btn'} form__submit`}>
-                    {buttonValue}</button>
-                : <button className={`btn r-btn w-opacity form__submit categories__submit`}>{buttonValue}</button>
-            }
-        </form>
+                {singleCategory ? <button disabled={!isDirty}
+                                          className={`btn ${isDirty ? 'r-btn w-opacity' : 'error-btn'} form__submit`}>
+                        {buttonValue}</button>
+                    : <button className={`btn r-btn w-opacity form__submit categories__submit`}>{buttonValue}</button>
+                }
+            </form>
+            {isAction && <ActionLoader/>}
+        </>
     )
 }
 

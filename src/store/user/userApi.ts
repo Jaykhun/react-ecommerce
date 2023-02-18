@@ -1,7 +1,7 @@
 import {createApi, fetchBaseQuery} from "@reduxjs/toolkit/query/react";
 import {IUser} from "./userTypes";
 
-const url = 'https://ecommerce-h6sh.onrender.com'
+const url = 'https://ecommerce.icedev.uz/'
 
 export const userApi = createApi({
     reducerPath: 'userApi',
