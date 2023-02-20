@@ -3,7 +3,7 @@ import "./ProductForm.scss";
 import {Controller, SubmitHandler, useForm} from "react-hook-form";
 import {ErrorMessage} from "@hookform/error-message/dist";
 import {ActionAlert, ActionLoader, InputError, Select} from "../../../../components/UI";
-import {useGetAllCategoriesQuery} from "../../../../store/category/category";
+import {useGetAllCategoriesQuery} from "../../../../store/category/categoryApi";
 import {IProduct} from "../../../../store/product/productTypes";
 import {
     useUpdateProductMutation,

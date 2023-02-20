@@ -1,6 +1,6 @@
-import { useGetAllCategoriesQuery } from '../../../store/category/category';
+import { useGetAllCategoriesQuery } from '../../../store/category/categoryApi';
 import { Error, Message } from '../../../components/UI';
-import { CategoriesForm, CategoriesItem } from './index';
+import { CategoriesForm, CategoriesItem, CategoriesLoader } from './index';
 import "./Categories.scss";
 
 const Categories = () => {
@@ -12,12 +12,12 @@ const Categories = () => {
             <div className="categories__title title">Категории</div>
             <div className="categories__body">
                 {isLoading
-                    ? <p>Loading</p>
+                    ? <CategoriesLoader/>
                     : isError
                         ? <Error error={error} />
                         : categories?.length === 0
                             ? <Message value='нет категории' />
-                            : categories?.map(category => <CategoriesItem category={category} />)
+                            : categories?.map(category => <CategoriesItem category={category} key={category.id}/>)
                 }
             </div>
         </div>

@@ -1,4 +1,5 @@
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
+import {log} from "util";
 
 export interface adminSliceTypes {
     isAdminMenuOpen: boolean,

@@ -4,6 +4,7 @@ import {ProductsEdit} from "../pages/Admin/Products";
 import {UsersEdit} from "../pages/Admin/Users";
 import {Sidebar, Topbar} from "../pages/Admin";
 import {CountriesEdit} from "../pages/Admin/Countries";
+import {CategoriesEdit} from "../pages/Admin/Categories";
 
 const Dashboard = () => {
     const {isAdminMenuOpen} = useTypedSelector(state => state.admin)
@@ -24,6 +25,7 @@ const Dashboard = () => {
             <ProductsEdit/>
             <UsersEdit/>
             <CountriesEdit/>
+            <CategoriesEdit/>
         </>
     );
 };

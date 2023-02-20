@@ -3,7 +3,7 @@ import {
     useAddCategoryMutation,
     useGetAllCategoriesQuery, useGetSingleCategoryQuery,
     useUpdateCategoryMutation
-} from "../../../../store/category/category"
+} from "../../../../store/category/categoryApi"
 import {Controller, SubmitHandler, useForm} from "react-hook-form";
 import {ErrorMessage} from "@hookform/error-message/dist";
 import {ICategory} from "../../../../store/category/categoryTypes";

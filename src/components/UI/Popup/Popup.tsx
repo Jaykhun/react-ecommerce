@@ -9,7 +9,6 @@ interface popupPropsType {
 }
 
 const Popup: FC<popupPropsType> = ({isOpen, onClose, children}) => {
-    console.log(isOpen)
     return (
         <CSSTransition
             in={isOpen}

@@ -3,6 +3,7 @@ import {Popup} from "../../../../components/UI";
 import {CountriesForm} from "../../Countries";
 import {useActions} from "../../../../hooks/useActions";
 import {useTypedSelector} from "../../../../hooks/useTypedSelector";
+import {CategoriesForm} from "../index";
 
 const CategoriesEdit = () => {
     const {onCategoryEditPopupClick} = useActions()
@@ -12,8 +13,8 @@ const CategoriesEdit = () => {
         <Popup isOpen={isCategoryEditModalOpen} onClose={onCategoryEditPopupClick}>
             <div className="popup-edit">
                 <div className="popup-edit__inner">
-                    <div className="popup-edit__title">Изменить страну</div>
-                    <CountriesForm
+                    <div className="popup-edit__title">Изменить категорию</div>
+                    <CategoriesForm
                         id={categoryId}
                         buttonValue='Изменить'
                     />
