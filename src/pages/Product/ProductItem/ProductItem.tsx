@@ -11,8 +11,6 @@ interface ProductItemPropsType {
 const ProductItem: FC<ProductItemPropsType> = ({product}) => {
     const {name, images, category, id, price, discount, quantity, description} = product
 
-    console.log(discount)
-
     return (
         <div className="item__row">
             <Link to={`product/${id}`} className="item__top">

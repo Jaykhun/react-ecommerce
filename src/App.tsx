@@ -5,7 +5,8 @@ import {Admin, Products, Users, Orders, Countries, Categories} from "./pages/Adm
 import {Home} from "./pages/Home";
 import Cart from "./pages/Cart";
 import Register from "./pages/Register";
-import {ProductDetails} from "./pages/Product";
+import {Product, ProductDetails} from "./pages/Product";
+import NotFound from "./pages/NotFound";
 
 const App = () => {
     return (
@@ -14,8 +15,14 @@ const App = () => {
                 <Route path="/" element={<Layout/>}>
                     <Route index element={<Home/>}/>
                     <Route path="register" element={<Register/>}/>
-                    <Route path="product" element={<ProductDetails/>}/>
-                    <Route path="product/:id" element={<ProductDetails/>}/>
+                    <Route path="*" element={<NotFound/>}/>
+                </Route>
+
+                <Route path="product" element={<Layout/>}>
+                    <Route index element={<Product/>}/>
+                    <Route path=":id" element={<ProductDetails/>}/>
+                    <Route path=":categories" element={<Product/>}/>
+                    <Route path="*" element={<NotFound/>}/>
                 </Route>
 
                 <Route path="/" element={<LayoutWithoutSidebar/>}>
@@ -30,6 +37,8 @@ const App = () => {
                     <Route path="countries" element={<Countries/>}/>
                     <Route path="categories" element={<Categories/>}/>
                 </Route>
+
+                <Route path="*" element={<NotFound/>}/>
             </Routes>
         </BrowserRouter>
     );

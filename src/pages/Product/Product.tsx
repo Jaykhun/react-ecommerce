@@ -28,11 +28,9 @@ const Product = () => {
                 modules={[Navigation, Pagination, Mousewheel, Keyboard]}
                 className="productSlider"
                 breakpoints={{
-                    // when window width is >= 640px
                     640: {
                         slidesPerView: 2,
                     },
-                    // when window width is >= 768px
                     768: {
                         slidesPerView: 3,
                     }

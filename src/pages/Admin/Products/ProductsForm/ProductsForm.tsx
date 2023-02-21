@@ -261,7 +261,7 @@ const ProductsForm: FC<ProductsFormPropsType> = ({buttonValue, id}) => {
             {updateIsLoading && <ActionLoader/>}
             {singProductIsLoading && <ActionLoader/>}
             {addIsError && <ActionAlert message={'Error'} error={addError}/>}
-            {updateIsError && <ActionAlert message={'Error on update'} error={updateError}/>}
+            {updateIsError && <ActionAlert message={'NotFound on update'} error={updateError}/>}
             {addIsSuccess && <ActionAlert message={'Success'} success={addIsSuccess}/>}
             {updateIsSuccess && <ActionAlert message={'Success'} success={updateIsSuccess}/>}
         </>

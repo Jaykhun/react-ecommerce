@@ -34,7 +34,7 @@ const CountriesItem: FC<CountriesItemPropsType> = ({country}) => {
                 </div>
             </div>
             {isLoading && <ActionLoader/>}
-            {isError && <ActionAlert message={'Error on Delete'} error={error}/>}
+            {isError && <ActionAlert message={'NotFound on Delete'} error={error}/>}
             {isSuccess && <ActionAlert message={'Deleted Successfully'} success={true}/>}
         </>
     );

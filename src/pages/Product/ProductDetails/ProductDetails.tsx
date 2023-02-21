@@ -15,9 +15,6 @@ import "./ProductDetails.scss"
 
 const ProductDetails = () => {
     const {id} = useParams()
-    window.scrollTo(0, 0);
-
-    const location = useLocation()
 
     const {
         name,
@@ -108,17 +105,6 @@ const ProductDetails = () => {
                                 </div>
                             </div>
                             <div className="product__slider">
-                                {/*<Swiper*/}
-                                {/*    pagination={{dynamicBullets: true}}*/}
-                                {/*    modules={[Pagination]}*/}
-                                {/*    className="productSwiper"*/}
-                                {/*>*/}
-                                {/*    {images?.map(pImage =>*/}
-                                {/*        <SwiperSlide key={keyId()}>*/}
-                                {/*            <img src={pImage.image_path} alt={name}/>*/}
-                                {/*        </SwiperSlide>*/}
-                                {/*    )}*/}
-                                {/*</Swiper>*/}
                                 {images?.map(pImage =>
                                     <div className="product__img" key={keyId()}>
                                         <img src={pImage.image_path} alt={name}/>
@@ -132,11 +118,11 @@ const ProductDetails = () => {
 
                 <div className="product__footer">
                     <div className="product__navigation">
-                        <Link to={`${parseInt(id as string) - 1}`} className="product__previous">
+                        <Link to={{pathname: `/product/${parseInt(id as string) - 1}`}} className="product__previous">
                             Предыдущий
                         </Link>
 
-                        <Link to={`product/${parseInt(id as string) + 1}`} className="product__next">
+                        <Link to={{pathname: `/product/${parseInt(id as string) + 1}`}} className="product__next">
                             Следующий
                         </Link>
                     </div>

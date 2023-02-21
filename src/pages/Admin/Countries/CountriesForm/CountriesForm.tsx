@@ -96,7 +96,7 @@ const CountriesForm: FC<CountriesFormPropsType> = ({id, buttonValue}) => {
                 }
             </form>
             {isAction && <ActionLoader/>}
-            {/*{error &&  <ActionAlert message={'Error'} error={error}/>}*/}
+            {/*{error &&  <ActionAlert message={'NotFound'} error={error}/>}*/}
             {/*{isSuccess && <ActionAlert message={'Success'} success={isSuccess}/>}*/}
         </>
     );
