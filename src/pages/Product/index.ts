@@ -1,5 +1,6 @@
 import Product from "./Product";
-import ProductDetails from "../Home/ProductDetails";
+import ProductDetails from "./ProductDetails";
 import ProductItem from "./ProductItem";
+import ProductLoader from "./ProductLoader";
 
-export {ProductDetails, Product, ProductItem}
+export {ProductDetails, Product, ProductItem, ProductLoader}

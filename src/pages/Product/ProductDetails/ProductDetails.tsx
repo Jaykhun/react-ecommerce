@@ -56,14 +56,10 @@ const ProductDetails = () => {
                                         <div className="sale__content">
                                             <div className="sale__top">
                                                 <div className="product__price">{price} &#36;</div>
-                                                <ProductControl/>
                                             </div>
                                             <div className="sale__buttons buttons">
                                                 <button className="btn w-bg-r-btn w-opacity buttons__cart">В
                                                     корзину
-                                                </button>
-                                                <button className="btn buttons__buy">Купить в 1
-                                                    клик
                                                 </button>
                                             </div>
                                         </div>
@@ -112,17 +108,22 @@ const ProductDetails = () => {
                                 </div>
                             </div>
                             <div className="product__slider">
-                                <Swiper
-                                    pagination={{dynamicBullets: true}}
-                                    modules={[Pagination]}
-                                    className="productSwiper"
-                                >
-                                    {images?.map(pImage =>
-                                        <SwiperSlide key={keyId()}>
-                                            <img src={pImage.image_path} alt={name}/>
-                                        </SwiperSlide>
-                                    )}
-                                </Swiper>
+                                {/*<Swiper*/}
+                                {/*    pagination={{dynamicBullets: true}}*/}
+                                {/*    modules={[Pagination]}*/}
+                                {/*    className="productSwiper"*/}
+                                {/*>*/}
+                                {/*    {images?.map(pImage =>*/}
+                                {/*        <SwiperSlide key={keyId()}>*/}
+                                {/*            <img src={pImage.image_path} alt={name}/>*/}
+                                {/*        </SwiperSlide>*/}
+                                {/*    )}*/}
+                                {/*</Swiper>*/}
+                                {images?.map(pImage =>
+                                    <div className="product__img" key={keyId()}>
+                                        <img src={pImage.image_path} alt={name}/>
+                                    </div>
+                                )}
                             </div>
                         </div>
                     </>

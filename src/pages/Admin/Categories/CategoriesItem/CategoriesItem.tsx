@@ -23,11 +23,11 @@ const CategoriesItem: FC<CategoriesItemPropsType> = ({ category }) => {
     }
 
     return (
-        <div className='category__item'>
-            <div className="category__name">{name}</div>
-            <div className="category__action">
-                <div className="category__edit action-edit" onClick={handleEdit}></div>
-                <div className="category__delete action-delete" onClick={handleDelete}></div>
+        <div className='categories__item'>
+            <div className="categories__name">{name}</div>
+            <div className="categories__action">
+                <div className="categories__edit action-edit" onClick={handleEdit}></div>
+                <div className="categories__delete action-delete" onClick={handleDelete}></div>
             </div>
         </div>
     )

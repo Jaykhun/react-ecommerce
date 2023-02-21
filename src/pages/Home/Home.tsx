@@ -1,6 +1,7 @@
 import React from 'react';
 import "./Home.scss";
-import {Product, ProductDiscount} from "./index";
+import {Product} from "../Product";
+import ProductDiscount from "./ProductDiscount";
 
 const Home = () => {
     return (
