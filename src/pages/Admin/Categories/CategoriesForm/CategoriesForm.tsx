@@ -1,13 +1,13 @@
-import {FC, useCallback, useId, useState} from "react"
+import { ErrorMessage } from "@hookform/error-message/dist"
+import { FC, useCallback, useId, useState } from "react"
+import { Controller, SubmitHandler, useForm } from "react-hook-form"
+import { ActionLoader, InputError, Select } from "../../../../components/UI"
 import {
     useAddCategoryMutation,
     useGetAllCategoriesQuery, useGetSingleCategoryQuery,
     useUpdateCategoryMutation
 } from "../../../../store/category/categoryApi"
-import {Controller, SubmitHandler, useForm} from "react-hook-form";
-import {ErrorMessage} from "@hookform/error-message/dist";
-import {ICategory} from "../../../../store/category/categoryTypes";
-import {Select, InputError, ActionLoader} from "../../../../components/UI";
+import { ICategory } from "../../../../store/category/categoryTypes"
 import "./CategoriesForm.scss"
 
 interface CategoriesFormPropsType {
@@ -15,15 +15,15 @@ interface CategoriesFormPropsType {
     id?: number
 }
 
-const CategoriesForm: FC<CategoriesFormPropsType> = ({buttonValue, id}) => {
-    const {data: categories} = useGetAllCategoriesQuery()
+const CategoriesForm: FC<CategoriesFormPropsType> = ({ buttonValue, id }) => {
+    const { data: categories } = useGetAllCategoriesQuery()
     const {
         data: singleCategory,
         isSuccess,
         isLoading: categoryLoading,
         error: categoryError,
         isError: IsCategoryError
-    } = useGetSingleCategoryQuery(id, {skip: !id})
+    } = useGetSingleCategoryQuery(id, { skip: !id })
     const [addCategory] = useAddCategoryMutation()
     const [updateCategory] = useUpdateCategoryMutation()
 
@@ -38,11 +38,11 @@ const CategoriesForm: FC<CategoriesFormPropsType> = ({buttonValue, id}) => {
 
     const {
         register,
-        formState: {errors, isDirty},
+        formState: { errors, isDirty },
         handleSubmit,
         reset,
         control
-    } = useForm<ICategory>({mode: 'onBlur', defaultValues: initialVales})
+    } = useForm<ICategory>({ mode: 'onBlur', defaultValues: initialVales })
 
     const onSubmit: SubmitHandler<ICategory> = useCallback((data) => {
         console.log(data, 'data')
@@ -59,19 +59,19 @@ const CategoriesForm: FC<CategoriesFormPropsType> = ({buttonValue, id}) => {
                 <div className="categories__name">
                     <label htmlFor={name} className="input-text">название категории</label>
                     <input type="text" id={name}
-                           className="input-style"
-                           {...register(
-                               'name',
-                               {
-                                   required: 'Поле обязательно к заполнению',
-                                   minLength: {value: 5, message: 'Минимум 5 символов'},
-                                   maxLength: {value: 30, message: 'Максимум 30 символов'}
-                               }
-                           )}
+                        className="input-style"
+                        {...register(
+                            'name',
+                            {
+                                required: 'Поле обязательно к заполнению',
+                                minLength: { value: 5, message: 'Минимум 5 символов' },
+                                maxLength: { value: 30, message: 'Максимум 30 символов' }
+                            }
+                        )}
                     />
                     <ErrorMessage name={'name'}
-                                  errors={errors}
-                                  render={({message}) => <InputError message={message}/>}
+                        errors={errors}
+                        render={({ message }) => <InputError message={message} />}
                     />
                 </div>
 
@@ -79,7 +79,7 @@ const CategoriesForm: FC<CategoriesFormPropsType> = ({buttonValue, id}) => {
                     <Controller
                         control={control}
                         name={'parent_category_id'}
-                        render={({field, fieldState: {error}}) =>
+                        render={({ field, fieldState: { error } }) =>
                             <Select
                                 id={category}
                                 data={categories}
@@ -96,12 +96,12 @@ const CategoriesForm: FC<CategoriesFormPropsType> = ({buttonValue, id}) => {
                 </div>
 
                 {singleCategory ? <button disabled={!isDirty}
-                                          className={`btn ${isDirty ? 'r-btn w-opacity' : 'error-btn'} form__submit`}>
-                        {buttonValue}</button>
+                    className={`btn ${isDirty ? 'r-btn w-opacity' : 'error-btn'} form__submit`}>
+                    {buttonValue}</button>
                     : <button className={`btn r-btn w-opacity form__submit categories__submit`}>{buttonValue}</button>
                 }
             </form>
-            {isAction && <ActionLoader/>}
+            {isAction && <ActionLoader />}
         </>
     )
 }

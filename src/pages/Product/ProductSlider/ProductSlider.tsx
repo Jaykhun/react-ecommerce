@@ -1,25 +1,25 @@
+import { FC } from 'react'
 import { Keyboard, Mousewheel, Navigation, Pagination } from "swiper"
 import { Swiper, SwiperSlide } from "swiper/react"
 import { v4 as keyId } from "uuid"
 import { Error } from "../../../components/UI"
-import { useGetAllProductsQuery } from "../../../store/product/productApi"
 import { ProductItem, ProductLoader } from "./../index"
 
-import { FC } from 'react'
 import "swiper/css"
 import "swiper/css/navigation"
 import "swiper/css/pagination"
 
 interface ProductSliderPropsType {
-    id?: string
+    data: any,
+    isLoading: boolean,
+    error: any
 }
 
-const ProductSlider:FC<ProductSliderPropsType> = ({id}) => {
-    const { data, error, isLoading } = useGetAllProductsQuery()
+const ProductSlider:FC<ProductSliderPropsType> = ({data, isLoading, error}) => {
     const loaderCount = ['1', '2', '3', '4']
 
     return (
-        <div className="product__slider">
+        <div className="product__slider" key={keyId()}>
             <Swiper
                 slidesPerView={1}
                 spaceBetween={50}
@@ -40,6 +40,7 @@ const ProductSlider:FC<ProductSliderPropsType> = ({id}) => {
                         slidesPerView: 3,
                     }
                 }}
+                key={keyId()}
             >
                 {isLoading
                     ? <>
@@ -51,10 +52,10 @@ const ProductSlider:FC<ProductSliderPropsType> = ({id}) => {
                     </>
                     : error
                         ? <Error error={error} />
-                        : data?.map(p =>
+                        : data?.map((p: any) =>
                             <>
                                 <SwiperSlide className="product__item item" key={keyId()}>
-                                    <ProductItem product={p} />
+                                    <ProductItem product={p} key={keyId()}/>
                                 </SwiperSlide>
                             </>
                         )}

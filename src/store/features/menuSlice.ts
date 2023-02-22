@@ -1,4 +1,4 @@
-import {createSlice} from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit"
 
 interface menuTypes {
     isMenuOpen: boolean,
@@ -24,16 +24,16 @@ const menuSlice = createSlice({
             state.isSubMenuOpen = false
         },
 
-        onNavMenuClick: (state) =>{
-            state.isNavMenuOpen = ! state.isNavMenuOpen
+        onNavMenuClick: (state) => {
+            state.isNavMenuOpen = !state.isNavMenuOpen
         },
 
-        onSubMenuClick: (state) =>{
-            state.isSubMenuOpen = ! state.isSubMenuOpen
+        onSubMenuClick: (state) => {
+            state.isSubMenuOpen = !state.isSubMenuOpen
         },
 
-        onCatalogMenuClick: (state) =>{
-            state.isCatalogMenuOpen = ! state.isCatalogMenuOpen
+        onCatalogMenuClick: (state) => {
+            state.isCatalogMenuOpen = !state.isCatalogMenuOpen
         }
     }
 })

@@ -1,7 +1,8 @@
-import React from 'react';
 import ContentLoader from "react-content-loader"
 
 const ProductLoader = () => {
+    console.log(1);
+    
     return (
         <ContentLoader
             speed={2}

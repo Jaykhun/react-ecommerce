@@ -1,5 +1,5 @@
 import { FC } from 'react'
-import { Link } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 import { IProduct } from "../../../store/product/productTypes"
 import "./ProductItem.scss"
 
@@ -7,21 +7,27 @@ interface ProductItemPropsType {
     product: IProduct
 }
 
-const ProductItem: FC<ProductItemPropsType> = ({product}) => {
-    const {name, images, category, id, price, discount, quantity, description} = product
+const ProductItem: FC<ProductItemPropsType> = ({ product }) => {
+    const { name, images, category, id, price, discount, quantity, description } = product
+
+    const navigate = useNavigate()
+
+    const handleNavigate = () => {
+        navigate(`product/${id}`)
+    }
 
     return (
         <div className="item__row">
-            <Link to={`product/${id}`} className="item__top">
+            <div  className="item__top" onClick={handleNavigate}>
                 <div className="item__img">
-                    <img src={images[0].image_path} alt={name}/>
+                    <img src={images[0].image_path} alt={name} />
                 </div>
 
                 <div className="item__prices">
                     <div className="item__price price-current">{price} &#36;</div>
                     {discount > 1 ? <div className="item__discount price-discount">{discount}</div> : ''}
                 </div>
-            </Link>
+            </div>
 
             <div className="item__body">
                 <div className="item__info">
@@ -40,7 +46,7 @@ const ProductItem: FC<ProductItemPropsType> = ({product}) => {
                 </div>
             </div>
         </div>
-    );
-};
+    )
+}
 
-export default ProductItem;
+export default ProductItem

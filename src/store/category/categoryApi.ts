@@ -1,5 +1,5 @@
-import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import { ICategory } from "./categoryTypes";
+import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react"
+import { ICategory } from "./categoryTypes"
 
 const url = 'https://ecommerce.icedev.uz/'
 
@@ -19,6 +19,10 @@ export const categoryApi = createApi({
         }),
         getSingleCategory: build.query<ICategory, number | undefined>({
             query: (id) => `categories/${id}`,
+            providesTags: ['Categories']
+        }),
+        getProductsByCategory: build.query<ICategory, any>({
+            query: (id) => `categories/${id}/products`,
             providesTags: ['Categories']
         }),
         addCategory: build.mutation<ICategory, Partial<ICategory>>({
@@ -58,5 +62,5 @@ export const categoryApi = createApi({
 
 export const { useGetAllCategoriesQuery, useGetSingleCategoryQuery,
     useAddCategoryMutation, useDeleteCategoryMutation,
-    useUpdateCategoryMutation
+    useUpdateCategoryMutation, useGetProductsByCategoryQuery
 } = categoryApi
