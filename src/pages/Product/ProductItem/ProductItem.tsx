@@ -1,8 +1,7 @@
-import React, {FC} from 'react';
-import "./ProductItem.scss";
-import {IProduct} from "../../../store/product/productTypes";
-import {Link} from "react-router-dom";
-import {ProductControl} from "../../../components/UI";
+import { FC } from 'react'
+import { Link } from "react-router-dom"
+import { IProduct } from "../../../store/product/productTypes"
+import "./ProductItem.scss"
 
 interface ProductItemPropsType {
     product: IProduct
@@ -40,7 +39,6 @@ const ProductItem: FC<ProductItemPropsType> = ({product}) => {
                     </div>
                 </div>
             </div>
-
         </div>
     );
 };

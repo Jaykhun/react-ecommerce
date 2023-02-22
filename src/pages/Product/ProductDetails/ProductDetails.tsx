@@ -1,15 +1,11 @@
-import Location from "../../../components/Location";
-import Loader from "./Loader";
-import {useLocation, useParams} from "react-router-dom";
-import {useGetSingleProductQuery} from "../../../store/product/productApi";
-import {ProductControl} from "../../../components/UI";
-import {Link} from "react-router-dom";
-import {Swiper, SwiperSlide} from "swiper/react";
-import {Pagination} from "swiper";
-import {v4 as keyId} from "uuid";
+import { Link, useParams } from "react-router-dom"
+import { v4 as keyId } from "uuid"
+import Location from "../../../components/Location"
+import { useGetSingleProductQuery } from "../../../store/product/productApi"
+import Loader from "./Loader"
 
-import "swiper/css";
-import "swiper/css/pagination";
+import "swiper/css"
+import "swiper/css/pagination"
 import "./ProductDetails.scss"
 
 

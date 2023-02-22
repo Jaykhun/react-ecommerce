@@ -1,7 +1,6 @@
-import React from 'react';
-import "./Home.scss";
-import {Product} from "../Product";
-import ProductDiscount from "./ProductDiscount";
+import { ProductSlider } from '../Product'
+import "./Home.scss"
+import ProductDiscount from "./ProductDiscount"
 
 const Home = () => {
     return (
@@ -11,9 +10,9 @@ const Home = () => {
             </div>
             <div className="product__row">
                 <div className="product__title title">Спецпредложения</div>
-                <Product/>
+                <ProductSlider/>
                 <div className="product__title title">Новинки</div>
-                <Product/>
+                <ProductSlider/>
             </div>
         </div>
     );
