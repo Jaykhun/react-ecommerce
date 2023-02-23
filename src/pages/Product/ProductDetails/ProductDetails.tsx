@@ -11,7 +11,7 @@ import "./ProductDetails.scss"
 
 const ProductDetails = () => {
     const {id} = useParams()
-
+    window.scrollTo(0, 0);
     const {
         name,
         productId,

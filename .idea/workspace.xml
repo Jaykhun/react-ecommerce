@@ -2,25 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="aeb7fb1c-63e7-4c2d-bca3-f65942e640de" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/Menu/CatalogItem.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Menu/MobileMenuItem.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/NotFound/NotFound.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/NotFound/NotFound.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/NotFound/index.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Main/MainAside/MainAside.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Main/MainAside/MainAside.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Menu/CatalogMenu.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Menu/CatalogMenu.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Menu/MobileMenu.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Menu/MobileMenu.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Menu/MobileMenu.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Menu/MobileMenu.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Admin/Countries/CountriesForm/CountriesForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Admin/Countries/CountriesForm/CountriesForm.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Admin/Countries/CountriesItem/CountriesItem.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Admin/Countries/CountriesItem/CountriesItem.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Admin/Products/ProductsForm/ProductsForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Admin/Products/ProductsForm/ProductsForm.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Product/Product.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Product/Product.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Product/ProductDetails/ProductDetails.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Product/ProductDetails/ProductDetails.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Popup/SignInPopup/SignInPopup.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Popup/SignInPopup/SignInPopup.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/Product/ProductDetails/ProductDetails.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Product/ProductDetails/ProductDetails.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Product/ProductItem/ProductItem.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Product/ProductItem/ProductItem.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/category/categoryTypes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/category/categoryTypes.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Product/ProductItem/ProductItem.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Product/ProductItem/ProductItem.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Product/ProductLoader/ProductLoader.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Product/ProductLoader/ProductLoader.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/user/userApi.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/user/userApi.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/user/userTypes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/user/userTypes.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/_ui.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/_ui.scss" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -155,7 +145,9 @@
       <workItem from="1676742867563" duration="5222000" />
       <workItem from="1676808894398" duration="2378000" />
       <workItem from="1676913873679" duration="4086000" />
-      <workItem from="1677000124555" duration="5960000" />
+      <workItem from="1677000124555" duration="6423000" />
+      <workItem from="1677087091156" duration="3751000" />
+      <workItem from="1677173892577" duration="2416000" />
     </task>
     <servers />
   </component>

@@ -1,3 +1,5 @@
+import internal from "stream";
+
 export interface IUser {
     username: string
     password: string
@@ -32,4 +34,9 @@ export interface Address {
 export interface Country {
     country_name: string
     id?: number
+}
+
+export interface LoginType {
+    username: string,
+    password: string
 }

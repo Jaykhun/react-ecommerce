@@ -10,13 +10,13 @@
 @import "ui/action";
 
 .title {
-    display: block;
     color: $titleColor;
     @include fontArguments($mainFont, 700);
     @include adaptivFont(32, 24);
 }
 
 .subtitle {
+    display: block;
     color: $textColor;
     @include adaptivFont(19, 18);
     @include fontArguments($textfont);
