@@ -13,7 +13,7 @@ const ProductItem: FC<ProductItemPropsType> = ({ product }) => {
     const navigate = useNavigate()
 
     const handleNavigate = () => {
-        navigate(`product/${id}`)
+        navigate(`/product/${id}`)
     }
 
     return (

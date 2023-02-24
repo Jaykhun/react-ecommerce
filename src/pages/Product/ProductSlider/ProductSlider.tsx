@@ -15,7 +15,7 @@ interface ProductSliderPropsType {
     error: any
 }
 
-const ProductSlider:FC<ProductSliderPropsType> = ({data, isLoading, error}) => {
+const ProductSlider: FC<ProductSliderPropsType> = ({ data, isLoading, error }) => {
     const loaderCount = ['1', '2', '3', '4']
 
     return (
@@ -55,7 +55,7 @@ const ProductSlider:FC<ProductSliderPropsType> = ({data, isLoading, error}) => {
                         : data?.map((p: any) =>
                             <>
                                 <SwiperSlide className="product__item item" key={keyId()}>
-                                    <ProductItem product={p} key={keyId()}/>
+                                    <ProductItem product={p} key={keyId()} />
                                 </SwiperSlide>
                             </>
                         )}
