@@ -21,15 +21,19 @@ export const userApi = createApi({
             query: (id) => `users/${id}`,
             providesTags: ['Users']
         }),
-        loginUser: build.mutation<LoginType, Partial<LoginType>>({
-            query: (data) => ({
-                url: 'token',
-                method: 'POST',
-                body: data,
-                headers: {
-                    'Content-type': 'application/x-www-form-urlencoded;charset=UTF-8',
+        loginUser: build.mutation<any, Partial<any>>({
+            query: (data: LoginType) => {
+                const body = encodeURIComponent('username') + '=' + encodeURIComponent(data.username) + '&&' +
+                    encodeURIComponent('password') + '=' + encodeURIComponent(data.password)
+                return {
+                    url: 'token',
+                    method: 'POST',
+                    body: body,
+                    headers: {
+                        'Content-type': 'application/x-www-form-urlencoded;charset=UTF-8',
+                    }
                 }
-            })
+            }
         }),
         addUser: build.mutation<IUser, Partial<IUser>>({
             query: (user) => ({

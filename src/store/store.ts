@@ -8,6 +8,7 @@ import {countryApi} from "./country/countryApi";
 import {popupReducer} from "./features/popupSlice";
 import {menuReducer} from "./features/menuSlice";
 import {adminReducer} from "./reducers/adminSlice";
+import {tokenReducer} from "./features/tokenSlice";
 
 export const store = configureStore({
     reducer: {
@@ -15,6 +16,7 @@ export const store = configureStore({
         menu: menuReducer,
         admin: adminReducer,
         product: productReducer,
+        toke: tokenReducer,
         [productApi.reducerPath]: productApi.reducer,
         [categoryApi.reducerPath]: categoryApi.reducer,
         [userApi.reducerPath]: userApi.reducer,
@@ -32,4 +34,3 @@ export const store = configureStore({
 setupListeners(store.dispatch)
 
 export type TypedRootState = ReturnType<typeof store.getState>
-
