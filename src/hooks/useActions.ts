@@ -4,7 +4,7 @@ import {popupActions} from "../store/features/popupSlice";
 import {menuActions} from "../store/features/menuSlice";
 import {adminActions} from "../store/reducers/adminSlice";
 import {productActions} from "../store/reducers/productSlice";
-import {tokenActions} from "../store/features/tokenSlice";
+import {tokenActions} from "../store/reducers/tokenSlice";
 
 const allActions = {
     ...popupActions,

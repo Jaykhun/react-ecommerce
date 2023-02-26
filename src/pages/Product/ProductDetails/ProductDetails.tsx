@@ -1,7 +1,7 @@
 import { Link, useParams } from "react-router-dom"
 import { v4 as keyId } from "uuid"
 import Location from "../../../components/Location"
-import { useGetSingleProductQuery } from "../../../store/product/productApi"
+import { useGetSingleProductQuery } from "../../../store/api/product/productApi"
 import Loader from "./Loader"
 
 import "swiper/css"

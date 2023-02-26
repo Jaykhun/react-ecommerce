@@ -1,13 +1,17 @@
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
 import {Cookies} from "react-cookie";
 
-export type Decode = {
+export interface tokenType {
     sub: string,
     is_admin: number,
-    exp:number
+    exp: number
 }
 
-const initialState = {
+interface tokenState {
+    token: string
+}
+
+const initialState: tokenState = {
     token: ''
 }
 
@@ -17,10 +21,8 @@ export const tokenSlice = createSlice({
     reducers: {
         login: (state, action: PayloadAction<string>) => {
             const cookie = new Cookies()
-            console.log(1)
 
             if (cookie.get('token') === undefined) {
-                console.log(1)
                 state.token = action.payload
                 cookie.set('token', state.token)
             } else state.token = cookie.get('token')

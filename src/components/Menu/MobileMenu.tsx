@@ -3,7 +3,7 @@ import {useTypedSelector} from "../../hooks/useTypedSelector";
 import {useActions} from "../../hooks/useActions";
 import NavMenu from "./NavMenu";
 import "./MobileMenu.scss"
-import {useGetAllCategoriesQuery} from "../../store/category/categoryApi";
+import {useGetAllCategoriesQuery} from "../../store/api/category/categoryApi";
 import React from "react";
 import MobileMenuItem from "./MobileMenuItem";
 

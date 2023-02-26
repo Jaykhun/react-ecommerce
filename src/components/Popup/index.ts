@@ -1,5 +1,5 @@
 import PhonePopup from "./PhonePopup/PhonePopup";
 import SearchPopup from "./SearchPopup/SearchPopup";
-import SignInPopup from "./SignInPopup/SignInPopup";
+import Auth from "../Auth/Auth";
 
-export {PhonePopup, SearchPopup, SignInPopup}
+export {PhonePopup, SearchPopup, Auth}

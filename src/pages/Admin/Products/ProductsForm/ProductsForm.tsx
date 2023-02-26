@@ -3,13 +3,13 @@ import "./ProductForm.scss";
 import {Controller, SubmitHandler, useForm} from "react-hook-form";
 import {ErrorMessage} from "@hookform/error-message/dist";
 import {ActionAlert, ActionLoader, InputError, Select} from "../../../../components/UI";
-import {useGetAllCategoriesQuery} from "../../../../store/category/categoryApi";
-import {IProduct} from "../../../../store/product/productTypes";
+import {useGetAllCategoriesQuery} from "../../../../store/api/category/categoryApi";
+import {IProduct} from "../../../../store/api/product/productTypes";
 import {
     useUpdateProductMutation,
     useAddProductMutation,
     useGetSingleProductQuery
-} from "../../../../store/product/productApi";
+} from "../../../../store/api/product/productApi";
 import {useActions} from "../../../../hooks/useActions";
 
 interface ProductsFormPropsType {

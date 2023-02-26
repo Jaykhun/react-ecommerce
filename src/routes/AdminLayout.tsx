@@ -6,7 +6,7 @@ import {Sidebar, Topbar} from "../pages/Admin";
 import {CountriesEdit} from "../pages/Admin/Countries";
 import {CategoriesEdit} from "../pages/Admin/Categories";
 
-const Dashboard = () => {
+const AdminLayout = () => {
     const {isAdminMenuOpen} = useTypedSelector(state => state.admin)
 
     return (
@@ -30,4 +30,4 @@ const Dashboard = () => {
     );
 };
 
-export default Dashboard;
+export default AdminLayout;

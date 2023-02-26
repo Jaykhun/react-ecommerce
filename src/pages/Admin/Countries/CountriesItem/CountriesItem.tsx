@@ -1,7 +1,7 @@
 import React, {FC} from 'react';
 import "./CountriesItem.scss";
-import {ICountry} from "../../../../store/country/countryTypes";
-import {useDeleteCountryMutation} from '../../../../store/country/countryApi';
+import {ICountry} from "../../../../store/api/country/countryTypes";
+import {useDeleteCountryMutation} from '../../../../store/api/country/countryApi';
 import {ActionAlert, ActionLoader} from '../../../../components/UI';
 import {useActions} from "../../../../hooks/useActions";
 

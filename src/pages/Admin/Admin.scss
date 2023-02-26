@@ -4,7 +4,7 @@
 @import "../../styles/mixin";
 @import "../../styles/fonts";
 
-.main:before{
+.main:before {
   display: none;
 }
 
@@ -71,7 +71,7 @@
     input {
       @include fontArguments($textfont);
       font-size: 16px;
-      border-radius: 8px;
+      border-radius: 6px;
       padding: 9px;
       outline: none;
       background-color: $linkColor;
@@ -128,19 +128,19 @@
 
   &__header {
     background-color: #000;
-    padding: 15px 10px;
+    padding: 35px 10px;
   }
 
-  &__body{
+  &__body {
     overflow: auto;
-    height: 70vh;
+    height: 100vh;
+    background-color: #000;
   }
 
   &__logo {
     @include fontArguments($mainFont, 700);
     font-size: 20px;
     color: #fff;
-    margin-bottom: 15px;
     text-align: center;
 
     a {
@@ -175,14 +175,16 @@
       @include fontArguments($textfont, 500);
       font-size: 16px;
       text-transform: capitalize;
-      color: $mobileMenuTextColor;
+      color: #fff;
       transition: all .3s;
       padding: 20px 10px;
       border-bottom: 1px solid rgba(16, 16, 16, 0.0509803922);
       cursor: pointer;
 
       &.active-item {
-        color: $btnBorderColor;
+        color: #fff;
+        background-color: $btnBorderColor;
+        border-radius: 6px;
       }
     }
 

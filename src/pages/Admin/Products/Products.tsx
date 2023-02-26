@@ -1,5 +1,5 @@
-import {useGetAllProductsQuery} from "../../../store/product/productApi";
-import {IProduct} from "../../../store/product/productTypes";
+import {useGetAllProductsQuery} from "../../../store/api/product/productApi";
+import {IProduct} from "../../../store/api/product/productTypes";
 import {ProductsItem, ProductsForm, ProductsLoader} from "./index";
 import {Error, Message} from "../../../components/UI";
 import {v4 as keyId} from "uuid"

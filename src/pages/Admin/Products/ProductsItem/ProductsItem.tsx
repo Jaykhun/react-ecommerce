@@ -1,6 +1,6 @@
 import {FC} from 'react';
-import {IProduct} from "../../../../store/product/productTypes";
-import {useDeleteProductMutation} from "../../../../store/product/productApi";
+import {IProduct} from "../../../../store/api/product/productTypes";
+import {useDeleteProductMutation} from "../../../../store/api/product/productApi";
 import {ActionAlert, ActionLoader} from "../../../../components/UI";
 import {useActions} from "../../../../hooks/useActions";
 import {Swiper, SwiperSlide} from "swiper/react";

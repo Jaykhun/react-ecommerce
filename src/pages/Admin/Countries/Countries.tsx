@@ -1,5 +1,5 @@
 import { CountriesForm, CountriesItem, CountriesLoader } from "./index";
-import { useGetAllCountriesQuery } from "../../../store/country/countryApi";
+import { useGetAllCountriesQuery } from "../../../store/api/country/countryApi";
 import { v4 as keyId } from "uuid"
 import { Error, Message } from "../../../components/UI";
 import "./Countries.scss";

@@ -1,6 +1,6 @@
 import {useId, useCallback, FC, useState} from 'react';
 import {SubmitHandler, useForm} from "react-hook-form";
-import {NewCountry} from "../../../../store/country/countryTypes";
+import {NewCountry} from "../../../../store/api/country/countryTypes";
 import {ErrorMessage} from "@hookform/error-message";
 import {ActionLoader, InputError, ActionAlert} from "../../../../components/UI";
 import "./CountriesForm.scss";
@@ -8,7 +8,7 @@ import {
     useAddCountryMutation,
     useGetSingleCountryQuery,
     useUpdateCountryMutation
-} from '../../../../store/country/countryApi';
+} from '../../../../store/api/country/countryApi';
 import {useActions} from "../../../../hooks/useActions";
 
 interface CountriesFormPropsType {

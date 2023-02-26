@@ -3,7 +3,7 @@ import Header from "../components/Header";
 import {Main} from "../components/Main";
 import Footer from "../components/Footer";
 import MobileMenu from "../components/Menu";
-import {PhonePopup, SearchPopup, SignInPopup} from "../components/Popup";
+import {PhonePopup, SearchPopup, Auth} from "../components/Popup";
 
 const Layout = () => {
     return (
@@ -12,7 +12,7 @@ const Layout = () => {
             <Main/>
             <Footer/>
 
-            <SignInPopup/>
+            <Auth/>
             <PhonePopup/>
             <SearchPopup/>
             <MobileMenu/>

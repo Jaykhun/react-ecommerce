@@ -1,9 +1,9 @@
 import UsersForm from "./UsersForm";
 import {v4 as keyId} from "uuid"
-import {useGetAllUsersQuery} from "../../../store/user/userApi";
+import {useGetAllUsersQuery} from "../../../store/api/user/userApi";
 import {UsersItem, UsersLoader} from "./index";
 import {Error, Message} from "../../../components/UI";
-import {IUser} from "../../../store/user/userTypes";
+import {IUser} from "../../../store/api/user/userTypes";
 import "./Users.scss";
 
 const Users = () => {

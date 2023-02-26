@@ -1,14 +1,14 @@
 import {configureStore} from '@reduxjs/toolkit'
 import {setupListeners} from "@reduxjs/toolkit/query";
-import {productApi} from "./product/productApi";
-import {categoryApi} from "./category/categoryApi";
-import {userApi} from "./user/userApi";
+import {productApi} from "./api/product/productApi";
+import {categoryApi} from "./api/category/categoryApi";
+import {userApi} from "./api/user/userApi";
 import {productReducer} from "./reducers/productSlice";
-import {countryApi} from "./country/countryApi";
+import {countryApi} from "./api/country/countryApi";
 import {popupReducer} from "./features/popupSlice";
 import {menuReducer} from "./features/menuSlice";
 import {adminReducer} from "./reducers/adminSlice";
-import {tokenReducer} from "./features/tokenSlice";
+import {tokenReducer} from "./reducers/tokenSlice";
 
 export const store = configureStore({
     reducer: {
@@ -16,7 +16,7 @@ export const store = configureStore({
         menu: menuReducer,
         admin: adminReducer,
         product: productReducer,
-        toke: tokenReducer,
+        token: tokenReducer,
         [productApi.reducerPath]: productApi.reducer,
         [categoryApi.reducerPath]: categoryApi.reducer,
         [userApi.reducerPath]: userApi.reducer,

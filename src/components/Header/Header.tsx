@@ -1,10 +1,15 @@
-import React from 'react';
 import "./Header.scss"
 import {Link} from "react-router-dom";
 import {useActions} from "../../hooks/useActions";
+import UserMenu from "../UserMenu";
+import {getCookie} from "../../helpers/getCookie";
+import {useTypedSelector} from "../../hooks/useTypedSelector";
+import {useEffect} from "react";
 
 const Header = () => {
     const {onSignInClick} = useActions()
+    const {token} = useTypedSelector(state => state.token)
+    const cookie = getCookie('token')
 
     return (
         <header className="header">
@@ -47,10 +52,13 @@ const Header = () => {
                         </ul>
                     </nav>
 
-                    <div className="header__register register">
-                        <div className="register__login" onClick={() => onSignInClick()}>Войти</div>
-                        <Link to="/register" className="register__register">Регистрация</Link>
-                    </div>
+                    {cookie || token ?
+                        <UserMenu/>
+                        : <div className="header__register register">
+                            <div className="register__login" onClick={() => onSignInClick()}>Войти</div>
+                            <Link to="/register" className="register__register">Регистрация</Link>
+                        </div>
+                    }
                 </section>
             </div>
         </header>

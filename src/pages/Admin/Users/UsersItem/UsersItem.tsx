@@ -1,8 +1,8 @@
 import React, {FC} from 'react';
 import "./UsersItem.scss";
-import {IUser} from "../../../../store/user/userTypes";
+import {IUser} from "../../../../store/api/user/userTypes";
 import {useActions} from "../../../../hooks/useActions";
-import {useDeleteUserMutation} from "../../../../store/user/userApi";
+import {useDeleteUserMutation} from "../../../../store/api/user/userApi";
 
 interface UsersItemPropsType {
     userInfo: IUser

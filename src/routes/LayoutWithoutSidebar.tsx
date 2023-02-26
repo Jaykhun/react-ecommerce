@@ -3,7 +3,7 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import MobileMenu from "../components/Menu";
 import {MainActions, MainContacts} from "../components/Main";
-import {PhonePopup, SearchPopup, SignInPopup} from "../components/Popup";
+import {PhonePopup, SearchPopup, Auth} from "../components/Popup";
 
 const LayoutWithoutSidebar = () => {
     return (
@@ -21,7 +21,7 @@ const LayoutWithoutSidebar = () => {
             <PhonePopup/>
             <SearchPopup/>
             <MobileMenu/>
-            <SignInPopup/>
+            <Auth/>
         </div>
     );
 };

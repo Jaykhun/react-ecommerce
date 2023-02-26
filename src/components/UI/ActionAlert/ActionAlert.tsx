@@ -11,7 +11,8 @@ interface ActionErrorPropsType {
 
 const ActionAlert: FC<ActionErrorPropsType> = ({message, error, success}) => {
     if (error) {
-        toast.error(`${message}. Status is ${error.status}`, {
+        toast.error(`${message}. Статус
+         ${error.status}`, {
             position: "top-right",
             autoClose: 5000,
             hideProgressBar: false,

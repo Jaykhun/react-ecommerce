@@ -1,5 +1,5 @@
 import { useParams } from 'react-router-dom'
-import { useGetProductsByCategoryQuery } from '../../../store/category/categoryApi'
+import { useGetProductsByCategoryQuery } from '../../../store/api/category/categoryApi'
 import ProductSlider from '../ProductSlider'
 import "./ProductSorted.scss"
 

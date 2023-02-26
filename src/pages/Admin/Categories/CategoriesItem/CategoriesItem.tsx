@@ -1,7 +1,7 @@
 import React, { FC } from "react";
-import { ICategory } from "../../../../store/category/categoryTypes";
+import { ICategory } from "../../../../store/api/category/categoryTypes";
 import {useActions} from "../../../../hooks/useActions";
-import {useDeleteCategoryMutation} from "../../../../store/category/categoryApi";
+import {useDeleteCategoryMutation} from "../../../../store/api/category/categoryApi";
 import "./CategoriesItem.scss";
 
 interface CategoriesItemPropsType {

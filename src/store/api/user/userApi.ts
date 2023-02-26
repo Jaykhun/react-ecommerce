@@ -1,5 +1,5 @@
 import {createApi, fetchBaseQuery} from "@reduxjs/toolkit/query/react";
-import {IUser, LoginType} from "./userTypes";
+import {AuthUser, IUser, LoginType, Token} from "./userTypes";
 
 const url = 'https://ecommerce.icedev.uz/'
 
@@ -21,7 +21,7 @@ export const userApi = createApi({
             query: (id) => `users/${id}`,
             providesTags: ['Users']
         }),
-        loginUser: build.mutation<any, Partial<any>>({
+        loginUser: build.mutation<Token, Partial<AuthUser>>({
             query: (data: LoginType) => {
                 const body = encodeURIComponent('username') + '=' + encodeURIComponent(data.username) + '&&' +
                     encodeURIComponent('password') + '=' + encodeURIComponent(data.password)

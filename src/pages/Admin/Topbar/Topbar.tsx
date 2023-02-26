@@ -1,6 +1,7 @@
 import React from 'react';
 import {useActions} from "../../../hooks/useActions";
 import {useTypedSelector} from "../../../hooks/useTypedSelector";
+import UserMenu from "../../../components/UserMenu";
 
 const Topbar = () => {
     const {onAdminMenuClick} = useActions()
@@ -19,9 +20,7 @@ const Topbar = () => {
                     </div>
 
                     <div className="navbar__info">
-                        <div className="navbar__user">
-                            <img src="../../assets/user.png" alt="user-photo"/>
-                        </div>
+                        <UserMenu/>
                     </div>
                 </div>
             </div>

@@ -2,7 +2,7 @@ import { FC } from 'react'
 import { Link } from "react-router-dom"
 import { useActions } from "../../hooks/useActions"
 import { useTypedSelector } from "../../hooks/useTypedSelector"
-import { ICategory } from "../../store/category/categoryTypes"
+import { ICategory } from "../../store/api/category/categoryTypes"
 
 interface MobileMenuItemPropsType {
     category: ICategory

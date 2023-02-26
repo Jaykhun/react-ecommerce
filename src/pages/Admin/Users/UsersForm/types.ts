@@ -1,4 +1,4 @@
-import {IUser} from "../../../../store/user/userTypes";
+import {IUser} from "../../../../store/api/user/userTypes";
 
 export interface UsersFormPropsType {
     id?: number,

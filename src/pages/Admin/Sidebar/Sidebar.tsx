@@ -6,6 +6,7 @@ import {useTypedSelector} from "../../../hooks/useTypedSelector";
 const Sidebar = () => {
     const {onAdminMenuClick} = useActions()
     const {isAdminMenuOpen} = useTypedSelector(state => state.admin)
+
     return (
         <div className={`sidebar ${isAdminMenuOpen ? "" : "active-sidebar"}`}>
             <div className="sidebar__inner">
@@ -13,14 +14,6 @@ const Sidebar = () => {
                     <div className="sidebar__close" onClick={() => onAdminMenuClick()}></div>
                     <div className="sidebar__logo">
                         <Link to="/">Название компании</Link>
-                    </div>
-
-                    <div className="sidebar__user user">
-                        <div className="user__img">
-                            <img src="../../assets/user.png" alt="user-photo"/>
-                        </div>
-
-                        <div className="user__name">Админ</div>
                     </div>
                 </div>
 

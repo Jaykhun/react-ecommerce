@@ -6,8 +6,8 @@ import {
     useAddCategoryMutation,
     useGetAllCategoriesQuery, useGetSingleCategoryQuery,
     useUpdateCategoryMutation
-} from "../../../../store/category/categoryApi"
-import { ICategory } from "../../../../store/category/categoryTypes"
+} from "../../../../store/api/category/categoryApi"
+import { ICategory } from "../../../../store/api/category/categoryTypes"
 import "./CategoriesForm.scss"
 
 interface CategoriesFormPropsType {

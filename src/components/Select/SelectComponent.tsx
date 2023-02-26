@@ -4,7 +4,7 @@ import makeAnimated from 'react-select/animated';
 import {ControllerRenderProps, FieldError} from "react-hook-form";
 import SelectLoader from "./SelectLoader";
 import "./SelectComponent.scss";
-import {Error} from "../index";
+import {Error} from "../UI";
 import {log} from "util";
 
 interface SelectProps {

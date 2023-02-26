@@ -1,6 +1,6 @@
 import { FC } from 'react'
 import { Link } from "react-router-dom"
-import { ICategory } from "../../store/category/categoryTypes"
+import { ICategory } from "../../store/api/category/categoryTypes"
 
 interface CatalogItemPropsType {
     category: ICategory

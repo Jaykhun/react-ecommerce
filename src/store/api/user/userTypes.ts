@@ -40,3 +40,12 @@ export interface LoginType {
     username: string,
     password: string
 }
+
+export interface AuthUser {
+    username: string,
+    password: string
+}
+
+export interface Token {
+    access_token : string
+}

@@ -1,6 +1,6 @@
 import { FC } from 'react'
 import { useNavigate } from "react-router-dom"
-import { IProduct } from "../../../store/product/productTypes"
+import { IProduct } from "../../../store/api/product/productTypes"
 import "./ProductItem.scss"
 
 interface ProductItemPropsType {

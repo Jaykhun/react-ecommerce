@@ -1,4 +1,4 @@
-import { useGetAllCategoriesQuery } from '../../../store/category/categoryApi';
+import { useGetAllCategoriesQuery } from '../../../store/api/category/categoryApi';
 import { Error, Message } from '../../../components/UI';
 import { CategoriesForm, CategoriesItem, CategoriesLoader } from './index';
 import "./Categories.scss";

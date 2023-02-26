@@ -2,14 +2,71 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="aeb7fb1c-63e7-4c2d-bca3-f65942e640de" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/store/features/tokenSlice.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Auth/Auth.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Auth/AuthFrom.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Auth/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/UserMenu/UserMenu.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/UserMenu/UserMenu.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/UserMenu/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/helpers/getCookie.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/hoc/AuthProvider.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/hoc/RequireAdmin.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/hoc/RequireAuth.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/utils/getJwtToken.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Popup/SignInPopup/SignInPopup.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Popup/SignInPopup/SignInPopup.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Header/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header/Header.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Menu/CatalogItem.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Menu/CatalogItem.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Menu/CatalogMenu.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Menu/CatalogMenu.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Menu/MobileMenu.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Menu/MobileMenu.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Menu/MobileMenuItem.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Menu/MobileMenuItem.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Popup/SignInPopup/SignInPopup.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Auth/Auth.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Popup/SignInPopup/SignInPopup.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Popup/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Popup/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/UI/ActionAlert/ActionAlert.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/UI/ActionAlert/ActionAlert.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/UI/ProductControl/ProductControl.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ProductControl/ProductControl.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/UI/ProductControl/ProductControl.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ProductControl/ProductControl.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/UI/ProductControl/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ProductControl/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/UI/Select/SelectComponent.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Select/SelectComponent.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/UI/Select/SelectComponent.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Select/SelectComponent.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/UI/Select/SelectLoader.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Select/SelectLoader.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/UI/Select/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Select/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/UI/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/UI/index.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/hooks/useActions.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/hooks/useActions.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Admin/Admin.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Admin/Admin.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Admin/Categories/Categories.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Admin/Categories/Categories.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Admin/Categories/CategoriesForm/CategoriesForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Admin/Categories/CategoriesForm/CategoriesForm.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Admin/Categories/CategoriesItem/CategoriesItem.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Admin/Categories/CategoriesItem/CategoriesItem.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Admin/Countries/Countries.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Admin/Countries/Countries.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Admin/Countries/CountriesForm/CountriesForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Admin/Countries/CountriesForm/CountriesForm.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Admin/Countries/CountriesItem/CountriesItem.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Admin/Countries/CountriesItem/CountriesItem.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Admin/Products/Products.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Admin/Products/Products.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Admin/Products/ProductsForm/ProductsForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Admin/Products/ProductsForm/ProductsForm.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Admin/Products/ProductsItem/ProductsItem.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Admin/Products/ProductsItem/ProductsItem.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Admin/Sidebar/Sidebar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Admin/Sidebar/Sidebar.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Admin/Topbar/Topbar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Admin/Topbar/Topbar.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Admin/Users/Users.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Admin/Users/Users.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Admin/Users/UsersForm/UsersForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Admin/Users/UsersForm/UsersForm.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Admin/Users/UsersForm/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Admin/Users/UsersForm/types.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Admin/Users/UsersItem/UsersItem.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Admin/Users/UsersItem/UsersItem.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Home/Home.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Home/Home.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Product/ProductDetails/ProductDetails.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Product/ProductDetails/ProductDetails.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Product/ProductItem/ProductItem.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Product/ProductItem/ProductItem.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Product/ProductSorted/ProductSorted.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Product/ProductSorted/ProductSorted.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/Dashboard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/AdminLayout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/Layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/Layout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/LayoutWithoutSidebar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/LayoutWithoutSidebar.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/category/categoryApi.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/api/category/categoryApi.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/category/categoryTypes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/api/category/categoryTypes.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/country/countryApi.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/api/country/countryApi.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/country/countryTypes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/api/country/countryTypes.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/features/tokenSlice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/reducers/tokenSlice.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/product/productApi.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/api/product/productApi.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/product/productTypes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/api/product/productTypes.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/store/store.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/store.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/user/userApi.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/user/userApi.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/user/userApi.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/api/user/userApi.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/user/userTypes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/api/user/userTypes.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,11 +110,11 @@
       <recent name="D:\react-projects\react-ecommerce\src\assets" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\react-projects\react-ecommerce\src\store\reducers" />
+      <recent name="D:\react-projects\react-ecommerce\src\store\api" />
+      <recent name="D:\react-projects\react-ecommerce\src\components" />
       <recent name="D:\react-projects\react-ecommerce\src\pages\Product" />
       <recent name="D:\react-projects\react-ecommerce\src\pages\Home" />
-      <recent name="D:\react-projects\react-ecommerce\src\pages\Admin\Products" />
-      <recent name="D:\react-projects\react-ecommerce\src\store\reducers" />
-      <recent name="D:\react-projects\react-ecommerce\src\components\UI" />
     </key>
   </component>
   <component name="RunManager" selected="npm.npm start">
@@ -148,6 +205,7 @@
       <workItem from="1677087091156" duration="3751000" />
       <workItem from="1677173892577" duration="2752000" />
       <workItem from="1677255722222" duration="5028000" />
+      <workItem from="1677414093047" duration="10516000" />
     </task>
     <servers />
   </component>

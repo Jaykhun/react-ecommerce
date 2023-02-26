@@ -1,7 +1,7 @@
 import React, {FC} from 'react';
 import "./ProductControl.scss";
-import {useActions} from "../../../hooks/useActions";
-import {useTypedSelector} from "../../../hooks/useTypedSelector";
+import {useActions} from "../../hooks/useActions";
+import {useTypedSelector} from "../../hooks/useTypedSelector";
 
 interface ProductControlPropsType {
     quantity: number

@@ -1,4 +1,4 @@
-import { useGetAllProductsQuery } from '../../store/product/productApi'
+import { useGetAllProductsQuery } from '../../store/api/product/productApi'
 import { ProductSlider } from '../Product'
 import "./Home.scss"
 import ProductDiscount from "./ProductDiscount"
