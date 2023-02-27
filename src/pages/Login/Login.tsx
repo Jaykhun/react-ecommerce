@@ -1,14 +1,19 @@
 import { ErrorMessage } from "@hookform/error-message"
 import jwtDecode from "jwt-decode"
+import { useEffect, useState } from 'react'
 import { SubmitHandler, useForm } from "react-hook-form"
+import { Navigate } from 'react-router-dom'
+import { ActionLoader, InputError } from '../../components/UI'
 import { useActions } from "../../hooks/useActions"
 import { useLoginUserMutation } from "../../store/api/user/userApi"
 import { LoginType } from "../../store/api/user/userTypes"
-import { ActionLoader, InputError } from "../UI"
+import { tokenType } from '../../store/reducers/tokenSlice'
+import "./Login.scss"
 
-const AuthFrom = () => {
+const Login = () => {
+    const [isError, setError] = useState(false)
     const { onSignInClick, login } = useActions()
-    const [loginUser, { data: token, error, isLoading, isSuccess, isError }] = useLoginUserMutation()
+    const [loginUser, { data: token, error, isLoading, isSuccess, isError: tokenError }] = useLoginUserMutation()
 
     const {
         register,
@@ -22,20 +27,31 @@ const AuthFrom = () => {
         reset()
     }
 
-    if (isSuccess && token) {
-        login(token.access_token)
-        const decode: any = jwtDecode(token.access_token)
-    }
-    return (
-        <>
+    useEffect(() => {
+        if (isSuccess && token) {
+            login(token.access_token)
+            const decode: tokenType = jwtDecode(token.access_token)
+
+            if (decode.is_admin) {
+                <Navigate to="admin" replace={true} />
+            }
+        }
+
+        else {
+            setError(prevState => !prevState)
+        }
+    }, [token])
+
+    return <>
+        <div className='login'>
             <form className="signin-popup" onSubmit={handleSubmit(onSubmit)}>
                 <div className="signin-popup__inner">
                     <div className="signin-popup__contacts">
                         <button className="popup__close signin-popup__close"
                             onClick={() => onSignInClick()}></button>
                         <div className="signin__body">
-                            <div className="signin__title">Кабинет</div>
-                            <form action="src/components/Auth/SignInPopup#Auth.tsx" className="signin__form">
+                            <div className="signin__title">Войти</div>
+                            <form className="signin__form">
                                 <div className="signin__login">
                                     <label htmlFor="signin__login" className="input-text">Логин</label>
                                     <input type="text"
@@ -73,8 +89,6 @@ const AuthFrom = () => {
                                 </div>
                             </form>
                             <div className="signin__footer">
-                                <a href="src/components/Auth/SignInPopup#Auth.tsx" className="signin__forgot">Забыли
-                                    пароль?</a>
                                 <button className="signin__submit btn r-btn w-opacity">Войти</button>
                             </div>
                         </div>
@@ -82,8 +96,9 @@ const AuthFrom = () => {
                 </div>
             </form>
             {isLoading && <ActionLoader />}
-        </>
-    )
+            {/* {tokenError && <ActionAlert message='Error' error={error} />} */}
+        </div>
+    </>
 }
 
-export default AuthFrom
+export default Login

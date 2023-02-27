@@ -1,0 +1,17 @@
+.login {
+    .popup__close {
+        display: none;
+    }
+
+    .signin__title {
+        text-align: center;
+    }
+
+    .signin-popup {
+        &__inner {
+            width: 50%;
+            margin: 20px auto;
+            padding: 10px;
+        }
+    }
+}

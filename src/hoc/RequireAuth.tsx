@@ -1,9 +1,8 @@
-import React, {FC, useState} from 'react';
-import {getCookie} from "../helpers/getCookie";
-import {useLocation} from "react-router-dom";
-import {Navigate} from "react-router-dom";
-import {getJwtToken} from "../utils/getJwtToken";
-import {tokenType} from "../store/reducers/tokenSlice";
+import React, { FC, useState } from 'react'
+import { Navigate, useLocation } from "react-router-dom"
+import { getCookie } from "../helpers/getCookie"
+import { tokenType } from "../store/reducers/tokenSlice"
+import { getJwtToken } from "../utils/getJwtToken"
 
 interface RequireAuth {
     children: React.ReactNode
@@ -13,11 +12,11 @@ interface RequireAuth {
 const RequireAuth: FC<RequireAuth> = ({children}) => {
     const [isAdmin, setAdmin] = useState(false)
     const location = useLocation();
-    const token: tokenType = getJwtToken('token')
+    const token: tokenType | undefined = getJwtToken('token')
 
     if (!getCookie('token')) {
         return <Navigate to='/login' state={{from: location}} replace={true}/>
-    } else if (token.is_admin === 0) {
+    } else if (token?.is_admin === 0) {
         setAdmin(prevState => !prevState)
     }
 

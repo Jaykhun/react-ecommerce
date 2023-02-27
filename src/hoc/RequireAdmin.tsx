@@ -1,24 +1,20 @@
-import React, {FC} from 'react';
-import {getJwtToken} from "../utils/getJwtToken";
-import {Navigate} from "react-router-dom";
+import React from 'react'
+import { Navigate, Outlet } from "react-router-dom"
+import { getJwtToken } from "../utils/getJwtToken"
 
 interface RequireAdmin {
     children: React.ReactNode
 }
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
-const RequireAdmin: FC<RequireAdmin> = ({children}) => {
+const RequireAdmin = () => {
     const token = getJwtToken('token')
-
-    if (token.is_admin === 1) {
-        return <Navigate to='/' replace={true}/>
-    }
 
     return (
         <>
-            {children}
+            {token?.is_admin ? <Outlet /> : <Navigate to="/login" replace={true} />}
         </>
-    );
-};
+    )
+}
 
-export default RequireAdmin;
+export default RequireAdmin
