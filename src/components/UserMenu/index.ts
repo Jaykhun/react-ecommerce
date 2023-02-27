@@ -1,2 +1,3 @@
 import UserMenu from "./UserMenu";
-export default UserMenu;
+import Loader from "./Loader";
+export {UserMenu, Loader};

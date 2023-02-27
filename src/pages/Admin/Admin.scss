@@ -268,8 +268,8 @@
   &__table {
     @include fontArguments($textfont);
     width: 100%;
-    border-collapse: collapse;
-    border: 1px solid $littleTextColor;
+    border-collapse: separate;
+    border: 1px solid rgb(138 138 138 / 70%);
     border-radius: 8px;
   }
 
@@ -277,7 +277,6 @@
     text-align: center;
 
     th {
-      border-right: 1px solid $littleTextColor;
       padding: 8px;
       font-weight: 600;
       font-size: 16px;
@@ -285,12 +284,13 @@
   }
 
   &__row {
-    border-bottom: 1px solid $littleTextColor;
+    border-radius: 8px;
+    font-size: 16px;
+
   }
 
   &__column {
     text-align: center;
-    border-right: 1px solid $littleTextColor;
     padding: 8px;
     font-size: 16px;
     color: $littleTextColor;
@@ -316,8 +316,8 @@
   &__table {
     @include fontArguments($textfont);
     width: 100%;
-    border-collapse: collapse;
-    border: 1px solid $littleTextColor;
+    border-collapse: separate;
+    border: 1px solid rgb(138 138 138 / 70%);
     border-radius: 8px;
   }
 
@@ -325,20 +325,14 @@
     text-align: center;
 
     th {
-      border-right: 1px solid $littleTextColor;
       padding: 8px;
       font-weight: 600;
       font-size: 16px;
     }
   }
 
-  &__row {
-    border-bottom: 1px solid $littleTextColor;
-  }
-
   &__column {
     text-align: center;
-    border-right: 1px solid $littleTextColor;
     padding: 15px;
     font-size: 16px;
     color: $littleTextColor;

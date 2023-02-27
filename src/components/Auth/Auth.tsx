@@ -8,7 +8,6 @@ import {ActionAlert, ActionLoader, InputError} from "../UI"
 import Popup from "../UI/Popup/Popup"
 import "../UI/Popup/Popup.scss"
 import "./Auth.scss"
-import jwtDecode from "jwt-decode";
 
 const Auth = () => {
     const {onSignInClick} = useActions()
@@ -32,7 +31,6 @@ const Auth = () => {
 
     if (isSuccess && token) {
         login(token.access_token)
-        const decode: any = jwtDecode(token.access_token)
     }
 
     return (
@@ -83,7 +81,6 @@ const Auth = () => {
                                     </div>
                                 </form>
                                 <div className="signin__footer">
-                                    <a href="src/components/Auth/SignInPopup#Auth.tsx" className="signin__forgot">Забыли пароль?</a>
                                     <button className="signin__submit btn r-btn w-opacity">Войти</button>
                                 </div>
                             </div>

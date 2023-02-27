@@ -1,7 +1,7 @@
 import React from 'react';
 import {useActions} from "../../../hooks/useActions";
 import {useTypedSelector} from "../../../hooks/useTypedSelector";
-import UserMenu from "../../../components/UserMenu";
+import {UserMenu} from "../../../components/UserMenu";
 
 const Topbar = () => {
     const {onAdminMenuClick} = useActions()

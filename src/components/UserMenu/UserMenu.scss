@@ -3,6 +3,10 @@
 .user-menu {
   position: relative;
 
+  .active-link {
+    color: $btnBorderColor;
+  }
+
   &__photo {
     img {
       width: 50px;
@@ -20,7 +24,7 @@
 
   &__menu {
     position: absolute;
-    top: 90%;
+    top: 100%;
     right: 0px;
     z-index: 1;
     opacity: 0;

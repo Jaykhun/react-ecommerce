@@ -10,8 +10,6 @@ interface RequireAdmin {
 const RequireAdmin: FC<RequireAdmin> = ({children}) => {
     const token = getJwtToken('token')
 
-    console.log(1)
-
     if (token.is_admin === 1) {
         return <Navigate to='/' replace={true}/>
     }
