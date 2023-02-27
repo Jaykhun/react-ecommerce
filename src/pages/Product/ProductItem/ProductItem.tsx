@@ -1,14 +1,23 @@
-import { FC } from 'react'
-import { useNavigate } from "react-router-dom"
-import { IProduct } from "../../../store/api/product/productTypes"
+import {FC} from 'react'
+import {useNavigate} from "react-router-dom"
+import {IProduct} from "../../../store/api/product/productTypes"
 import "./ProductItem.scss"
+import {useActions} from "../../../hooks/useActions";
+import {getJwtToken} from "../../../utils/getJwtToken";
+import {Cookies} from "react-cookie";
+import jwtDecode from "jwt-decode";
+import {decode} from "punycode";
 
 interface ProductItemPropsType {
     product: IProduct
 }
 
-const ProductItem: FC<ProductItemPropsType> = ({ product }) => {
-    const { name, images, category, id, price, discount, quantity, description } = product
+const ProductItem: FC<ProductItemPropsType> = ({product}) => {
+    const cookie = new Cookies()
+    const token = cookie.get('token')
+    // const token = getJwtToken('token')
+    const {onSignInClick, login} = useActions()
+    const {name, images, category, id, price, discount, quantity, description} = product
 
     const navigate = useNavigate()
 
@@ -16,11 +25,17 @@ const ProductItem: FC<ProductItemPropsType> = ({ product }) => {
         navigate(`/product/${id}`)
     }
 
+    const handleAddToCart = () => {
+        if (token) {
+
+        } else onSignInClick()
+    }
+
     return (
         <div className="item__row">
-            <div  className="item__top" onClick={handleNavigate}>
+            <div className="item__top" onClick={handleNavigate}>
                 <div className="item__img">
-                    <img src={images[0].image_path} alt={name} />
+                    <img src={images[0].image_path} alt={name}/>
                 </div>
 
                 <div className="item__prices">
@@ -40,7 +55,7 @@ const ProductItem: FC<ProductItemPropsType> = ({ product }) => {
                     </div>
 
                     <div className="control__top">
-                        <button className="btn r-btn w-opacity item__cart">
+                        <button className="btn r-btn w-opacity item__cart" onClick={handleAddToCart}>
                         </button>
                     </div>
                 </div>

@@ -31,6 +31,8 @@ export const tokenSlice = createSlice({
         logout: (state) => {
             const cookie = new Cookies()
             cookie.remove('token')
+            console.log(cookie.get('token'))
+            state.token = ''
         }
     }
 })

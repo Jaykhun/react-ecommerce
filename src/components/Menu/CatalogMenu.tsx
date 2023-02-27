@@ -1,4 +1,3 @@
-import React from 'react';
 import {useTypedSelector} from "../../hooks/useTypedSelector";
 import {useGetAllCategoriesQuery} from "../../store/api/category/categoryApi";
 import CatalogItem from "./CatalogItem";

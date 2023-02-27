@@ -2,16 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="aeb7fb1c-63e7-4c2d-bca3-f65942e640de" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/UserMenu/Loader.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/Profile/Profile.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/Profile/Profile.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/Profile/index.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Auth/Auth.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Auth/Auth.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Header/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header/Header.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/UserMenu/UserMenu.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/UserMenu/UserMenu.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Menu/CatalogMenu.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Menu/CatalogMenu.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/UserMenu/UserMenu.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/UserMenu/UserMenu.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/UserMenu/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/UserMenu/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/hoc/RequireAdmin.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/hoc/RequireAdmin.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Admin/Admin.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Admin/Admin.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Admin/Topbar/Topbar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Admin/Topbar/Topbar.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Home/Home.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Home/Home.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Login/Login.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Login/Login.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Product/ProductItem/ProductItem.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Product/ProductItem/ProductItem.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Product/ProductSlider/ProductSlider.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Product/ProductSlider/ProductSlider.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/store/reducers/tokenSlice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/reducers/tokenSlice.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -152,7 +155,8 @@
       <workItem from="1677173892577" duration="2752000" />
       <workItem from="1677255722222" duration="5028000" />
       <workItem from="1677414093047" duration="10623000" />
-      <workItem from="1677428510987" duration="3834000" />
+      <workItem from="1677428510987" duration="4162000" />
+      <workItem from="1677514648790" duration="6397000" />
     </task>
     <servers />
   </component>

@@ -4,7 +4,6 @@ import {useActions} from "../../hooks/useActions";
 import {UserMenu} from "../UserMenu";
 import {getCookie} from "../../helpers/getCookie";
 import {useTypedSelector} from "../../hooks/useTypedSelector";
-import {useEffect} from "react";
 
 const Header = () => {
     const {onSignInClick} = useActions()
@@ -52,7 +51,7 @@ const Header = () => {
                         </ul>
                     </nav>
 
-                    {cookie ?
+                    {cookie?
                         <UserMenu/>
                         : <div className="header__register register">
                             <div className="register__login" onClick={() => onSignInClick()}>Войти</div>

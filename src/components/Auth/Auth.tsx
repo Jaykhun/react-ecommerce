@@ -6,8 +6,8 @@ import { useLoginUserMutation } from "../../store/api/user/userApi"
 import { LoginType } from "../../store/api/user/userTypes"
 import { ActionLoader, InputError } from "../UI"
 import Popup from "../UI/Popup/Popup"
-import "../UI/Popup/Popup.scss"
 import "./Auth.scss"
+import {useEffect} from "react";
 
 const Auth = () => {
     const { onSignInClick, login } = useActions()
@@ -27,9 +27,13 @@ const Auth = () => {
         onSignInClick()
     }
 
-    if (isSuccess && token) {
-        login(token.access_token)
-    }
+    useEffect(() =>{
+        if (isSuccess && token) {
+            login(token.access_token)
+        }
+    }, [token])
+
+
 
     return (
         <>
