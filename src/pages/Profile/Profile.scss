@@ -1,3 +1,37 @@
-.profile{
+@import "../../styles/mixin";
+@import "../../styles/variables";
+
+.profile {
   margin: 20px 0px;
+
+  &__info {
+    @include flex(space-between, $direction: column);
+    gap: 10px;
+    @include fontArguments($textfont);
+    font-size: 16px;
+    border: 1px solid rgb(0 0 0 / 8%);
+    border-radius: 6px;
+    padding: 10px 20px;
+    margin: 20px 0px;
+  }
+
+  .address {
+    @include flex(space-between, $direction: column);
+    gap: 10px;
+
+    &__info {
+      @include flex(space-between, $direction: column);
+      gap: 10px;
+      margin: 10px 0px 20px 20px;
+    }
+  }
+
+  &__btn{
+    padding: 18px 26px;
+    border-radius: 6px;
+  }
+
+  a {
+    color: inherit;
+  }
 }

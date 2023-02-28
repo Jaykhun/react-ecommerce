@@ -1,9 +1,8 @@
 import {ErrorMessage} from "@hookform/error-message"
 import jwtDecode from "jwt-decode"
-import {useEffect, useState} from 'react'
 import {SubmitHandler, useForm} from "react-hook-form"
 import {Navigate} from 'react-router-dom'
-import {ActionLoader, InputError} from '../../components/UI'
+import {ActionLoader, InputError, ActionAlert} from '../../components/UI'
 import {useActions} from "../../hooks/useActions"
 import {useLoginUserMutation} from "../../store/api/user/userApi"
 import {LoginType} from "../../store/api/user/userTypes"
@@ -32,6 +31,9 @@ const Login = () => {
 
         if (decode.is_admin) {
             return <Navigate to="/admin" replace={true}/>
+        } else if (decode.is_admin === 0) {
+            console.log(1)
+            return <Navigate to="/profile" replace={true}/>
         }
     }
 
@@ -89,7 +91,7 @@ const Login = () => {
                 </div>
             </form>
             {isLoading && <ActionLoader/>}
-            {/* {tokenError && <ActionAlert message='Error' error={error} />} */}
+            {tokenError && <ActionAlert message='Ошибка' error={error}/>}
         </div>
     </>
 }

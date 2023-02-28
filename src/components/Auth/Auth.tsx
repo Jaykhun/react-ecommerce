@@ -4,10 +4,10 @@ import { useActions } from "../../hooks/useActions"
 import { useTypedSelector } from "../../hooks/useTypedSelector"
 import { useLoginUserMutation } from "../../store/api/user/userApi"
 import { LoginType } from "../../store/api/user/userTypes"
-import { ActionLoader, InputError } from "../UI"
+import { ActionLoader, InputError, ActionAlert } from "../UI"
 import Popup from "../UI/Popup/Popup"
-import "./Auth.scss"
 import {useEffect} from "react";
+import "./Auth.scss"
 
 const Auth = () => {
     const { onSignInClick, login } = useActions()
@@ -32,8 +32,6 @@ const Auth = () => {
             login(token.access_token)
         }
     }, [token])
-
-
 
     return (
         <>
@@ -92,8 +90,7 @@ const Auth = () => {
             </Popup>
 
             {isLoading && <ActionLoader />}
-            {/*{isSuccess && <ActionAlert message={'Вы успешно вошли в аккаунт'} success={true}/>}*/}
-            {/*{isError && <ActionAlert message={'Ошибкка'} error={error}/>}*/}
+            {isError && <ActionAlert message={'Ошибкка'} error={error}/>}
         </>
     )
 }

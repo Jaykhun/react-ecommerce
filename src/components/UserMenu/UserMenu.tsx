@@ -1,22 +1,23 @@
 import {NavLink} from "react-router-dom"
 import {useActions} from "../../hooks/useActions"
-import {useGetAllUsersQuery} from "../../store/api/user/userApi"
-import {getJwtToken} from "../../utils/getJwtToken"
+import {useGetAllUsersQuery, useGetSingleUserQuery} from "../../store/api/user/userApi"
+import {getJwtToken} from "../../helpers/getJwtToken"
 import "./UserMenu.scss"
 import {Loader} from "./index"
 
 const UserMenu = () => {
     const userinfo = getJwtToken('token')
-    const {data: users, isLoading} = useGetAllUsersQuery()
+    const {data: users} = useGetAllUsersQuery()
     const currentUser = users?.find(user => user.username === userinfo?.sub)
+    const {data: user, isLoading: userLoading} = useGetSingleUserQuery(currentUser?.id)
     const {logout} = useActions()
 
     return (
         <div className="user-menu">
             <div className="user-menu__photo">
-                {isLoading
+                {userLoading
                     ? <Loader/>
-                    : <img src={currentUser?.user_detail.user_image} alt={currentUser?.username}/>
+                    : <img src={user?.user_detail.user_image} alt={user?.username}/>
                 }
             </div>
 

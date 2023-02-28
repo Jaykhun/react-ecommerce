@@ -1,2 +1,5 @@
 import Profile from "./Profile";
-export {Profile};
+import ProfileEdit from "./ProfileEdit";
+import ProfileForm from "./ProfileForm";
+
+export {Profile, ProfileForm, ProfileEdit};

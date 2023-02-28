@@ -1,13 +1,14 @@
 import {BrowserRouter, Route, Routes} from "react-router-dom"
 import RequireAdmin from "./hoc/RequireAdmin"
+import RequireAuth from "./hoc/RequireAuth";
 import {Admin, Categories, Countries, Orders, Products, Users} from "./pages/Admin"
+import {Product, ProductDetails, ProductSorted} from "./pages/Product"
+import {AdminLayout, Layout, LayoutWithoutSidebar} from "./routes"
 import Cart from "./pages/Cart"
 import {Home} from "./pages/Home"
 import Login from './pages/Login'
 import NotFound from "./pages/NotFound"
-import {Product, ProductDetails, ProductSorted} from "./pages/Product"
 import Register from "./pages/Register"
-import {AdminLayout, Layout, LayoutWithoutSidebar} from "./routes"
 import {Profile} from "./pages/Profile";
 
 const App = () => {
@@ -29,7 +30,9 @@ const App = () => {
 
                 <Route path="/" element={<LayoutWithoutSidebar/>}>
                     <Route path="cart" element={<Cart/>}/>
-                    <Route path="profile" element={<Profile/>}/>
+                    <Route element={<RequireAuth/>}>
+                        <Route path="profile" element={<Profile/>}/>
+                    </Route>
                 </Route>
 
                 <Route path='login' element={<Login/>}/>

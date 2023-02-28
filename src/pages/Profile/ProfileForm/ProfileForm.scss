@@ -1,0 +1,11 @@
+@import "../../../styles/mixin";
+@import "../../../styles/variables";
+
+.profile__form {
+  @include flex(space-between, $direction: column);
+  gap: 10px;
+
+  .form__submit {
+    margin: 20px 0px 0px 0px;
+  }
+}

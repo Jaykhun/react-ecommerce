@@ -1,5 +1,5 @@
 import {createApi, fetchBaseQuery} from "@reduxjs/toolkit/query/react";
-import {AuthUser, IUser, LoginType, Token} from "./userTypes";
+import {AuthUser, IUser, LoginType, Token, UserEdit} from "./userTypes";
 
 const url = 'https://ecommerce.icedev.uz/'
 
@@ -54,6 +54,16 @@ export const userApi = createApi({
             }),
             invalidatesTags: ['Users']
         }),
+
+        updateProfileUser: build.mutation<UserEdit, { id: number | undefined, rest: UserEdit }>({
+            query: ({id, rest}) => ({
+                url: `users/${id}`,
+                method: 'PUT',
+                body: rest
+            }),
+            invalidatesTags: ['Users']
+        }),
+
         deleteUser: build.mutation<IUser, number | undefined>({
             query: (id) => ({
                 url: `users/${id}`,
@@ -70,5 +80,6 @@ export const {
     useAddUserMutation,
     useUpdateUserMutation,
     useDeleteUserMutation,
-    useLoginUserMutation
+    useLoginUserMutation,
+    useUpdateProfileUserMutation
 } = userApi

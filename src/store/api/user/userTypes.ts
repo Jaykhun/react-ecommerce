@@ -1,5 +1,3 @@
-import internal from "stream";
-
 export interface IUser {
     username: string
     password: string
@@ -47,5 +45,13 @@ export interface AuthUser {
 }
 
 export interface Token {
-    access_token : string
+    access_token: string
+}
+
+export interface UserEdit {
+    user: {
+        username: string,
+        is_admin?: boolean
+    },
+    user_detail: UserDetail
 }

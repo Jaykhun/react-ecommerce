@@ -3,10 +3,7 @@ import {useNavigate} from "react-router-dom"
 import {IProduct} from "../../../store/api/product/productTypes"
 import "./ProductItem.scss"
 import {useActions} from "../../../hooks/useActions";
-import {getJwtToken} from "../../../utils/getJwtToken";
 import {Cookies} from "react-cookie";
-import jwtDecode from "jwt-decode";
-import {decode} from "punycode";
 
 interface ProductItemPropsType {
     product: IProduct
@@ -15,7 +12,6 @@ interface ProductItemPropsType {
 const ProductItem: FC<ProductItemPropsType> = ({product}) => {
     const cookie = new Cookies()
     const token = cookie.get('token')
-    // const token = getJwtToken('token')
     const {onSignInClick, login} = useActions()
     const {name, images, category, id, price, discount, quantity, description} = product
 

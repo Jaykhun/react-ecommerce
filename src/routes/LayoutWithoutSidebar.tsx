@@ -4,6 +4,7 @@ import Footer from "../components/Footer";
 import MobileMenu from "../components/Menu";
 import {MainActions, MainContacts} from "../components/Main";
 import {PhonePopup, SearchPopup, Auth} from "../components/Popup";
+import {ProfileEdit} from "../pages/Profile";
 
 const LayoutWithoutSidebar = () => {
     return (
@@ -18,6 +19,7 @@ const LayoutWithoutSidebar = () => {
             </main>
             <Footer/>
 
+            <ProfileEdit/>
             <PhonePopup/>
             <SearchPopup/>
             <MobileMenu/>
