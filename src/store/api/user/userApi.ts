@@ -38,7 +38,7 @@ export const userApi = createApi({
         addUser: build.mutation<IUser, Partial<IUser>>({
             query: (user) => ({
                 url: `users/`,
-                method: 'Post',
+                method: 'POST',
                 body: user,
                 headers: {
                     'Content-type': 'application/json: charset=UTF-8'

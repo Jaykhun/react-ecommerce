@@ -9,6 +9,8 @@ import {popupReducer} from "./features/popupSlice";
 import {menuReducer} from "./features/menuSlice";
 import {adminReducer} from "./reducers/adminSlice";
 import {tokenReducer} from "./reducers/tokenSlice";
+import {orderApi} from "./api/order/orderApi";
+import {reviewApi} from "./api/review/reviewApi";
 
 export const store = configureStore({
     reducer: {
@@ -18,16 +20,20 @@ export const store = configureStore({
         product: productReducer,
         token: tokenReducer,
         [productApi.reducerPath]: productApi.reducer,
+        [reviewApi.reducerPath]: reviewApi.reducer,
         [categoryApi.reducerPath]: categoryApi.reducer,
         [userApi.reducerPath]: userApi.reducer,
-        [countryApi.reducerPath]: countryApi.reducer
+        [countryApi.reducerPath]: countryApi.reducer,
+        [orderApi.reducerPath]: orderApi.reducer
     },
     middleware: getDefaultMiddleware => getDefaultMiddleware({serializableCheck: false})
         .concat(
             productApi.middleware,
+            reviewApi.middleware,
             categoryApi.middleware,
             userApi.middleware,
-            countryApi.middleware
+            countryApi.middleware,
+            orderApi.middleware
         )
 })
 

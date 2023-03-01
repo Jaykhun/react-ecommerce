@@ -23,7 +23,7 @@ const ProductItem: FC<ProductItemPropsType> = ({product}) => {
 
     const handleAddToCart = () => {
         if (token) {
-
+            console.log(token)
         } else onSignInClick()
     }
 
