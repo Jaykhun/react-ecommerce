@@ -6,41 +6,48 @@ import Loader from "./Loader"
 
 import "swiper/css"
 import "swiper/css/pagination"
+import { GetCurrentUser } from '../../../helpers/getCurrentUser'
+import { useAddNewOrderMutation } from '../../../store/api/order/orderApi'
+import { AddOrderType } from '../../../store/api/order/orderType'
 import "./ProductDetails.scss"
 
-
 const ProductDetails = () => {
-    const {id} = useParams()
-    window.scrollTo(0, 0);
-    const {
-        name,
-        productId,
-        price,
-        description,
-        discount,
-        images,
-        category
-    } = useGetSingleProductQuery(parseInt(id as string), {
-        skip: !parseInt(id as string),
-        selectFromResult: ({data}) => ({
-            productId: data?.id,
-            name: data?.name,
-            price: data?.price,
-            description: data?.description,
-            discount: data?.discount,
-            images: data?.images,
-            category: data?.category,
-            quantity: data?.quantity
-        })
+    window.scrollTo(0, 0)
+    const { id } = useParams()
+    const user = GetCurrentUser('token')
+    const [addOrder, result] = useAddNewOrderMutation()
+    const { data: product } = useGetSingleProductQuery(parseInt(id as string), {
+        skip: !parseInt(id as string)
     })
+
+    const addToCart = () => {
+        const order: AddOrderType = {
+            order: {
+                user_id: user?.id,
+                order_date: '2023-01-26',
+                address_id: user?.addresses[0].id,
+                order_status_id: 1
+            },
+
+            order_details: [{
+                product_id: product?.id,
+                quantity: 1,
+                price: product?.price
+            }]
+        }
+
+        console.log(order);
+
+        addOrder(order)
+    }
 
     return (
         <div className="content__body">
-            <Location/>
+            <Location />
             <div className="content__product product">
-                {name ?
+                {product ?
                     <>
-                        <div className="product__title title">{name}</div>
+                        <div className="product__title title">{product.name}</div>
                         <div className="product__inner">
                             <div className="product__control">
                                 <div className="product__sale sale">
@@ -48,11 +55,11 @@ const ProductDetails = () => {
                                         <div className="word-sale">sale</div>
                                         <div className="sale__content">
                                             <div className="sale__top">
-                                                <div className="product__price">{price} &#36;</div>
+                                                <div className="product__price">{product.price} &#36;</div>
                                             </div>
                                             <div className="sale__buttons buttons">
-                                                <button className="btn w-bg-r-btn w-opacity buttons__cart">В
-                                                    корзину
+                                                <button className="btn w-bg-r-btn w-opacity buttons__cart" onClick={addToCart}>
+                                                    В корзину
                                                 </button>
                                             </div>
                                         </div>
@@ -101,31 +108,31 @@ const ProductDetails = () => {
                                 </div>
                             </div>
                             <div className="product__slider">
-                                {images?.map(pImage =>
+                                {product.images?.map(pImage =>
                                     <div className="product__img" key={keyId()}>
-                                        <img src={pImage.image_path} alt={name}/>
+                                        <img src={pImage.image_path} alt={product.name} />
                                     </div>
                                 )}
                             </div>
                         </div>
                     </>
-                    : <Loader/>
+                    : <Loader />
                 }
 
                 <div className="product__footer">
                     <div className="product__navigation">
-                        <Link to={{pathname: `/product/${parseInt(id as string) - 1}`}} className="product__previous">
+                        <Link to={{ pathname: `/product/${parseInt(id as string) - 1}` }} className="product__previous">
                             Предыдущий
                         </Link>
 
-                        <Link to={{pathname: `/product/${parseInt(id as string) + 1}`}} className="product__next">
+                        <Link to={{ pathname: `/product/${parseInt(id as string) + 1}` }} className="product__next">
                             Следующий
                         </Link>
                     </div>
                 </div>
             </div>
         </div>
-    );
-};
+    )
+}
 
-export default ProductDetails;
+export default ProductDetails

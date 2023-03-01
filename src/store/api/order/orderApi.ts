@@ -1,5 +1,5 @@
-import {createApi, fetchBaseQuery} from "@reduxjs/toolkit/query/react";
-import {AddOrderType, Order, UserOrders} from "./orderType";
+import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react"
+import { AddOrderType, Order, UserOrders } from "./orderType"
 
 const url = 'https://ecommerce.icedev.uz/'
 

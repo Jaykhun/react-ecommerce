@@ -1,5 +1,5 @@
-import {createApi, fetchBaseQuery} from "@reduxjs/toolkit/query/react";
-import {AuthUser, IUser, LoginType, Token, UserEdit} from "./userTypes";
+import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react"
+import { AuthUser, IUser, LoginType, Token, UserEdit } from "./userTypes"
 
 const url = 'https://ecommerce.icedev.uz/'
 

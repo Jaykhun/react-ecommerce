@@ -1,14 +1,14 @@
 export interface Order {
-    user_id: number,
+    user_id: number | undefined,
     order_date: string,
-    address_id: number,
+    address_id: number | undefined,
     order_status_id: number
 }
 
 export interface OrderDetails {
-    "product_id": number,
-    "quantity": number,
-    "price": number
+    product_id: number | undefined,
+    quantity: number,
+    price: number | undefined
 }
 
 export interface AddOrderType {
