@@ -13,6 +13,14 @@
     border-radius: 6px;
     padding: 10px 20px;
     margin: 20px 0px;
+    span{
+      margin-right: 5px;
+    }
+  }
+
+  &__name{
+    display: flex;
+    align-items: center;
   }
 
   .address {

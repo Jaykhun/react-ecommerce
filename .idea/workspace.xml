@@ -2,27 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="aeb7fb1c-63e7-4c2d-bca3-f65942e640de" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/pages/Profile/ProfileEdit/ProfileEdit.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/Profile/ProfileEdit/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/Profile/ProfileForm/ProfileForm.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/Profile/ProfileForm/ProfileForm.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/Profile/ProfileForm/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/Profile/ProfileLoader.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Auth/Auth.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Auth/Auth.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/UserMenu/UserMenu.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/UserMenu/UserMenu.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/hoc/AuthProvider.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/hoc/RequireAdmin.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/hoc/RequireAdmin.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/hoc/RequireAuth.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/hoc/RequireAuth.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Login/Login.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Login/Login.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Product/ProductItem/ProductItem.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Product/ProductItem/ProductItem.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/Profile/Profile.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Profile/Profile.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/Profile/Profile.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Profile/Profile.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/Profile/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Profile/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/LayoutWithoutSidebar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/LayoutWithoutSidebar.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/api/user/userApi.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/api/user/userApi.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/api/user/userTypes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/api/user/userTypes.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/getJwtToken.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/helpers/getJwtToken.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -179,7 +163,8 @@
       <workItem from="1677414093047" duration="10623000" />
       <workItem from="1677428510987" duration="4162000" />
       <workItem from="1677514648790" duration="6520000" />
-      <workItem from="1677595560201" duration="10314000" />
+      <workItem from="1677595560201" duration="10710000" />
+      <workItem from="1677649313027" duration="1214000" />
     </task>
     <servers />
   </component>
