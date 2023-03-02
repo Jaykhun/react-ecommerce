@@ -55,3 +55,10 @@ export interface UserEdit {
     },
     user_detail: UserDetail
 }
+
+export interface RegisterUserType {
+    user: LoginType,
+    user_detail: UserDetail,
+    user_phones: PhoneNumber[],
+    user_address: Address
+}

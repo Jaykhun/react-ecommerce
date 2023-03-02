@@ -1,11 +1,14 @@
 import React from 'react';
 import "./Register.scss"
-import Location from "../../components/Location";
+import {Link} from "react-router-dom";
 
 const Register = () => {
     return (
         <div className="content__body">
-            <Location/>
+            <div className="site-path">
+                <Link className="site-history" to="/">Главная</Link>
+                <span className="current-site" >Регистрация</span>
+            </div>
             <h1 className="title">Регистрация</h1>
             <form action="#" className="content__register form">
                 <div className="form__email">

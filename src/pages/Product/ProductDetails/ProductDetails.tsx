@@ -142,7 +142,6 @@ const ProductDetails = () => {
                                     )}
                                 </div>
 
-
                             </div>
                             {user ? <form className="content__review review" onSubmit={handleSubmit(onSubmit)}>
                                 <label htmlFor="addReview" className="review__label input-text">Оставьте отзыв</label>

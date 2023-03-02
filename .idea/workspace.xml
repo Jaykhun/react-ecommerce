@@ -2,14 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="aeb7fb1c-63e7-4c2d-bca3-f65942e640de" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/store/api/order/orderApi.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/store/api/order/orderType.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/store/api/review/reviewApi.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/store/api/review/reviewType.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Product/ProductItem/ProductItem.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Product/ProductItem/ProductItem.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/api/user/userApi.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/api/user/userApi.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/store.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/store.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Product/ProductDetails/ProductDetails.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Product/ProductDetails/ProductDetails.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Register/Register.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Register/Register.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/api/user/userTypes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/api/user/userTypes.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
