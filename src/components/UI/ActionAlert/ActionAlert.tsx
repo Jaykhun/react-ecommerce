@@ -1,7 +1,7 @@
-import React, {FC} from 'react';
-import {ToastContainer, toast} from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-import "./ActionAlert.scss";
+import { FC } from 'react'
+import { ToastContainer, toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
+import "./ActionAlert.scss"
 
 interface ActionErrorPropsType {
     message: string,
@@ -38,7 +38,7 @@ const ActionAlert: FC<ActionErrorPropsType> = ({message, error, success}) => {
     }
 
     return (
-        <div className="action-error">
+        <div className="action-error" style={{fontSize: '16px'}}>
             <ToastContainer
                 position="top-right"
                 autoClose={5000}

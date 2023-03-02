@@ -37,10 +37,22 @@
     &__slider {
       flex: 1 1 auto;
       text-align: center;
-      img{
+      img {
         width: 265px;
         height: 265px;
         object-fit: contain;
+        border-radius: 6px;
+      }
+    }
+
+    .review {
+      &__form {
+        @include flex(space-between, center);
+        gap: 20px;
+        margin-bottom: 20px;
+      }
+      &__submit {
+        padding: 18px 26px;
         border-radius: 6px;
       }
     }
@@ -80,7 +92,7 @@
               width: 24px;
               height: 100%;
               background: url(data:image/svg+xml,%3Csvg%20version%3D%221.1%22%20baseProfile%3D%22full%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20xmlns%3Aev%3D%22http%3A%2F%2Fwww.w3.org%2F2001%2Fxml-events%22%20xml%3Aspace%3D%22preserve%22%20x%3D%220px%22%20y%3D%220px%22%20width%3D%2223px%22%20height%3D%2221px%22%20%20viewBox%3D%220%200%2023%2021%22%20preserveAspectRatio%3D%22none%22%20shape-rendering%3D%22geometricPrecision%22%3E%3Cpath%20fill%3D%22%23fff%22%20d%3D%22M0%202H2.3132L7.06665%2014.359C7.21519%2014.7452%207.58623%2015%208%2015H18C18.4089%2015%2018.7766%2014.751%2018.9285%2014.3714L22.9285%204.37139C23.0517%204.0633%2023.0141%203.71414%2022.8281%203.43937C22.642%203.1646%2022.3318%203%2022%203H9V5H20.523L17.323%2013H8.6868L3.93335%200.641021C3.78481%200.254829%203.41377%200%203%200H0V2ZM7%2019.0001C7%2017.8955%207.89543%2017.0001%209%2017.0001C10.1046%2017.0001%2011%2017.8955%2011%2019.0001C11%2020.1047%2010.1046%2021.0001%209%2021.0001C7.89543%2021.0001%207%2020.1047%207%2019.0001ZM15%2019.0001C15%2017.8955%2015.8954%2017.0001%2017%2017.0001C18.1046%2017.0001%2019%2017.8955%2019%2019.0001C19%2020.1047%2018.1046%2021.0001%2017%2021.0001C15.8954%2021.0001%2015%2020.1047%2015%2019.0001Z%22%3E%3C%2Fpath%3E%3C%2Fsvg%3E)
-              50% no-repeat;
+                50% no-repeat;
               pointer-events: none;
               z-index: 1;
             }
@@ -139,10 +151,12 @@
       }
 
       &__venders {
+        display: block;
         color: #e92e2e;
         padding-bottom: 10px;
         font-weight: 500;
         font-size: 17px;
+        margin-bottom: 10px;
       }
 
       &__delivery {
@@ -186,7 +200,7 @@
             width: 20px;
             height: 10px;
             background: url(data:image/svg+xml,%3Csvg%20version%3D%221.1%22%20baseProfile%3D%22full%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20xmlns%3Aev%3D%22http%3A%2F%2Fwww.w3.org%2F2001%2Fxml-events%22%20xml%3Aspace%3D%22preserve%22%20x%3D%220px%22%20y%3D%220px%22%20width%3D%2220px%22%20height%3D%2210px%22%20%20viewBox%3D%220%200%2020%2010%22%20preserveAspectRatio%3D%22none%22%20shape-rendering%3D%22geometricPrecision%22%3E%22%3Cpath%20d%3D%22M2%205L1.29289%204.29289L0.585786%205L1.29289%205.70711L2%205ZM6.70711%208.29289L2.70711%204.29289L1.29289%205.70711L5.29289%209.70711L6.70711%208.29289ZM2.70711%205.70711L6.70711%201.70711L5.29289%200.292893L1.29289%204.29289L2.70711%205.70711ZM20%204H2V6H20V4Z%22%20fill%3D%22%23101010%22%3E%3C%2Fpath%3E%3C%2Fsvg%3E)
-            50% 50% no-repeat;
+              50% 50% no-repeat;
             top: 2px;
             transition: all 0.3s;
           }
