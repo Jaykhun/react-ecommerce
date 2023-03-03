@@ -1,13 +1,15 @@
-import Location from "../../components/Location";
 import "./Cart.scss";
 import CatalogMenu from "../../components/Menu/CatalogMenu";
 import {ProductControl} from "../../components/UI";
+import {Link} from "react-router-dom";
 
 const Cart = () => {
     return (
         <div className="main-content content cart">
-            <Location/>
-
+            <div className="site-path">
+                <Link className="site-history" to="/">Главная</Link>
+                <span className="current-site">Корзина</span>
+            </div>
             <div className="content__title title">Корзина</div>
 
             <div className="content__aside aside cart">
@@ -15,6 +17,7 @@ const Cart = () => {
                     <CatalogMenu/>
                 </div>
             </div>
+
             <div className="content__body cart">
                 <div className="content__inner">
                     <div className="content__cart cart">
@@ -29,8 +32,8 @@ const Cart = () => {
                             </div>
 
                             <div className="product__body">
-                                <a href="./index.html" className="mobile-cart-back product__back btn b-opacity">К
-                                    покупкам</a>
+                                <Link to="/" className="mobile-cart-back product__back btn b-opacity">К
+                                    покупкам</Link>
 
                                 <div className="product__item">
                                     <div className="product__info">
@@ -77,12 +80,13 @@ const Cart = () => {
                                 </div>
 
                                 <div className="product__footer">
-                                    <a href="./index.html" className="product__back btn b-opacity">К покупкам</a>
+                                    <Link to="/" className="product__back btn b-opacity">К покупкам</Link>
                                     <div className="product__clean">Очистить корзину</div>
                                 </div>
                             </div>
                         </div>
                     </div>
+
                     <div className="content__total total">
                         <div className="total__body">
                             <div className="total__title">Расчет</div>
@@ -92,49 +96,6 @@ const Cart = () => {
                             <span className="sum__word">Итого:</span>
                             <span className="sum__price">2000 &#36;</span>
                         </div>
-                    </div>
-                </div>
-
-                <div className="content__delivery delivery">
-                    <div className="delivery__title">Доставка</div>
-
-                    <div className="delivery__body">
-                        <div className="delivery__subtitle">Почта Узбекистана - бесплатно</div>
-                        <form action="#" className="delivery__form">
-                            <label htmlFor="fullName" className="delivery__txt input-text">ФИО
-                                <span className="required-form">*</span></label>
-                            <input type="text" className="input-style" id="fullName"/>
-
-                            <label htmlFor="deliveryAddress" className="delivery__txt input-text">Адрес доставки
-                                <span className="required-form">*</span></label>
-                            <textarea name="" id="deliveryAddress" className="input-style"></textarea>
-
-                            <label htmlFor="postCode" className="delivery__txt input-text">Почтовый индекс
-                                <span className="required-form">*</span></label>
-                            <input type="text" className="input-style" id="postCode"/>
-
-                            <label htmlFor="telephone" className="delivery__txt input-text">Телефон
-                                <span className="required-form">*</span></label>
-                            <input type="number" className="input-style" id="telephone"/>
-
-                            <div className="delivery__title">Форма заказа</div>
-
-                            <label htmlFor="fullName" className="delivery__txt input-text">ФИО
-                                <span className="required-form">*</span></label>
-                            <input type="text" className="input-style" id="fullName"/>
-
-                            <label htmlFor="telephone" className="delivery__txt input-text">Телефон
-                                <span className="required-form">*</span></label>
-                            <input type="number" className="input-style" id="telephone"/>
-
-                            <label htmlFor="email" className="delivery__txt input-text">Email
-                                <span className="required-form">*</span></label>
-                            <input type="email" className="input-style" id="email"/>
-
-                            <button className="delivery__submit btn w-opacity r-btn">Оформить
-                                заказ
-                            </button>
-                        </form>
                     </div>
                 </div>
             </div>

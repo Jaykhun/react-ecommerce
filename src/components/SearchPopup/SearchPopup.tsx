@@ -1,8 +1,8 @@
-import Popup from "../../UI/Popup/Popup";
+import Popup from "../UI/Popup/Popup";
 import "./SearchPopup.scss"
-import "../../UI/Popup/Popup.scss";
-import {useActions} from "../../../hooks/useActions";
-import {useTypedSelector} from "../../../hooks/useTypedSelector";
+import "../UI/Popup/Popup.scss";
+import {useActions} from "../../hooks/useActions";
+import {useTypedSelector} from "../../hooks/useTypedSelector";
 
 const SearchPopup = () => {
     const {onSearchClick} = useActions()
@@ -21,10 +21,10 @@ const SearchPopup = () => {
                     </div>
 
                     <div className="search-popup__row">
-                        <form action="#" className="search-popup__search popup-form">
+                        <form action="src/components/SearchPopup/SearchPopup#" className="search-popup__search popup-form">
                             <input type="text" placeholder="Я ищу…"/>
                         </form>
-                        <form action="#" className="search-popup__form search-form popup-form">
+                        <form action="src/components/SearchPopup/SearchPopup#" className="search-popup__form search-form popup-form">
                             <div className="search-form__price search-price">
                                 <div className="search-price__currency">
                                     <label className="input-text">Цена

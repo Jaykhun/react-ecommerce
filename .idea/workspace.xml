@@ -2,10 +2,44 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="aeb7fb1c-63e7-4c2d-bca3-f65942e640de" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/components/AsideBar/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/CallBack/CallBack.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/CallBack/CallBack.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/CallBack/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Contacts/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/PhonePopup/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/SearchActions/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/SearchPopup/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/store/api/callBack/callBack.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/store/api/callBack/callBackType.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Product/ProductDetails/ProductDetails.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Product/ProductDetails/ProductDetails.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Register/Register.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Register/Register.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/api/user/userTypes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/api/user/userTypes.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/user.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Auth/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Auth/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Header/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header/Header.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Location/Location.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Location/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Main/Main.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Main/Main.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Main/MainActions/MainActions.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/SearchActions/SearchActions.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Main/MainActions/MainActions.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/SearchActions/SearchActions.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Main/MainAside/MainAside.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AsideBar/AsideBar.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Main/MainAside/MainAside.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AsideBar/AsideBar.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Main/MainContacts/MainContacts.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Contacts/Contacts.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Main/MainContacts/MainContacts.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Contacts/Contacts.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Main/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Main/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Popup/PhonePopup/PhonePopup.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/PhonePopup/PhonePopup.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Popup/PhonePopup/PhonePopup.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/PhonePopup/PhonePopup.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Popup/SearchPopup/SearchPopup.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/SearchPopup/SearchPopup.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Popup/SearchPopup/SearchPopup.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/SearchPopup/SearchPopup.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Popup/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Admin/Categories/CategoriesEdit/CategoriesEdit.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Admin/Categories/CategoriesEdit/CategoriesEdit.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Cart/Cart.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Cart/Cart.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Product/ProductItem/ProductItem.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Product/ProductItem/ProductItem.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/Layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/Layout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/LayoutWithoutSidebar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/LayoutWithoutSidebar.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/features/popupSlice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/features/popupSlice.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/store.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/store.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/fonts.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/_fonts.scss" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -164,6 +198,7 @@
       <workItem from="1677514648790" duration="6520000" />
       <workItem from="1677595560201" duration="10710000" />
       <workItem from="1677649313027" duration="5845000" />
+      <workItem from="1677860850007" duration="6117000" />
     </task>
     <servers />
   </component>

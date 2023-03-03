@@ -1,7 +1,7 @@
 import "./PhonePopup.scss"
-import Popup from "../../UI/Popup";
-import {useActions} from "../../../hooks/useActions";
-import {useTypedSelector} from "../../../hooks/useTypedSelector";
+import Popup from "../UI/Popup";
+import {useActions} from "../../hooks/useActions";
+import {useTypedSelector} from "../../hooks/useTypedSelector";
 
 const PhonePopup = () => {
     const {onPhoneClick} = useActions()

@@ -1,9 +1,9 @@
 import {Link} from "react-router-dom";
-import {useActions} from "../../../hooks/useActions";
-import "./MainContacts.scss";
+import {useActions} from "../../hooks/useActions";
+import "./Contacts.scss";
 
-const MainContacts = () => {
-    const {onPhoneClick} = useActions()
+const Contacts = () => {
+    const {onCallBackClick, onPhoneClick} = useActions()
 
     return (
         <section className="main-top">
@@ -22,7 +22,7 @@ const MainContacts = () => {
                              onClick={() => onPhoneClick()}>
                         </div>
                     </div>
-                    <div className="contacts__recall">
+                    <div className="contacts__recall" onClick={() => onCallBackClick()}>
                                 <span className="btn w-r-btn">
                                     Обратный звонок
                                 </span>
@@ -33,4 +33,4 @@ const MainContacts = () => {
     );
 };
 
-export default MainContacts;
+export default Contacts;

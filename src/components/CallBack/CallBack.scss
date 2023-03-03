@@ -1,0 +1,22 @@
+@import "../../styles/mixin";
+
+.popup-callback{
+  &__title{
+    @include fontArguments($mainFont, 700);
+    font-size: 15px;
+    text-transform: uppercase;
+    color: #101010;
+    padding: 0 0 35px;
+  }
+
+  &__form{
+    @include flex(space-between, $direction: column);
+    gap: 20px;
+  }
+
+  &__submit{
+    padding: 18px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+}

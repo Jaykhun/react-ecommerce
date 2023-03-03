@@ -1,15 +1,18 @@
 import {createSlice} from "@reduxjs/toolkit";
+import {stat} from "fs";
 
 interface popupTypes {
     isSearchModuleOpen: boolean,
     isPhoneModuleOpen: boolean,
-    isSignInModuleOpen: boolean
+    isSignInModuleOpen: boolean,
+    isCallBackOpen: boolean
 }
 
 const initialState: popupTypes = {
     isSearchModuleOpen: false,
     isPhoneModuleOpen: false,
-    isSignInModuleOpen: false
+    isSignInModuleOpen: false,
+    isCallBackOpen: false
 }
 
 export const popupSlice = createSlice({
@@ -26,6 +29,10 @@ export const popupSlice = createSlice({
 
         onSignInClick: (state) => {
             state.isSignInModuleOpen = !state.isSignInModuleOpen
+        },
+
+        onCallBackClick: (state) => {
+            state.isCallBackOpen = !state.isCallBackOpen
         }
     }
 })

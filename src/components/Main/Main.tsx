@@ -1,14 +1,16 @@
 import {Outlet} from "react-router-dom";
-import {MainContacts, MainActions, MainAside} from "./index";
+import Contacts from "../Contacts";
+import SearchActions from "../SearchActions";
+import AsideBar from "../AsideBar";
 
 const Main = () => {
     return (
         <main className="main">
             <div className="container">
-                <MainContacts/>
-                <MainActions/>
+                <Contacts/>
+                <SearchActions/>
                 <div className="main-content content">
-                    <MainAside/>
+                    <AsideBar/>
                     <Outlet/>
                 </div>
             </div>

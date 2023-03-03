@@ -11,6 +11,7 @@ import {adminReducer} from "./reducers/adminSlice";
 import {tokenReducer} from "./reducers/tokenSlice";
 import {orderApi} from "./api/order/orderApi";
 import {reviewApi} from "./api/review/reviewApi";
+import {callBackApi} from "./api/callBack/callBack";
 
 export const store = configureStore({
     reducer: {
@@ -24,7 +25,8 @@ export const store = configureStore({
         [categoryApi.reducerPath]: categoryApi.reducer,
         [userApi.reducerPath]: userApi.reducer,
         [countryApi.reducerPath]: countryApi.reducer,
-        [orderApi.reducerPath]: orderApi.reducer
+        [orderApi.reducerPath]: orderApi.reducer,
+        [callBackApi.reducerPath]: categoryApi.reducer
     },
     middleware: getDefaultMiddleware => getDefaultMiddleware({serializableCheck: false})
         .concat(
@@ -33,7 +35,8 @@ export const store = configureStore({
             categoryApi.middleware,
             userApi.middleware,
             countryApi.middleware,
-            orderApi.middleware
+            orderApi.middleware,
+            // callBackApi.middleware,
         )
 })
 

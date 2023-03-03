@@ -1,9 +1,9 @@
 import {Link} from "react-router-dom";
-import {useActions} from "../../../hooks/useActions";
-import "./MainActions.scss";
-import {useTypedSelector} from "../../../hooks/useTypedSelector";
+import {useActions} from "../../hooks/useActions";
+import "./SearchActions.scss";
+import {useTypedSelector} from "../../hooks/useTypedSelector";
 
-const MainActions = () => {
+const SearchActions = () => {
     const {onSearchClick, onPhoneClick, onMenuClick, onCatalogMenuClick} = useActions()
     const {isCatalogMenuOpen} = useTypedSelector(state => state.menu)
 
@@ -17,7 +17,7 @@ const MainActions = () => {
             </div>
 
             <div className="main-actions__search search">
-                <form action="#" className="search__form">
+                <form action="src/components/SearchActions/MainActions#SearchActions.tsx" className="search__form">
                     <input type="text" className="search__input" placeholder="Я ищу…"/>
                     <button type="button" className="search__btn"></button>
                     <button type="button" className="mobile-search__btn" onClick={() => onSearchClick()}></button>
@@ -38,4 +38,4 @@ const MainActions = () => {
     );
 };
 
-export default MainActions;
+export default SearchActions;

@@ -1,2 +1,4 @@
 import AuthFrom from "./AuthFrom";
-export {AuthFrom}
+import Auth from "./Auth";
+
+export {AuthFrom, Auth}

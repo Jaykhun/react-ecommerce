@@ -19,35 +19,6 @@ const Header = () => {
                             <li className="menu__item">
                                 <Link to="/" className="menu__link">Главная</Link>
                             </li>
-
-                            <li className="menu__item has-child">
-                                <a className="menu__link" href="src/components/Header/Header#">О нас</a>
-                                <ul className="menu__hovered">
-                                    <li><a href="src/components/Header/Header">Отзывы о нас</a></li>
-                                    <li><a href="src/components/Header/Header">Вопросы и ответы</a></li>
-                                    <li><a href="src/components/Header/Header">Статьи</a></li>
-                                </ul>
-                            </li>
-
-                            <li className="menu__item has-child">
-                                <a className="menu__link" href="src/components/Header/Header#">Информация</a>
-                                <ul className="menu__hovered">
-                                    <li><a href="src/components/Header/Header">Оплата</a></li>
-                                    <li><a href="src/components/Header/Header">Доставка</a></li>
-                                </ul>
-                            </li>
-
-                            <li className="menu__item">
-                                <a className="menu__link" href="src/components/Header/Header#">Акции</a>
-                            </li>
-
-                            <li className="menu__item">
-                                <a className="menu__link" href="src/components/Header/Header#">Новости</a>
-                            </li>
-
-                            <li className="menu__item">
-                                <a className="menu__link" href="src/components/Header/Header#">Контакты</a>
-                            </li>
                         </ul>
                     </nav>
 

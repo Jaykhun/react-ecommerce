@@ -1,6 +1,5 @@
 import React from 'react';
 import {Popup} from "../../../../components/UI";
-import {CountriesForm} from "../../Countries";
 import {useActions} from "../../../../hooks/useActions";
 import {useTypedSelector} from "../../../../hooks/useTypedSelector";
 import {CategoriesForm} from "../index";

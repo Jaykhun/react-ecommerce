@@ -50,10 +50,10 @@ const ProductItem: FC<ProductItemPropsType> = ({product}) => {
                         <div className="word-sale">sale</div>
                     </div>
 
-                    <div className="control__top">
-                        <button className="btn r-btn w-opacity item__cart" onClick={handleAddToCart}>
-                        </button>
-                    </div>
+                    {/*<div className="control__top">*/}
+                    {/*    <button className="btn r-btn w-opacity item__cart" onClick={handleAddToCart}>*/}
+                    {/*    </button>*/}
+                    {/*</div>*/}
                 </div>
             </div>
         </div>

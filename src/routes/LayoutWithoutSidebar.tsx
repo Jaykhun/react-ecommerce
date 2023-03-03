@@ -2,8 +2,11 @@ import {Outlet} from "react-router-dom";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import MobileMenu from "../components/Menu";
-import {MainActions, MainContacts} from "../components/Main";
-import {PhonePopup, SearchPopup, Auth} from "../components/Popup";
+import Contacts from "../components/Contacts";
+import SearchActions from "../components/SearchActions";
+import {Auth} from "../components/Auth";
+import PhonePopup from "../components/PhonePopup";
+import SearchPopup from "../components/SearchPopup";
 import {ProfileEdit} from "../pages/Profile";
 
 const LayoutWithoutSidebar = () => {
@@ -12,18 +15,18 @@ const LayoutWithoutSidebar = () => {
             <Header/>
             <main className="main">
                 <div className="container">
-                    <MainContacts/>
-                    <MainActions/>
+                    <Contacts/>
+                    <SearchActions/>
                     <Outlet/>
                 </div>
             </main>
             <Footer/>
 
+            <Auth/>
             <ProfileEdit/>
             <PhonePopup/>
             <SearchPopup/>
             <MobileMenu/>
-            <Auth/>
         </div>
     );
 };

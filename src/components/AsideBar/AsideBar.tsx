@@ -1,8 +1,8 @@
 import React from 'react';
-import "./MainAside.scss";
-import CatalogMenu from "../../Menu/CatalogMenu";
+import "./AsideBar.scss";
+import CatalogMenu from "../Menu/CatalogMenu";
 
-const MainAside = () => {
+const AsideBar = () => {
     return (
         <div className="content__aside aside">
             <div className="aside__folders">
@@ -84,4 +84,4 @@ const MainAside = () => {
     );
 };
 
-export default MainAside;
+export default AsideBar;
