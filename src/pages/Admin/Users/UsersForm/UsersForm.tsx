@@ -1,17 +1,17 @@
-import React, {FC, useCallback, useId} from 'react';
-import {Controller, SubmitHandler, useForm} from "react-hook-form";
-import {ErrorMessage} from "@hookform/error-message/dist";
-import {InputError} from "../../../../components/UI";
-import {UsersFormPropsType} from "./types";
-import {useAddUserMutation, useUpdateUserMutation, useGetSingleUserQuery} from "../../../../store/api/user/userApi";
-import {IUser} from "../../../../store/api/user/userTypes";
-import {useGetAllCountriesQuery} from '../../../../store/api/country/countryApi';
-import {useActions} from '../../../../hooks/useActions';
-import AsyncSelect from "react-select/async";
-import makeAnimated from "react-select/animated";
-import "./UsersForm.scss";
+import { ErrorMessage } from "@hookform/error-message/dist"
+import { FC, useCallback, useId } from 'react'
+import { Controller, SubmitHandler, useForm } from "react-hook-form"
+import makeAnimated from "react-select/animated"
+import AsyncSelect from "react-select/async"
+import { InputError } from "../../../../components/UI"
+import { useActions } from '../../../../hooks/useActions'
+import { useGetAllCountriesQuery } from '../../../../store/api/country/countryApi'
+import { useAddUserMutation, useGetSingleUserQuery, useUpdateUserMutation } from "../../../../store/api/user/userApi"
+import { IUser } from "../../../../store/api/user/userTypes"
+import "./UsersForm.scss"
+import { UsersFormPropsType } from "./types"
 
-const UsersForm: FC<UsersFormPropsType> = ({id, buttonValue}) => {
+const UsersForm: FC<UsersFormPropsType> = ({ id, buttonValue }) => {
     const user_name = useId()
     const password = useId()
     const number = useId()
@@ -23,9 +23,8 @@ const UsersForm: FC<UsersFormPropsType> = ({id, buttonValue}) => {
     const city = useId()
     const country_name = useId()
 
-    const {data: countries} = useGetAllCountriesQuery()
-    const {data: user, isSuccess} = useGetSingleUserQuery(id, {skip: !id})
-    const {data} = useGetAllCountriesQuery()
+    const { data: user, isSuccess } = useGetSingleUserQuery(id, { skip: !id })
+    const { data: countries } = useGetAllCountriesQuery()
     const [updateUser] = useUpdateUserMutation()
     const [addUser] = useAddUserMutation()
 
@@ -39,7 +38,7 @@ const UsersForm: FC<UsersFormPropsType> = ({id, buttonValue}) => {
             user_image: isSuccess ? user.user_detail.user_image : ''
         },
         phone_numbers: [{
-            phone_number : isSuccess ? user.phone_numbers[0].phone_number : '',
+            phone_number: isSuccess ? user.phone_numbers[0].phone_number : '',
             type: 'phone'
         }],
         addresses: [{
@@ -54,13 +53,13 @@ const UsersForm: FC<UsersFormPropsType> = ({id, buttonValue}) => {
 
     const {
         register,
-        formState: {errors, isDirty},
+        formState: { errors, isDirty },
         handleSubmit,
         reset,
         control
-    } = useForm<IUser>({mode: 'onBlur', defaultValues: initialValue})
+    } = useForm<IUser>({ mode: 'onBlur', defaultValues: initialValue })
 
-    const {onUserEditPopupClick} = useActions()
+    const { onUserEditPopupClick } = useActions()
     const animatedComponents = makeAnimated()
 
     const loadOptions = useCallback(
@@ -93,85 +92,85 @@ const UsersForm: FC<UsersFormPropsType> = ({id, buttonValue}) => {
                     <div className="form__name">
                         <label htmlFor={user_name} className="input-text">Логин</label>
                         <input type="text"
-                               id={user_name}
-                               className="input-style"
-                               {...register('username', {
-                                   required: 'Поле обязательно к заполнению',
-                                   minLength: {value: 5, message: 'Минимум 5 символов'},
-                                   maxLength: {value: 20, message: 'Максимум 20 символов'}
-                               })}
+                            id={user_name}
+                            className="input-style"
+                            {...register('username', {
+                                required: 'Поле обязательно к заполнению',
+                                minLength: { value: 5, message: 'Минимум 5 символов' },
+                                maxLength: { value: 20, message: 'Максимум 20 символов' }
+                            })}
                         />
                         <ErrorMessage name={'username'}
-                                      errors={errors}
-                                      render={({message}) => <InputError message={message}/>}
+                            errors={errors}
+                            render={({ message }) => <InputError message={message} />}
                         />
                     </div>
 
                     <div className="form__password">
                         <label htmlFor={password} className="input-text">Пароль</label>
                         <input type="password"
-                               id={password}
-                               className="input-style"
-                               {...register('password', {
-                                   required: 'Поле обязательно к заполнению',
-                                   minLength: {value: 5, message: 'Минимум 5 символов'},
-                                   maxLength: {value: 20, message: 'Максимум 20 символов'}
-                               })}
+                            id={password}
+                            className="input-style"
+                            {...register('password', {
+                                required: 'Поле обязательно к заполнению',
+                                minLength: { value: 5, message: 'Минимум 5 символов' },
+                                maxLength: { value: 20, message: 'Максимум 20 символов' }
+                            })}
                         />
                         <ErrorMessage name={'password'}
-                                      errors={errors}
-                                      render={({message}) => <InputError message={message}/>}
+                            errors={errors}
+                            render={({ message }) => <InputError message={message} />}
                         />
                     </div>
 
                     <div className="form__firstName">
                         <label htmlFor={first_name} className="input-text">Имя</label>
                         <input type="text"
-                               id={first_name}
-                               className="input-style"
-                               {...register('user_detail.first_name', {
-                                   required: 'Поле обязательно к заполнению',
-                                   minLength: {value: 5, message: 'Минимум 5 символов'},
-                                   maxLength: {value: 20, message: 'Максимум 20 символов'}
-                               })}
+                            id={first_name}
+                            className="input-style"
+                            {...register('user_detail.first_name', {
+                                required: 'Поле обязательно к заполнению',
+                                minLength: { value: 5, message: 'Минимум 5 символов' },
+                                maxLength: { value: 20, message: 'Максимум 20 символов' }
+                            })}
                         />
                         <ErrorMessage name={'user_detail.first_name'}
-                                      errors={errors}
-                                      render={({message}) => <InputError message={message}/>}
+                            errors={errors}
+                            render={({ message }) => <InputError message={message} />}
                         />
                     </div>
 
                     <div className="form__lastName">
                         <label htmlFor={last_name} className="input-text">Фамилия</label>
                         <input type="text"
-                               id={last_name}
-                               className="input-style"
-                               {...register('user_detail.last_name', {
-                                   required: 'Поле обязательно к заполнению',
-                                   minLength: {value: 5, message: 'Минимум 5 символов'},
-                                   maxLength: {value: 20, message: 'Максимум 20 символов'}
-                               })}
+                            id={last_name}
+                            className="input-style"
+                            {...register('user_detail.last_name', {
+                                required: 'Поле обязательно к заполнению',
+                                minLength: { value: 5, message: 'Минимум 5 символов' },
+                                maxLength: { value: 20, message: 'Максимум 20 символов' }
+                            })}
                         />
                         <ErrorMessage name={'user_detail.last_name'}
-                                      errors={errors}
-                                      render={({message}) => <InputError message={message}/>}
+                            errors={errors}
+                            render={({ message }) => <InputError message={message} />}
                         />
                     </div>
 
                     <div className="form__number">
                         <label htmlFor={number} className="input-text">Телефон</label>
                         <input type="number"
-                               id={number}
-                               className="input-style"
-                               {...register('phone_numbers.0.phone_number', {
-                                   required: 'Поле обязательно к заполнению',
-                                   minLength: {value: 5, message: 'Минимум 5 символов'},
-                                   maxLength: {value: 20, message: 'Максимум 20 символов'}
-                               })}
+                            id={number}
+                            className="input-style"
+                            {...register('phone_numbers.0.phone_number', {
+                                required: 'Поле обязательно к заполнению',
+                                minLength: { value: 5, message: 'Минимум 5 символов' },
+                                maxLength: { value: 20, message: 'Максимум 20 символов' }
+                            })}
                         />
                         <ErrorMessage name={'phone_numbers.0.phone_number'}
-                                      errors={errors}
-                                      render={({message}) => <InputError message={message}/>}
+                            errors={errors}
+                            render={({ message }) => <InputError message={message} />}
                         />
                     </div>
                 </div>
@@ -182,9 +181,9 @@ const UsersForm: FC<UsersFormPropsType> = ({id, buttonValue}) => {
                             control={control}
                             name={'addresses.0.country'}
                             rules={
-                                {required: 'Поле обязательно к заполнению'}
+                                { required: 'Поле обязательно к заполнению' }
                             }
-                            render={({field}) =>
+                            render={({ field }) =>
                                 <>
                                     <label htmlFor={country_name} className="custom-select__label">Выберите
                                         страну</label>
@@ -200,7 +199,7 @@ const UsersForm: FC<UsersFormPropsType> = ({id, buttonValue}) => {
                                         loadOptions={loadOptions}
                                         getOptionValue={value => value.country_name}
                                         getOptionLabel={value => value.country_name}
-                                        value={data?.find((c: any) => c.name === field.value)}
+                                        value={countries?.find((c: any) => c.name === field.value)}
                                         onChange={newValue => field.onChange?.(newValue)}
                                     />
                                 </>
@@ -208,58 +207,58 @@ const UsersForm: FC<UsersFormPropsType> = ({id, buttonValue}) => {
                         />
 
                         <ErrorMessage name={'addresses.0.country.country_name'}
-                                      errors={errors}
-                                      render={({message}) => <InputError message={message}/>}
+                            errors={errors}
+                            render={({ message }) => <InputError message={message} />}
                         />
                     </div>
                     <div className="form__city">
                         <label htmlFor={city} className="input-text">Город</label>
                         <input type="text"
-                               id={city}
-                               className="input-style"
-                               {...register('addresses.0.city', {
-                                   required: 'Поле обязательно к заполнению',
-                                   minLength: {value: 5, message: 'Минимум 5 символов'},
-                                   maxLength: {value: 20, message: 'Максимум 20 символов'}
-                               })}
+                            id={city}
+                            className="input-style"
+                            {...register('addresses.0.city', {
+                                required: 'Поле обязательно к заполнению',
+                                minLength: { value: 5, message: 'Минимум 5 символов' },
+                                maxLength: { value: 20, message: 'Максимум 20 символов' }
+                            })}
                         />
                         <ErrorMessage name={'addresses.0.city'}
-                                      errors={errors}
-                                      render={({message}) => <InputError message={message}/>}
+                            errors={errors}
+                            render={({ message }) => <InputError message={message} />}
                         />
                     </div>
 
                     <div className="form__street">
                         <label htmlFor={street_address} className="input-text">Улица</label>
                         <input type="text"
-                               id={street_address}
-                               className="input-style"
-                               {...register('addresses.0.street_address', {
-                                   required: 'Поле обязательно к заполнению',
-                                   minLength: {value: 5, message: 'Минимум 5 символов'},
-                                   maxLength: {value: 20, message: 'Максимум 20 символов'}
-                               })}
+                            id={street_address}
+                            className="input-style"
+                            {...register('addresses.0.street_address', {
+                                required: 'Поле обязательно к заполнению',
+                                minLength: { value: 5, message: 'Минимум 5 символов' },
+                                maxLength: { value: 20, message: 'Максимум 20 символов' }
+                            })}
                         />
                         <ErrorMessage name={'addresses.0.street_address'}
-                                      errors={errors}
-                                      render={({message}) => <InputError message={message}/>}
+                            errors={errors}
+                            render={({ message }) => <InputError message={message} />}
                         />
                     </div>
 
                     <div className="form__code">
                         <label htmlFor={postal_code} className="input-text">Почтовый индекс</label>
                         <input type="number"
-                               id={postal_code}
-                               className="input-style"
-                               {...register('addresses.0.postal_code', {
-                                   required: 'Поле обязательно к заполнению',
-                                   minLength: {value: 5, message: 'Минимум 5 символов'},
-                                   maxLength: {value: 20, message: 'Максимум 20 символов'}
-                               })}
+                            id={postal_code}
+                            className="input-style"
+                            {...register('addresses.0.postal_code', {
+                                required: 'Поле обязательно к заполнению',
+                                minLength: { value: 5, message: 'Минимум 5 символов' },
+                                maxLength: { value: 20, message: 'Максимум 20 символов' }
+                            })}
                         />
                         <ErrorMessage name={'addresses.0.postal_code'}
-                                      errors={errors}
-                                      render={({message}) => <InputError message={message}/>}
+                            errors={errors}
+                            render={({ message }) => <InputError message={message} />}
                         />
                     </div>
 
@@ -274,13 +273,13 @@ const UsersForm: FC<UsersFormPropsType> = ({id, buttonValue}) => {
                                     'user_detail.user_image',
                                     {
                                         required: 'Поле обязательно к заполнению',
-                                        minLength: {value: 1, message: 'Добавитье ссылку'},
+                                        minLength: { value: 1, message: 'Добавитье ссылку' },
                                     }
                                 )}
                             />
                             <ErrorMessage name={'addresses.user_image'}
-                                          errors={errors}
-                                          render={({message}) => <InputError message={message}/>}
+                                errors={errors}
+                                render={({ message }) => <InputError message={message} />}
                             />
                         </div>
                     </div>
@@ -288,12 +287,12 @@ const UsersForm: FC<UsersFormPropsType> = ({id, buttonValue}) => {
             </div>
 
             {user ? <button disabled={!isDirty}
-                            className={`btn ${isDirty ? 'r-btn w-opacity' : 'error-btn'} form__submit`}>
-                    {buttonValue}</button>
+                className={`btn ${isDirty ? 'r-btn w-opacity' : 'error-btn'} form__submit`}>
+                {buttonValue}</button>
                 : <button className={`btn r-btn w-opacity form__submit`}>{buttonValue}</button>
             }
         </form>
-    );
-};
+    )
+}
 
-export default UsersForm;
+export default UsersForm
