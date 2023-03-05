@@ -1,7 +1,7 @@
 @import "../../styles/mixin";
 
-.popup-callback{
-  &__title{
+.popup-callback {
+  &__title {
     @include fontArguments($mainFont, 700);
     font-size: 15px;
     text-transform: uppercase;
@@ -9,14 +9,34 @@
     padding: 0 0 35px;
   }
 
-  &__form{
+  &__form {
     @include flex(space-between, $direction: column);
     gap: 20px;
+    width: 300px;
   }
 
-  &__submit{
+  &__time {
+    @include flex(space-between, $direction: column);
+    gap: 10px;
+  }
+
+  textarea {
+    overflow: auto;
+    resize: none;
+    min-height: 200px;
+  }
+
+  &__submit {
     padding: 18px 16px;
     border-radius: 6px;
     cursor: pointer;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .popup-callback {
+    &__form {
+      width: 100%;
+    }
   }
 }

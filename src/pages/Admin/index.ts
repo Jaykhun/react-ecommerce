@@ -6,9 +6,10 @@ import Sidebar from "./Sidebar";
 import Topbar from "./Topbar";
 import {Countries} from "./Countries";
 import {Categories} from "./Categories";
+import {Calls} from "./Calls";
 
 export {
     Admin, Products, Users,
     Orders, Sidebar, Topbar,
-    Countries, Categories
+    Countries, Categories, Calls
 };

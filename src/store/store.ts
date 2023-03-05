@@ -26,7 +26,7 @@ export const store = configureStore({
         [userApi.reducerPath]: userApi.reducer,
         [countryApi.reducerPath]: countryApi.reducer,
         [orderApi.reducerPath]: orderApi.reducer,
-        [callBackApi.reducerPath]: categoryApi.reducer
+        [callBackApi.reducerPath]: callBackApi.reducer
     },
     middleware: getDefaultMiddleware => getDefaultMiddleware({serializableCheck: false})
         .concat(
@@ -36,7 +36,7 @@ export const store = configureStore({
             userApi.middleware,
             countryApi.middleware,
             orderApi.middleware,
-            // callBackApi.middleware,
+            callBackApi.middleware,
         )
 })
 

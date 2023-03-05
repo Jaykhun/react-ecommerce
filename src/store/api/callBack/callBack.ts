@@ -19,7 +19,7 @@ export const callBackApi = createApi({
         }),
         addCallBack: build.mutation<ICallBack, Partial<FetchCallBack>>({
             query: (call) => ({
-                url: `call_orders`,
+                url: `call_orders/`,
                 method: 'POST',
                 body: call
             }),
@@ -27,7 +27,7 @@ export const callBackApi = createApi({
         }),
         deleteCallBack: build.mutation<FetchCallBack, number>({
             query: (id) => ({
-                url: `call_orders${id}`,
+                url: `call_orders/${id}`,
                 method: 'DELETE'
             }),
             invalidatesTags: ['CallBacks']

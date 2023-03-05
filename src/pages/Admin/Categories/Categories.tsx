@@ -5,6 +5,7 @@ import "./Categories.scss";
 
 const Categories = () => {
     const { data: categories, isLoading, isError, error } = useGetAllCategoriesQuery()
+    window.scrollTo(0, 0);
 
     return (
         <div className='categories'>

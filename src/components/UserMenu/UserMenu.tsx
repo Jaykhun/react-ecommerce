@@ -24,8 +24,9 @@ const UserMenu = () => {
             <ul className="user-menu__menu">
                 <li className="user-menu__item"><NavLink className={({isActive}) => `${isActive ? 'active-link' : ''}`}
                                                          to="/profile">Профиль</NavLink></li>
-                <li className="user-menu__item"><NavLink className={({isActive}) => `${isActive ? 'active-link' : ''}`}
-                                                         to="/admin">Админ панель</NavLink></li>
+                {user?.is_admin && <li className="user-menu__item"><NavLink
+                    className={({isActive}) => `${isActive ? 'active-link' : ''}`}
+                    to="/admin">Админ панель</NavLink></li>}
                 <li className="user-menu__item" onClick={() => logout()}><NavLink to="/">Выйти</NavLink></li>
             </ul>
         </div>

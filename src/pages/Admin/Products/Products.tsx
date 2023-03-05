@@ -7,6 +7,7 @@ import "./Products.scss";
 
 const Products = () => {
     const {data, isLoading, error} = useGetAllProductsQuery();
+    window.scrollTo(0, 0);
 
     return (
         <div className="all-products">

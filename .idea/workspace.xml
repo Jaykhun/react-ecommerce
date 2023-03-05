@@ -2,44 +2,38 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="aeb7fb1c-63e7-4c2d-bca3-f65942e640de" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/AsideBar/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/CallBack/CallBack.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/CallBack/CallBack.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/CallBack/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Contacts/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/PhonePopup/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/SearchActions/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/SearchPopup/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/store/api/callBack/callBack.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/store/api/callBack/callBackType.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/Admin/Calls/Calls.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/Admin/Calls/Calls.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/Admin/Calls/CallsItem/CallsItem.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/Admin/Calls/CallsItem/CallsItem.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/Admin/Calls/CallsItem/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/Admin/Calls/index.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/user.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Auth/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Auth/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Header/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header/Header.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Location/Location.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Location/index.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Main/Main.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Main/Main.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Main/MainActions/MainActions.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/SearchActions/SearchActions.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Main/MainActions/MainActions.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/SearchActions/SearchActions.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Main/MainAside/MainAside.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AsideBar/AsideBar.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Main/MainAside/MainAside.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AsideBar/AsideBar.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Main/MainContacts/MainContacts.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Contacts/Contacts.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Main/MainContacts/MainContacts.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Contacts/Contacts.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Main/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Main/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Popup/PhonePopup/PhonePopup.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/PhonePopup/PhonePopup.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Popup/PhonePopup/PhonePopup.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/PhonePopup/PhonePopup.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Popup/SearchPopup/SearchPopup.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/SearchPopup/SearchPopup.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Popup/SearchPopup/SearchPopup.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/SearchPopup/SearchPopup.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Popup/index.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Admin/Categories/CategoriesEdit/CategoriesEdit.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Admin/Categories/CategoriesEdit/CategoriesEdit.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Cart/Cart.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Cart/Cart.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Product/ProductItem/ProductItem.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Product/ProductItem/ProductItem.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/Layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/Layout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/LayoutWithoutSidebar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/LayoutWithoutSidebar.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/features/popupSlice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/features/popupSlice.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/fonts/icomoon.eot" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/fonts/icomoon.eot" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/fonts/icomoon.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/fonts/icomoon.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/fonts/icomoon.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/fonts/icomoon.ttf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/fonts/icomoon.woff" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/fonts/icomoon.woff" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/CallBack/CallBack.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/CallBack/CallBack.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/CallBack/CallBack.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/CallBack/CallBack.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/UI/Message/Message.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/UI/Message/Message.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/UserMenu/UserMenu.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/UserMenu/UserMenu.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Admin/Admin.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Admin/Admin.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Admin/Categories/Categories.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Admin/Categories/Categories.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Admin/Categories/CategoriesForm/CategoriesForm.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Admin/Categories/CategoriesForm/CategoriesForm.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Admin/Countries/Countries.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Admin/Countries/Countries.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Admin/Orders/Orders.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Admin/Orders/Orders.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Admin/Products/Products.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Admin/Products/Products.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Admin/Sidebar/Sidebar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Admin/Sidebar/Sidebar.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Admin/Users/Users.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Admin/Users/Users.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Admin/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Admin/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Product/Product.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Product/Product.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Product/ProductDetails/ProductDetails.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Product/ProductDetails/ProductDetails.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/api/callBack/callBack.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/api/callBack/callBack.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/store/store.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/store.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles/fonts.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/_fonts.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/_fonts.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/_icons.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/_reset.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/_reset.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/ui/_action.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/ui/_action.scss" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,26 +54,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/react-projects/react-ecommerce/src/assets&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.standard&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.standard&quot;: &quot;&quot;,
-    &quot;nodejs_interpreter_path&quot;: &quot;node&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;D:\\react-projects\\react-ecommerce\\node_modules\\typescript\\lib&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "D:/react-projects/react-ecommerce/src/assets/fonts",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.standard": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.standard": "",
+    "nodejs_interpreter_path": "node",
+    "nodejs_package_manager_path": "npm",
+    "ts.external.directory.path": "D:\\react-projects\\react-ecommerce\\node_modules\\typescript\\lib",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\react-projects\react-ecommerce\src\assets\fonts" />
       <recent name="D:\react-projects\react-ecommerce\src\assets" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
@@ -198,7 +193,8 @@
       <workItem from="1677514648790" duration="6520000" />
       <workItem from="1677595560201" duration="10710000" />
       <workItem from="1677649313027" duration="5845000" />
-      <workItem from="1677860850007" duration="6117000" />
+      <workItem from="1677860850007" duration="6280000" />
+      <workItem from="1677946409439" duration="10692000" />
     </task>
     <servers />
   </component>

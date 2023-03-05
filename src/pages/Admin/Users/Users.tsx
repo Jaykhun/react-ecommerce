@@ -8,6 +8,7 @@ import "./Users.scss";
 
 const Users = () => {
     const {data, isLoading, isError, error} = useGetAllUsersQuery()
+    window.scrollTo(0, 0);
 
     return (
         <div className="all-users">

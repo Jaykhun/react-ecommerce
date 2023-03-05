@@ -62,6 +62,13 @@ const Sidebar = () => {
                             </NavLink>
                         </li>
 
+                        <li className="sidebar__item">
+                            <NavLink to="/admin/calls" className={({isActive}) =>
+                                isActive ? "active-item" : undefined}>
+                                <span className="icon-phone icon"></span>
+                                <span>Звонки</span>
+                            </NavLink>
+                        </li>
                     </ul>
                 </nav>
             </div>

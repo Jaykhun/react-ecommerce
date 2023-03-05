@@ -7,7 +7,7 @@ interface MessagePropsType {
 
 const Message: FC<MessagePropsType> = ({ value }) => {
     return (
-        <div className='message'>{value}</div>
+        <div className='message' style={{margin: "20px"}}>{value}</div>
     )
 }
 

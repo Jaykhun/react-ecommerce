@@ -6,6 +6,7 @@ import "./Countries.scss";
 
 const Countries = () => {
     const { data, isLoading, isError, error } = useGetAllCountriesQuery()
+    window.scrollTo(0, 0);
 
     return (
         <div className="countries">

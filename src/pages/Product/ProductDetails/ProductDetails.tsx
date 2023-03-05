@@ -15,6 +15,7 @@ import Loader from "./Loader"
 import "./ProductDetails.scss"
 
 const ProductDetails = () => {
+    window.scrollTo(0, 0);
     const { id } = useParams()
     const user = GetCurrentUser('token')
     const [addOrder, result] = useAddNewOrderMutation()
