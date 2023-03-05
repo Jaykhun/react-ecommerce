@@ -1,5 +1,4 @@
-import React from 'react';
-import {ActionAlert, ActionLoader, InputError, Popup} from "../UI";
+import {ActionLoader, InputError, Popup} from "../UI";
 import {useActions} from "../../hooks/useActions";
 import {useTypedSelector} from "../../hooks/useTypedSelector";
 import "./CallBack.scss";
@@ -15,10 +14,15 @@ const CallBack = () => {
 
     const {register, handleSubmit, reset, formState: {errors}} = useForm<ICallBack>({mode: 'onBlur'})
 
-    const onSubmit: SubmitHandler<ICallBack> = (data) => {
-        addCallBack(data)
-        onCallBackClick()
-        reset()
+    const onSubmit: SubmitHandler<ICallBack> = async (data) => {
+        try {
+            await addCallBack(data).unwrap()
+            onCallBackClick()
+            reset()
+            alert('Ваш званок был принят')
+        } catch (e: any) {
+            alert(e.data.detail)
+        }
     }
 
     return (
@@ -118,13 +122,7 @@ const CallBack = () => {
                     </form>
                 </div>
             </Popup>
-            {result.isLoading
-                ? <ActionLoader/>
-                : result.isError
-                    ? <ActionAlert message={'Ошибка'} error={result.error}/>
-                    : result.isSuccess ? <ActionAlert message={'Ваш звонок принять'} success={true}/>
-                        : null
-            }
+            {result.isLoading && <ActionLoader/>}
         </>
     );
 };

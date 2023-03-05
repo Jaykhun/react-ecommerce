@@ -2,7 +2,7 @@ import React from 'react';
 import "./Calls.scss";
 import {useGetAllCallBacksQuery} from "../../../store/api/callBack/callBack";
 import {Error, Message} from "../../../components/UI";
-import CallsItem from "./CallsItem";
+import {CallsLoader, CallsItem} from "./index";
 
 const Calls = () => {
     const {data: calls, isLoading, isError, error} = useGetAllCallBacksQuery()
@@ -23,7 +23,7 @@ const Calls = () => {
             <div className="calls__body">
                 {
                     isLoading
-                        ? <p>Loading</p>
+                        ? <CallsLoader/>
                         : isError
                             ? <Error error={error}/>
                             : calls?.length

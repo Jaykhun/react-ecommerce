@@ -24,14 +24,13 @@ export const tokenSlice = createSlice({
 
             if (cookie.get('token') === undefined) {
                 state.token = action.payload
-                cookie.set('token', action.payload)
+                cookie.set('token', state.token)
             } else state.token = cookie.get('token')
         },
 
         logout: (state) => {
             const cookie = new Cookies()
             cookie.remove('token')
-            console.log(cookie.get('token'))
             state.token = ''
         }
     }

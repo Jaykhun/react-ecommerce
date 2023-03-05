@@ -24,12 +24,11 @@ const CategoriesForm: FC<CategoriesFormPropsType> = ({ buttonValue, id }) => {
         error: categoryError,
         isError: IsCategoryError
     } = useGetSingleCategoryQuery(id, { skip: !id })
-    const [addCategory] = useAddCategoryMutation()
+    const [addCategory, result] = useAddCategoryMutation()
     const [updateCategory] = useUpdateCategoryMutation()
 
     const name = useId()
     const category = useId()
-    const [isAction, setAction] = useState(false)
 
     const initialVales = {
         name: isSuccess ? singleCategory.name : '',
@@ -101,7 +100,7 @@ const CategoriesForm: FC<CategoriesFormPropsType> = ({ buttonValue, id }) => {
                     : <button className={`btn r-btn w-opacity form__submit categories__submit`}>{buttonValue}</button>
                 }
             </form>
-            {isAction && <ActionLoader />}
+            {result.isLoading && <ActionLoader />}
         </>
     )
 }

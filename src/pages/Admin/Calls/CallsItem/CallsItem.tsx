@@ -1,7 +1,7 @@
 import {FC} from 'react';
 import {FetchCallBack} from "../../../../store/api/callBack/callBackType";
 import {useDeleteCallBackMutation} from "../../../../store/api/callBack/callBack";
-import {ActionAlert, ActionLoader} from "../../../../components/UI";
+import {ActionLoader} from "../../../../components/UI";
 import "./CallsItem.scss";
 
 interface CallsItemPropsType {
@@ -13,7 +13,12 @@ const CallsItem: FC<CallsItemPropsType> = ({call}) => {
     const [deleteCall, result] = useDeleteCallBackMutation()
 
     const handleDelete = async () => {
-        await deleteCall(id)
+        try {
+            await deleteCall(id).unwrap()
+            alert('Успешно удалено')
+        } catch (e: any) {
+            alert(e.data.detail)
+        }
     }
 
     return (
@@ -27,7 +32,6 @@ const CallsItem: FC<CallsItemPropsType> = ({call}) => {
             </div>
 
             {result.isLoading && <ActionLoader/>}
-            {result.isError && <ActionAlert message={'Ошибка'} error={result.error}/>}
         </>
     );
 };

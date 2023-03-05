@@ -87,14 +87,6 @@ const Register = () => {
                     />
                 </div>
 
-                {/* <div className="form__password">
-                    <label htmlFor="repeat-password" className="input-text">
-                        Введите пароль повторно
-                        <span className="required-form">*</span>
-                    </label>
-                    <input type="password" id="repeat-password" className="input-style" />
-                </div> */}
-
                 <div className="form__text">
                     <label htmlFor="first_name" className="input-text">Имя</label>
                     <input type="text"
