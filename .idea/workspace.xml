@@ -2,21 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="aeb7fb1c-63e7-4c2d-bca3-f65942e640de" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/pages/Admin/Calls/CallsLoader.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/Admin/Orders/Orders.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/Admin/Orders/OrdersItem/OrdersItem.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/Admin/Orders/OrdersItem/OrdersItem.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/Admin/Orders/OrdersItem/index.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Auth/Auth.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Auth/Auth.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Auth/AuthFrom.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Auth/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Auth/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/CallBack/CallBack.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/CallBack/CallBack.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/UI/ActionAlert/ActionAlert.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/UI/ActionAlert/ActionAlert.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/UI/ActionLoader/ActionLoader.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/UI/ActionLoader/ActionLoader.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Admin/Calls/Calls.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Admin/Calls/Calls.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Admin/Calls/CallsItem/CallsItem.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Admin/Calls/CallsItem/CallsItem.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Admin/Calls/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Admin/Calls/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Admin/Categories/CategoriesForm/CategoriesForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Admin/Categories/CategoriesForm/CategoriesForm.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Admin/Countries/CountriesForm/CountriesForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Admin/Countries/CountriesForm/CountriesForm.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Register/Register.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Register/Register.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/reducers/tokenSlice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/reducers/tokenSlice.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Admin/Orders/Orders.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Admin/Orders/Orders.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Admin/Orders/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Admin/Orders/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/api/order/orderApi.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/api/order/orderApi.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -178,7 +171,8 @@
       <workItem from="1677649313027" duration="5845000" />
       <workItem from="1677860850007" duration="6280000" />
       <workItem from="1677946409439" duration="10776000" />
-      <workItem from="1678020314047" duration="7293000" />
+      <workItem from="1678020314047" duration="7639000" />
+      <workItem from="1678119853137" duration="2716000" />
     </task>
     <servers />
   </component>

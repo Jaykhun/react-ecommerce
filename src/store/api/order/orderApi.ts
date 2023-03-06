@@ -1,29 +1,29 @@
-import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react"
-import { AddOrderType, Order, UserOrders } from "./orderType"
+import {createApi, fetchBaseQuery} from "@reduxjs/toolkit/query/react"
+import {AddOrderType, Order, UserOrders} from "./orderType"
 
 const url = 'https://ecommerce.icedev.uz/'
 
 export const orderApi = createApi({
     reducerPath: 'orderApi',
     baseQuery: fetchBaseQuery({
-        baseUrl: url,
-        headers: {
-            'Content-type': 'application/json; charset=UTF-8',
-        }
+        baseUrl: url
     }),
     tagTypes: ['Orders'],
     endpoints: build => ({
-        getAllOrders: build.query<UserOrders[], void>({
-            query: () => 'orders/',
-            providesTags: ['Orders']
+        getAllOrders: build.query<UserOrders[], string>({
+            query: (token) => ({
+                url: `orders/`,
+                method: 'GET',
+                headers: {
+                    'Authorization': `Bearer ${token}`
+                },
+            }),
         }),
         getAllUserOrders: build.query<UserOrders[], number>({
             query: (id) => `orders/${id}`,
-            providesTags: ['Orders']
         }),
         getSingleUserOrder: build.query<UserOrders[], { user_id: number, order_id: number }>({
             query: ({user_id, order_id}) => `orders/${user_id}/${order_id}`,
-            providesTags: ['Orders']
         }),
         addNewOrder: build.mutation<AddOrderType, Partial<AddOrderType>>({
             query: (order) => ({
@@ -31,7 +31,6 @@ export const orderApi = createApi({
                 method: 'POST',
                 body: order
             }),
-            invalidatesTags: ['Orders']
         }),
         updateOrder: build.mutation<Order, { id: number, order: Order }>({
             query: ({id, order}) => ({
@@ -39,14 +38,12 @@ export const orderApi = createApi({
                 method: 'PUT',
                 body: order
             }),
-            invalidatesTags: ['Orders']
         }),
         deleteOrder: build.mutation<UserOrders, { user_id: number, order_id: number }>({
             query: ({user_id, order_id}) => ({
                 url: `orders/${user_id}/${order_id}`,
                 method: 'DELETE'
             }),
-            invalidatesTags: ['Orders']
         })
     })
 })
