@@ -1,0 +1,35 @@
+@import "./general/variables";
+@import "./general/mixin";
+@import "./general/reset";
+
+// 1260 960 768 320
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    max-width: $maxWidth + px;
+    min-width: 100%;
+    min-height: 100%;
+}
+
+.container {
+    max-width: $containerMaxWidth + px;
+    margin: auto;
+    padding: 0 40px;
+}
+
+@media screen and (max-width: 1260px) {
+    .container {
+        padding: 0 30px;
+    }
+}
+
+@media screen and (max-width: 530px) {
+    .container {
+        padding: 0 10px;
+    }
+}
+
+.main {
+    flex: 1 1 auto;
+}

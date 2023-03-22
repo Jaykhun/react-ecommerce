@@ -1,0 +1,10 @@
+@import "@styles/general/mixin";
+
+.input__label {
+    display: block;
+    @include fontArguments($mainFont, 600);
+    font-size: 14px;
+    color: #3e3e3e;
+    margin-bottom: 5px;
+    letter-spacing: 0.7px;
+}

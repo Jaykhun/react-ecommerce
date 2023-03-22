@@ -1,0 +1,39 @@
+@import "variables";
+
+@mixin fontArguments($fontFamily, $fontWeight: 400, $fontStyle: normal) {
+    font-family: $fontFamily;
+    font-weight: $fontWeight;
+    font-style: $fontStyle;
+}
+
+@mixin adaptivFont($pcSize, $mobSize) {
+    $addSize: $pcSize - $mobSize;
+    $maxWidth: $maxWidth - 320;
+    font-size: calc(#{$mobSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidth}));
+}
+
+@mixin flex($justify: flex-start, $alignItems: stretch, $direction: row, $wrap: nowrap, $gap: 0px) {
+    display: flex;
+    justify-content: $justify;
+    align-items: $alignItems;
+    flex-direction: $direction;
+    flex-wrap: $wrap;
+    gap: $gap;
+}
+
+@mixin text($color, $textAlign: left, $transform: none, $letterSpacing: normal) {
+    color: $color;
+    text-align: $textAlign;
+    text-transform: $transform;
+    letter-spacing: $letterSpacing;
+}
+
+@mixin pseudo($loc: before, $content: "", $pos: absolute) {
+    position: relative;
+
+    &::#{$loc} {
+        content: $content;
+        position: $pos;
+        @content;
+    }
+}
