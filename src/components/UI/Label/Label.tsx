@@ -1,5 +1,5 @@
 import { forwardRef, HTMLProps } from 'react'
-import "./Label.scss"
+import './Label.scss'
 
 type LabelProps = HTMLProps<HTMLLabelElement>
 

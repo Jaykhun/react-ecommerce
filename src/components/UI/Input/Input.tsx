@@ -1,5 +1,5 @@
 import { forwardRef, HTMLProps } from 'react'
-import "./Input.scss"
+import './Input.scss'
 
 type InputProps = HTMLProps<HTMLInputElement>
 

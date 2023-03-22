@@ -1,14 +1,17 @@
-import Input from "@UI/Input"
-import Label from "@UI/Label"
+import Admin from '@/pages/Admin/Admin'
+import Dashboard from '@/routes/Dashboard'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
 
 const App = () => {
   return (
     <>
-      <Input
-        id='asd'
-        type="text"
-      />
-      <Label htmlFor='asd'>adjagd</Label>
+      <BrowserRouter>
+        <Routes>
+          <Route path='admin' element={<Dashboard />}>
+            <Route index element={<Admin />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
     </>
   )
 }

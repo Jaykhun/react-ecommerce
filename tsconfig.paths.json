@@ -2,14 +2,20 @@
     "compilerOptions": {
         "baseUrl": ".",
         "paths": {
-            "@/*": [
+            "@*": [
                 "./src/*"
             ],
             "@styles*": [
                 "./src/styles*"
             ],
-            "@UI*": [
-                "./src/components/UI*"
+            "@components*": [
+                "./src/components*"
+            ],
+            "@routes*": [
+                "./src/routes*"
+            ],
+            "@pages*": [
+                "./src/pages*"
             ]
         }
     }
