@@ -1,0 +1,40 @@
+@import "@/styles/general/mixin";
+@import "@/styles/general/variables";
+
+.btn {
+    @include fontArguments($mainFont, $fontWeight: 600);
+    @include adaptivFont(18, 15);
+    border-radius: $borderRadius;
+    padding: 18px 26px;
+    cursor: pointer;
+}
+
+.r-btn {
+    background-color: $btnBorderColor;
+    color: #fff;
+}
+
+.w-opacity {
+    @include pseudo($loc: after) {
+        top: 0;
+        left: 0;
+        width: 0;
+        height: 100%;
+        background-color: #fff5;
+        transition: all 0.3s;
+    }
+
+    &:hover {
+        color: #fff;
+
+        &::after {
+            width: 100%;
+        }
+    }
+}
+
+.disabled {
+    cursor: not-allowed;
+    background-color: #101010;
+    color: #fff;
+}

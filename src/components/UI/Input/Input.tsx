@@ -3,7 +3,7 @@ import './Input.scss'
 
 type InputProps = HTMLProps<HTMLInputElement>
 
-const Input = forwardRef<HTMLLabelElement, InputProps>(props => (
+const Input = forwardRef<HTMLInputElement, InputProps>(props => (
     <input className='input__style' {...props} />
 ))
 

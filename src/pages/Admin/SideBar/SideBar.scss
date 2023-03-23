@@ -1,0 +1,52 @@
+@import "@/styles/general/mixin";
+@import "@/styles/general/variables";
+
+.sidebar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #000;
+    width: 270px;
+    height: 100%;
+    overflow: auto;
+    padding: 15px;
+    z-index: 22;
+
+    &__logo {
+        display: block;
+        @include fontArguments($mainFont, 21px, 700);
+        @include text(#fff, center);
+        margin: 25px 0px 30px 0px;
+    }
+}
+
+.menu-sidebar {
+    &__item {
+        margin-bottom: 10px;
+
+        .active {
+            background-color: $activeColor;
+            border-radius: $borderRadius;
+            color: #fff;
+        }
+
+        a {
+            @include flex(flex-start, center, $gap: 15px);
+            padding: 20px 10px;
+            transition: all 0.3s ease;
+        }
+    }
+
+    &__name {
+        order: 2;
+        @include fontArguments($textfont, 18px);
+        @include text(#fff, center, capitalize);
+        transition: all 0.3s;
+    }
+
+    &__icon {
+        order: 1;
+        color: #fff;
+        font-size: 20px;
+    }
+}

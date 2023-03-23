@@ -1,0 +1,15 @@
+@import "@/styles/general/mixin";
+@import "@/styles/general/variables";
+
+.topbar {
+    @include flex(space-between, center, $gap: 20px);
+    min-height: 75px;
+    margin: 10px 20px 20px 290px;
+    padding: 15px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+    &__title {
+        @include fontArguments($mainFont, 18px, 600);
+        color: $linkColor;
+    }
+}

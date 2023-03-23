@@ -1,0 +1,14 @@
+@import "@/styles/general/ui";
+@import "@/styles/general/mixin";
+@import "@/styles/general/variables";
+
+.users {
+    &__header {
+        @include flex(space-between, center, $gap: 20px);
+    }
+    
+    &__title {
+        @extend %adminTitle;
+        margin-bottom: 20px;
+    }
+}

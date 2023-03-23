@@ -5,11 +5,14 @@
             "@*": [
                 "./src/*"
             ],
+            "@components*": [
+                "./src/components/*"
+            ],
             "@styles*": [
                 "./src/styles*"
             ],
-            "@components*": [
-                "./src/components*"
+            "@assets*": [
+                "./src/assets*"
             ],
             "@routes*": [
                 "./src/routes*"
