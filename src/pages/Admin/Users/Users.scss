@@ -6,7 +6,7 @@
     &__header {
         @include flex(space-between, center, $gap: 20px);
     }
-    
+
     &__title {
         @extend %adminTitle;
         margin-bottom: 20px;

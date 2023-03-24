@@ -24,7 +24,7 @@ const SideBar = () => {
                 <ul className="sidebar__menu menu-sidebar">
                     {pageList.map(page =>
                         <li className='menu-sidebar__item' key={page.name}>
-                            <NavLink to={page.path} end={true} className={({ isActive }) => (isActive ? 'active' : '')}>
+                            <NavLink to={page.path} end className={({ isActive }) => (isActive ? 'active' : '')}>
                                 <span className='menu-sidebar__name'>{page.name}</span>
                                 <span className={`menu-sidebar__icon ${page.icon}`}></span>
                             </NavLink>

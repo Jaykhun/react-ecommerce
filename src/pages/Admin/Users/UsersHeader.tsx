@@ -8,6 +8,7 @@ const UsersHeader = () => {
                 type='search'
                 placeholder='Искать...'
             />
+
             <Button hoverEffect>Добавить</Button>
         </div>
     )

@@ -19,6 +19,12 @@
             ],
             "@pages*": [
                 "./src/pages*"
+            ],
+            "@models*": [
+                "./src/models*"
+            ],
+            "@store*": [
+                "./src/store*"
             ]
         }
     }

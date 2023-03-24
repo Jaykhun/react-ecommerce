@@ -1,4 +1,5 @@
 import Users from './Users'
 import UsersHeader from './UsersHeader'
-export { Users, UsersHeader }
+import UsersItem from './UsersItem'
+export { Users, UsersHeader, UsersItem }
 
