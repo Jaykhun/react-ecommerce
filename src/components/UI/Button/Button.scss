@@ -24,7 +24,7 @@
         transition: all 0.3s;
     }
 
-    &:hover {
+    &:hover, &:focus {
         color: #fff;
 
         &::after {

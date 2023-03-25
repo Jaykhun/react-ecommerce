@@ -3,14 +3,17 @@ import Input from '@/components/UI/Input'
 
 const UsersHeader = () => {
     return (
-        <div className="users__header">
-            <Input
-                type='search'
-                placeholder='Искать...'
-            />
+        <>
+            <div className="users__title">Пользователи</div>
+            <div className="users__header">
+                <Input
+                    type='search'
+                    placeholder='Искать...'
+                />
 
-            <Button hoverEffect>Добавить</Button>
-        </div>
+                <Button hoverEffect>Добавить</Button>
+            </div>
+        </>
     )
 }
 

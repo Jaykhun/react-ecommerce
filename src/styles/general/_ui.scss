@@ -5,3 +5,20 @@
     @include fontArguments($mainFont, 32px, 700);
     @include text($titleColor);
 }
+
+%modalTitle {
+    @include fontArguments($mainFont, 22px, 700);
+    @include text($titleColor);
+}
+
+%actionBtn {
+    width: 43px;
+    height: 43px;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+    cursor: pointer;
+
+    &:hover {
+        box-shadow: inset 0px 4px 20px #b0b0b0;
+    }
+}

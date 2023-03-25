@@ -7,6 +7,10 @@
         @include flex(space-between, center, $gap: 20px);
     }
 
+    &__body{
+        margin: 50px 0px;
+    }
+
     &__title {
         @extend %adminTitle;
         margin-bottom: 20px;

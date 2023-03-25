@@ -1,0 +1,14 @@
+@import "@/styles/general/mixin";
+@import "@/styles/general/variables";
+
+.message-text {
+    @include fontArguments($textfont, 20px, 700);
+    @include text($activeColor, center, uppercase);
+    margin: 50px 0px;
+}
+
+.form-error {
+    @include fontArguments($textfont, 12px, 600);
+    @include text($activeColor, left);
+    margin-top: 8px;
+}

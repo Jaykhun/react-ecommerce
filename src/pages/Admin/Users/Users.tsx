@@ -1,14 +1,13 @@
-import userApi from '@/store/api/user'
-import { UsersHeader, UsersItem } from './index'
+import { UsersHeader, UsersBody } from './index'
 import './Users.scss'
 
 const Users = () => {
-    const { data: users, isLoading, isError, error } = userApi.useGetAllUsersQuery()
+    window.scrollTo(0, 0)
+
     return (
         <div className='users'>
-            <div className="users__title">Пользователи</div>
             <UsersHeader />
-            {users?.map(user => <UsersItem user={user} key={user.id} />)}
+            <UsersBody />
         </div>
     )
 }

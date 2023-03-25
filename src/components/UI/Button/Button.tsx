@@ -1,5 +1,5 @@
 import clsx from 'clsx'
-import { ReactNode } from "react"
+import { FC, ReactNode } from "react"
 import './Button.scss'
 
 interface IButton {
@@ -8,7 +8,7 @@ interface IButton {
   children: ReactNode
 }
 
-const Button = ({ disabled, children, hoverEffect }: IButton) => {
+const Button: FC<IButton> = ({ disabled, children, hoverEffect }) => {
   return (
     <button disabled={disabled} className=
       {clsx('btn r-btn', {

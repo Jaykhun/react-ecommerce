@@ -5,12 +5,13 @@
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 10000;
+    z-index: 999;
     width: 100%;
     height: 100%;
     background-color: #0007;
-    box-shadow: 0px 4px 50px rgb(0 0 0 / 30%);
-    
+    box-shadow: 0px 4px 50px rgba(0, 0, 0, 0.3);
+    overflow: auto;
+
     &__body {
         min-height: 100vh;
         @include flex(center, center, center);
@@ -18,7 +19,7 @@
     }
 
     &__close {
-        background: url("../../../assets/icons/") 50% 50% no-repeat;
+        background: url("../../../assets/icons/delete-icon.svg") 50% 50% no-repeat;
         background-size: 13px 13px;
         width: 80px;
         height: 80px;

@@ -1,0 +1,50 @@
+@import "@/styles/general/mixin";
+@import "@/styles/general/ui";
+
+.item-users {
+    @include flex(space-between, center, $gap: 10px);
+    margin-bottom: 20px;
+    transition: all 0.3s ease 0s;
+
+    &:hover {
+        box-shadow: -10px 20px 40px -8px #0001;
+    }
+
+    &__body {
+        @include flex(space-between, center, $gap: 10px);
+        @include text($textColor, left, capitalize);
+        @include fontArguments($textfont, $fontWeight: 500);
+
+        flex: 1 1 auto;
+        cursor: pointer;
+    }
+
+    &__img {
+        img {
+            border-radius: 6px;
+            width: 80px;
+            height: 80px;
+        }
+    }
+
+    &__username,
+    &__address,
+    &__phone,
+    &__role {
+        flex: 0 0 20%;
+    }
+
+    &__actions {
+        @include flex(space-between, center, $gap: 10px);
+    }
+
+    &__edit {
+        @extend %actionBtn;
+        background: url("../../../../assets/icons/edit-icon.svg") 50% 50% no-repeat;
+    }
+
+    &__delete {
+        @extend %actionBtn;
+        background: url("../../../../assets/icons/delete-icon.svg") 50% 50% no-repeat;
+    }
+}
