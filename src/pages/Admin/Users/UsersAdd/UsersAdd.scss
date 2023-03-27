@@ -1,0 +1,48 @@
+@import "@/styles/general/mixin";
+@import "@/styles/general/variables";
+@import "@/styles/general/ui";
+
+.users-add {
+    width: 400px;
+
+    &__title {
+        @extend %modalTitle;
+        margin-bottom: 20px;
+    }
+
+    &__admin {
+        label {
+            @extend %checkboxStyle;
+            &:checked {
+                @extend %checkboxActive;
+            }
+        }
+    }
+
+    &__form {
+        @include flex(space-between, flex-start, column, $gap: 20px);
+    }
+
+    &__details,
+    &__address {
+        @include flex(space-between, flex-start, $wrap: wrap, $gap: 20px);
+    }
+
+    &__info {
+        @include flex(space-between, flex-start, $gap: 20px);
+    }
+
+    &__firstname,
+    &__lastname,
+    &__phone,
+    &__image {
+        flex: 0 0 47%;
+    }
+
+    &__postolcode,
+    &__city,
+    &__country,
+    &__street {
+        flex: 0 0 47%;
+    }
+}

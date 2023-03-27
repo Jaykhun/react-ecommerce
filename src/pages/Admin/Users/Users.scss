@@ -3,6 +3,7 @@
 @import "@/styles/general/variables";
 
 .users {
+    position: relative;
     &__header {
         @include flex(space-between, center, $gap: 20px);
     }

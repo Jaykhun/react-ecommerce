@@ -1,7 +1,11 @@
-import Button from '@/components/UI/Button'
-import Input from '@/components/UI/Input'
+import { Button, Input } from '@/components/UI'
+import { useActions } from '@/hooks/useActions'
 
 const UsersHeader = () => {
+    const { openAddModal } = useActions()
+    const handleAdd = () => {
+        openAddModal()
+    }
     return (
         <>
             <div className="users__title">Пользователи</div>
@@ -11,7 +15,7 @@ const UsersHeader = () => {
                     placeholder='Искать...'
                 />
 
-                <Button hoverEffect>Добавить</Button>
+                <Button hoverEffect handleAction={handleAdd}>Добавить</Button>
             </div>
         </>
     )

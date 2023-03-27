@@ -1,5 +1,5 @@
 import { SideBar, TopBar } from '@/pages/Admin'
-import { UsersEdit } from '@/pages/Admin/Users'
+import { UsersAdd, UsersEdit } from '@/pages/Admin/Users'
 import { Outlet } from "react-router-dom"
 
 const adminBodyStyle = {
@@ -22,6 +22,7 @@ const Dashboard = () => {
             </div>
 
             <UsersEdit/>
+            <UsersAdd/>
         </div>
     )
 }

@@ -3,6 +3,8 @@
 @import "@/styles/general/variables";
 
 .users-details {
+    position: relative;
+    height: 100vh;
     &__title {
         @extend %adminTitle;
         margin-bottom: 20px;

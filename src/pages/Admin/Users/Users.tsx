@@ -1,4 +1,4 @@
-import { UsersHeader, UsersBody } from './index'
+import { UsersBody, UsersHeader } from './index'
 import './Users.scss'
 
 const Users = () => {

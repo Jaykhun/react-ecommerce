@@ -1,5 +1,5 @@
-import { FC, ReactNode } from 'react'
-import clsx from 'clsx'
+import { FC, ReactNode, useRef } from 'react'
+import { CSSTransition } from 'react-transition-group'
 import './Modal.scss'
 
 interface ModalProps {
@@ -9,19 +9,27 @@ interface ModalProps {
 }
 
 const Modal: FC<ModalProps> = ({ isOpen, handleClose, children }) => {
-    if (!isOpen) {
-        return null
-    }
+    const nodeRef = useRef(null)
 
     return (
-        <div className='modal' onClick={handleClose}>
-            <div className="modal__body">
-                <div className="modal__content" onClick={(e) => e.stopPropagation()}>
-                    <div className="modal__close" onClick={handleClose}></div>
-                    {children}
+        <CSSTransition
+            in={isOpen}
+            nodeRef={nodeRef}
+            timeout={300}
+            classNames="modal"
+            unmountOnExit
+            onEnter={() => !isOpen}
+            onExited={() => isOpen}
+        >
+            <div className='modal' onClick={handleClose} ref={nodeRef}>
+                <div className="modal__body">
+                    <div className="modal__content" onClick={(e) => e.stopPropagation()}>
+                        <div className="modal__close" onClick={handleClose}></div>
+                        {children}
+                    </div>
                 </div>
             </div>
-        </div>
+        </CSSTransition>
     )
 }
 

@@ -5,16 +5,17 @@ import './Button.scss'
 interface IButton {
   disabled?: boolean,
   hoverEffect?: boolean,
-  children: ReactNode
+  children: ReactNode,
+  handleAction(): void
 }
 
-const Button: FC<IButton> = ({ disabled, children, hoverEffect }) => {
+const Button: FC<IButton> = ({ disabled, children, hoverEffect, handleAction }) => {
   return (
     <button disabled={disabled} className=
       {clsx('btn r-btn', {
         'disabled': disabled,
         'w-opacity': hoverEffect
-      })}
+      })} onClick={handleAction}
     >
       {children}
     </button>

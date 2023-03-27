@@ -1,11 +1,14 @@
 import Users from './Users'
+import UsersAdd from './UsersAdd'
+import UsersBody from './UsersBody'
+import UsersDetails from './UsersDetails'
+import UsersEdit from './UsersEdit'
 import UsersHeader from './UsersHeader'
 import UsersItem from './UsersItem'
-import UsersBody from './UsersBody'
-import UsersEdit from './UsersEdit'
-import UsersDetails from './UsersDetails'
 
 export {
-    Users, UsersHeader, UsersItem,
-    UsersBody, UsersEdit, UsersDetails
+    Users, UsersAdd, UsersBody,
+    UsersDetails, UsersEdit, UsersHeader,
+    UsersItem
 }
+

@@ -14,7 +14,7 @@
 
     &__body {
         min-height: 100vh;
-        @include flex(center, center, center);
+        @include flex(center, center);
         padding: 30px 10px;
     }
 
@@ -41,4 +41,19 @@
         border-top-left-radius: $borderRadius;
         border-bottom-left-radius: $borderRadius;
     }
+}
+
+.modal-enter {
+    opacity: 0;
+}
+.modal-enter-active {
+    opacity: 1;
+    transition: opacity 300ms;
+}
+.modal-exit {
+    opacity: 1;
+}
+.modal-exit-active {
+    opacity: 0;
+    transition: opacity 300ms;
 }

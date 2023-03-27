@@ -24,6 +24,10 @@
     -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-check:before {
+    content: "\f00c";
+}
+
 .icon-phone:before {
     content: "\f095";
 }

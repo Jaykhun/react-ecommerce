@@ -50,7 +50,8 @@ export interface FetchUser {
 export interface AddUser {
     user: {
         username: string,
-        password: string
+        password: string,
+        is_admin: boolean
     },
     user_detail: UserDetail,
     user_phones: UserPhone[],

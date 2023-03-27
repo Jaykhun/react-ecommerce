@@ -11,6 +11,32 @@
     @include text($titleColor);
 }
 
+%checkboxStyle {
+    // display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 16px;
+    width: 16px;
+    border-radius: 4px;
+    margin-right: 12px;
+    border: 1.5px solid #c0c0c0;
+    transition: all 0.3s ease-in-out;
+    .check-icon {
+        color: #fff;
+        font-size: 11px;
+        transform: scale(0);
+        transition: all 0.2s ease-in-out;
+    }
+}
+
+%checkboxActive {
+    background-color: rgb(91, 73, 255);
+    border-color: rgb(91, 73, 255);
+    .check-icon {
+        transform: scale(1);
+    }
+}
+
 %actionBtn {
     width: 43px;
     height: 43px;

@@ -1,4 +1,4 @@
-import { EditUser, FetchUser, AddUser } from '@models/userTypes'
+import { AddUser, EditUser, FetchUser } from '@models/userTypes'
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 
 const url = 'https://ecommerce.icedev.uz/'
@@ -44,7 +44,7 @@ export const userApi = createApi({
         }),
         deleteUser: build.mutation<void, number>({
             query: (id) => ({
-                url: `users/${id}`,
+                url: `userss/${id}`,
                 method: 'DELETE'
             }),
             invalidatesTags: ['user']
