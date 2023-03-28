@@ -6,27 +6,27 @@ import userApi from '@/store/api/user'
 import { ErrorMessage } from '@hookform/error-message'
 import { memo } from 'react'
 import { SubmitHandler, useForm } from "react-hook-form"
+import { ToastContainer, toast } from 'react-toastify'
 import './UsersEdit.scss'
 
 const UsersEdit = () => {
     const { closeEditModal } = useActions()
     const { isOpenEditModal, userId } = useTypedSelector(state => state.userReducer)
-    const { data: user, isLoading, isError, error } = userApi.useGetSingleUserQuery(userId, { skip: !userId })
     const { register, formState: { errors, isDirty }, handleSubmit } = useForm<EditUser>({ mode: 'onBlur' })
+    const { data: user, isLoading, isError, error } = userApi.useGetSingleUserQuery(userId, { skip: !userId })
     const [editUser] = userApi.useEditUserMutation()
     console.log(userId, user)
 
     const onSubmit: SubmitHandler<EditUser> = async (data) => {
         try {
             await editUser({ data: data, id: userId }).unwrap()
-            alert('Success')
+            toast.error('Пользователь успешно изменен')
         }
 
         catch (e: any) {
-            <Alert error={e} />
+            toast.error(e.data.detail)
         }
     }
-
 
     return (
         <Modal handleClose={closeEditModal} isOpen={isOpenEditModal}>
@@ -100,6 +100,7 @@ const UsersEdit = () => {
 
                                 <Button disabled={!isDirty} handleAction={() => 1} hoverEffect>Изменить</Button>
                             </form>
+                            <ToastContainer />
                         </>
                 }
             </div>

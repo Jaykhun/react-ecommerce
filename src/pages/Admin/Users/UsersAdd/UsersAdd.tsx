@@ -5,6 +5,7 @@ import { AddUser } from '@/models/userTypes'
 import userApi from '@/store/api/user'
 import { ErrorMessage } from '@hookform/error-message'
 import { SubmitHandler, useForm } from 'react-hook-form'
+import { ToastContainer, toast } from 'react-toastify'
 import './UsersAdd.scss'
 
 const UsersAdd = () => {
@@ -16,15 +17,15 @@ const UsersAdd = () => {
 
     const onSubmit: SubmitHandler<AddUser> = async (data) => {
         try {
-            await data.user.is_admin
-                ? addAdmin(data)
-                : addUser(data)
-                    .unwrap()
-            alert('Success')
+            data.user.is_admin
+                ? await addAdmin(data).unwrap()
+                : await addUser(data).unwrap()
+            toast.success('Пользователь успешно добавлен')
+            reset()
         }
 
         catch (e: any) {
-            console.log(e)
+            toast.error(e.data.detail)
         }
     }
 
@@ -178,6 +179,8 @@ const UsersAdd = () => {
 
                     <Button hoverEffect handleAction={() => 1 + 1}>Добавить</Button>
                 </form>
+
+                <ToastContainer />
             </div>
         </Modal>
     )

@@ -12,7 +12,7 @@ interface UsersItemProps {
 
 const UsersItem: FC<UsersItemProps> = ({ user }) => {
     const { id, user_detail, username, addresses, phone_numbers, is_admin } = user
-    const [deleteUser, { isError, isLoading, error, isSuccess }] = userApi.useDeleteUserMutation()
+    const [deleteUser] = userApi.useDeleteUserMutation()
     const { openEditModal } = useActions()
     const navigate = useNavigate()
 
@@ -22,7 +22,7 @@ const UsersItem: FC<UsersItemProps> = ({ user }) => {
     const handleDelete = async (id: number) => {
         try {
             await deleteUser(id).unwrap()
-            toast.success('Success')
+            toast.success('Пользователь успешно удален')
         }
 
         catch (e: any) {
@@ -60,9 +60,7 @@ const UsersItem: FC<UsersItemProps> = ({ user }) => {
                     <div className="item-users__delete" onClick={() => handleDelete(id)}></div>
                 </div>
             </div>
-            <ToastContainer
-                position="top-right"
-            />
+            <ToastContainer />
         </>
     )
 }
