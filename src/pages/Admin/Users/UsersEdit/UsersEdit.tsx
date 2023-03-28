@@ -17,8 +17,6 @@ const UsersEdit = () => {
     console.log(userId, user)
 
     const onSubmit: SubmitHandler<EditUser> = async (data) => {
-        console.log(data)
-
         try {
             await editUser({ data: data, id: userId }).unwrap()
             alert('Success')
@@ -28,6 +26,7 @@ const UsersEdit = () => {
             <Alert error={e} />
         }
     }
+
 
     return (
         <Modal handleClose={closeEditModal} isOpen={isOpenEditModal}>

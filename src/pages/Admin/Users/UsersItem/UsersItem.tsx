@@ -1,9 +1,9 @@
-import { Alert, Loader } from '@/components/UI'
 import { useActions } from '@/hooks/useActions'
 import userApi from '@/store/api/user'
 import { FetchUser } from '@models/userTypes'
-import { FC, memo, useState } from 'react'
+import { FC } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { toast, ToastContainer } from 'react-toastify'
 import './UsersItem.scss'
 
 interface UsersItemProps {
@@ -12,28 +12,21 @@ interface UsersItemProps {
 
 const UsersItem: FC<UsersItemProps> = ({ user }) => {
     const { id, user_detail, username, addresses, phone_numbers, is_admin } = user
-    const [deleteUser, result] = userApi.useDeleteUserMutation()
+    const [deleteUser, { isError, isLoading, error, isSuccess }] = userApi.useDeleteUserMutation()
     const { openEditModal } = useActions()
     const navigate = useNavigate()
-    const [isLoading, setLoading] = useState(false)
 
     const handleNavigate = () => navigate(`/admin/users/${id}`)
     const handleEdit = () => openEditModal(id)
 
-    const handleDelete = async () => {
+    const handleDelete = async (id: number) => {
         try {
-            setLoading(true)
-            await deleteUser(id).unwrap();
-            < Alert success='success deleted' />
-            setLoading(false)
-            alert('Success')
+            await deleteUser(id).unwrap()
+            toast.success('Success')
         }
 
         catch (e: any) {
-            < Alert error={e} />
-            setLoading(false)
-            alert(e.data.detail)
-
+            toast.error(e.data.detail)
         }
     }
 
@@ -64,14 +57,14 @@ const UsersItem: FC<UsersItemProps> = ({ user }) => {
 
                 <div className="item-users__actions">
                     <div className="item-users__edit" onClick={handleEdit}></div>
-                    <div className="item-users__delete" onClick={handleDelete}></div>
+                    <div className="item-users__delete" onClick={() => handleDelete(id)}></div>
                 </div>
             </div>
-            {result.isLoading && <Loader isLoading={isLoading} />}
-            {/* {result.isSuccess && <Alert success='success deleted' />} */}
-            {/* {result.isError && <Alert error={result.error} />} */}
+            <ToastContainer
+                position="top-right"
+            />
         </>
     )
 }
 
-export default memo(UsersItem)
+export default UsersItem
