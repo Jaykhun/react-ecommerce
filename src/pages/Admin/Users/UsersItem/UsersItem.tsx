@@ -1,3 +1,4 @@
+import { Loader } from '@/components/UI'
 import { useActions } from '@/hooks/useActions'
 import userApi from '@/store/api/user'
 import { FetchUser } from '@models/userTypes'
@@ -12,7 +13,7 @@ interface UsersItemProps {
 
 const UsersItem: FC<UsersItemProps> = ({ user }) => {
     const { id, user_detail, username, addresses, phone_numbers, is_admin } = user
-    const [deleteUser] = userApi.useDeleteUserMutation()
+    const [deleteUser, result] = userApi.useDeleteUserMutation()
     const { openEditModal } = useActions()
     const navigate = useNavigate()
 
@@ -22,7 +23,7 @@ const UsersItem: FC<UsersItemProps> = ({ user }) => {
     const handleDelete = async (id: number) => {
         try {
             await deleteUser(id).unwrap()
-            toast.success('Пользователь успешно удален')
+            toast.success(`${user.username} успешно удален`)
         }
 
         catch (e: any) {
@@ -61,6 +62,7 @@ const UsersItem: FC<UsersItemProps> = ({ user }) => {
                 </div>
             </div>
             <ToastContainer />
+            {result.isLoading && <Loader isLoading={result.isLoading} />}
         </>
     )
 }

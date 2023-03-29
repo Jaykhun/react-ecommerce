@@ -4,7 +4,6 @@
 .users-edit {
     position: relative;
     width: 320px;
-    min-height: 511px;
     &__title {
         @extend %modalTitle;
         margin-bottom: 20px;

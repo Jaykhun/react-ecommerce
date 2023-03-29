@@ -11,10 +11,14 @@
     }
 
     &__admin {
+        input:checked ~ label .icon-check {
+            @extend %checkboxActive;
+        }
+
         label {
-            @extend %checkboxStyle;
-            &:checked {
-                @extend %checkboxActive;
+            cursor: pointer;
+            .icon-check {
+                @extend %checkboxStyle;
             }
         }
     }

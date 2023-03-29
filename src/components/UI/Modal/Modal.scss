@@ -1,6 +1,10 @@
 @import "@/styles/general/mixin";
 @import "@/styles/general/variables";
 
+.modal-open{
+    overflow: hidden;
+}
+
 .modal {
     position: fixed;
     top: 0;
@@ -34,12 +38,17 @@
     }
 
     &__content {
+        min-height: 511px;
         position: relative;
         padding: 30px;
         background-color: #fff;
         border-bottom-right-radius: $borderRadius;
         border-top-left-radius: $borderRadius;
         border-bottom-left-radius: $borderRadius;
+        transition: all 0.3s ease;
+        &.loading {
+            width: 320px;
+        }
     }
 }
 

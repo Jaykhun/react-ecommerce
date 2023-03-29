@@ -37,7 +37,10 @@ export const userApi = createApi({
         editUser: build.mutation<EditUser, { data: EditUser, id: number }>({
             query: (user) => ({
                 url: `users/${user.id}`,
-                body: user,
+                body: user.data,
+                headers: {
+                    'Content-type': 'application/json'
+                },
                 method: 'PUT'
             }),
             invalidatesTags: ['user']

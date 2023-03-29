@@ -1,4 +1,4 @@
-import { Button, Input, Label, Message, Modal } from '@/components/UI'
+import { Button, Message, Modal } from '@/components/UI'
 import { useActions } from '@/hooks/useActions'
 import { useTypedSelector } from '@/hooks/useTypedSelector'
 import { AddUser } from '@/models/userTypes'
@@ -12,176 +12,182 @@ const UsersAdd = () => {
     const { closeAddModal } = useActions()
     const { isOpenAddModal } = useTypedSelector(state => state.userReducer)
     const { register, handleSubmit, formState: { errors }, reset } = useForm<AddUser>({ mode: 'onBlur' })
-    const [addUser] = userApi.useAddUserMutation()
-    const [addAdmin] = userApi.useAddAdminMutation()
+    const [addUser, addUserResult] = userApi.useAddUserMutation()
+    const [addAdmin, addAdminResult] = userApi.useAddAdminMutation()
 
     const onSubmit: SubmitHandler<AddUser> = async (data) => {
+        console.log(data)
+
         try {
             data.user.is_admin
                 ? await addAdmin(data).unwrap()
                 : await addUser(data).unwrap()
             toast.success('Пользователь успешно добавлен')
             reset()
+            closeAddModal()
         }
 
         catch (e: any) {
-            toast.error(e.data.detail)
+            toast.error(`Ошибка, статсус : ${e.status}`)
         }
     }
 
+    const isLoading = addAdminResult.isLoading || addUserResult.isLoading
+
     return (
-        <Modal handleClose={closeAddModal} isOpen={isOpenAddModal}>
+        <Modal handleClose={closeAddModal} isOpen={isOpenAddModal} isLoading={isLoading}>
             <div className='users-add'>
-                <div className="users-add__title">Добавить пользователь</div>
-                <form className="users-add__form" onSubmit={handleSubmit(onSubmit)}>
-                    <div className="users-add__info">
-                        <div className="users-add__username">
-                            <Label htmlFor='username'>Логин</Label>
-                            <Input type='text' id='username'
-                                {...register('user.username', {
-                                    required: 'Поле обязательно к заполнению',
-                                    minLength: { value: 5, message: 'Минимум 5 символов' },
-                                    maxLength: { value: 20, message: 'Максимум 20 символов' }
-                                })} />
+                <div className='user-add__body'>
+                    <div className="users-add__title">Добавить пользователь</div>
+                    <form className="users-add__form" onSubmit={handleSubmit(onSubmit)}>
+                        <div className="users-add__info">
+                            <div className="users-add__username">
+                                <label htmlFor='username' className='input__label'>Логин</label>
+                                <input type='text' id='username' className='input__style'
+                                    {...register('user.username', {
+                                        required: 'Поле обязательно к заполнению',
+                                        minLength: { value: 5, message: 'Минимум 5 символов' },
+                                        maxLength: { value: 20, message: 'Максимум 20 символов' }
+                                    })} />
 
-                            <ErrorMessage name='user.username' errors={errors}
-                                render={(data) => <Message formError={data.message} />}
-                            />
-                        </div>
-                        <div className="users-add__password">
-                            <Label htmlFor='password'>Пароль</Label>
-                            <Input type='text' id='password'
-                                {...register('user.password', {
-                                    required: 'Поле обязательно к заполнению',
-                                    minLength: { value: 5, message: 'Минимум 5 символов' },
-                                    maxLength: { value: 20, message: 'Максимум 20 символов' }
-                                })} />
+                                <ErrorMessage name='user.username' errors={errors}
+                                    render={(data) => <Message formError={data.message} />}
+                                />
+                            </div>
+                            <div className="users-add__password">
+                                <label htmlFor='password' className='input__label'>Пароль</label>
+                                <input type='text' id='password' className='input__style'
+                                    {...register('user.password', {
+                                        required: 'Поле обязательно к заполнению',
+                                        minLength: { value: 5, message: 'Минимум 5 символов' },
+                                        maxLength: { value: 20, message: 'Максимум 20 символов' }
+                                    })} />
 
-                            <ErrorMessage name='user.password' errors={errors}
-                                render={(data) => <Message formError={data.message} />}
-                            />
-                        </div>
-                    </div>
-
-                    <div className="users-add__details">
-                        <div className="users-add__firstname">
-                            <Label htmlFor='firstname'>Имя</Label>
-                            <Input type='text' id='firstname'
-                                {...register('user_detail.first_name', {
-                                    required: 'Поле обязательно к заполнению',
-                                    minLength: { value: 5, message: 'Минимум 5 символов' },
-                                    maxLength: { value: 20, message: 'Максимум 20 символов' }
-                                })} />
-
-                            <ErrorMessage name='user_detail.first_name' errors={errors}
-                                render={(data) => <Message formError={data.message} />}
-                            />
+                                <ErrorMessage name='user.password' errors={errors}
+                                    render={(data) => <Message formError={data.message} />}
+                                />
+                            </div>
                         </div>
 
-                        <div className="users-add__lastname">
-                            <Label htmlFor='lastname'>Фамилия</Label>
-                            <Input type='text' id='lastname'
-                                {...register('user_detail.last_name', {
-                                    required: 'Поле обязательно к заполнению',
-                                    minLength: { value: 5, message: 'Минимум 5 символов' },
-                                    maxLength: { value: 20, message: 'Максимум 20 символов' }
-                                })} />
+                        <div className="users-add__details">
+                            <div className="users-add__firstname">
+                                <label htmlFor='firstname' className='input__label'>Имя</label>
+                                <input type='text' id='firstname' className='input__style'
+                                    {...register('user_detail.first_name', {
+                                        required: 'Поле обязательно к заполнению',
+                                        minLength: { value: 5, message: 'Минимум 5 символов' },
+                                        maxLength: { value: 20, message: 'Максимум 20 символов' }
+                                    })} />
 
-                            <ErrorMessage name='user_detail.last_name' errors={errors}
-                                render={(data) => <Message formError={data.message} />}
-                            />
+                                <ErrorMessage name='user_detail.first_name' errors={errors}
+                                    render={(data) => <Message formError={data.message} />}
+                                />
+                            </div>
+
+                            <div className="users-add__lastname">
+                                <label htmlFor='lastname' className='input__label'>Фамилия</label>
+                                <input type='text' id='lastname' className='input__style'
+                                    {...register('user_detail.last_name', {
+                                        required: 'Поле обязательно к заполнению',
+                                        minLength: { value: 5, message: 'Минимум 5 символов' },
+                                        maxLength: { value: 20, message: 'Максимум 20 символов' }
+                                    })} />
+
+                                <ErrorMessage name='user_detail.last_name' errors={errors}
+                                    render={(data) => <Message formError={data.message} />}
+                                />
+                            </div>
+
+                            <div className="users-add__phone">
+                                <label htmlFor='phone' className='input__label'>Номер телефона</label>
+                                <input type='text' id='phone' className='input__style'
+                                    {...register('user_phones.0.phone_number', {
+                                        required: 'Поле обязательно к заполнению'
+                                    })} />
+
+                                <ErrorMessage name='user_phones.0.phone_number' errors={errors}
+                                    render={(data) => <Message formError={data.message} />}
+                                />
+                            </div>
+
+                            <div className="users-add__image">
+                                <label htmlFor='image' className='input__label'>Ссылька на аватарку</label>
+                                <input type='text' id='image' className='input__style'
+                                    {...register('user_detail.user_image', {
+                                        required: 'Поле обязательно к заполнению'
+                                    })} />
+
+                                <ErrorMessage name='user_detail.user_image' errors={errors}
+                                    render={(data) => <Message formError={data.message} />}
+                                />
+                            </div>
                         </div>
 
-                        <div className="users-add__phone">
-                            <Label htmlFor='phone'>Номер телефона</Label>
-                            <Input type='text' id='phone'
-                                {...register('user_phones.0.phone_number', {
-                                    required: 'Поле обязательно к заполнению'
-                                })} />
+                        <div className="users-add__address">
+                            <div className="users-add__country">
+                                <label htmlFor='street' className='input__label'>Страна</label>
+                                <input type='text' id='street' className='input__style'
+                                    {...register('user_address.0.postal_code', {
+                                        required: 'Поле обязательно к заполнению'
+                                    })} />
+                            </div>
+                            <div className="users-add__city">
+                                <label htmlFor='city' className='input__label'>Город</label>
+                                <input type='text' id='city' className='input__style'
+                                    {...register('user_address.0.city', {
+                                        required: 'Поле обязательно к заполнению',
+                                        minLength: { value: 5, message: 'Минимум 5 символов' },
+                                        maxLength: { value: 20, message: 'Максимум 20 символов' }
+                                    })} />
 
-                            <ErrorMessage name='user_phones.0.phone_number' errors={errors}
-                                render={(data) => <Message formError={data.message} />}
-                            />
+                                <ErrorMessage name='user_address.0.city' errors={errors}
+                                    render={(data) => <Message formError={data.message} />}
+                                />
+                            </div>
+
+                            <div className="users-add__postolcode">
+                                <label htmlFor='street' className='input__label'>Почтовый индекс</label>
+                                <input type='text' id='street' className='input__style'
+                                    {...register('user_address.0.postal_code', {
+                                        required: 'Поле обязательно к заполнению',
+                                        minLength: { value: 3, message: 'Минимум 3 символов' },
+                                        maxLength: { value: 20, message: 'Максимум 20 символов' }
+                                    })} />
+
+                                <ErrorMessage name='user_address.0.postal_code' errors={errors}
+                                    render={(data) => <Message formError={data.message} />}
+                                />
+                            </div>
+
+                            <div className="users-add__street">
+                                <label htmlFor='street' className='input__label'>Улица</label>
+                                <input type='text' id='street' className='input__style'
+                                    {...register('user_address.0.street_address', {
+                                        required: 'Поле обязательно к заполнению',
+                                        minLength: { value: 5, message: 'Минимум 5 символов' },
+                                        maxLength: { value: 20, message: 'Максимум 20 символов' }
+                                    })} />
+
+                                <ErrorMessage name='user_address.0.street_address' errors={errors}
+                                    render={(data) => <Message formError={data.message} />}
+                                />
+                            </div>
                         </div>
 
-                        <div className="users-add__image">
-                            <Label htmlFor='image'>Ссылька на аватарку</Label>
-                            <Input type='text' id='image'
-                                {...register('user_detail.user_image', {
-                                    required: 'Поле обязательно к заполнению'
-                                })} />
-
-                            <ErrorMessage name='user_detail.user_image' errors={errors}
-                                render={(data) => <Message formError={data.message} />}
-                            />
-                        </div>
-                    </div>
-
-                    <div className="users-add__address">
-                        <div className="users-add__country">
-                            <Label htmlFor='street'>Страна</Label>
-                            <Input type='text' id='street'
-                                {...register('user_address.0.postal_code', {
-                                    required: 'Поле обязательно к заполнению'
-                                })} />
-                        </div>
-                        <div className="users-add__city">
-                            <Label htmlFor='city'>Город</Label>
-                            <Input type='text' id='city'
-                                {...register('user_address.0.city', {
-                                    required: 'Поле обязательно к заполнению',
-                                    minLength: { value: 5, message: 'Минимум 5 символов' },
-                                    maxLength: { value: 20, message: 'Максимум 20 символов' }
-                                })} />
-
-                            <ErrorMessage name='user_address.0.city' errors={errors}
-                                render={(data) => <Message formError={data.message} />}
-                            />
+                        <div className="users-add__admin">
+                            <input type='checkbox' id='admin'
+                                {...register('user.is_admin')} />
+                            <label htmlFor='admin' className='input__label'>
+                                <span className='icon-check'></span>
+                                <span>Сделать Администраторам</span>
+                            </label>
                         </div>
 
-                        <div className="users-add__postolcode">
-                            <Label htmlFor='street'>Почтовый индекс</Label>
-                            <Input type='text' id='street'
-                                {...register('user_address.0.postal_code', {
-                                    required: 'Поле обязательно к заполнению',
-                                    minLength: { value: 3, message: 'Минимум 3 символов' },
-                                    maxLength: { value: 20, message: 'Максимум 20 символов' }
-                                })} />
-
-                            <ErrorMessage name='user_address.0.postal_code' errors={errors}
-                                render={(data) => <Message formError={data.message} />}
-                            />
-                        </div>
-
-                        <div className="users-add__street">
-                            <Label htmlFor='street'>Улица</Label>
-                            <Input type='text' id='street'
-                                {...register('user_address.0.street_address', {
-                                    required: 'Поле обязательно к заполнению',
-                                    minLength: { value: 5, message: 'Минимум 5 символов' },
-                                    maxLength: { value: 20, message: 'Максимум 20 символов' }
-                                })} />
-
-                            <ErrorMessage name='user_address.0.street_address' errors={errors}
-                                render={(data) => <Message formError={data.message} />}
-                            />
-                        </div>
-                    </div>
-
-                    <div className="users-add__admin">
-                        <Label htmlFor='admin'>
-                            <span>Сделать Администраторам</span>
-                            <span className='icon-check check-icon'></span>
-                        </Label>
-                        <Input type='checkbox' id='admin'
-                            {...register('user.is_admin')} />
-                    </div>
-
-                    <Button hoverEffect handleAction={() => 1 + 1}>Добавить</Button>
-                </form>
-
-                <ToastContainer />
+                        <Button hoverEffect>Добавить</Button>
+                    </form>
+                </div>
             </div>
+            <ToastContainer />
         </Modal>
     )
 }

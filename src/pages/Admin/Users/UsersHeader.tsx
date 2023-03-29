@@ -3,19 +3,22 @@ import { useActions } from '@/hooks/useActions'
 
 const UsersHeader = () => {
     const { openAddModal } = useActions()
-    const handleAdd = () => {
-        openAddModal()
-    }
+    const handleAdd = () => openAddModal()
+
     return (
         <>
             <div className="users__title">Пользователи</div>
             <div className="users__header">
-                <Input
-                    type='search'
-                    placeholder='Искать...'
-                />
+                <div className="users__search">
+                    <Input
+                        type='search'
+                        placeholder='Искать...'
+                    />
+                </div>
 
-                <Button hoverEffect handleAction={handleAdd}>Добавить</Button>
+                <div className='users__add' onClick={handleAdd}>
+                    <Button hoverEffect>Добавить</Button>
+                </div>
             </div>
         </>
     )
