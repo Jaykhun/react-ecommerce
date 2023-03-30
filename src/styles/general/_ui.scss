@@ -75,3 +75,106 @@
         }
     }
 }
+
+.select-styles {
+    @include fontArguments($mainFont, 600);
+
+    &__control {
+        flex: 1 1 auto !important;
+        background-color: $mostUsedBcg !important;
+        cursor: pointer !important;
+        min-height: 70px !important;
+        border: 2px solid transparent !important;
+        box-shadow: none !important;
+        transition: all 0.3s !important;
+    }
+
+    &__value-container {
+        @include fontArguments($mainFont, 600);
+        font-size: 14px !important;
+        text-transform: capitalize;
+    }
+
+    &__label {
+        @include fontArguments($mainFont, 600);
+        display: block;
+        font-size: 14px !important;
+        color: #3e3e3e !important;
+        margin-bottom: 5px !important;
+        letter-spacing: 0.7px !important;
+        transition: all 0.3s !important;
+    }
+
+    &__input-container {
+        @include fontArguments($mainFont, 600);
+    }
+
+    &__control--is-focused {
+        @include fontArguments($textfont, 400);
+        font-size: 16px !important;
+        color: #393939 !important;
+        border-radius: 6px !important;
+        border: 2px solid $btnBorderColor !important;
+        background-color: #fff !important;
+        transition: all 0.3s !important;
+    }
+
+    &__control--menu-is-open {
+        border: 2px solid $btnBorderColor !important;
+    }
+
+    &__indicaters {
+        cursor: pointer !important;
+    }
+
+    &__indicator-separator {
+        display: none !important;
+    }
+
+    &____indicater {
+        color: #393939 !important;
+    }
+
+    &__menu {
+        @include fontArguments($textfont, 400);
+        font-size: 16px !important;
+        color: #393939 !important;
+        background-color: #fff !important;
+        z-index: 10 !important;
+    }
+
+    &__multi-value {
+        @include fontArguments($textfont, 400);
+        font-size: 16px !important;
+        color: #393939 !important;
+        border-radius: 6px !important;
+        padding: 10px !important;
+        border-color: $btnBorderColor !important;
+
+        &__remove {
+            transition: all 0.2s !important;
+        }
+    }
+
+    &__menu-list {
+        padding: 0 !important;
+    }
+
+    &__option {
+        cursor: pointer !important;
+        border: 2px solid transparent !important;
+        transition: background-color, color 0.2s !important;
+        border-radius: 4px;
+        text-transform: capitalize;
+
+        &:hover {
+            background-color: #ec4d4d !important;
+            color: #fff !important;
+        }
+
+        &--is-focused {
+            background-color: #ec4d4d !important;
+            color: #fff !important;
+        }
+    }
+}

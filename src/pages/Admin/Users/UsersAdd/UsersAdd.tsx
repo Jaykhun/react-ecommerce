@@ -2,18 +2,39 @@ import { Button, Message, Modal } from '@/components/UI'
 import { useActions } from '@/hooks/useActions'
 import { useTypedSelector } from '@/hooks/useTypedSelector'
 import { AddUser } from '@/models/userTypes'
-import userApi from '@/store/api/user'
+import { countryAPi, userApi } from '@/store/api'
 import { ErrorMessage } from '@hookform/error-message'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import { ToastContainer, toast } from 'react-toastify'
 import './UsersAdd.scss'
 
+interface OptionType {
+    value: string
+    label: string
+}
+
+type FormValues = {
+    selectOption: OptionType
+}
+
 const UsersAdd = () => {
     const { closeAddModal } = useActions()
     const { isOpenAddModal } = useTypedSelector(state => state.userReducer)
-    const { register, handleSubmit, formState: { errors }, reset } = useForm<AddUser>({ mode: 'onBlur' })
+    const { register, handleSubmit, formState: { errors }, reset, control } = useForm<AddUser>({ mode: 'onBlur' })
+
+    // const [options, setOptions] = useState<OptionType[]>
+
+    const { data } = countryAPi.useGetAllCountriesQuery()
     const [addUser, addUserResult] = userApi.useAddUserMutation()
     const [addAdmin, addAdminResult] = userApi.useAddAdminMutation()
+
+    const loadOptions = (searchValue: string, callback: any) => {
+        const filteredOptions = data?.filter((option: any) =>
+            option.name.toLowerCase().includes(searchValue.toLowerCase())
+        )
+
+        callback(filteredOptions)
+    }
 
     const onSubmit: SubmitHandler<AddUser> = async (data) => {
         console.log(data)
@@ -126,10 +147,19 @@ const UsersAdd = () => {
                         <div className="users-add__address">
                             <div className="users-add__country">
                                 <label htmlFor='street' className='input__label'>Страна</label>
-                                <input type='text' id='street' className='input__style'
-                                    {...register('user_address.0.postal_code', {
-                                        required: 'Поле обязательно к заполнению'
-                                    })} />
+                                {/* <Controller
+                                    control={control}
+                                    name={'user_address.0.country_id'}
+                                    components={makeAnimated()}
+                                    render={({ field }) => {
+                                        <AsyncSelect
+                                            {...field}
+                                            cacheOptions
+                                            defaultOptions
+                                            loadOptions={loadOptions}
+                                        />
+                                    }}
+                                /> */}
                             </div>
                             <div className="users-add__city">
                                 <label htmlFor='city' className='input__label'>Город</label>
