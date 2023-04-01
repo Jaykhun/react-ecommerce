@@ -1,39 +1,37 @@
 import { Button, Message, Modal } from '@/components/UI'
 import { useActions } from '@/hooks/useActions'
 import { useTypedSelector } from '@/hooks/useTypedSelector'
+import { FetchCountry } from '@/models/countryType'
 import { AddUser } from '@/models/userTypes'
 import { countryAPi, userApi } from '@/store/api'
 import { ErrorMessage } from '@hookform/error-message'
-import { SubmitHandler, useForm } from 'react-hook-form'
+import { Controller, SubmitHandler, useForm } from 'react-hook-form'
+import makeAnimated from 'react-select/animated'
+import AsyncSelect from "react-select/async"
 import { ToastContainer, toast } from 'react-toastify'
 import './UsersAdd.scss'
-
-interface OptionType {
-    value: string
-    label: string
-}
-
-type FormValues = {
-    selectOption: OptionType
-}
 
 const UsersAdd = () => {
     const { closeAddModal } = useActions()
     const { isOpenAddModal } = useTypedSelector(state => state.userReducer)
     const { register, handleSubmit, formState: { errors }, reset, control } = useForm<AddUser>({ mode: 'onBlur' })
 
-    // const [options, setOptions] = useState<OptionType[]>
-
-    const { data } = countryAPi.useGetAllCountriesQuery()
+    const { data: countries } = countryAPi.useGetAllCountriesQuery()
     const [addUser, addUserResult] = userApi.useAddUserMutation()
     const [addAdmin, addAdminResult] = userApi.useAddAdminMutation()
 
     const loadOptions = (searchValue: string, callback: any) => {
-        const filteredOptions = data?.filter((option: any) =>
-            option.name.toLowerCase().includes(searchValue.toLowerCase())
+        const filteredOptions = countries?.filter((option: FetchCountry) =>
+            option.country_name.toLowerCase().includes(searchValue.toLowerCase())
         )
 
+
         callback(filteredOptions)
+    }
+
+    const values = (field: any) => {
+        const currentCountry = countries?.find((value: FetchCountry) => value.id === field.value)
+        return currentCountry?.id
     }
 
     const onSubmit: SubmitHandler<AddUser> = async (data) => {
@@ -146,21 +144,34 @@ const UsersAdd = () => {
 
                         <div className="users-add__address">
                             <div className="users-add__country">
-                                <label htmlFor='street' className='input__label'>Страна</label>
-                                {/* <Controller
+                                <label htmlFor='street' id='country' className='input__label'>Страна</label>
+                                <Controller
                                     control={control}
-                                    name={'user_address.0.country_id'}
-                                    components={makeAnimated()}
+                                    {...register('user_address.0.country_id', {required: 'Поле обязательно к заполнению'})}
                                     render={({ field }) => {
-                                        <AsyncSelect
-                                            {...field}
-                                            cacheOptions
-                                            defaultOptions
-                                            loadOptions={loadOptions}
-                                        />
+                                        return (
+                                            <AsyncSelect
+                                                id='country'
+                                                classNamePrefix='select-styles'
+                                                components={makeAnimated()}
+                                                placeholder={false}
+                                                defaultOptions
+                                                loadOptions={loadOptions}
+                                                onBlur={field.onBlur}
+                                                getOptionValue={value => value.country_name}
+                                                getOptionLabel={value => value.country_name}
+                                                onChange={(newValue: any) => field.onChange(newValue.id)}
+                                                value={countries?.find((value: FetchCountry) => value.id === field.value)}
+                                            />
+                                        )
                                     }}
-                                /> */}
+                                />
+
+                                <ErrorMessage name='user_address.0.country_id' errors={errors}
+                                    render={(data) => <Message formError={data.message} />}
+                                />
                             </div>
+
                             <div className="users-add__city">
                                 <label htmlFor='city' className='input__label'>Город</label>
                                 <input type='text' id='city' className='input__style'

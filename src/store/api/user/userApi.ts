@@ -11,7 +11,7 @@ export const userApi = createApi({
     tagTypes: ['user'],
     endpoints: build => ({
         getAllUsers: build.query<FetchUser[], void>({
-            query: () => 'users',
+            query: () => 'users/',
             providesTags: ['user']
         }),
         getSingleUser: build.query<FetchUser, number>({

@@ -1,5 +1,5 @@
-import userApi from '@/store/api/user'
 import Message from '@/components/UI/Message'
+import userApi from '@/store/api/user'
 import { UsersItem } from './index'
 
 const UsersBody = () => {

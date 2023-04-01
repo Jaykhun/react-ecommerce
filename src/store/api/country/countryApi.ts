@@ -8,7 +8,7 @@ export const countryAPi = createApi({
     tagTypes: ['country'],
     endpoints: build => ({
         getAllCountries: build.query<FetchCountry[], void>({
-            query: () => 'country',
+            query: () => 'countries/',
             providesTags: ['country']
         })
     })
