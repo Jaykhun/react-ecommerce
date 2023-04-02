@@ -17,18 +17,18 @@ export const userReducer = createSlice({
     initialState,
     reducers: {
         openAddModal(state) {
-            state.isOpenAddModal = !state.isOpenAddModal
+            state.isOpenAddModal = true
         },
         closeAddModal(state) {
-            state.isOpenAddModal = !state.isOpenAddModal
+            state.isOpenAddModal = false
         },
 
         openEditModal(state, action) {
-            state.isOpenEditModal = !state.isOpenEditModal
+            state.isOpenEditModal = true
             state.userId = action.payload
         },
         closeEditModal(state) {
-            state.isOpenEditModal = !state.isOpenEditModal
+            state.isOpenEditModal = false
         }
     },
 }) 

@@ -55,7 +55,7 @@ export interface AddUser {
     },
     user_detail: UserDetail,
     user_phones: UserPhone[],
-    user_address: AddUserAddress[]
+    user_address: AddUserAddress
 }
 
 export interface EditUser {

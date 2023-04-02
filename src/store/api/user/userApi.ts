@@ -20,34 +20,31 @@ export const userApi = createApi({
         }),
         addUser: build.mutation<FetchUser, AddUser>({
             query: (user) => ({
-                url: 'users',
-                body: user,
-                method: 'POST'
+                url: 'users/',
+                method: 'POST',
+                body: user
             }),
             invalidatesTags: ['user']
         }),
         addAdmin: build.mutation<FetchUser, AddUser>({
             query: (admin) => ({
                 url: 'users/admin',
-                body: admin,
-                method: 'POST'
+                method: 'POST',
+                body: admin
             }),
             invalidatesTags: ['user']
         }),
         editUser: build.mutation<EditUser, { data: EditUser, id: number }>({
             query: (user) => ({
                 url: `users/${user.id}`,
-                body: user.data,
-                headers: {
-                    'Content-type': 'application/json'
-                },
-                method: 'PUT'
+                method: 'PUT',
+                body: user.data
             }),
             invalidatesTags: ['user']
         }),
         deleteUser: build.mutation<void, number>({
             query: (id) => ({
-                url: `userss/${id}`,
+                url: `users/${id}`,
                 method: 'DELETE'
             }),
             invalidatesTags: ['user']

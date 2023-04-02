@@ -1,4 +1,4 @@
-import { Button, Input } from '@/components/UI'
+import { Button } from '@/components/UI'
 import { useActions } from '@/hooks/useActions'
 
 const UsersHeader = () => {
@@ -10,9 +10,10 @@ const UsersHeader = () => {
             <div className="users__title">Пользователи</div>
             <div className="users__header">
                 <div className="users__search">
-                    <Input
+                    <input
                         type='search'
                         placeholder='Искать...'
+                        className='input__style'
                     />
                 </div>
 

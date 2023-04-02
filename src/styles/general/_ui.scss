@@ -47,7 +47,7 @@
     }
 }
 
-.input__label {
+.input {
     &__label {
         display: block;
         @include fontArguments($mainFont, $fontWeight: 600);

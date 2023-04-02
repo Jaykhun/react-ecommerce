@@ -1,6 +1,6 @@
 import Message from '@/components/UI/Message'
 import userApi from '@/store/api/user'
-import { UsersItem } from './index'
+import UsersItem from './UsersItem'
 
 const UsersBody = () => {
     const { data: users, isLoading, isError, error } = userApi.useGetAllUsersQuery()

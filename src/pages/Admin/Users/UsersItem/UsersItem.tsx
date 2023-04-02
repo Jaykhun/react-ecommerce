@@ -20,7 +20,7 @@ const UsersItem: FC<UsersItemProps> = ({ user }) => {
     const handleNavigate = () => navigate(`/admin/users/${id}`)
     const handleEdit = () => openEditModal(id)
 
-    const handleDelete = async (id: number) => {
+    const handleDelete = async () => {
         try {
             await deleteUser(id).unwrap()
             toast.success(`${user.username} успешно удален`)
@@ -58,7 +58,7 @@ const UsersItem: FC<UsersItemProps> = ({ user }) => {
 
                 <div className="item-users__actions">
                     <div className="item-users__edit" onClick={handleEdit}></div>
-                    <div className="item-users__delete" onClick={() => handleDelete(id)}></div>
+                    <div className="item-users__delete" onClick={handleDelete}></div>
                 </div>
             </div>
             <ToastContainer />

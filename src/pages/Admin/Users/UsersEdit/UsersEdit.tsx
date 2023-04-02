@@ -4,7 +4,7 @@ import { useTypedSelector } from '@/hooks/useTypedSelector'
 import { EditUser } from '@/models/userTypes'
 import userApi from '@/store/api/user'
 import { ErrorMessage } from '@hookform/error-message'
-import { memo } from 'react'
+import { useEffect } from 'react'
 import { SubmitHandler, useForm } from "react-hook-form"
 import { ToastContainer, toast } from 'react-toastify'
 import './UsersEdit.scss'
@@ -13,9 +13,12 @@ const UsersEdit = () => {
     const { closeEditModal } = useActions()
     const { isOpenEditModal, userId } = useTypedSelector(state => state.userReducer)
     const { register, formState: { errors, isDirty }, handleSubmit, reset } = useForm<EditUser>({ mode: 'onBlur' })
-    const { data: user, isLoading: userIsLoading, isError: userIsError, error: userError } = userApi.useGetSingleUserQuery(userId, { skip: !userId })
+    const { data: user, isFetching, isError: userIsError, error: userError } = userApi.useGetSingleUserQuery(userId, { skip: !userId })
     const [editUser, result] = userApi.useEditUserMutation()
-    console.log(userId, user)
+
+    useEffect(() => {
+        reset()
+    }, [user])
 
     const onSubmit: SubmitHandler<EditUser> = async (data) => {
         try {
@@ -29,7 +32,7 @@ const UsersEdit = () => {
         }
     }
 
-    const isLoading = userIsLoading || result.isLoading
+    const isLoading = isFetching || result.isLoading
     const isError = userIsError || result.isError
     const error = userError || result.error
 
@@ -108,4 +111,4 @@ const UsersEdit = () => {
     )
 }
 
-export default memo(UsersEdit)
+export default UsersEdit
