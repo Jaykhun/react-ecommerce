@@ -1,18 +1,18 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { PayloadAction, createSlice } from '@reduxjs/toolkit'
 
-interface UserState {
+interface UserStateType {
     isOpenAddModal: boolean
     isOpenEditModal: boolean,
     userId: number
 }
 
-const initialState: UserState = {
+const initialState: UserStateType = {
     isOpenAddModal: false,
     isOpenEditModal: false,
     userId: 0
 }
 
-export const userReducer = createSlice({
+export const userSlice = createSlice({
     name: 'userReducer',
     initialState,
     reducers: {
@@ -23,7 +23,7 @@ export const userReducer = createSlice({
             state.isOpenAddModal = false
         },
 
-        openEditModal(state, action) {
+        openEditModal(state, action: PayloadAction<number>) {
             state.isOpenEditModal = true
             state.userId = action.payload
         },

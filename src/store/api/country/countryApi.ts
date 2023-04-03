@@ -1,15 +1,11 @@
 import { FetchCountry } from '@/models/countryType'
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
+import userApi from '../user'
 const url = 'https://ecommerce.icedev.uz/'
 
-export const countryAPi = createApi({
-    reducerPath: 'countryApi',
-    baseQuery: fetchBaseQuery({ baseUrl: url }),
-    tagTypes: ['country'],
+export const countryAPi = userApi.injectEndpoints({
     endpoints: build => ({
         getAllCountries: build.query<FetchCountry[], void>({
             query: () => 'countries/',
-            providesTags: ['country']
         })
     })
 })

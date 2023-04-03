@@ -12,9 +12,26 @@
     padding: 15px;
     z-index: 22;
 
+    &::-webkit-scrollbar {
+        -webkit-appearance: none;
+    }
+
+    &::-webkit-scrollbar:vertical {
+        width: 8px;
+    }
+
+    &::-webkit-scrollbar:horizontal {
+        height: 8px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        border-radius: 8px;
+        background-color: $activeColor;
+    }
+
     &__logo {
         display: block;
-        @include fontArguments($mainFont, 21px, 700);
+        @include fontArguments($mainFont, 20px, 700);
         @include text(#fff, center);
         margin: 25px 0px 30px 0px;
     }
