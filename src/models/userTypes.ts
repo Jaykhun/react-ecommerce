@@ -1,40 +1,39 @@
-export interface UserPhone {
+import { FetchCountry } from './countryType'
+
+interface UserPhone {
     phone_number: string,
     type: string
 }
 
-export interface UserAddress {
+interface UserAddress {
     street_address: string,
     postal_code: string,
     city: string,
-    country: {
-        country_name: string,
-        id: number
-    }
+    country: FetchCountry
 }
 
-export interface UserDetail {
+interface UserDetail {
     first_name: string,
     last_name: string,
     user_image: string
 }
 
-export interface AddUserAddress {
+interface AddUserAddress {
     street_address: string,
     postal_code: string,
     city: string,
     country_id: number
 }
 
-export interface FetchUserDetail extends UserDetail {
+interface FetchUserDetail extends UserDetail {
     id: number
 }
 
-export interface FetchUserPhone extends UserPhone {
+interface FetchUserPhone extends UserPhone {
     id: number
 }
 
-export interface FetchUserAddress extends UserAddress {
+interface FetchUserAddress extends UserAddress {
     id: number
 }
 

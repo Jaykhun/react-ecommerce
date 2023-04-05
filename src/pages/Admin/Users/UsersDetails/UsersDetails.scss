@@ -4,7 +4,8 @@
 
 .users-details {
     position: relative;
-    height: 100vh;
+    min-height: 70vh;
+    
     &__title {
         @extend %adminTitle;
         margin-bottom: 20px;

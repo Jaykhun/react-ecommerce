@@ -20,6 +20,7 @@
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.43.8",
     "react-loader-spinner": "^5.3.4",
+    "react-loading-skeleton": "^3.2.0",
     "react-number-format": "^5.1.4",
     "react-redux": "^8.0.5",
     "react-router-dom": "^6.9.0",

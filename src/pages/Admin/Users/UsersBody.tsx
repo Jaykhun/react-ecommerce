@@ -1,4 +1,4 @@
-import Message from '@/components/UI/Message'
+import { Loader, Message } from '@/components/UI'
 import userApi from '@/store/api/user'
 import UsersItem from './UsersItem'
 
@@ -9,7 +9,7 @@ const UsersBody = () => {
         <div className='users__body'>
             {
                 isLoading
-                    ? <p>Loading</p>
+                    ? <Loader isLoading={isLoading} />
                     : isError
                         ? <Message error={error} />
                         : users?.length

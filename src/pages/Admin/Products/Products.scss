@@ -1,9 +1,10 @@
-@import "@/styles/general/ui";
 @import "@/styles/general/mixin";
 @import "@/styles/general/variables";
+@import "@/styles/general/ui";
 
-.users {
+.products {
     position: relative;
+
     &__header {
         @include flex(space-between, center, $gap: 20px);
     }
