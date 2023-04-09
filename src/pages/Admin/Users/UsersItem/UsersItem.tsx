@@ -2,9 +2,9 @@ import { Loader } from '@/components/UI'
 import { useActions } from '@/hooks/useActions'
 import userApi from '@/store/api/user'
 import { FetchUser } from '@models/userTypes'
+import { Notify } from 'notiflix/build/notiflix-notify-aio'
 import { FC } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { toast, ToastContainer } from 'react-toastify'
 import './UsersItem.scss'
 
 interface UsersItemProps {
@@ -23,11 +23,17 @@ const UsersItem: FC<UsersItemProps> = ({ user }) => {
     const handleDelete = async () => {
         try {
             await deleteUser(id).unwrap()
-            toast.success(`${user.username} успешно удален`)
+            Notify.success(`${user.username} успешно удален`, {
+                clickToClose: true,
+                fontSize: '15px'
+            })
         }
 
         catch (e: any) {
-            toast.error(e.data.detail)
+            Notify.failure('Error', {
+                clickToClose: true,
+                fontSize: '15px'
+            })
         }
     }
 
@@ -61,7 +67,6 @@ const UsersItem: FC<UsersItemProps> = ({ user }) => {
                     <div className="item-users__delete" onClick={handleDelete}></div>
                 </div>
             </div>
-            <ToastContainer />
             {result.isLoading && <Loader isLoading={result.isLoading} />}
         </>
     )

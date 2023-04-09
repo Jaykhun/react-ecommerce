@@ -4,9 +4,10 @@ import { useTypedSelector } from '@/hooks/useTypedSelector'
 import { EditUser } from '@/models/userTypes'
 import userApi from '@/store/api/user'
 import { ErrorMessage } from '@hookform/error-message'
+import { Notify } from 'notiflix/build/notiflix-notify-aio'
 import { useEffect } from 'react'
 import { SubmitHandler, useForm } from "react-hook-form"
-import { ToastContainer, toast } from 'react-toastify'
+
 import './UsersEdit.scss'
 
 const UsersEdit = () => {
@@ -23,12 +24,18 @@ const UsersEdit = () => {
     const onSubmit: SubmitHandler<EditUser> = async (data) => {
         try {
             await editUser({ data: data, id: userId }).unwrap()
-            toast.success(`${user?.username} успешно изменен`)
+            Notify.success(`${user?.username} успешно изменен`, {
+                clickToClose: true,
+                fontSize: '15px'
+            })
             closeEditModal()
         }
 
         catch (e: any) {
-            toast.error(`Ошибка, статус: ${e.data.status}`)
+            Notify.failure(`Ошибка, статус: ${e.data.status}`, {
+                clickToClose: true,
+                fontSize: '15px'
+            })
         }
     }
 
@@ -104,7 +111,6 @@ const UsersEdit = () => {
 
                         <Button disabled={!isDirty} hoverEffect>Изменить</Button>
                     </form>
-                    <ToastContainer />
                 </div>
             </div>
         </Modal >

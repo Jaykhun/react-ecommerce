@@ -5,13 +5,14 @@ import { FetchCountry } from '@/models/countryType'
 import { AddUser } from '@/models/userTypes'
 import { countryAPi, userApi } from '@/store/api'
 import { ErrorMessage } from '@hookform/error-message'
+import { Notify } from 'notiflix/build/notiflix-notify-aio'
 import { useRef } from 'react'
 import { Controller, SubmitHandler, useForm } from 'react-hook-form'
 import { PatternFormat } from 'react-number-format'
 import Select from "react-select"
 import makeAnimated from 'react-select/animated'
 import AsyncSelect from "react-select/async"
-import { ToastContainer, toast } from 'react-toastify'
+
 import './UsersAdd.scss'
 
 const UsersAdd = () => {
@@ -49,13 +50,20 @@ const UsersAdd = () => {
             data.user.is_admin
                 ? await addAdmin(data).unwrap()
                 : await addUser(data).unwrap()
-            toast.success(`${data.user.username} успешно добавлен`)
+            Notify.success(`${data.user.username} успешно добавлен`, {
+                clickToClose: true,
+                fontSize: '15px'
+            })
             reset()
             closeAddModal()
+
         }
 
         catch (e: any) {
-            toast.error(`Ошибка, статсус : ${e.status}`)
+            Notify.failure(`Ошибка, статус: ${e.data.status}`, {
+                clickToClose: true,
+                fontSize: '15px'
+            })
         }
     }
 
@@ -247,7 +255,6 @@ const UsersAdd = () => {
                     </form>
                 </div>
             </div>
-            <ToastContainer />
         </Modal>
     )
 }

@@ -3,13 +3,13 @@ import userApi from '@/store/api/user'
 import UsersItem from './UsersItem'
 
 const UsersBody = () => {
-    const { data: users, isLoading, isError, error } = userApi.useGetAllUsersQuery()
+    const { data: users, isError, error, isFetching } = userApi.useGetAllUsersQuery()
 
     return (
         <div className='users__body'>
             {
-                isLoading
-                    ? <Loader isLoading={isLoading} />
+                isFetching
+                    ? <Loader isLoading={isFetching} />
                     : isError
                         ? <Message error={error} />
                         : users?.length
