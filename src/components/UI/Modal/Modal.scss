@@ -1,7 +1,7 @@
 @import "@/styles/general/mixin";
 @import "@/styles/general/variables";
 
-.modal-open{
+.modal-open {
     overflow: hidden;
 }
 
@@ -9,7 +9,7 @@
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 999;
+    z-index: 9999;
     width: 100%;
     height: 100%;
     background-color: #0007;
@@ -38,7 +38,7 @@
     }
 
     &__content {
-        min-height: 511px;
+        min-height: 216px;
         position: relative;
         padding: 30px;
         background-color: #fff;
@@ -48,6 +48,7 @@
         transition: all 0.3s ease;
         &.loading {
             width: 320px;
+            min-height: 516px;
         }
     }
 }

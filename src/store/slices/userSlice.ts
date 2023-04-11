@@ -13,21 +13,21 @@ const initialState: UserStateType = {
 }
 
 export const userSlice = createSlice({
-    name: 'userReducer',
+    name: 'userSlice',
     initialState,
     reducers: {
-        openAddModal(state) {
+        openUserAddModal(state) {
             state.isOpenAddModal = true
         },
-        closeAddModal(state) {
+        closeUserAddModal(state) {
             state.isOpenAddModal = false
         },
 
-        openEditModal(state, action: PayloadAction<number>) {
+        openUserEditModal(state, action: PayloadAction<number>) {
             state.isOpenEditModal = true
             state.userId = action.payload
         },
-        closeEditModal(state) {
+        closeUserEditModal(state) {
             state.isOpenEditModal = false
         }
     },

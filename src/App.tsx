@@ -1,4 +1,5 @@
 import { Admin } from '@/pages/Admin'
+import { Countries } from '@/pages/Admin/Countries'
 import { Products } from '@/pages/Admin/Products'
 import { Users, UsersDetails } from '@/pages/Admin/Users'
 import Dashboard from '@/routes/Dashboard'
@@ -16,6 +17,8 @@ const App = () => {
             <Route path='users/:id' element={<UsersDetails />} />
 
             <Route path='products' element={<Products />} />
+            
+            <Route path='countries' element={<Countries />} />
           </Route>
         </Routes>
       </BrowserRouter>

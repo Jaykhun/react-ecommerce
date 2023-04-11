@@ -1,2 +1,2 @@
-import { countryAPi } from './countryApi'
-export default countryAPi
+import { countryApi } from './countryApi'
+export default countryApi

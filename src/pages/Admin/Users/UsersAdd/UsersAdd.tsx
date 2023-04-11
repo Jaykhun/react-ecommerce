@@ -5,19 +5,17 @@ import { FetchCountry } from '@/models/countryType'
 import { AddUser } from '@/models/userTypes'
 import { countryAPi, userApi } from '@/store/api'
 import { ErrorMessage } from '@hookform/error-message'
-import { Notify } from 'notiflix/build/notiflix-notify-aio'
-import { useRef } from 'react'
+import { Notify } from 'notiflix'
 import { Controller, SubmitHandler, useForm } from 'react-hook-form'
 import { PatternFormat } from 'react-number-format'
 import Select from "react-select"
 import makeAnimated from 'react-select/animated'
 import AsyncSelect from "react-select/async"
-
 import './UsersAdd.scss'
 
 const UsersAdd = () => {
-    const { closeAddModal } = useActions()
-    const { isOpenAddModal } = useTypedSelector(state => state.userReducer)
+    const { closeUserAddModal } = useActions()
+    const { isOpenAddModal } = useTypedSelector(state => state.userSlice)
     const { register, handleSubmit, formState: { errors }, reset, control } = useForm<AddUser>({ mode: 'onBlur' })
 
     const { data: countries, isLoading: countriesIsLoading, isError, error } = countryAPi.useGetAllCountriesQuery()
@@ -52,30 +50,32 @@ const UsersAdd = () => {
                 : await addUser(data).unwrap()
             Notify.success(`${data.user.username} успешно добавлен`, {
                 clickToClose: true,
-                fontSize: '15px'
+                fontSize: '15px',
+                zindex: 9999
             })
             reset()
-            closeAddModal()
-
+            closeUserAddModal()
         }
 
         catch (e: any) {
-            Notify.failure(`Ошибка, статус: ${e.data.status}`, {
+            Notify.failure(`Ошибка, статус: ${e.status}`, {
                 clickToClose: true,
-                fontSize: '15px'
+                fontSize: '15px',
+                zindex: 9999
             })
         }
     }
 
-    const isLoading = addAdminResult.isLoading || addUserResult.isLoading
-
-    let ref = useRef()
+    const modalState = {
+        isLoading: addAdminResult.isLoading || addUserResult.isLoading
+    }
 
     return (
-        <Modal handleClose={closeAddModal} isOpen={isOpenAddModal} isLoading={isLoading}>
+        <Modal isOpen={isOpenAddModal} state={modalState} handleClose={closeUserAddModal}  >
             <div className='users-add'>
                 <div className='user-add__body'>
                     <div className="users-add__title">Добавить пользователь</div>
+
                     <form className="users-add__form" onSubmit={handleSubmit(onSubmit)}>
                         <div className="users-add__info">
                             <div className="users-add__username">

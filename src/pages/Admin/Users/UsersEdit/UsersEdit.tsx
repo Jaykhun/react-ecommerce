@@ -7,12 +7,11 @@ import { ErrorMessage } from '@hookform/error-message'
 import { Notify } from 'notiflix/build/notiflix-notify-aio'
 import { useEffect } from 'react'
 import { SubmitHandler, useForm } from "react-hook-form"
-
 import './UsersEdit.scss'
 
 const UsersEdit = () => {
-    const { closeEditModal } = useActions()
-    const { isOpenEditModal, userId } = useTypedSelector(state => state.userReducer)
+    const { closeUserEditModal } = useActions()
+    const { isOpenEditModal, userId } = useTypedSelector(state => state.userSlice)
     const { register, formState: { errors, isDirty }, handleSubmit, reset } = useForm<EditUser>({ mode: 'onBlur' })
     const { data: user, isFetching, isError: userIsError, error: userError } = userApi.useGetSingleUserQuery(userId, { skip: !userId })
     const [editUser, result] = userApi.useEditUserMutation()
@@ -28,7 +27,7 @@ const UsersEdit = () => {
                 clickToClose: true,
                 fontSize: '15px'
             })
-            closeEditModal()
+            closeUserEditModal()
         }
 
         catch (e: any) {
@@ -39,16 +38,18 @@ const UsersEdit = () => {
         }
     }
 
-    const isLoading = isFetching || result.isLoading
-    const isError = userIsError || result.isError
-    const error = userError || result.error
+    const modalState = {
+        isLoading: isFetching || result.isLoading,
+        isError: userIsError || result.isError,
+        error: userError || result.error
+    }
 
     return (
-        <Modal handleClose={closeEditModal} isOpen={isOpenEditModal}
-            isLoading={isLoading} isError={isError} error={error}>
+        <Modal isOpen={isOpenEditModal} state={modalState} handleClose={closeUserEditModal}  >
             <div className='users-edit'>
                 <div className='users-edit__body'>
                     <div className="users-edit__title">Изменить данные</div>
+                    
                     <form className="users-edit__form" onSubmit={handleSubmit(onSubmit)}>
                         <div className="users-edit__username">
                             <label htmlFor='username' className='input__label'>Логин</label>

@@ -5,16 +5,21 @@ import Loader from '../Loader'
 import Message from '../Message'
 import './Modal.scss'
 
-interface ModalProps {
+interface ModalState {
     isLoading: boolean,
     isError?: boolean,
     error?: any
+}
+
+interface ModalProps {
     isOpen: boolean,
+    state: ModalState,
     handleClose(): void,
     children: ReactNode
 }
 
-const Modal: FC<ModalProps> = ({ isOpen, handleClose, children, isLoading, isError, error }) => {
+const Modal: FC<ModalProps> = ({ isOpen, handleClose, children, state }) => {
+    const { isLoading, isError, error } = state
     const nodeRef = useRef(null)
 
     isOpen

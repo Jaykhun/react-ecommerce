@@ -1,15 +1,15 @@
 import { Button } from '@/components/UI'
 import { useActions } from '@/hooks/useActions'
 
-const UsersHeader = () => {
-    const { openUserAddModal } = useActions()
-    const handleAdd = () => openUserAddModal()
+const CountriesHeader = () => {
+    const { openCountryAddModal } = useActions()
+    const handleAdd = () => openCountryAddModal()
 
     return (
         <>
-            <div className="users__title">Пользователи</div>
-            <div className="users__header">
-                <div className="users__search">
+            <div className="countries__title">Страны</div>
+            <div className="countries__header">
+                <div className="countries__search">
                     <input
                         type='search'
                         placeholder='Искать...'
@@ -17,7 +17,7 @@ const UsersHeader = () => {
                     />
                 </div>
 
-                <div className='users__add' onClick={handleAdd}>
+                <div className='countries__add' onClick={handleAdd}>
                     <Button hoverEffect>Добавить</Button>
                 </div>
             </div>
@@ -25,4 +25,4 @@ const UsersHeader = () => {
     )
 }
 
-export default UsersHeader
+export default CountriesHeader

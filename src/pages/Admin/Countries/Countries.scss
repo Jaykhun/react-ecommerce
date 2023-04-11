@@ -1,0 +1,24 @@
+@import "@/styles/general/mixin";
+@import "@/styles/general/variables";
+@import "@/styles/general/ui";
+
+.countries {
+    &__header {
+        @include flex(space-between, center, $gap: 20px);
+    }
+
+    &__search {
+        flex: 1 1 auto;
+    }
+
+    &__body {
+        position: relative;
+        margin: 50px 0px;
+        min-height: 60vh;
+    }
+
+    &__title {
+        @extend %adminTitle;
+        margin-bottom: 20px;
+    }
+}

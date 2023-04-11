@@ -1,4 +1,5 @@
 import { SideBar, TopBar } from '@/pages/Admin'
+import { CountriesAdd, CountriesEdit } from '@/pages/Admin/Countries'
 import { UsersAdd, UsersEdit } from '@/pages/Admin/Users'
 import { Outlet } from "react-router-dom"
 
@@ -21,8 +22,11 @@ const Dashboard = () => {
                 {<Outlet />}
             </div>
 
-            <UsersEdit/>
             <UsersAdd/>
+            <UsersEdit/>
+
+            <CountriesAdd/>
+            <CountriesEdit/>
         </div>
     )
 }

@@ -8,15 +8,15 @@ export const userApi = createApi({
     baseQuery: fetchBaseQuery({
         baseUrl: url,
     }),
-    tagTypes: ['user'],
+    tagTypes: ['user country'],
     endpoints: build => ({
         getAllUsers: build.query<FetchUser[], void>({
             query: () => 'users/',
-            providesTags: ['user']
+            providesTags: ['user country']
         }),
         getSingleUser: build.query<FetchUser, number>({
             query: (id) => `users/${id}`,
-            providesTags: ['user']
+            providesTags: ['user country']
         }),
         addUser: build.mutation<FetchUser, AddUser>({
             query: (user) => ({
@@ -24,7 +24,7 @@ export const userApi = createApi({
                 method: 'POST',
                 body: user
             }),
-            invalidatesTags: ['user']
+            invalidatesTags: ['user country']
         }),
         addAdmin: build.mutation<FetchUser, AddUser>({
             query: (admin) => ({
@@ -32,7 +32,7 @@ export const userApi = createApi({
                 method: 'POST',
                 body: admin
             }),
-            invalidatesTags: ['user']
+            invalidatesTags: ['user country']
         }),
         editUser: build.mutation<EditUser, { data: EditUser, id: number }>({
             query: (user) => ({
@@ -40,14 +40,14 @@ export const userApi = createApi({
                 method: 'PUT',
                 body: user.data
             }),
-            invalidatesTags: ['user']
+            invalidatesTags: ['user country']
         }),
         deleteUser: build.mutation<void, number>({
             query: (id) => ({
                 url: `users/${id}`,
                 method: 'DELETE'
             }),
-            invalidatesTags: ['user']
+            invalidatesTags: ['user country']
         })
     })
 })

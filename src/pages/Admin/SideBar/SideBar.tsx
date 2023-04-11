@@ -12,6 +12,7 @@ const SideBar = () => {
         { name: 'Главная панель', icon: 'icon-dashboard', path: '/admin' },
         { name: 'Пользователи', icon: 'icon-user', path: 'users' },
         { name: 'Продукты', icon: 'icon-product', path: 'products' },
+        { name: 'Страны', icon: 'icon-country', path: 'countries' },
         { name: 'Категории', icon: 'icon-category', path: 'categories' },
         { name: 'Заказы', icon: 'icon-orders', path: 'orders' },
         { name: 'Звонки', icon: 'icon-phone', path: 'calls' },

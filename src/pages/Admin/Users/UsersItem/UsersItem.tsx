@@ -2,7 +2,7 @@ import { Loader } from '@/components/UI'
 import { useActions } from '@/hooks/useActions'
 import userApi from '@/store/api/user'
 import { FetchUser } from '@models/userTypes'
-import { Notify } from 'notiflix/build/notiflix-notify-aio'
+import { Notify } from 'notiflix'
 import { FC } from 'react'
 import { useNavigate } from 'react-router-dom'
 import './UsersItem.scss'
@@ -14,11 +14,11 @@ interface UsersItemProps {
 const UsersItem: FC<UsersItemProps> = ({ user }) => {
     const { id, user_detail, username, addresses, phone_numbers, is_admin } = user
     const [deleteUser, result] = userApi.useDeleteUserMutation()
-    const { openEditModal } = useActions()
+    const { openUserEditModal } = useActions()
     const navigate = useNavigate()
 
     const handleNavigate = () => navigate(`/admin/users/${id}`)
-    const handleEdit = () => openEditModal(id)
+    const handleEdit = () => openUserEditModal(id)
 
     const handleDelete = async () => {
         try {
@@ -30,9 +30,10 @@ const UsersItem: FC<UsersItemProps> = ({ user }) => {
         }
 
         catch (e: any) {
-            Notify.failure('Error', {
+            Notify.failure(`Ошибка, статус: ${e.status}`, {
                 clickToClose: true,
-                fontSize: '15px'
+                fontSize: '15px',
+                zindex: 9999
             })
         }
     }
