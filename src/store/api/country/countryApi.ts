@@ -5,11 +5,11 @@ export const countryApi = userApi.injectEndpoints({
     endpoints: build => ({
         getAllCountries: build.query<FetchCountry[], void>({
             query: () => 'countries/',
-            providesTags: ['user country']
+            providesTags: ['user-country']
         }),
         getSingleCountry: build.query<FetchCountry, number>({
             query: (id) => `countries/${id}`,
-            providesTags: ['user country']
+            providesTags: ['user-country']
         }),
         addCountry: build.mutation<FetchCountry, ICountry>({
             query: (country) => ({
@@ -17,7 +17,7 @@ export const countryApi = userApi.injectEndpoints({
                 method: 'POST',
                 body: country
             }),
-            invalidatesTags: ['user country']
+            invalidatesTags: ['user-country']
         }),
         editCountry: build.mutation<FetchCountry, {data: ICountry, id: number}>({
             query: (country) => ({
@@ -25,14 +25,14 @@ export const countryApi = userApi.injectEndpoints({
                 method: 'PUT',
                 body: country.data
             }),
-            invalidatesTags: ['user country']
+            invalidatesTags: ['user-country']
         }),
         deleteCountry: build.mutation<FetchCountry, number>({
             query: (id) => ({
                 url: `countries/${id}`,
                 method: 'DELETE'
             }),
-            invalidatesTags: ['user country']
+            invalidatesTags: ['user-country']
         })
     })
 })

@@ -1,4 +1,5 @@
-import countryAPi from './country'
+import countryApi from './country'
 import userApi from './user'
 
-export { countryAPi, userApi }
+export { countryApi, userApi }
+

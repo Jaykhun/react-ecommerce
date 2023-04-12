@@ -1,0 +1,94 @@
+@import "@/styles/general/mixin";
+@import "@/styles/general/ui";
+
+.item-products {
+    @include flex(space-between, center, $gap: 10px);
+    margin-bottom: 20px;
+    transition: all 0.3s ease 0s;
+
+    &:hover {
+        box-shadow: -0px 10px 12px -8px #0002;
+    }
+
+    &__body {
+        @include flex(space-between, center, $gap: 10px);
+        @include text($textColor, left, capitalize);
+        @include fontArguments($textfont, $fontWeight: 500);
+
+        flex: 1 1 auto;
+        cursor: pointer;
+    }
+
+    &__content {
+        @include flex(flex-start, flex-start, $gap: 20px);
+        flex: 0 0 40%;
+    }
+
+    .products-category {
+        @include flex(flex-start, center, $gap: 10px);
+        @include fontArguments($textfont, 12px);
+        max-width: 210px;
+        min-height: 100%;
+        overflow: auto;
+        white-space: nowrap;
+        border-radius: 8px;
+        margin-top: 15px;
+       
+        &::-webkit-scrollbar-thumb {
+            background-color: #d0d0d0;
+            border: 3px solid rgba(0, 0, 0, 0);
+            background-clip: padding-box;
+            border-radius: 6px;
+
+            cursor: pointer;
+
+            &:hover {
+                background-color: #b2b2b2;
+            }
+        }
+
+        &__name {
+            background-color: $activeColor;
+            padding: 10px;
+            color: #fff;
+            border-radius: 6px;
+            text-transform: capitalize;
+        }
+
+        &__children {
+            background-color: #000;
+            padding: 10px;
+            color: #fff;
+            border-radius: 6px;
+            text-transform: capitalize;
+        }
+    }
+
+    &__img {
+        flex: 0 0 25%;
+        img {
+            border-radius: 6px;
+            width: 100px;
+            height: 100px;
+        }
+    }
+
+    &__desc,
+    &__price {
+        flex: 0 0 20%;
+    }
+
+    &__actions {
+        @include flex(space-between, center, $gap: 10px);
+    }
+
+    &__edit {
+        @extend %actionBtn;
+        background: url("../../../../assets/icons/edit-icon.svg") 50% 50% no-repeat;
+    }
+
+    &__delete {
+        @extend %actionBtn;
+        background: url("../../../../assets/icons/delete-icon.svg") 50% 50% no-repeat;
+    }
+}

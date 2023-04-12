@@ -12,14 +12,13 @@ interface UsersItemProps {
 }
 
 const UsersItem: FC<UsersItemProps> = ({ user }) => {
-    const { id, user_detail, username, addresses, phone_numbers, is_admin } = user
-    const [deleteUser, result] = userApi.useDeleteUserMutation()
     const { openUserEditModal } = useActions()
     const navigate = useNavigate()
+    const { id, user_detail, username, addresses, phone_numbers, is_admin } = user
+    const [deleteUser, result] = userApi.useDeleteUserMutation()
 
     const handleNavigate = () => navigate(`/admin/users/${id}`)
     const handleEdit = () => openUserEditModal(id)
-
     const handleDelete = async () => {
         try {
             await deleteUser(id).unwrap()

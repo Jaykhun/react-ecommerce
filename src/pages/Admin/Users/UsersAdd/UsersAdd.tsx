@@ -3,7 +3,7 @@ import { useActions } from '@/hooks/useActions'
 import { useTypedSelector } from '@/hooks/useTypedSelector'
 import { FetchCountry } from '@/models/countryType'
 import { AddUser } from '@/models/userTypes'
-import { countryAPi, userApi } from '@/store/api'
+import { countryApi, userApi } from '@/store/api'
 import { ErrorMessage } from '@hookform/error-message'
 import { Notify } from 'notiflix'
 import { Controller, SubmitHandler, useForm } from 'react-hook-form'
@@ -18,7 +18,7 @@ const UsersAdd = () => {
     const { isOpenAddModal } = useTypedSelector(state => state.userSlice)
     const { register, handleSubmit, formState: { errors }, reset, control } = useForm<AddUser>({ mode: 'onBlur' })
 
-    const { data: countries, isLoading: countriesIsLoading, isError, error } = countryAPi.useGetAllCountriesQuery()
+    const { data: countries, isLoading: countriesIsLoading, isError, error } = countryApi.useGetAllCountriesQuery()
     const [addUser, addUserResult] = userApi.useAddUserMutation()
     const [addAdmin, addAdminResult] = userApi.useAddAdminMutation()
 

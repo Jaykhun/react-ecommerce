@@ -1,9 +1,9 @@
 import { Loader, Message } from '@/components/UI'
-import { countryAPi } from '@/store/api'
+import { countryApi } from '@/store/api'
 import CountriesItem from './CountriesItem'
 
 const CountriesBody = () => {
-    const { data: countries, isError, isFetching, error } = countryAPi.useGetAllCountriesQuery()
+    const { data: countries, isError, isFetching, error } = countryApi.useGetAllCountriesQuery()
 
     return (
         <div className='countries__body'>
