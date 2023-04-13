@@ -12,13 +12,13 @@ interface ProductsItemProps {
 }
 
 const ProductsItem: FC<ProductsItemProps> = ({ product }) => {
-    const { openCountryEditModal } = useActions()
+    const { openProductEditModal } = useActions()
     const navigate = useNavigate()
     const { id, name, description, category, price, discount, images, quantity } = product
     const [deleteProduct, result] = productApi.useDeleteProductMutation()
 
     const handleNavigate = () => navigate(`/admin/products/${id}`)
-    const handleEdit = () => openCountryEditModal(id)
+    const handleEdit = () => openProductEditModal(id)
     const handleDelete = async () => {
         try {
             await deleteProduct(id).unwrap()
@@ -66,11 +66,11 @@ const ProductsItem: FC<ProductsItemProps> = ({ product }) => {
                     <div className="item-products__price">
                         {price} $
                     </div>
+                </div>
 
-                    <div className="item-products__actions">
-                        <div className="item-products__edit" onClick={handleEdit}></div>
-                        <div className="item-products__delete" onClick={handleDelete}></div>
-                    </div>
+                <div className="item-products__actions">
+                    <div className="item-products__edit" onClick={handleEdit}></div>
+                    <div className="item-products__delete" onClick={handleDelete}></div>
                 </div>
             </div>
             {result.isLoading && <Loader isLoading={result.isLoading} />}

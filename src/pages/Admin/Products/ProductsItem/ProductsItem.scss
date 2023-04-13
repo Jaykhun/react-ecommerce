@@ -36,7 +36,7 @@
        
         &::-webkit-scrollbar-thumb {
             background-color: #d0d0d0;
-            border: 3px solid rgba(0, 0, 0, 0);
+            border: 2.7px solid rgba(0, 0, 0, 0);
             background-clip: padding-box;
             border-radius: 6px;
 
@@ -65,15 +65,20 @@
     }
 
     &__img {
-        flex: 0 0 25%;
         img {
-            border-radius: 6px;
-            width: 100px;
-            height: 100px;
+            width: 120px;
+            height: 110px;
+            border-radius: $borderRadius;
         }
     }
 
-    &__desc,
+    &__desc{
+        flex: 0 0 20%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
     &__price {
         flex: 0 0 20%;
     }

@@ -3,7 +3,7 @@ import { useTypedSelector } from '@/hooks/useTypedSelector'
 import productApi from '@/store/api/product'
 
 const ProductsEdit = () => {
-    const { closeCountryEditModal } = useActions()
+    const { closeProductEditModal } = useActions()
     const { isOpenEditModal, productId } = useTypedSelector(state => state.productSlice)
 
     const { data: country, isFetching, isError: productIsError, error: productError } = productApi.useGetSingleProductQuery(productId, { skip: !productId })
