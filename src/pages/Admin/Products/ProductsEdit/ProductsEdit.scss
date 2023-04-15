@@ -1,0 +1,28 @@
+@import "@/styles/general/mixin";
+@import "@/styles/general/ui";
+
+.products-edit {
+    position: relative;
+    width: 320px;
+    &__title {
+        @extend %modalTitle;
+        margin-bottom: 20px;
+    }
+
+    &__discount,
+    &__desc,
+    &__name,
+    &__price,
+    &__quantity,
+    &__category {
+        width: 100%;
+    }
+
+    textarea {
+        min-height: 150px;
+    }
+
+    &__form {
+        @include flex(space-between, flex-start, column, $gap: 20px);
+    }
+}

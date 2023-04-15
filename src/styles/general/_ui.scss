@@ -152,6 +152,10 @@
         padding: 0 !important;
     }
 
+    &__option--is-selected {
+        background-color: #000 !important;
+    }
+
     &__option {
         cursor: pointer !important;
         border: 2px solid transparent !important;

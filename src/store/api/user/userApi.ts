@@ -4,22 +4,22 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 const url = 'https://ecommerce.icedev.uz/'
 
 export const userApi = createApi({
-    reducerPath: 'user-country-api',
+    reducerPath: 'userApi',
     baseQuery: fetchBaseQuery({
         baseUrl: url,
         headers: {
             'Content-type': 'application/json; charset=UTF-8',
         }
     }),
-    tagTypes: ['user-country'],
+    tagTypes: ['user'],
     endpoints: build => ({
         getAllUsers: build.query<FetchUser[], void>({
             query: () => 'users/',
-            providesTags: ['user-country']
+            providesTags: ['user']
         }),
         getSingleUser: build.query<FetchUser, number>({
             query: (id) => `users/${id}`,
-            providesTags: ['user-country']
+            providesTags: ['user']
         }),
         addUser: build.mutation<FetchUser, AddUser>({
             query: (user) => ({
@@ -27,7 +27,7 @@ export const userApi = createApi({
                 method: 'POST',
                 body: user
             }),
-            invalidatesTags: ['user-country']
+            invalidatesTags: ['user']
         }),
         addAdmin: build.mutation<FetchUser, AddUser>({
             query: (admin) => ({
@@ -35,7 +35,7 @@ export const userApi = createApi({
                 method: 'POST',
                 body: admin
             }),
-            invalidatesTags: ['user-country']
+            invalidatesTags: ['user']
         }),
         editUser: build.mutation<EditUser, { data: EditUser, id: number }>({
             query: (user) => ({
@@ -43,14 +43,14 @@ export const userApi = createApi({
                 method: 'PUT',
                 body: user.data
             }),
-            invalidatesTags: ['user-country']
+            invalidatesTags: ['user']
         }),
         deleteUser: build.mutation<void, number>({
             query: (id) => ({
                 url: `users/${id}`,
                 method: 'DELETE'
             }),
-            invalidatesTags: ['user-country']
+            invalidatesTags: ['user']
         })
     })
 })

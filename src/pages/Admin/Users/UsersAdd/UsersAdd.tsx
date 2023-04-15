@@ -1,10 +1,10 @@
 import { Button, Message, Modal } from '@/components/UI'
 import { useActions } from '@/hooks/useActions'
 import { useTypedSelector } from '@/hooks/useTypedSelector'
-import { FetchCountry } from '@/models/countryType'
 import { AddUser } from '@/models/userTypes'
 import { countryApi, userApi } from '@/store/api'
 import { ErrorMessage } from '@hookform/error-message'
+import { FetchCountry } from '@models/countryTypes'
 import { Notify } from 'notiflix'
 import { Controller, SubmitHandler, useForm } from 'react-hook-form'
 import { PatternFormat } from 'react-number-format'
@@ -21,6 +21,10 @@ const UsersAdd = () => {
     const { data: countries, isLoading: countriesIsLoading, isError, error } = countryApi.useGetAllCountriesQuery()
     const [addUser, addUserResult] = userApi.useAddUserMutation()
     const [addAdmin, addAdminResult] = userApi.useAddAdminMutation()
+
+    const modalState = {
+        isLoading: addAdminResult.isLoading || addUserResult.isLoading
+    }
 
     const VALIDATION_RULES = {
         required: 'Поле обязательно к заполнению',
@@ -64,10 +68,6 @@ const UsersAdd = () => {
                 zindex: 9999
             })
         }
-    }
-
-    const modalState = {
-        isLoading: addAdminResult.isLoading || addUserResult.isLoading
     }
 
     return (

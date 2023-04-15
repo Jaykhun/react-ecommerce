@@ -1,4 +1,4 @@
-import { FetchCountry } from './countryType'
+import { FetchCountry } from './countryTypes'
 
 interface UserPhone {
     phone_number: string,

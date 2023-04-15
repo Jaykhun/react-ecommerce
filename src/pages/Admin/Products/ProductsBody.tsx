@@ -14,7 +14,7 @@ const ProductsBody = () => {
                         ? <Message error={error} />
                         : products?.length
                             ? products?.map(product => <ProductsItem product={product} key={product.id} />)
-                            : <Message value='нет пользователи' />
+                            : <Message value='нет продуктов' />
             }
         </div>
     )

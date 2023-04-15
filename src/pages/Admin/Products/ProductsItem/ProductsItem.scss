@@ -33,10 +33,14 @@
         white-space: nowrap;
         border-radius: 8px;
         margin-top: 15px;
-       
+
+        &::-webkit-scrollbar {
+            -webkit-appearance: none;
+        }
+
         &::-webkit-scrollbar-thumb {
             background-color: #d0d0d0;
-            border: 2.7px solid rgba(0, 0, 0, 0);
+            border: 3.3px solid rgba(0, 0, 0, 0);
             background-clip: padding-box;
             border-radius: 6px;
 
@@ -66,13 +70,13 @@
 
     &__img {
         img {
-            width: 120px;
+            width: 112px;
             height: 110px;
             border-radius: $borderRadius;
         }
     }
 
-    &__desc{
+    &__desc {
         flex: 0 0 20%;
         white-space: nowrap;
         overflow: hidden;

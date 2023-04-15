@@ -1,7 +1,7 @@
 import { Loader } from '@/components/UI'
 import { useActions } from '@/hooks/useActions'
-import { FetchCountry } from '@/models/countryType'
 import countryApi from '@/store/api/country'
+import { FetchCountry } from '@models/countryTypes'
 import { Notify } from 'notiflix'
 import { FC } from 'react'
 import './CountriesItem.scss'

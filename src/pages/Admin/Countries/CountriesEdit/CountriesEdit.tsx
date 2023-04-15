@@ -3,7 +3,7 @@ import { useActions } from '@/hooks/useActions'
 import { useTypedSelector } from '@/hooks/useTypedSelector'
 import countryApi from '@/store/api/country'
 import { ErrorMessage } from '@hookform/error-message'
-import { ICountry } from '@models/countryType'
+import { ICountry } from '@models/countryTypes'
 import { Notify } from 'notiflix'
 import { useEffect } from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
@@ -12,11 +12,20 @@ import './CountriesEdit.scss'
 const CountriesEdit = () => {
     const { closeCountryEditModal } = useActions()
     const { isOpenEditModal, countryId } = useTypedSelector(state => state.countrySlice)
+    const { register, formState: { errors, isDirty }, reset, handleSubmit } = useForm<ICountry>({ mode: 'onBlur' })
 
     const { data: country, isFetching, isError, error } = countryApi.useGetSingleCountryQuery(countryId, { skip: !countryId })
     const [countryEdit, result] = countryApi.useEditCountryMutation()
 
-    const { register, formState: { errors, isDirty }, reset, handleSubmit } = useForm<ICountry>({ mode: 'onBlur' })
+    const modalState = {
+        isLoading: result.isLoading || isFetching,
+        isError: result.isError || isError,
+        error: result.error || error
+    }
+
+    useEffect(() => {
+        reset()
+    }, [country])
 
     const onSubmit: SubmitHandler<ICountry> = async (data) => {
         try {
@@ -37,14 +46,6 @@ const CountriesEdit = () => {
                 zindex: 9999
             })
         }
-    }
-
-    useEffect(() => { reset() }, [country])
-
-    const modalState = {
-        isLoading: result.isLoading || isFetching,
-        isError: result.isError || isError,
-        error: result.error || error
     }
 
     return (

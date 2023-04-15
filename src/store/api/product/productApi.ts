@@ -1,4 +1,4 @@
-import { AddProduct, FetchProduct } from '@/models/productTypes'
+import { AddProduct, EditProduct, FetchProduct } from '@/models/productTypes'
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/dist/query/react'
 
 const url = 'https://ecommerce.icedev.uz/'
@@ -8,19 +8,19 @@ export const productApi = createApi({
     baseQuery: fetchBaseQuery({
         baseUrl: url
     }),
-    tagTypes: ['product-category'],
+    tagTypes: ['product'],
     endpoints: build => ({
         getAllProducts: build.query<FetchProduct[], void>({
             query: () => 'products/',
-            providesTags: ['product-category']
+            providesTags: ['product']
         }),
         getSingleProduct: build.query<FetchProduct, number>({
             query: (id) => `products/${id}`,
-            providesTags: ['product-category']
+            providesTags: ['product']
         }),
         getProductByCategory: build.query<FetchProduct[], number>({
             query: (id) => `categories/${id}products`,
-            providesTags: ['product-category']
+            providesTags: ['product']
         }),
         addProduct: build.mutation<FetchProduct, AddProduct>({
             query: (data) => ({
@@ -28,22 +28,22 @@ export const productApi = createApi({
                 method: 'POST',
                 body: data
             }),
-            invalidatesTags: ['product-category']
+            invalidatesTags: ['product']
         }),
-        editProduct: build.mutation<FetchProduct, { data: FetchProduct, id: number }>({
+        editProduct: build.mutation<FetchProduct, { data: EditProduct, id: number }>({
             query: (product) => ({
                 url: `products/${product.id}`,
                 method: 'PUT',
                 body: product.data
             }),
-            invalidatesTags: ['product-category']
+            invalidatesTags: ['product']
         }),
         deleteProduct: build.mutation<void, number>({
             query: (id) => ({
                 url: `products/${id}`,
                 method: 'DELETE'
             }),
-            invalidatesTags: ['product-category']
+            invalidatesTags: ['product']
         })
     })
 })

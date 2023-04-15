@@ -3,7 +3,7 @@ import { useActions } from '@/hooks/useActions'
 import { useTypedSelector } from '@/hooks/useTypedSelector'
 import { countryApi } from '@/store/api/country/countryApi'
 import { ErrorMessage } from '@hookform/error-message'
-import { ICountry } from '@models/countryType'
+import { ICountry } from '@models/countryTypes'
 import { Notify } from 'notiflix'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import './CountriesAdd.scss'
@@ -14,6 +14,10 @@ const CountriesAdd = () => {
     const { register, formState: { errors }, handleSubmit, reset } = useForm<ICountry>({ mode: 'onBlur' })
 
     const [addCountry, result] = countryApi.useAddCountryMutation()
+
+    const modalState = {
+        isLoading: result.isLoading
+    }
 
     const onSubmit: SubmitHandler<ICountry> = async (data) => {
         try {
@@ -34,10 +38,6 @@ const CountriesAdd = () => {
                 zindex: 9999
             })
         }
-    }
-
-    const modalState = {
-        isLoading: result.isLoading
     }
 
     return (

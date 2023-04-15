@@ -14,7 +14,7 @@ const CountriesBody = () => {
                         ? <Message error={error} />
                         : countries?.length
                             ? countries?.map(country => <CountriesItem country={country} key={country.id} />)
-                            : <Message value='нет пользователи' />
+                            : <Message value='нет страны' />
             }
         </div>
     )

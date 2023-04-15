@@ -1,15 +1,22 @@
-import { FetchCountry, ICountry } from '@/models/countryType'
-import userApi from '../user'
+import { FetchCountry, ICountry } from '@models/countryTypes'
+import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 
-export const countryApi = userApi.injectEndpoints({
+const url = 'https://ecommerce.icedev.uz/'
+
+export const countryApi = createApi({
+    reducerPath: 'categoryApi',
+    baseQuery: fetchBaseQuery({
+        baseUrl: url
+    }),
+    tagTypes: ['country'],
     endpoints: build => ({
         getAllCountries: build.query<FetchCountry[], void>({
             query: () => 'countries/',
-            providesTags: ['user-country']
+            providesTags: ['country']
         }),
         getSingleCountry: build.query<FetchCountry, number>({
             query: (id) => `countries/${id}`,
-            providesTags: ['user-country']
+            providesTags: ['country']
         }),
         addCountry: build.mutation<FetchCountry, ICountry>({
             query: (country) => ({
@@ -17,22 +24,22 @@ export const countryApi = userApi.injectEndpoints({
                 method: 'POST',
                 body: country
             }),
-            invalidatesTags: ['user-country']
+            invalidatesTags: ['country']
         }),
-        editCountry: build.mutation<FetchCountry, {data: ICountry, id: number}>({
+        editCountry: build.mutation<FetchCountry, { data: ICountry, id: number }>({
             query: (country) => ({
                 url: `countries/${country.id}`,
                 method: 'PUT',
                 body: country.data
             }),
-            invalidatesTags: ['user-country']
+            invalidatesTags: ['country']
         }),
         deleteCountry: build.mutation<FetchCountry, number>({
             query: (id) => ({
                 url: `countries/${id}`,
                 method: 'DELETE'
             }),
-            invalidatesTags: ['user-country']
+            invalidatesTags: ['country']
         })
     })
 })

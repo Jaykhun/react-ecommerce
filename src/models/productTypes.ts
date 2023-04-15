@@ -1,4 +1,4 @@
-import { FetchCategory } from './categoryTYpe'
+import { FetchCategory } from './categoryTypes'
 
 export interface ProductImage {
     product_id: number,

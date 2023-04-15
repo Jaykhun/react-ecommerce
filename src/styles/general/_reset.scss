@@ -35,6 +35,12 @@ input[type="checkbox"] {
 input[type="radio"] {
     display: none;
 }
+
+textarea {
+    resize: none;
+    overflow: auto;
+}
+
 li {
     list-style-type: none;
 }
