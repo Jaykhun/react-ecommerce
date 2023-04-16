@@ -1,7 +1,7 @@
 import { Loader } from '@/components/UI'
 import { useActions } from '@/hooks/useActions'
 import { FetchCategory } from '@/models/categoryTypes'
-import { categoryAPi } from '@/store/api'
+import { categoryApi } from '@/store/api'
 import { Notify } from 'notiflix'
 import { FC } from 'react'
 import { useNavigate } from 'react-router-dom'
@@ -15,7 +15,7 @@ const CategoriesItem: FC<CategoriesItemProps> = ({ category }) => {
     const { openCategoryEditModal } = useActions()
     const navigate = useNavigate()
     const { id, name, parent_category, children_category } = category
-    const [deleteCategory, result] = categoryAPi.useDeleteCategoryMutation()
+    const [deleteCategory, result] = categoryApi.useDeleteCategoryMutation()
 
     const handleNavigate = () => navigate(`/admin/categories/${id}`)
     const handleEdit = () => openCategoryEditModal(id)

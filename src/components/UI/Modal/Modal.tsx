@@ -23,8 +23,8 @@ const Modal: FC<ModalProps> = ({ isOpen, handleClose, children, state }) => {
     const nodeRef = useRef(null)
 
     isOpen
-        ? document.body.classList.add('modal-open')
-        : document.body.classList.remove('modal-open')
+        ? document.body.classList.add('modal-active')
+        : document.body.classList.remove('modal-active')
 
     return (
         <CSSTransition

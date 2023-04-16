@@ -1,2 +1,2 @@
-import { categoryAPi } from './categoryApi'
-export default categoryAPi
+import { categoryApi } from './categoryApi'
+export default categoryApi

@@ -1,8 +1,10 @@
 import { Button } from '@/components/UI'
+import { useActions } from '@/hooks/useActions'
 
 const CategoriesHeader = () => {
-
-    const handleAdd = () => { }
+    const { openCategoryAddModal } = useActions()
+    const handleAdd = () => openCategoryAddModal()
+    
     return (
         <>
             <div className="categories__title">Категории</div>
@@ -18,6 +20,13 @@ const CategoriesHeader = () => {
                 <div className='categories__add' onClick={handleAdd}>
                     <Button hoverEffect>Добавить</Button>
                 </div>
+            </div>
+
+            <div className="categories__list list-categories">
+                <div className="list-categories__item">Название</div>
+                <div className="list-categories__item">Родительский</div>
+                <div className="list-categories__item">Дочерний</div>
+                <div className="list-categories__item categories-action">Действие</div>
             </div>
         </>
     )

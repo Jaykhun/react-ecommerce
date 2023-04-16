@@ -1,9 +1,9 @@
 import { Button, Message, Modal } from '@/components/UI'
 import { useActions } from '@/hooks/useActions'
 import { useTypedSelector } from '@/hooks/useTypedSelector'
+import { ICountry } from '@/models/countryTypes'
 import countryApi from '@/store/api/country'
 import { ErrorMessage } from '@hookform/error-message'
-import { ICountry } from '@models/countryTypes'
 import { Notify } from 'notiflix'
 import { useEffect } from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
@@ -30,7 +30,7 @@ const CountriesEdit = () => {
     const onSubmit: SubmitHandler<ICountry> = async (data) => {
         try {
             await countryEdit({ data: data, id: countryId }).unwrap()
-            Notify.success(`${data.country_name} успешно изменен`, {
+            Notify.success(`${country?.country_name} успешно изменен`, {
                 clickToClose: true,
                 fontSize: '15px',
                 zindex: 9999
@@ -40,7 +40,7 @@ const CountriesEdit = () => {
         }
 
         catch (e: any) {
-            Notify.failure(`Ошибка при изменение ${data.country_name}, статус: ${e.status}`, {
+            Notify.failure(`Ошибка при изменение ${country?.country_name}, статус: ${e.status}`, {
                 clickToClose: true,
                 fontSize: '15px',
                 zindex: 9999

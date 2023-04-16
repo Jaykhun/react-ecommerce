@@ -35,10 +35,15 @@ const ProductsDetails = () => {
                                             <span>{product?.category.name}</span>
                                         </div>
 
+                                        <div className="products-info__categories">
+                                            <span className="products-details__txt">Родительский категории:</span>
+                                            <span>{product?.category.parent_category?.name}</span>
+                                        </div>
+
                                         {
                                             !!product?.category.children_category.length &&
                                             <div className="products-info__subcategories">
-                                                <span className="products-details__txt"> подкатегория:</span>
+                                                <span className="products-details__txt">Дочерний категории:</span>
                                                 <span>
                                                     {product?.category.children_category.map(c =>
                                                         <div className="products-details-category__children" key={c.id}>{c.name}</div>

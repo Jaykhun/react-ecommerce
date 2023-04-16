@@ -15,12 +15,28 @@
 
     &__body {
         position: relative;
-        margin: 50px 0px;
+        margin: 20px 0px;
         min-height: 60vh;
     }
 
     &__title {
         @extend %adminTitle;
         margin-bottom: 20px;
+    }
+
+    .list-categories {
+        margin-top: 60px;
+        @include flex(space-between, center, $gap: 20px);
+        @include text($linkColor, left, capitalize);
+        @include fontArguments($mainFont, 18px ,$fontWeight: 700);
+        border-bottom: 1px solid hsla(0,0%,85%,.4);
+        padding-bottom: 20px;
+        &__item {
+            flex: 0 0 24%;
+        }
+    }
+
+    .categories-action {
+        text-align: right !important;
     }
 }

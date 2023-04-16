@@ -3,7 +3,7 @@ import { useActions } from '@/hooks/useActions'
 import { useTypedSelector } from '@/hooks/useTypedSelector'
 import { FetchCategory } from '@/models/categoryTypes'
 import { AddProduct } from '@/models/productTypes'
-import { categoryAPi, productApi } from '@/store/api'
+import { categoryApi, productApi } from '@/store/api'
 import { ErrorMessage } from '@hookform/error-message'
 import { Notify } from 'notiflix'
 import { Controller, SubmitHandler, useForm } from 'react-hook-form'
@@ -16,7 +16,7 @@ const ProductsAdd = () => {
     const { isOpenAddModal } = useTypedSelector(state => state.productSlice)
     const { register, formState: { errors }, control, handleSubmit } = useForm<AddProduct>({ mode: 'onBlur' })
 
-    const { data: categories, isLoading: categoriesIsLoading, isError: categoriesIsError, error: categoriesError } = categoryAPi.useGetAllCategoriesQuery()
+    const { data: categories, isLoading: categoriesIsLoading, isError: categoriesIsError, error: categoriesError } = categoryApi.useGetAllCategoriesQuery()
     const [addProduct, result] = productApi.useAddProductMutation()
 
     const modalState = {

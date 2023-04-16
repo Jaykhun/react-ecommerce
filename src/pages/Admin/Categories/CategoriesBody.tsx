@@ -1,15 +1,15 @@
 import { Loader, Message } from '@/components/UI'
-import { categoryAPi } from '@/store/api'
+import { categoryApi } from '@/store/api'
 import CategoriesItem from './CategoriesItem'
 
 const CategoriesBody = () => {
-    const { data: categories, isFetching, isError, error, isLoading, isSuccess } = categoryAPi.useGetAllCategoriesQuery()
+    const { data: categories, isFetching, isError, error, isLoading, isSuccess } = categoryApi.useGetAllCategoriesQuery()
 
     return (
         <div className='categories__body'>
             {
-                isLoading
-                    ? <Loader isLoading={isLoading} />
+                isFetching
+                    ? <Loader isLoading={isFetching} />
                     : isError
                         ? <Message error={error} />
                         : categories?.length

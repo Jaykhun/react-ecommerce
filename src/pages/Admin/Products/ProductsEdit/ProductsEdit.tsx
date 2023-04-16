@@ -1,10 +1,10 @@
 import { Button, Message, Modal } from '@/components/UI'
 import { useActions } from '@/hooks/useActions'
 import { useTypedSelector } from '@/hooks/useTypedSelector'
+import { FetchCategory, } from '@/models/categoryTypes'
 import { EditProduct } from '@/models/productTypes'
-import { categoryAPi, productApi } from '@/store/api'
+import { categoryApi, productApi } from '@/store/api'
 import { ErrorMessage } from '@hookform/error-message'
-import { FetchCategory } from '@models/categoryTypes'
 import { Notify } from 'notiflix'
 import { useEffect } from 'react'
 import { Controller, SubmitHandler, useForm } from 'react-hook-form'
@@ -18,7 +18,7 @@ const ProductsEdit = () => {
     const { register, formState: { errors, isDirty }, reset, control, handleSubmit } = useForm<EditProduct>({ mode: 'onBlur' })
 
     const { data: product, isFetching, isError: productIsError, error: productError } = productApi.useGetSingleProductQuery(productId, { skip: !productId })
-    const { data: categories, isLoading: categoriesIsLoading, isError: categoriesIsError, error: categoriesError } = categoryAPi.useGetAllCategoriesQuery()
+    const { data: categories, isLoading: categoriesIsLoading, isError: categoriesIsError, error: categoriesError } = categoryApi.useGetAllCategoriesQuery()
     const [editProduct, result] = productApi.useEditProductMutation()
 
     const modalState = {
@@ -52,7 +52,7 @@ const ProductsEdit = () => {
         }
 
         catch (e: any) {
-            Notify.failure(`Ошибка при изменение ${data.name}, статус: ${e.status}`, {
+            Notify.failure(`Ошибка при изменение ${product?.name}, статус: ${e.status}`, {
                 clickToClose: true,
                 fontSize: '15px',
                 zindex: 9999
