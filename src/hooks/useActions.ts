@@ -1,3 +1,4 @@
+import { categorySlice } from '@/store/slices/categorySlice'
 import { countrySlice } from '@/store/slices/countrySlice'
 import { productSlice } from '@/store/slices/productSlice'
 import { userSlice } from '@/store/slices/userSlice'
@@ -7,7 +8,8 @@ import { useDispatch } from "react-redux"
 const allActions = {
     ...userSlice.actions,
     ...countrySlice.actions,
-    ...productSlice.actions
+    ...productSlice.actions,
+    ...categorySlice.actions
 }
 
 export const useActions = () => {

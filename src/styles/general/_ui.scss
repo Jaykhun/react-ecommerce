@@ -40,6 +40,33 @@
     }
 }
 
+%loadMoreBtn {
+    @include fontArguments($mainFont, $fontWeight: 600);
+    @include adaptivFont(18, 15);
+    border-radius: $borderRadius;
+    padding: 15px 20px;
+    cursor: pointer;
+    background-color: $btnBorderColor;
+    color: #fff;
+
+    @include pseudo($loc: after) {
+        top: 0;
+        left: 0;
+        width: 0;
+        height: 100%;
+        background-color: #fff5;
+        transition: all 0.3s;
+    }
+
+    &:hover, &:focus {
+        color: #fff;
+
+        &::after {
+            width: 100%;
+        }
+    }
+}
+
 .checkbox__style {
     @include pseudo($content: "\f00c") {
         top: 0;

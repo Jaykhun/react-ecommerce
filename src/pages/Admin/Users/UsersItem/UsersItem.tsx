@@ -1,7 +1,7 @@
 import { Loader } from '@/components/UI'
 import { useActions } from '@/hooks/useActions'
+import { FetchUser } from '@/models/userTypes'
 import userApi from '@/store/api/user'
-import { FetchUser } from '@models/userTypes'
 import { Notify } from 'notiflix'
 import { FC } from 'react'
 import { useNavigate } from 'react-router-dom'
@@ -29,7 +29,7 @@ const UsersItem: FC<UsersItemProps> = ({ user }) => {
         }
 
         catch (e: any) {
-            Notify.failure(`Ошибка, статус: ${e.status}`, {
+            Notify.failure(`Ошибка при удаление ${user.username}, статус: ${e.status}`, {
                 clickToClose: true,
                 fontSize: '15px',
                 zindex: 9999

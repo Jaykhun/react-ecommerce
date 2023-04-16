@@ -1,10 +1,10 @@
 import { Button, Message, Modal } from '@/components/UI'
 import { useActions } from '@/hooks/useActions'
 import { useTypedSelector } from '@/hooks/useTypedSelector'
+import { FetchCountry } from '@/models/countryTypes'
 import { AddUser } from '@/models/userTypes'
 import { countryApi, userApi } from '@/store/api'
 import { ErrorMessage } from '@hookform/error-message'
-import { FetchCountry } from '@models/countryTypes'
 import { Notify } from 'notiflix'
 import { Controller, SubmitHandler, useForm } from 'react-hook-form'
 import { PatternFormat } from 'react-number-format'
@@ -62,7 +62,7 @@ const UsersAdd = () => {
         }
 
         catch (e: any) {
-            Notify.failure(`Ошибка, статус: ${e.status}`, {
+            Notify.failure(`Ошибка при добаление ${data.user.username}, статус: ${e.status}`, {
                 clickToClose: true,
                 fontSize: '15px',
                 zindex: 9999
@@ -180,7 +180,7 @@ const UsersAdd = () => {
                             <div className="users-add__country">
                                 <label htmlFor='street' id='country' className='input__label'>Страна</label>
                                 {countriesIsLoading
-                                    ? <Message formError='Идет загрузка стран ...' />
+                                    ? <Message formError='Идет загрузка стран...' />
                                     : isError
                                         ? <Message error={error} formError='Не удалось загузить страны' />
                                         : <Controller

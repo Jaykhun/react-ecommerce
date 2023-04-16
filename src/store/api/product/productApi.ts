@@ -4,14 +4,14 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/dist/query/react'
 const url = 'https://ecommerce.icedev.uz/'
 
 export const productApi = createApi({
-    reducerPath: 'product-category-api',
+    reducerPath: 'productApi',
     baseQuery: fetchBaseQuery({
         baseUrl: url
     }),
     tagTypes: ['product'],
     endpoints: build => ({
-        getAllProducts: build.query<FetchProduct[], void>({
-            query: () => 'products/',
+        getAllProducts: build.query<FetchProduct[], number>({
+            query: (limit) => `products/?limit=${limit}`,
             providesTags: ['product']
         }),
         getSingleProduct: build.query<FetchProduct, number>({

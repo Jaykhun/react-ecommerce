@@ -1,4 +1,5 @@
 import { SideBar, TopBar } from '@/pages/Admin'
+import { CategoriesEdit } from '@/pages/Admin/Categories'
 import { CountriesAdd, CountriesEdit } from '@/pages/Admin/Countries'
 import { ProductsAdd, ProductsEdit } from '@/pages/Admin/Products'
 import { UsersAdd, UsersEdit } from '@/pages/Admin/Users'
@@ -26,11 +27,13 @@ const Dashboard = () => {
             <UsersAdd />
             <UsersEdit />
 
+            <ProductsAdd />
+            <ProductsEdit />
+
             <CountriesAdd />
             <CountriesEdit />
 
-            <ProductsAdd />
-            <ProductsEdit />
+            <CategoriesEdit/>
         </div>
     )
 }

@@ -34,7 +34,7 @@ export const countryApi = createApi({
             }),
             invalidatesTags: ['country']
         }),
-        deleteCountry: build.mutation<FetchCountry, number>({
+        deleteCountry: build.mutation<void, number>({
             query: (id) => ({
                 url: `countries/${id}`,
                 method: 'DELETE'

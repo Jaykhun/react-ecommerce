@@ -1,8 +1,10 @@
 import { Button } from '@/components/UI'
+import { useActions } from '@/hooks/useActions'
 
 const ProductsHeader = () => {
-
-    const handleAdd = () => { }
+    const {openProductAddModal} = useActions()
+    const handleAdd = () => openProductAddModal() 
+    
     return (
         <>
             <div className="products__title">Продукты</div>
@@ -15,7 +17,7 @@ const ProductsHeader = () => {
                     />
                 </div>
 
-                <div className='users__add' onClick={handleAdd}>
+                <div className='products__add' onClick={handleAdd}>
                     <Button hoverEffect>Добавить</Button>
                 </div>
             </div>

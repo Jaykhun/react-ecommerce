@@ -2,7 +2,7 @@
 @import "@/styles/general/variables";
 @import "@/styles/general/ui";
 
-.products {
+.categories {
     position: relative;
 
     &__header {
@@ -17,15 +17,6 @@
         position: relative;
         margin: 50px 0px;
         min-height: 60vh;
-    }
-
-    &__loadmore{
-        @include flex(center, center);
-    }
-
-    &__loadmore-btn {
-        @extend %loadMoreBtn;
-        margin: 10px 0px;
     }
 
     &__title {

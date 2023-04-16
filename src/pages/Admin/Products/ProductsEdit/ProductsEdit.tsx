@@ -31,12 +31,6 @@ const ProductsEdit = () => {
         reset()
     }, [product])
 
-    const VALIDATION_RULES = {
-        required: 'Поле обязательно к заполнению',
-        minLength: { value: 5, message: 'Минимум 5 символов' },
-        maxLength: { value: 40, message: 'Максимум 40 символов' }
-    }
-
     const loadOptions = (searchValue: string, callback: any) => {
         const filteredOptions = categories?.filter((option: FetchCategory) =>
             option.name.toLowerCase().includes(searchValue.toLowerCase())
@@ -58,7 +52,7 @@ const ProductsEdit = () => {
         }
 
         catch (e: any) {
-            Notify.failure(`Ошибка, статус: ${e.data.status}`, {
+            Notify.failure(`Ошибка при изменение ${data.name}, статус: ${e.status}`, {
                 clickToClose: true,
                 fontSize: '15px',
                 zindex: 9999
@@ -77,7 +71,11 @@ const ProductsEdit = () => {
                             <label htmlFor='name' className='input__label'>Название</label>
                             <input type='text' id='name' className='input__style'
                                 defaultValue={product?.name}
-                                {...register('name', VALIDATION_RULES)} />
+                                {...register('name', {
+                                    required: 'Поле обязательно к заполнению',
+                                    minLength: { value: 5, message: 'Минимум 5 символов' },
+                                    maxLength: { value: 40, message: 'Максимум 40 символов' },
+                                })} />
 
                             <ErrorMessage name='name' errors={errors}
                                 render={(data) => <Message formError={data.message} />}
@@ -106,7 +104,7 @@ const ProductsEdit = () => {
                                 {...register('description', {
                                     required: 'Поле обязательно к заполнению',
                                     minLength: { value: 5, message: 'Минимум 5 символов' },
-                                    maxLength: { value: 200, message: 'Максимум 200 символов' }
+                                    maxLength: { value: 200, message: 'Максимум 200 символов' },
                                 })} />
 
                             <ErrorMessage name='description' errors={errors}
@@ -116,30 +114,32 @@ const ProductsEdit = () => {
 
                         <div className="products-edit__category">
                             <label htmlFor='category' className='input__label'>Категории</label>
-                            {categoriesIsError
-                                ? <Message error={categoriesError} formError='Не удалось загузить категории' />
-                                : <Controller
-                                    control={control}
-                                    {...register('category_id', {
-                                        required: 'Поле обязательно к заполнению',
-                                    })}
-                                    render={({ field }) => ((
-                                        <AsyncSelect
-                                            id='category'
-                                            classNamePrefix='select-styles'
-                                            components={makeAnimated()}
-                                            placeholder={false}
-                                            defaultValue={product?.category}
-                                            defaultOptions
-                                            loadOptions={loadOptions}
-                                            onBlur={field.onBlur}
-                                            getOptionValue={value => value.name}
-                                            getOptionLabel={value => value.name}
-                                            onChange={(newValue: any) => field.onChange(newValue.id)}
-                                            value={categories?.find((value: FetchCategory) => value.id === field.value)}
-                                        />
-                                    ))}
-                                />
+                            {categoriesIsLoading
+                                ? <Message formError='Идет загрузка категории...' />
+                                : categoriesIsError
+                                    ? <Message error={categoriesError} formError='Не удалось загузить категории' />
+                                    : <Controller
+                                        control={control}
+                                        {...register('category_id', {
+                                            required: 'Поле обязательно к заполнению',
+                                        })}
+                                        render={({ field }) => ((
+                                            <AsyncSelect
+                                                id='category'
+                                                classNamePrefix='select-styles'
+                                                components={makeAnimated()}
+                                                placeholder={false}
+                                                defaultValue={product?.category}
+                                                defaultOptions
+                                                loadOptions={loadOptions}
+                                                onBlur={field.onBlur}
+                                                getOptionValue={value => value.name}
+                                                getOptionLabel={value => value.name}
+                                                onChange={(newValue: any) => field.onChange(newValue.id)}
+                                                value={categories?.find((value: FetchCategory) => value.id === field.value)}
+                                            />
+                                        ))}
+                                    />
                             }
                         </div>
 
@@ -164,7 +164,7 @@ const ProductsEdit = () => {
                                 {...register('discount', {
                                     required: 'Поле обязательно к заполнению',
                                     min: { value: 1, message: 'Минимум 1 процентов' },
-                                    max: { value: 100, message: 'Максимум 100 процентов' }
+                                    max: { value: 100, message: 'Максимум 100 процентов' },
                                 })} />
 
                             <ErrorMessage name='discount' errors={errors}

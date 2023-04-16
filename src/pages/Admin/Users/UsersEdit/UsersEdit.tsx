@@ -45,7 +45,7 @@ const UsersEdit = () => {
         }
 
         catch (e: any) {
-            Notify.failure(`Ошибка, статус: ${e.data.status}`, {
+            Notify.failure(`Ошибка при изменение ${data.user.username}, статус: ${e.status}`, {
                 clickToClose: true,
                 fontSize: '15px',
                 zindex: 9999
