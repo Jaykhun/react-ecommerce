@@ -1,4 +1,5 @@
 import { Admin } from '@/pages/Admin'
+import { Calls } from '@/pages/Admin/Calls'
 import { Categories, CategoriesDetails } from '@/pages/Admin/Categories'
 import { Countries } from '@/pages/Admin/Countries'
 import { Products, ProductsDetails } from '@/pages/Admin/Products'
@@ -25,10 +26,11 @@ const App = () => {
             <Route path='products/:id' element={<ProductsDetails />} />
 
             <Route path='countries' element={<Countries />} />
-            
+
             <Route path='categories' element={<Categories />} />
             <Route path='categories/:id' element={<CategoriesDetails />} />
 
+            <Route path='calls' element={<Calls />} />
           </Route>
         </Routes>
       </BrowserRouter>
