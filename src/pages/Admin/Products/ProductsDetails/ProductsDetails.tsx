@@ -1,10 +1,9 @@
 import { Loader, Message } from '@/components/UI'
-import productApi from '@/store/api/product'
+import { productApi } from '@/store/api'
 import { useParams } from 'react-router-dom'
 import './ProductsDetails.scss'
 
 const ProductsDetails = () => {
-    window.scrollTo(0, 0)
     const { id } = useParams()
     const { data: product, isLoading, isError, error } = productApi.useGetSingleProductQuery(Number(id))
 

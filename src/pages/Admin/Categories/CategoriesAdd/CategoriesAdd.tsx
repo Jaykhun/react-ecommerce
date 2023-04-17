@@ -51,6 +51,7 @@ const CategoriesAdd = () => {
             })
         }
     }
+    
     return (
         <Modal isOpen={isOpenAddModal} state={modalState} handleClose={closeCategoryAddModal}>
             <div className='categories-edit'>

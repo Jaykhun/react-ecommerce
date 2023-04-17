@@ -1,0 +1,36 @@
+@import "@/styles/general/mixin";
+@import "@/styles/general/ui";
+@import "@/styles/general/variables";
+
+.categories-details{
+    position: relative;
+    min-height: 70vh;
+
+    &__title {
+        @extend %adminTitle;
+        margin-bottom: 20px;
+    }
+
+    &__body {
+        @include text($textColor, left, capitalize);
+        @include fontArguments($textfont, $fontWeight: 500);
+    }
+
+    &__info {
+        @include flex(flex-start, flex-start, $gap: 20px);
+        margin-bottom: 20px;
+    }
+
+
+    &-category__children{
+        display: inline-block;
+        margin-right: 10px;
+    }
+
+    &__txt{
+        display: inline-block;
+        margin: 0px 10px 15px 0px;
+        color: $activeColor;
+        font-weight: 700;
+    }
+}

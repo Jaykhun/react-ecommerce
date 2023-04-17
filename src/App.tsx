@@ -1,5 +1,5 @@
 import { Admin } from '@/pages/Admin'
-import { Categories } from '@/pages/Admin/Categories'
+import { Categories, CategoriesDetails } from '@/pages/Admin/Categories'
 import { Countries } from '@/pages/Admin/Countries'
 import { Products, ProductsDetails } from '@/pages/Admin/Products'
 import { Users, UsersDetails } from '@/pages/Admin/Users'
@@ -24,9 +24,10 @@ const App = () => {
             <Route path='products' element={<Products />} />
             <Route path='products/:id' element={<ProductsDetails />} />
 
-
             <Route path='countries' element={<Countries />} />
+            
             <Route path='categories' element={<Categories />} />
+            <Route path='categories/:id' element={<CategoriesDetails />} />
 
           </Route>
         </Routes>

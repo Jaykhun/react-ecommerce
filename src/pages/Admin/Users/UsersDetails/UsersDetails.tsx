@@ -4,7 +4,6 @@ import { useParams } from 'react-router-dom'
 import './UsersDetails.scss'
 
 const UsersDetails = () => {
-    window.scrollTo(0, 0)
     const { id } = useParams()
     const { data: user, isLoading, isError, error } = userApi.useGetSingleUserQuery(Number(id))
 
