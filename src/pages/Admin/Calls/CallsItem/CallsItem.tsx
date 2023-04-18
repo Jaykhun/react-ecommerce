@@ -1,6 +1,6 @@
 import { Loader } from '@/components/UI'
 import { FetchCall } from '@/models/callTypes'
-import { callApi } from '@/store/api'
+import callApi from '@/store/api/call'
 import { Notify } from 'notiflix'
 import { FC } from 'react'
 import './CallsItem.scss'

@@ -1,5 +1,5 @@
 import { Loader, Message } from '@/components/UI'
-import { callApi } from '@/store/api'
+import callApi from '@/store/api/call'
 import CallsItem from './CallsItem'
 
 const CallsBody = () => {

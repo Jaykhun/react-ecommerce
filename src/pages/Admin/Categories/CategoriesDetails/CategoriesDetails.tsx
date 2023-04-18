@@ -1,5 +1,5 @@
 import { Loader, Message } from '@/components/UI'
-import { categoryApi } from '@/store/api'
+import categoryApi from '@/store/api/category'
 import { useParams } from 'react-router-dom'
 import './CategoriesDetails.scss'
 

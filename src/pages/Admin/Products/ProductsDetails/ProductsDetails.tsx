@@ -1,5 +1,5 @@
 import { Loader, Message } from '@/components/UI'
-import { productApi } from '@/store/api'
+import productApi from '@/store/api/product'
 import { useParams } from 'react-router-dom'
 import './ProductsDetails.scss'
 

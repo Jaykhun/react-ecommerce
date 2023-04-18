@@ -1,0 +1,18 @@
+@import "@/styles/general/mixin";
+@import "@/styles/general/variables";
+@import "@/styles/general/ui";
+
+.orders {
+    position: relative;
+
+    &__body {
+        position: relative;
+        margin: 20px 0px;
+        min-height: 60vh;
+    }
+
+    &__title {
+        @extend %adminTitle;
+        margin-bottom: 20px;
+    }
+}

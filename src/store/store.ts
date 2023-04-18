@@ -1,6 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit'
 import { setupListeners } from '@reduxjs/toolkit/query'
-import { callApi, categoryApi, countryApi, productApi, userApi } from './api'
+import callApi from './api/call'
+import categoryApi from './api/category'
+import countryApi from './api/country'
+import ordersApi from './api/orders'
+import productApi from './api/product'
+import userApi from './api/user'
 import { categorySlice } from './slices/categorySlice'
 import { countrySlice } from './slices/countrySlice'
 import { productSlice } from './slices/productSlice'
@@ -16,7 +21,8 @@ export const store = configureStore({
         [productApi.reducerPath]: productApi.reducer,
         [countryApi.reducerPath]: countryApi.reducer,
         [categoryApi.reducerPath]: categoryApi.reducer,
-        [callApi.reducerPath]: callApi.reducer
+        [callApi.reducerPath]: callApi.reducer,
+        [ordersApi.reducerPath]: ordersApi.reducer
     },
     middleware: getDefaultMiddleware => getDefaultMiddleware({ serializableCheck: false })
         .concat(
@@ -24,7 +30,8 @@ export const store = configureStore({
             productApi.middleware,
             countryApi.middleware,
             categoryApi.middleware,
-            callApi.middleware
+            callApi.middleware,
+            ordersApi.middleware
         )
 })
 

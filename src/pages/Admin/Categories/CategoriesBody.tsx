@@ -1,5 +1,5 @@
 import { Loader, Message } from '@/components/UI'
-import { categoryApi } from '@/store/api'
+import categoryApi from '@/store/api/category'
 import CategoriesItem from './CategoriesItem'
 
 const CategoriesBody = () => {

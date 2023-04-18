@@ -1,7 +1,7 @@
 import { Button, Message, Modal } from '@/components/UI'
 import { useActions } from '@/hooks/useActions'
 import { useTypedSelector } from '@/hooks/useTypedSelector'
-import { categoryApi } from '@/store/api'
+import categoryApi from '@/store/api/category'
 import { ErrorMessage } from '@hookform/error-message'
 import { FetchCategory, MutationCategoryType } from '@models/categoryTypes'
 import { Notify } from 'notiflix'

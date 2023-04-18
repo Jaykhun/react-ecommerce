@@ -1,7 +1,7 @@
 import { Loader } from '@/components/UI'
 import { useActions } from '@/hooks/useActions'
 import { FetchCategory } from '@/models/categoryTypes'
-import { categoryApi } from '@/store/api'
+import categoryApi from '@/store/api/category'
 import { Notify } from 'notiflix'
 import { FC } from 'react'
 import { useNavigate } from 'react-router-dom'

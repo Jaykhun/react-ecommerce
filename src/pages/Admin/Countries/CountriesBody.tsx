@@ -1,5 +1,5 @@
 import { Loader, Message } from '@/components/UI'
-import { countryApi } from '@/store/api'
+import countryApi from '@/store/api/country'
 import CountriesItem from './CountriesItem'
 
 const CountriesBody = () => {
