@@ -10,7 +10,7 @@ interface MessageProps {
 
 const Message: FC<MessageProps> = ({ value, error, formError }) => {
 
-    const errorMessage = `${error?.status}  ${error?.data.detail}`
+    const errorMessage = `${error?.status}  ${error?.data?.detail}`
 
     return (
         <div className={clsx({ 'message-text': value || error, 'form-error': formError })}>

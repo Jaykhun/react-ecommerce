@@ -15,7 +15,7 @@ const CallsItem: FC<CallsItemProps> = ({ call }) => {
     const handleDelete = async () => {
         try {
             await deleteCall(id).unwrap()
-            Notify.success(`Звонок ${full_name}на успешно удален`, {
+            Notify.success(`Звонок ${full_name} успешно удален`, {
                 clickToClose: true,
                 fontSize: '15px',
                 zindex: 9999

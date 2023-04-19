@@ -2,7 +2,7 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
 interface CountryStateType {
     isOpenAddModal: boolean
-    isOpenEditModal: boolean,
+    isOpenEditModal: boolean
     countryId: number
 }
 

@@ -1,5 +1,7 @@
 import { categorySlice } from '@/store/slices/categorySlice'
 import { countrySlice } from '@/store/slices/countrySlice'
+import { orderSlice } from '@/store/slices/orderSlice'
+import { orderStatusSlice } from '@/store/slices/orderStatusSlice'
 import { productSlice } from '@/store/slices/productSlice'
 import { userSlice } from '@/store/slices/userSlice'
 import { bindActionCreators } from "@reduxjs/toolkit"
@@ -9,7 +11,9 @@ const allActions = {
     ...userSlice.actions,
     ...countrySlice.actions,
     ...productSlice.actions,
-    ...categorySlice.actions
+    ...categorySlice.actions,
+    ...orderSlice.actions,
+    ...orderStatusSlice.actions
 }
 
 export const useActions = () => {

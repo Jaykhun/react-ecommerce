@@ -15,6 +15,7 @@ const SideBar = () => {
         { name: 'Страны', icon: 'icon-country', path: 'countries' },
         { name: 'Категории', icon: 'icon-category', path: 'categories' },
         { name: 'Заказы', icon: 'icon-orders', path: 'orders' },
+        { name: 'Статус', icon: 'icon-check', path: 'status' },
         { name: 'Звонки', icon: 'icon-phone', path: 'calls' },
     ]
 

@@ -1,9 +1,9 @@
 import { Loader, Message } from '@/components/UI'
-import ordersApi from '@/store/api/orders'
+import { orderApi } from '@/store/api/order'
 import OrdersItem from './OrdersItem'
 
 const OrdersBody = () => {
-    const { data: orders, isFetching, isError, error } = ordersApi.useGetAllOrdersQuery()
+    const { data: orders, isFetching, isError, error } = orderApi.useGetAllOrdersQuery()
 
     return (
         <div className='orders__body'>
@@ -13,7 +13,7 @@ const OrdersBody = () => {
                     : isError
                         ? <Message error={error} />
                         : orders?.length
-                            ? orders?.map(order => <OrdersItem order={order} key={order.id} />)
+                            ? orders && orders.map(order => <OrdersItem order={order} key={order.id} />)
                             : <Message value='нет звонков' />
             }
         </div>

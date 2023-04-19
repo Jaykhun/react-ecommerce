@@ -2,7 +2,7 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
 interface ProductStateType {
     isOpenAddModal: boolean
-    isOpenEditModal: boolean,
+    isOpenEditModal: boolean
     productId: number
 }
 

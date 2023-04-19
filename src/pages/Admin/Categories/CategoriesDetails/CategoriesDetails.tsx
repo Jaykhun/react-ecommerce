@@ -25,16 +25,25 @@ const CategoriesDetails = () => {
                                     <span>{category?.name}</span>
                                 </div>
                                 <div className="categories-details__parent">
-                                    <span className="categories-details__txt">родительский:</span>
-                                    {category?.parent_category?.name}
+                                    {
+                                        category?.parent_category &&
+                                        <><span className="categories-details__txt">родительский:</span>
+                                            {category?.parent_category?.name}
+                                        </>
+                                    }
+
                                 </div>
 
                                 <div className="categories-details__children">
-                                    <span className="categories-details__txt">дочерний:</span>
-                                    {
-                                        category?.children_category.map(category =>
-                                            <div className='categories-details-category__children' key={category.id}>{category.name}</div>
-                                        )
+                                    {!!category?.children_category.length &&
+                                        <>
+                                            <span className="categories-details__txt">дочерний:</span>
+                                            {
+                                                category?.children_category.map(category =>
+                                                    <div className='categories-details-category__children' key={category.id}>{category.name}</div>
+                                                )
+                                            }
+                                        </>
                                     }
                                 </div>
                             </div>

@@ -2,7 +2,7 @@ import { PayloadAction, createSlice } from '@reduxjs/toolkit'
 
 interface UserStateType {
     isOpenAddModal: boolean
-    isOpenEditModal: boolean,
+    isOpenEditModal: boolean
     userId: number
 }
 

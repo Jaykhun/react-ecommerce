@@ -3,8 +3,8 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/dist/query/react'
 
 const url = 'https://ecommerce.icedev.uz/'
 
-export const ordersApi = createApi({
-    reducerPath: 'ordersApi',
+export const orderApi = createApi({
+    reducerPath: 'orderApi',
     baseQuery: fetchBaseQuery({
         baseUrl: url
     }),
@@ -15,7 +15,7 @@ export const ordersApi = createApi({
             providesTags: ['orders']
         }),
         getSingleOrder: build.query<FetchOrder, number>({
-            query: (id) => `orders${id}`,
+            query: (id) => `orders/${id}`,
             providesTags: ['orders']
         }),
         addOrder: build.mutation<FetchOrder, AddOrder>({
@@ -36,7 +36,7 @@ export const ordersApi = createApi({
         }),
         deleteOrder: build.mutation<void, number>({
             query: (id) => ({
-                url: `orders${id}`,
+                url: `orders/${id}`,
                 method: 'DELETE'
             }),
             invalidatesTags: ['orders']

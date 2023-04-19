@@ -1,7 +1,7 @@
 @import "@/styles/general/mixin";
 @import "@/styles/general/ui";
 
-.item-orders {
+.item-orderStatus {
     @include flex(space-between, center, $gap: 10px);
     margin-bottom: 20px;
     transition: all 0.3s ease 0s;
@@ -21,12 +21,8 @@
         }
     }
 
-    &__username,
-    &__products,
-    &__address,
-    &__status,
-    &__date {
-        flex: 0 0 20%;
+    &__status {
+        flex: 0 0 30%;
     }
 
     &__actions {

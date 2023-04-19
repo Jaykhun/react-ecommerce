@@ -1,6 +1,8 @@
 import { SideBar, TopBar } from '@/pages/Admin'
 import { CategoriesAdd, CategoriesEdit } from '@/pages/Admin/Categories'
 import { CountriesAdd, CountriesEdit } from '@/pages/Admin/Countries'
+import { OrderStatusAdd, OrderStatusEdit } from '@/pages/Admin/OrderStatus'
+import { OrdersEdit } from '@/pages/Admin/Orders'
 import { ProductsAdd, ProductsEdit } from '@/pages/Admin/Products'
 import { UsersAdd, UsersEdit } from '@/pages/Admin/Users'
 import { Outlet } from "react-router-dom"
@@ -35,6 +37,11 @@ const Dashboard = () => {
 
             <CategoriesAdd />
             <CategoriesEdit />
+
+            <OrdersEdit/>
+
+            <OrderStatusAdd/>
+            <OrderStatusEdit/>
         </div>
     )
 }

@@ -1,0 +1,20 @@
+@import "@/styles/general/mixin";
+@import "@/styles/general/variables";
+@import "@/styles/general/ui";
+
+.orderStatus-add {
+    width: 400px;
+
+    &__title {
+        @extend %modalTitle;
+        margin-bottom: 20px;
+    }
+
+    &__status{
+        width: 100%;
+    }
+
+    &__form {
+        @include flex(space-between, flex-start, column, $gap: 20px);
+    }
+}

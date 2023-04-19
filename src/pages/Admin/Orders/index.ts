@@ -1,2 +1,5 @@
 import Orders from './Orders'
-export { Orders }
+import OrdersEdit from './OrdersEdit'
+
+export { Orders, OrdersEdit }
+

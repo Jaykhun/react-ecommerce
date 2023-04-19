@@ -1,3 +1,5 @@
+import { FetchOrderStatus } from './orderStatusTypes'
+
 interface OrderDetails {
     product_id: number,
     quantity: number,
@@ -10,10 +12,7 @@ export interface FetchOrder {
     address_id: number,
     id: number,
     order_details: OrderDetails[],
-    order_status: {
-        status: string,
-        id: number
-    }
+    order_status: FetchOrderStatus
 }
 
 export interface AddOrder {
