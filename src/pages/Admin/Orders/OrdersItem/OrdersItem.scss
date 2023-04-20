@@ -22,11 +22,19 @@
     }
 
     &__username,
-    &__products,
     &__address,
     &__status,
     &__date {
-        flex: 0 0 20%;
+        flex: 0 0 15%;
+    }
+
+    &__address {
+        text-align: center;
+    }
+
+    &__products {
+        @include flex(space-between, center, $gap: 10px);
+        cursor: pointer;
     }
 
     &__actions {

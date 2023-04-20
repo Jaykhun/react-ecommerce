@@ -14,7 +14,7 @@ import './OrdersEdit.scss'
 const OrdersEdit = () => {
     const { closeOrderEditModal } = useActions()
     const { orderId, isOpenEditModal } = useTypedSelector(state => state.orderSlice)
-    const { register, formState: { errors, isDirty }, reset, control, handleSubmit } = useForm<EditOrder>({ mode: 'onBlur' })
+    const { register, formState: { isDirty }, reset, control, handleSubmit } = useForm<EditOrder>({ mode: 'onBlur' })
 
     const { data: status, isFetching, isError: statusIsError, error: statusError } = orderStatusApi.useGetSingleOrderQuery(orderId, { skip: !orderId })
     const allStatus = orderStatusApi.useGetAllOrdersStatusQuery()

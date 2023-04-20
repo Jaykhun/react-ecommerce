@@ -1,0 +1,41 @@
+@import "@/styles/general/mixin";
+@import "@/styles/general/ui";
+
+.orders-view {
+    position: relative;
+    width: 320px;
+
+    &__title {
+        @extend %modalTitle;
+        margin-bottom: 20px;
+    }
+}
+
+.item-view {
+    position: relative;
+    @include flex(space-between, flex-start, $gap: 20px);
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid rgba(217, 217, 217, 0.4);
+    min-height: 120px;
+
+    &__img {
+        img {
+            width: 110px;
+            height: 110px;
+            border-radius: 6px;
+        }
+    }
+
+    &__body {
+        @include flex(space-between, flex-start, column, $gap: 20px);
+        @include text($textColor, left, capitalize);
+        @include fontArguments($textfont, $fontSize: 15px, $fontWeight: 500);
+        flex: 1 1 auto;
+    }
+
+    &__txt {
+        font-size: 16px;
+        color: $activeColor;
+    }
+}

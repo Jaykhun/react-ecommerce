@@ -1,30 +1,31 @@
+import { OrderDetails } from '@/models/orderTypes'
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
 interface OrderStateType {
-    isOpenAddModal: boolean
+    isOpenOrderDetailsModal: boolean
     isOpenEditModal: boolean
-    isOpenProductModal: boolean
-    orderId: number
+    orderId: number,
+    orderDetails: OrderDetails[]
 }
 
 const initialState: OrderStateType = {
-    isOpenAddModal: false,
+    isOpenOrderDetailsModal: false,
     isOpenEditModal: false,
-    isOpenProductModal: false,
-    orderId: 0
+    orderId: 0,
+    orderDetails: []
 }
-
 
 export const orderSlice = createSlice({
     name: 'orderSlice',
     initialState,
     reducers: {
-        openProductModal(state) {
-            state.isOpenProductModal = true
+        openOrderDetailsModal(state, actions: PayloadAction<OrderDetails[]>) {
+            state.isOpenOrderDetailsModal = true
+            state.orderDetails = actions.payload
         },
 
-        closeProductModal(state) {
-            state.isOpenProductModal = false
+        closeOrderDetailsModal(state) {
+            state.isOpenOrderDetailsModal = false
         },
 
         openOrderEditModal(state, actions: PayloadAction<number>) {

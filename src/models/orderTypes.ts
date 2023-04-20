@@ -1,6 +1,6 @@
 import { FetchOrderStatus } from './orderStatusTypes'
 
-interface OrderDetails {
+export interface OrderDetails {
     product_id: number,
     quantity: number,
     price: number
