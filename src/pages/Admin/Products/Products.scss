@@ -19,15 +19,6 @@
         min-height: 60vh;
     }
 
-    &__loadmore{
-        @include flex(center, center);
-    }
-
-    &__loadmore-btn {
-        @extend %loadMoreBtn;
-        margin: 10px 0px;
-    }
-
     &__title {
         @extend %adminTitle;
         margin-bottom: 20px;

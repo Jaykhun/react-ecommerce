@@ -10,8 +10,8 @@ export const productApi = createApi({
     }),
     tagTypes: ['product'],
     endpoints: build => ({
-        getAllProducts: build.query<FetchProduct[], number>({
-            query: (limit) => `products/?limit=${limit}`,
+        getAllProducts: build.query<FetchProduct[], void>({
+            query: (limit) => 'products/',
             providesTags: ['product']
         }),
         getSingleProduct: build.query<FetchProduct, number>({

@@ -1,3 +1,4 @@
+import { FetchAttribute } from './attributeTypes'
 import { FetchCategory } from './categoryTypes'
 
 export interface ProductImage {
@@ -15,7 +16,8 @@ export interface FetchProduct {
     discount: number,
     id: number,
     images: ProductImage[],
-    category: FetchCategory
+    category: FetchCategory,
+    attributes: FetchAttribute[]
 }
 
 export interface AddProduct {

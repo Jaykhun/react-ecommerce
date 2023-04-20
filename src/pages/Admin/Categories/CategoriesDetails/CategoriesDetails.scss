@@ -21,8 +21,11 @@
         margin-bottom: 20px;
     }
 
+    &__attribute{
+        @include flex(flex-start, flex-start);
+    }
 
-    &-category__children{
+    &__array{
         display: inline-block;
         margin-right: 10px;
     }
