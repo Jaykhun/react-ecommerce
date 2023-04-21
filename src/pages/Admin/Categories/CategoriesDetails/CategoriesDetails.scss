@@ -2,7 +2,7 @@
 @import "@/styles/general/ui";
 @import "@/styles/general/variables";
 
-.categories-details{
+.categories-details {
     position: relative;
     min-height: 70vh;
 
@@ -21,16 +21,21 @@
         margin-bottom: 20px;
     }
 
-    &__attribute{
+    &__attribute {
         @include flex(flex-start, flex-start);
     }
 
-    &__array{
+    &__array {
         display: inline-block;
         margin-right: 10px;
     }
 
-    &__txt{
+    &__children,
+    &__parent {
+        @include flex(flex-start, flex-start);
+    }
+
+    &__txt {
         display: inline-block;
         margin: 0px 10px 15px 0px;
         color: $activeColor;

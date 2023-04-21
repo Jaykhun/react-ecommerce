@@ -6,6 +6,7 @@ import countryApi from './api/country'
 import { orderApi } from './api/order'
 import productApi from './api/product'
 import userApi from './api/user'
+import { attributeSlice } from './slices/attributeSlice'
 import { categorySlice } from './slices/categorySlice'
 import { countrySlice } from './slices/countrySlice'
 import { orderSlice } from './slices/orderSlice'
@@ -21,6 +22,7 @@ export const store = configureStore({
         categorySlice: categorySlice.reducer,
         orderSlice: orderSlice.reducer,
         orderStatusSlice: orderStatusSlice.reducer,
+        attributeSlice: attributeSlice.reducer,
         [userApi.reducerPath]: userApi.reducer,
         [productApi.reducerPath]: productApi.reducer,
         [countryApi.reducerPath]: countryApi.reducer,

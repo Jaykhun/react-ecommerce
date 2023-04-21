@@ -12,12 +12,16 @@ interface CategoriesItemProps {
 }
 
 const CategoriesItem: FC<CategoriesItemProps> = ({ category }) => {
-    const { openCategoryEditModal } = useActions()
+    const { openCategoryEditModal, setCategoryId } = useActions()
     const navigate = useNavigate()
     const { id, name, parent_category, children_category } = category
     const [deleteCategory, result] = categoryApi.useDeleteCategoryMutation()
 
-    const handleNavigate = () => navigate(`/admin/categories/${id}`)
+    const handleNavigate = () => {
+        navigate(`/admin/categories/${id}`)
+        setCategoryId(id)
+    }
+    
     const handleEdit = () => openCategoryEditModal(id)
     const handleDelete = async () => {
         try {

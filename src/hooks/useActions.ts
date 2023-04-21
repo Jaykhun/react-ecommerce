@@ -1,3 +1,4 @@
+import { attributeSlice } from '@/store/slices/attributeSlice'
 import { categorySlice } from '@/store/slices/categorySlice'
 import { countrySlice } from '@/store/slices/countrySlice'
 import { orderSlice } from '@/store/slices/orderSlice'
@@ -13,7 +14,8 @@ const allActions = {
     ...productSlice.actions,
     ...categorySlice.actions,
     ...orderSlice.actions,
-    ...orderStatusSlice.actions
+    ...orderStatusSlice.actions,
+    ...attributeSlice.actions
 }
 
 export const useActions = () => {

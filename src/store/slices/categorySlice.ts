@@ -29,6 +29,10 @@ export const categorySlice = createSlice({
         },
         closeCategoryEditModal(state) {
             state.isOpenEditModal = false
+        },
+
+        setCategoryId(state, actions: PayloadAction<number>) {
+            state.categoryId = actions.payload
         }
     }
 })
