@@ -3,120 +3,31 @@
 @import "@/styles/general/variables";
 
 .attribute {
+    &__title {
+        @include fontArguments($mainFont, 25px, 700);
+        @include text($titleColor);
+        margin-top: 20px;
+    }
+
     &__txt {
         display: inline-block;
         color: $activeColor;
         font-weight: 700;
     }
 
-    &__content {
-        margin-bottom: 30px;
-    }
-
-    &__item,
-    &__variants {
-        @include flex(flex-start, flex-start, $gap: 10px);
-        margin-bottom: 10px;
-    }
-
-    &__actions {
-        @include flex(flex-start, flex-start, $gap: 10px);
-    }
-
-    &__delete{
-        cursor: pointer;
-        color: #101010;
-        font-weight: 900;
-    }
-
-    &__edit,
-    &__add {
-        @include fontArguments($mainFont, $fontWeight: 600);
-        @include adaptivFont(18, 15);
-        text-transform: none;
-        border-radius: $borderRadius;
-        padding: 12px 20px;
-        background-color: $btnBorderColor;
-        color: #fff;
-        cursor: pointer;
-        @include pseudo($loc: after) {
-            top: 0;
-            left: 0;
-            width: 0;
-            height: 100%;
-            background-color: #fff5;
-            transition: all 0.3s;
-        }
-
-        &:hover,
-        &:focus {
-            color: #fff;
-
-            &::after {
-                width: 100%;
-            }
+    .list-attribute {
+        @include flex(space-between, center, $gap: 20px);
+        @include text($linkColor, left, capitalize);
+        @include fontArguments($mainFont, 18px, $fontWeight: 700);
+        margin-top: 40px;
+        padding-bottom: 20px;
+        border-bottom: 1px solid hsla(0, 0%, 85%, 0.4);
+        &__item {
+            flex: 0 0 6%;
         }
     }
 
-    .disabled {
-        cursor: not-allowed;
-        background-color: #101010;
-        color: #fff;
+    .attribute-action {
+        text-align: right !important;
     }
-}
-
-@import "@/styles/general/mixin";
-@import "@/styles/general/ui";
-
-.attribute-add {
-    position: relative;
-    width: 320px;
-    &__title {
-        @extend %modalTitle;
-        margin-bottom: 20px;
-    }
-
-    &__name,
-    &__variants {
-        width: 100%;
-    }
-
-    &__form {
-        @include flex(space-between, flex-start, column, $gap: 20px);
-    }
-}
-
-.variants-add {
-    &__variant, &__input {
-        width: 100%;
-    }
-
-    &__item{
-        margin-bottom: 15px;
-    }
-
-    &__content{
-        position: relative;
-        @include flex(space-between, center, $gap: 10px);
-    }
-
-    &__input{
-        width: 83%;
-    }
-
-    &__btn {
-        display: inline-block;
-        @include fontArguments($textfont, $fontWeight: 600);
-        color: $activeColor;
-        cursor: pointer;
-    }
-
-    &__delete {
-        position: absolute;
-        top: 3px;
-        right: 0;
-
-        @extend %actionBtn;
-        background: url("../../assets/icons/delete-icon.svg") 50% 50% no-repeat;
-        }
 }

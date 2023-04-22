@@ -7,7 +7,7 @@ import { ErrorMessage } from '@hookform/error-message'
 import { Notify } from 'notiflix'
 import { useState } from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
-import './Attribute.scss'
+import './AttributeAdd.scss'
 
 interface AddVariantsType {
     element: JSX.Element,

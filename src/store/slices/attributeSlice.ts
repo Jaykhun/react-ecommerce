@@ -1,15 +1,20 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit'
+import { FetchVariants } from '@/models/attributeTypes'
+import { PayloadAction, createSlice } from '@reduxjs/toolkit'
 
 interface AttributeStateType {
     isOpenAddModal: boolean
     isOpenEditModal: boolean
-    attributeId: number
+    isOpenViewModal: boolean
+    attributeId: number,
+    variants: FetchVariants[]
 }
 
 const initialState: AttributeStateType = {
     isOpenAddModal: false,
     isOpenEditModal: false,
-    attributeId: 0
+    isOpenViewModal: false,
+    attributeId: 0,
+    variants: []
 }
 
 export const attributeSlice = createSlice({
@@ -29,6 +34,15 @@ export const attributeSlice = createSlice({
         },
         closeAttributeEditModal(state) {
             state.isOpenEditModal = false
+        },
+
+        openAttributeViewdModal(state, actions: PayloadAction<{variants: FetchVariants[], id: number}>) {
+            state.isOpenViewModal = true
+            state.variants = actions.payload.variants
+            state.attributeId = actions.payload.id
+        },
+        closeAttributeViewModal(state) {
+            state.isOpenViewModal = false
         },
     }
 })

@@ -19,6 +19,11 @@
         }
     }
 
+    &__header{
+        @include flex(space-between, center, $gap: 20px);
+        margin-bottom: 20px;
+    }
+
     &__body {
         @include text($textColor, left, capitalize);
         @include fontArguments($textfont, $fontWeight: 500);

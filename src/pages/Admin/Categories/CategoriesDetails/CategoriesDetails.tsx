@@ -1,5 +1,5 @@
 import { Attribute } from '@/components/Attribute'
-import { Loader, Message } from '@/components/UI'
+import { Button, Loader, Message } from '@/components/UI'
 import { useActions } from '@/hooks/useActions'
 import categoryApi from '@/store/api/category'
 import { useEffect } from 'react'
@@ -8,8 +8,10 @@ import './CategoriesDetails.scss'
 
 const CategoriesDetails = () => {
     const { id } = useParams()
-    const { setCategoryId } = useActions()
+    const { setCategoryId, openAttributeAddModal } = useActions()
     const { data: category, isLoading, isError, error } = categoryApi.useGetSingleCategoryQuery(Number(id))
+    
+    const handleAdd = () => openAttributeAddModal()
 
     useEffect(() => {
         setCategoryId(Number(id))
@@ -23,9 +25,16 @@ const CategoriesDetails = () => {
                     : isError
                         ? <Message error={error} />
                         : <>
-                            <div className="products-details__title">
-                                Информация о категории
+                            <div className="products-details__header">
+                                <div className="products-details__title">
+                                    Информация о категории
+                                </div>
+
+                                <div className="products-details__add" onClick={handleAdd}>
+                                    <Button hoverEffect>Добавить атрибут</Button>
+                                </div>
                             </div>
+
 
                             <div className="categories-details__body">
                                 <div className="categories-details__name">

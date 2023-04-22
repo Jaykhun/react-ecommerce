@@ -25,12 +25,12 @@
     }
 
     .list-categories {
-        margin-top: 60px;
         @include flex(space-between, center, $gap: 20px);
         @include text($linkColor, left, capitalize);
         @include fontArguments($mainFont, 18px ,$fontWeight: 700);
-        border-bottom: 1px solid hsla(0,0%,85%,.4);
+        margin-top: 60px;
         padding-bottom: 20px;
+        border-bottom: 1px solid hsla(0,0%,85%,.4);
         &__item {
             flex: 0 0 24%;
         }

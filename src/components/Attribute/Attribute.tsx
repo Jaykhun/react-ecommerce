@@ -1,22 +1,12 @@
-import { Message } from '@/components/UI'
-import { useTypedSelector } from '@/hooks/useTypedSelector'
-import attributeApi from '@/store/api/attribute'
 import './Attribute.scss'
-import AttributeBody from './AttributeBody'
+import { AttributeBody, AttributeHeader } from './index'
 
 const Attribute = () => {
-    const { categoryId } = useTypedSelector(state => state.categorySlice)
-    const { data: attribute, isFetching, isError, error } = attributeApi.useGetCategoryAttributesQuery(categoryId)
-
     return (
         <div className="attribute">
-            {
-                isFetching
-                    ? <Message formError='Идет загрузка атрибутов...' />
-                    : isError
-                        ? <Message error={error} formError='Не удалось загузить атрибутов' />
-                        : <AttributeBody attribute={attribute} />
-            }
+            <div className="attribute__title">Атрибуты</div>
+            <AttributeHeader />
+            <AttributeBody />
         </div>
     )
 }

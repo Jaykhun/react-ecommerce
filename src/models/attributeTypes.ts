@@ -7,7 +7,7 @@ export interface IVariants {
     value: string,
 }
 
-interface FetchVariants extends IVariants {
+export interface FetchVariants extends IVariants {
     id: number
 }
 

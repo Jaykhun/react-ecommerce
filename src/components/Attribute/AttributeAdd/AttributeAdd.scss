@@ -1,0 +1,57 @@
+@import "@/styles/general/mixin";
+@import "@/styles/general/ui";
+@import "@/styles/general/variables";
+
+.attribute-add {
+    position: relative;
+    width: 320px;
+    &__title {
+        @extend %modalTitle;
+        margin-bottom: 20px;
+    }
+
+    &__name,
+    &__variants {
+        width: 100%;
+    }
+
+    &__form {
+        @include flex(space-between, flex-start, column, $gap: 20px);
+    }
+}
+
+.variants-add {
+    &__variant,
+    &__input {
+        width: 100%;
+    }
+
+    &__item {
+        margin-bottom: 15px;
+    }
+
+    &__content {
+        position: relative;
+        @include flex(space-between, center, $gap: 10px);
+    }
+
+    &__input {
+        width: 83%;
+    }
+
+    &__btn {
+        display: inline-block;
+        @include fontArguments($textfont, $fontWeight: 600);
+        color: $activeColor;
+        cursor: pointer;
+    }
+
+    &__delete {
+        position: absolute;
+        top: 3px;
+        right: 0;
+
+        @extend %actionBtn;
+        background: url("../../../assets/icons/delete-icon.svg") 50% 50% no-repeat;
+    }
+}

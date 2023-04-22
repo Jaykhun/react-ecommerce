@@ -41,6 +41,13 @@ export const attributeApi = categoryApi.injectEndpoints({
                 method: 'DELETE'
             }),
             invalidatesTags: ['category']
+        }),
+        deleteAttributeVariant: build.mutation<void, {attributeId: number, variantId: number}>({
+            query: (attribute) => ({
+                url: `attributes/${attribute.attributeId}/variants/${attribute.variantId}`,
+                method: 'DELETE'
+            }),
+            invalidatesTags: ['category']
         })
     })
 })

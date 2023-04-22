@@ -1,4 +1,4 @@
-import { AttributeAdd } from '@/components/Attribute'
+import { AttributeAdd, AttributeEdit, AttributeVariant } from '@/components/Attribute'
 import { SideBar, TopBar } from '@/pages/Admin'
 import { CategoriesAdd, CategoriesEdit } from '@/pages/Admin/Categories'
 import { CountriesAdd, CountriesEdit } from '@/pages/Admin/Countries'
@@ -39,13 +39,15 @@ const Dashboard = () => {
             <CategoriesAdd />
             <CategoriesEdit />
 
-            <AttributeAdd/>
+            <AttributeAdd />
+            <AttributeEdit />
+            <AttributeVariant />
+            
+            <OrdersEdit />
+            <OrdersView />
 
-            <OrdersEdit/>
-            <OrdersView/>
-
-            <OrderStatusAdd/>
-            <OrderStatusEdit/>
+            <OrderStatusAdd />
+            <OrderStatusEdit />
         </div>
     )
 }
