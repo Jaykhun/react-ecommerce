@@ -1,3 +1,4 @@
+import { getToken } from '@/helpers/getToken'
 import { AddOrder, EditOrder, FetchOrder } from '@/models/orderTypes'
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/dist/query/react'
 
@@ -6,7 +7,12 @@ const url = 'https://ecommerce.icedev.uz/'
 export const orderApi = createApi({
     reducerPath: 'orderApi',
     baseQuery: fetchBaseQuery({
-        baseUrl: url
+        baseUrl: url,
+        prepareHeaders: (headers) => {
+            const token = getToken('token')
+            headers.set('Authorization', `Bearer ${token}`)
+            return headers
+        }
     }),
     tagTypes: ['orders'],
     endpoints: build => ({
@@ -30,7 +36,10 @@ export const orderApi = createApi({
             query: (order) => ({
                 url: `orders/${order.id}`,
                 method: 'PUT',
-                body: order.data
+                body: order.data,
+                headers: {
+                    'Content-type': 'Application/json'
+                }
             }),
             invalidatesTags: ['orders']
         }),

@@ -21,15 +21,18 @@
         }
     }
 
-    .children-categories {
-        @include flex(flex-start, center, $gap: 10px);
-    }
-
     &__comment,
     &__fullname,
     &__time,
     &__phone {
-        flex: 0 0 20%;
+        flex: 0 0 23%;
+    }
+
+    &__comment{
+        overflow: hidden;
+        white-space: nowrap;
+        width: 100px;
+        text-overflow: ellipsis;
     }
 
     &__actions {

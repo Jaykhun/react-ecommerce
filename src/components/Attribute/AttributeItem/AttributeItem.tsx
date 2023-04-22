@@ -41,7 +41,7 @@ const AttributeItem: FC<AttributeItemProps> = ({ attribute }) => {
             <div className="item-attribute__body">
                 <div className="item-attribute__name">{attribute_name}</div>
                 <div className="item-attribute__variants">
-                    <button className={clsx("item-attribute__modal", { "item-attribute__disabled": !variants.length })} disabled={!variants.length} onClick={handleView}>
+                    <button className={clsx("item-attribute__view", { "item-attribute__disabled": !variants.length })} disabled={!variants.length} onClick={handleView}>
                         {variants.length
                             ?<>
                                 <span className="item-attribute__variant">Вариант</span>

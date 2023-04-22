@@ -18,19 +18,16 @@
         flex: 1 1 auto;
     }
 
-    &__modal {
-        font-family: inherit;
-        font-size: inherit;
-        background-color: transparent;
-    }
-
     &__name {
         flex: 0 0 50%;
     }
 
-    &__modal {
+    &__view {
         cursor: pointer;
         width: 12%;
+        font-family: inherit;
+        font-size: inherit;
+        background-color: transparent;
     }
 
     &__variants {

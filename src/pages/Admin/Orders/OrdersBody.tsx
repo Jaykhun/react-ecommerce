@@ -13,7 +13,7 @@ const OrdersBody = () => {
                     : isError
                         ? <Message error={error} />
                         : orders?.length
-                            ? orders && orders.map(order => <OrdersItem order={order} key={order.id} />)
+                            ? orders.map(order => <OrdersItem order={order} key={order.id} />)
                             : <Message value='нет звонков' />
             }
         </div>

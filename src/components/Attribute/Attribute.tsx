@@ -1,12 +1,20 @@
+import { useTypedSelector } from '@/hooks/useTypedSelector'
+import { FC } from 'react'
 import './Attribute.scss'
 import { AttributeBody, AttributeHeader } from './index'
 
-const Attribute = () => {
+interface AttributeProps {
+    id?: number
+}
+
+const Attribute:FC<AttributeProps> = ({id}) => {
+    const { categoryId } = useTypedSelector(state => state.categorySlice)
+    const propsId = categoryId || id
+
     return (
         <div className="attribute">
-            <div className="attribute__title">Атрибуты</div>
             <AttributeHeader />
-            <AttributeBody />
+            <AttributeBody id={propsId}/>
         </div>
     )
 }

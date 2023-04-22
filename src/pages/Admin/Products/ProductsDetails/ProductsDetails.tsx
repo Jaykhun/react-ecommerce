@@ -1,3 +1,4 @@
+import { Attribute } from '@/components/Attribute'
 import { Loader, Message } from '@/components/UI'
 import productApi from '@/store/api/product'
 import { useParams } from 'react-router-dom'
@@ -71,6 +72,11 @@ const ProductsDetails = () => {
                                 <div className="products-details__discount">
                                     <span className="products-details__txt">скидка:</span>
                                     <span>{product?.discount} %</span>
+                                </div>
+
+                                <div className="products-details__discount">
+                                    <span className="products-details__txt">скидка:</span>
+                                    <Attribute id={Number(product?.category.id)}/>
                                 </div>
                             </div>
                         </>

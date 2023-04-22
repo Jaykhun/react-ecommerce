@@ -11,6 +11,12 @@
     @include text($titleColor);
 }
 
+%title{
+    @include fontArguments($mainFont, 32px, 700);
+    @include adaptivFont(32, 24);
+    @include text($titleColor);
+}
+
 %checkboxStyle {
     font-size: 12px;
     margin-right: 12px;

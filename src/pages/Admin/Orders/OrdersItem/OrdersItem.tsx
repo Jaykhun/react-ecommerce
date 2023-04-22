@@ -21,7 +21,7 @@ const OrdersItem: FC<OrdersItemProps> = ({ order }) => {
   const [deleteOrder, result] = orderApi.useDeleteOrderMutation()
 
   const handleView = () => openOrderDetailsModal(order_details)
-  const handleEdit = () => openOrderEditModal(order_status.id)
+  const handleEdit = () => openOrderEditModal(id)
   const handleDelete = async () => {
     try {
       await deleteOrder({ userId: user_id, orderId: id }).unwrap()
@@ -46,9 +46,11 @@ const OrdersItem: FC<OrdersItemProps> = ({ order }) => {
       <div className='orders__item item-orders'>
         <div className="item-orders__body">
           <div className="item-orders__username">{user.data?.username}</div>
-          <div className="item-orders__products" onClick={handleView}>
-            <span>Товары </span>
-            <span className='icon-view'></span>
+          <div className="item-orders__products">
+            <div className="item-orders__view" onClick={handleView}>
+              <span>Товары </span>
+              <span className='icon-view'></span>
+            </div>
           </div>
           <div className="item-orders__address">{country.data?.country_name}</div>
           <div className="item-orders__status">{order_status.status}</div>

@@ -1,11 +1,11 @@
 import './Calls.scss'
-import CallsBody from './CallsBody'
+import { CallsBody, CallsHeader } from './index'
 
 const Calls = () => {
     return (
         <div className='calls'>
-            <div className="calls__title">Звонки</div>
-            <CallsBody/>            
+            <CallsHeader />
+            <CallsBody />
         </div>
     )
 }

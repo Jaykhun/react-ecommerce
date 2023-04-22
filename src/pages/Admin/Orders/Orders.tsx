@@ -1,10 +1,10 @@
 import './Orders.scss'
-import OrdersBody from './OrdersBody'
+import { OrdersBody, OrdersHeader } from './index'
 
 const Orders = () => {
     return (
         <div className='orders'>
-            <div className="orders__title">Заказы</div>
+            <OrdersHeader/>
             <OrdersBody />
         </div>
     )

@@ -1,3 +1,4 @@
+import { getToken } from '@/helpers/getToken'
 import { AddUser, EditUser, FetchUser } from '@models/userTypes'
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 
@@ -7,8 +8,10 @@ export const userApi = createApi({
     reducerPath: 'userApi',
     baseQuery: fetchBaseQuery({
         baseUrl: url,
-        headers: {
-            'Content-type': 'application/json; charset=UTF-8',
+        prepareHeaders: (headers) => {
+            const token = getToken('token')
+            headers.set('Authorization', `Bearer ${token}`)
+            return headers
         }
     }),
     tagTypes: ['user'],

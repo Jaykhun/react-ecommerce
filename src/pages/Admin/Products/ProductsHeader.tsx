@@ -2,9 +2,9 @@ import { Button } from '@/components/UI'
 import { useActions } from '@/hooks/useActions'
 
 const ProductsHeader = () => {
-    const {openProductAddModal} = useActions()
-    const handleAdd = () => openProductAddModal() 
-    
+    const { openProductAddModal } = useActions()
+    const handleAdd = () => openProductAddModal()
+
     return (
         <>
             <div className="products__title">Продукты</div>

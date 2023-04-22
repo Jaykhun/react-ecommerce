@@ -24,16 +24,14 @@
     &__username,
     &__address,
     &__status,
-    &__date {
-        flex: 0 0 15%;
-    }
-
-    &__address {
-        text-align: center;
-    }
-
+    &__date,
     &__products {
+        flex: 0 0 19%;
+    }
+
+    &__view {
         @include flex(space-between, center, $gap: 10px);
+        width: 30%;
         cursor: pointer;
     }
 

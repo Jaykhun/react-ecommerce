@@ -1,0 +1,20 @@
+@import "@/styles/general/mixin";
+@import "@/styles/general/variables";
+@import "@/styles/general/ui";
+
+.login {
+    position: relative;
+    &__title {
+        @extend %title;
+        margin-bottom: 20px;
+    }
+
+    &__form {
+        @include flex(space-between, flex-start, column, $gap: 20px);
+    }
+
+    &__name,
+    &__password {
+        width: 100%;
+    }
+}

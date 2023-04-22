@@ -7,12 +7,21 @@
 
     &__body {
         position: relative;
-        margin: 20px 0px;
+        margin: 30px 0px;
         min-height: 60vh;
     }
 
     &__title {
         @extend %adminTitle;
         margin-bottom: 20px;
+    }
+
+    .list-calls {
+        @include flex(space-between, center, $gap: 20px);
+        @include text($linkColor, left);
+        @include fontArguments($mainFont, 18px, $fontWeight: 700);
+        margin-top: 40px;
+        padding-bottom: 20px;
+        border-bottom: 1px solid hsla(0, 0%, 85%, 0.4);
     }
 }

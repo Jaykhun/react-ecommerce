@@ -6,6 +6,24 @@
 
 // 1260 960 768 320
 
+body{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+#root{
+    min-height: 100vh;
+}
+
+main {
+    flex: 1 1 auto;
+}
+
+footer {
+    flex-shrink: 0;
+}
+
 .wrapper {
     display: flex;
     flex-direction: column;
@@ -30,10 +48,6 @@
     .container {
         padding: 0 10px;
     }
-}
-
-.main {
-    flex: 1 1 auto;
 }
 
 // ::-webkit-scrollbar {
