@@ -18,13 +18,11 @@
 .loader-enter {
     opacity: 0;
     transform: scale(0.9);
-    background-color: red;
 }
 
 .loader-enter-active {
     opacity: 1;
     transition: opacity 300ms;
-    background-color: red;
 }
 
 .loader-exit {

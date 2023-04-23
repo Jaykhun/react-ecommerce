@@ -1,4 +1,4 @@
-import { Loader } from '@/components/UI'
+import { Skeleton } from '@/components/UI'
 import { useActions } from '@/hooks/useActions'
 import countryApi from '@/store/api/country'
 import { FetchCountry } from '@models/countryTypes'
@@ -13,7 +13,7 @@ interface CountriesItemProps {
 const CountriesItem: FC<CountriesItemProps> = ({ country }) => {
     const { id, country_name } = country
     const { openCountryEditModal } = useActions()
-    const [deleteCountry, result] = countryApi.useDeleteCountryMutation()
+    const [deleteCountry, { isLoading }] = countryApi.useDeleteCountryMutation()
 
     const handleEdit = () => openCountryEditModal(id)
     const handleDelete = async () => {
@@ -35,20 +35,19 @@ const CountriesItem: FC<CountriesItemProps> = ({ country }) => {
         }
     }
 
-    return (
-        <>
-            <div className='countries__item item-countries'>
-                <div className="item-countries__body">
-                    <div className="item-countries__name">{country_name}</div>
-                </div>
+    if (isLoading) return <Skeleton isLoading={isLoading} />
 
-                <div className="item-countries__actions">
-                    <div className="item-countries__edit" onClick={handleEdit}></div>
-                    <div className="item-countries__delete" onClick={handleDelete}></div>
-                </div>
+    return (
+        <div className='countries__item item-countries'>
+            <div className="item-countries__body">
+                <div className="item-countries__name">{country_name}</div>
             </div>
-            {result.isLoading && <Loader isLoading={result.isLoading} />}
-        </>
+
+            <div className="item-countries__actions">
+                <div className="item-countries__edit" onClick={handleEdit}></div>
+                <div className="item-countries__delete" onClick={handleDelete}></div>
+            </div>
+        </div>
     )
 }
 

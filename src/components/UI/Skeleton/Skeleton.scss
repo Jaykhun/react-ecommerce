@@ -1,0 +1,24 @@
+
+.skeleton{
+    margin-bottom: 20px;
+}
+
+.skeleton-enter {
+    opacity: 0;
+    transform: scale(0.9);
+    background-color: red;
+}
+
+.skeleton-enter-active {
+    opacity: 1;
+    transition: opacity 300ms;
+}
+
+.skeleton-exit {
+    opacity: 1;
+}
+
+.skeleton-exit-active {
+    opacity: 0;
+    transform: scale(0.9);
+}

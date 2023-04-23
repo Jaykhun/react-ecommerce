@@ -1,4 +1,4 @@
-import { Loader } from '@/components/UI'
+import { Skeleton } from '@/components/UI'
 import { FetchCall } from '@/models/callTypes'
 import callApi from '@/store/api/call'
 import { Notify } from 'notiflix'
@@ -10,7 +10,7 @@ interface CallsItemProps {
 }
 const CallsItem: FC<CallsItemProps> = ({ call }) => {
     const { comment, full_name, phone_number, start_time, id } = call
-    const [deleteCall, result] = callApi.useDeleteCallMutation()
+    const [deleteCall, { isLoading }] = callApi.useDeleteCallMutation()
 
     const handleDelete = async () => {
         try {
@@ -31,24 +31,23 @@ const CallsItem: FC<CallsItemProps> = ({ call }) => {
         }
     }
 
-    return (
-        <>
-            <div className='calls__item item-calls'>
-                <div className="item-calls__body">
-                    <div className="item-calls__fullname">{full_name}</div>
-                    <div className="item-calls__comment">{comment}</div>
-                    <div className="item-calls__phone">
-                        <a href={`tel:${phone_number}`}>{phone_number}</a>
-                    </div>
-                    <div className="item-calls__time">{start_time}</div>
-                </div>
+    if (isLoading) return <Skeleton isLoading={isLoading} />
 
-                <div className="item-calls__actions">
-                    <div className="item-calls__delete" onClick={handleDelete}></div>
+    return (
+        <div className='calls__item item-calls'>
+            <div className="item-calls__body">
+                <div className="item-calls__fullname">{full_name}</div>
+                <div className="item-calls__comment">{comment}</div>
+                <div className="item-calls__phone">
+                    <a href={`tel:${phone_number}`}>{phone_number}</a>
                 </div>
+                <div className="item-calls__time">{start_time}</div>
             </div>
-            {result.isLoading && <Loader isLoading={result.isLoading} />}
-        </>
+
+            <div className="item-calls__actions">
+                <div className="item-calls__delete" onClick={handleDelete}></div>
+            </div>
+        </div>
     )
 }
 

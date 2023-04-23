@@ -1,4 +1,4 @@
-import { Loader } from '@/components/UI'
+import { Skeleton } from '@/components/UI'
 import { useActions } from '@/hooks/useActions'
 import { FetchOrderStatus } from '@/models/orderStatusTypes'
 import { orderStatusApi } from '@/store/api/order'
@@ -14,7 +14,7 @@ const OrderStatusItem: FC<OrderStatusItemProps> = ({ orderStatus }) => {
     const { id, status } = orderStatus
     const { openOrderStatusEditModal } = useActions()
 
-    const [deleteOrderStatus, result] = orderStatusApi.useDeleteOrderStatusMutation()
+    const [deleteOrderStatus, { isLoading }] = orderStatusApi.useDeleteOrderStatusMutation()
 
     const handleEdit = () => openOrderStatusEditModal(id)
     const handleDelete = async () => {
@@ -36,23 +36,21 @@ const OrderStatusItem: FC<OrderStatusItemProps> = ({ orderStatus }) => {
         }
     }
 
-    return (
-        <>
-            <div className='orderStatus__item item-orderStatus'>
-                <div className="item-orderStatus__body">
-                    <div className="item-orderStatus__status">
-                        {status}
-                    </div>
-                </div>
+    if (isLoading) return <Skeleton isLoading={isLoading} />
 
-                <div className="item-orderStatus__actions">
-                    <div className="item-orderStatus__edit" onClick={handleEdit}></div>
-                    <div className="item-orderStatus__delete" onClick={handleDelete}></div>
+    return (
+        <div className='orderStatus__item item-orderStatus'>
+            <div className="item-orderStatus__body">
+                <div className="item-orderStatus__status">
+                    {status}
                 </div>
             </div>
-            {result.isLoading && <Loader isLoading={result.isLoading} />}
-        </>
 
+            <div className="item-orderStatus__actions">
+                <div className="item-orderStatus__edit" onClick={handleEdit}></div>
+                <div className="item-orderStatus__delete" onClick={handleDelete}></div>
+            </div>
+        </div>
     )
 }
 
