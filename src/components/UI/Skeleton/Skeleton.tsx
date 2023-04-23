@@ -1,7 +1,7 @@
 import { FC, useRef } from 'react'
+import { CSSTransition } from 'react-transition-group'
 import Loader from 'react-loading-skeleton'
 import 'react-loading-skeleton/dist/skeleton.css'
-import { CSSTransition } from 'react-transition-group'
 import './Skeleton.scss'
 
 interface SkeletonProps {
