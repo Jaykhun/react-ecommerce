@@ -1,0 +1,60 @@
+@import "@/styles/general/mixin";
+@import "@/styles/general/variables";
+
+.user-menu {
+    position: relative;
+
+    .active-link {
+        color: $btnBorderColor;
+    }
+
+    &__img {
+        img {
+            width: 50px;
+            height: 50px;
+            border-radius: 6px;
+        }
+
+        cursor: pointer;
+    }
+
+    &:hover .user-menu__menu {
+        opacity: 1;
+        pointer-events: all;
+    }
+
+    &__menu {
+        position: absolute;
+        top: 100%;
+        right: 0px;
+        z-index: 1;
+        opacity: 0;
+        pointer-events: none;
+        width: 150px;
+        min-height: 100px;
+        padding: 10px;
+        border-radius: 6px;
+        background-color: white;
+        border: 1px solid rgba(0, 0, 0, 0.08);
+        transition: all 0.3s;
+
+        a {
+            @include fontArguments($textfont);
+            font-size: 16px;
+            color: #888888;
+            transition: all 0.3s;
+        }
+    }
+
+    &__item {
+        width: 100%;
+        padding: 5px;
+        cursor: pointer;
+
+        &:hover {
+            a {
+                color: $btnBorderColor;
+            }
+        }
+    }
+}

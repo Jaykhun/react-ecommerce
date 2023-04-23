@@ -1,6 +1,6 @@
 import { Button, Loader, Message } from '@/components/UI'
 import { setToken } from '@/helpers/setToken'
-import { LogInType } from '@/service/userSericeType'
+import { LogInType } from '@models/userServiceType'
 import { userService } from '@/service/userService'
 import { ErrorMessage } from '@hookform/error-message'
 import { Notify } from 'notiflix'
@@ -64,7 +64,7 @@ const LogIn = () => {
 
           <div className="login__password">
             <label htmlFor='password' className='input__label'>Пароль</label>
-            <input type='text' id='password' className='input__style'
+            <input type='password' id='password' className='input__style'
               {...register('password', VALIDATION_RULES)} />
 
             <ErrorMessage name='password' errors={errors}

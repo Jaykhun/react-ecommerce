@@ -7,7 +7,9 @@ interface IToken {
     sub: string
 }
 
-export const getToken = (token: string): IToken | null => {
+type getTokenType = (token: string) => IToken | null
+
+export const getToken: getTokenType = (token) => {
     const cookie = new Cookies()
     const res = cookie.get(token)
     if (res) return jwtDecode(res)

@@ -1,5 +1,5 @@
 import userApi from '@/store/api/user'
-import { IToken, LogInType } from './userSericeType'
+import { IToken, LogInType } from '@models/userServiceType'
 
 export const userService = userApi.injectEndpoints({
     endpoints: build => ({

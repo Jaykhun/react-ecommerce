@@ -11,8 +11,8 @@ import { Users, UsersDetails } from '@/pages/Admin/Users'
 import LogIn from '@/pages/LogIn'
 import Dashboard from '@/routes/Dashboard'
 import Layout from '@/routes/Layout'
-import '@/styles/style.scss'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import '@/styles/style.scss'
 
 const App = () => {
   return (
