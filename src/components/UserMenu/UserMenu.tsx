@@ -13,7 +13,7 @@ const UserMenu = () => {
     const user = userApi.useGetSingleUserQuery(Number(currentUser?.id), { skip: !currentUser?.id })
 
     const isSuccess = users.isSuccess || user.isLoading
-    const isError = users.isError || user.isSuccess
+    const isError = users.isError || user.isError
     const error = users.error || user.error
 
     const handleLogOut = () => deleteToken('token')
