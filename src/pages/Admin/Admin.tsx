@@ -29,6 +29,7 @@ const Admin = () => {
 
     return (
         <div className='admin'>
+            <div className="admin__title">Главная панель</div>
             <div className="admin__charts">
                 <BarChart data={barData} />
                 <LineChart data={lineData} />

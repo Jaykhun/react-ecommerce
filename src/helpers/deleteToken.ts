@@ -1,4 +1,5 @@
 import { Cookies } from "react-cookie"
+
 type deleteTokenType = (token: string) => void
 
 export const deleteToken: deleteTokenType = (token) => {

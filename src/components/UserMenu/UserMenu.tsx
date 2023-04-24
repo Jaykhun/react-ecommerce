@@ -1,22 +1,23 @@
 import { NavLink } from "react-router-dom"
-import { getToken } from '@/helpers/getToken'
-import { deleteToken } from '@/helpers/deleteToken'
 import { Message } from '@/components/UI'
 import userApi from '@/store/api/user'
+import { getToken } from '@/helpers/getToken'
+import { deleteToken } from '@/helpers/deleteToken'
+import { WebStoragePath } from '@/models/userServiceType'
 import './UserMenu.scss'
 
 const UserMenu = () => {
-    const token = getToken('token')
+    const token = getToken(WebStoragePath.token)
     const users = userApi.useGetAllUsersQuery()
 
     const currentUser = users.data?.find(user => user.username === token?.sub)
     const user = userApi.useGetSingleUserQuery(Number(currentUser?.id), { skip: !currentUser?.id })
 
-    const isSuccess = users.isSuccess || user.isLoading
+    const isSuccess = users.isSuccess || user.isSuccess
     const isError = users.isError || user.isError
     const error = users.error || user.error
 
-    const handleLogOut = () => deleteToken('token')
+    const handleLogOut = () => deleteToken(WebStoragePath.token)
 
     return (
         <div className='user-menu'>

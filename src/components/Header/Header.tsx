@@ -1,10 +1,11 @@
 import { Link } from "react-router-dom"
 import { getToken } from '@/helpers/getToken'
+import { WebStoragePath } from '@/models/userServiceType'
 import UserMenu from '@/components/UserMenu'
 import './Header.scss'
 
 const Header = () => {
-    const cookie = getToken('token')
+    const cookie = getToken(WebStoragePath.token)
 
     return (
         <header className="header">

@@ -1,4 +1,11 @@
+@import "@/styles/general/ui";
+
 .admin {
+    &__title {
+        @extend %adminTitle;
+        margin-bottom: 20px;
+    }
+
     .bar-chart {
         margin-bottom: 50px;
     }

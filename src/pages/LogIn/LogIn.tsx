@@ -33,7 +33,7 @@ const LogIn = () => {
     }
 
     catch (e: any) {
-      Notify.failure(`Ошибка при добаление ${data.username}, статус: ${e.status}`, {
+      Notify.failure(`Пароль или Логин неправильный, статус: ${e.status}`, {
         clickToClose: true,
         fontSize: '15px',
         zindex: 9999

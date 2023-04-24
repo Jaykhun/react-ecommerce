@@ -6,3 +6,7 @@ export interface LogInType {
 export interface IToken {
     access_token: string
 }
+
+export const WebStoragePath = {
+    token: 'token'
+} as const

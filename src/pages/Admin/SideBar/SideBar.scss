@@ -57,7 +57,7 @@
     &__name {
         order: 2;
         @include fontArguments($textfont, 18px);
-        @include text(#fff, center, capitalize);
+        @include text(#fff, center);
         transition: all 0.3s;
     }
 
