@@ -8,7 +8,7 @@ const AdminAccess = () => {
         <>
             {token?.is_admin
                 ? <Outlet />
-                : <Navigate to="/login"/>
+                : <Navigate to="/login" replace/>
             }
         </>
     )

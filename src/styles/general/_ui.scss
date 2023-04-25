@@ -11,10 +11,143 @@
     @include text($titleColor);
 }
 
-%title{
+%title {
     @include fontArguments($mainFont, 32px, 700);
     @include adaptivFont(32, 24);
     @include text($titleColor);
+}
+
+%subtitle {
+    @include fontArguments($textfont);
+    @include adaptivFont(20, 18);
+    @include text($textColor);
+    line-height: 1.2em;
+}
+
+%btn {
+    @include fontArguments($mainFont, $fontWeight: 600);
+    border-radius: $borderRadius;
+    cursor: pointer;
+}
+
+%w-opacity {
+    @include pseudo($loc: after) {
+        top: 0;
+        left: 0;
+        width: 0;
+        height: 100%;
+        background-color: #fff5;
+        transition: all 0.3s;
+    }
+
+    &:hover {
+        color: #fff;
+
+        &::after {
+            width: 100%;
+        }
+    }
+}
+
+%r-opacity {
+    z-index: 1;
+    @include pseudo($loc: after) {
+        top: 0;
+        left: 0;
+        width: 0;
+        height: 100%;
+        background: $btnBorderColor;
+        transition: all 0.3s;
+        border-radius: 6px;
+        z-index: -1;
+    }
+
+    &:hover {
+        &::after {
+            width: 100%;
+        }
+    }
+}
+
+%w-r-btn {
+    @include adaptivFont(15, 15);
+    display: block;
+    border: 2px solid $btnBorderColor;
+    color: $activeColor;
+    text-align: center;
+    transition: all 0.3s;
+    @include pseudo($loc: after) {
+        top: 0;
+        right: 0;
+        width: 0;
+        height: 100%;
+        z-index: -1;
+        background: $btnBorderColor;
+        transition: all 0.3s;
+    }
+
+    &:hover {
+        color: #fff;
+
+        &::after {
+            width: 100%;
+        }
+    }
+}
+
+%w-bg-r-btn {
+    background-color: $activeColor;
+    font-size: 18px;
+    color: #fff;
+    text-align: center;
+    transition: all 0.3s;
+}
+
+%wordSale {
+    display: inline-block;
+    @include fontArguments($mainFont, 12px, 700);
+    text-transform: uppercase;
+    color: $activeColor;
+    @include pseudo() {
+        bottom: -2px;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background-color: $activeColor;
+    }
+}
+
+%productName {
+    @include fontArguments($textfont, 16px);
+    color: rgba(16, 16, 16, 0.7);
+}
+
+%currentPrice {
+    @include fontArguments($mainFont, 17px, 700);
+    color: $titleColor;
+}
+
+%pastPrice {
+    display: inline-block;
+    @include fontArguments($mainFont, 16px);
+    color: rgba(16, 16, 16, 0.3);
+    @include pseudo() {
+        top: 50%;
+        left: -4%;
+        transform: translate(0%, -50%);
+        width: 112%;
+        height: 2px;
+        background-color: $activeColor;
+    }
+}
+
+%priceDiscount {
+    display: inline-block;
+    @include fontArguments($mainFont, 12px, 700);
+    color: $activeColor;
+    background-color: rgba(233, 46, 46, 0.15);
+    padding: 3.5px 10px 3.5px;
+    border-radius: 50px;
 }
 
 %checkboxStyle {
@@ -64,7 +197,8 @@
         transition: all 0.3s;
     }
 
-    &:hover, &:focus {
+    &:hover,
+    &:focus {
         color: #fff;
 
         &::after {

@@ -1,11 +1,13 @@
 import './Products.scss'
-import { ProductsBody, ProductsHeader } from './index'
+import { ProductsAdd, ProductsBody, ProductsEdit, ProductsHeader } from './index'
 
 const Products = () => {
     return (
         <div className='products'>
             <ProductsHeader />
             <ProductsBody />
+            <ProductsAdd />
+            <ProductsEdit />
         </div>
     )
 }

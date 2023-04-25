@@ -1,0 +1,82 @@
+@import "@/styles/general/mixin";
+@import "@/styles/general/ui";
+@import "@/styles/general/variables";
+
+.main-top {
+    @include flex(space-between, center);
+    min-height: 165px;
+    &__title {
+        @extend %title;
+        flex: 1 1 auto;
+    }
+
+    &__header {
+        @include flex(space-between, flex-start, column, $gap: 5px);
+    }
+
+    &__subtitle {
+        @extend %subtitle;
+    }
+
+    &__contacts {
+        flex: 0 0 35%;
+    }
+}
+
+.main-actions {
+    @include flex(space-between, flex-start, $gap: 15px);
+
+    &__search {
+        @include flex(space-between, center);
+        flex: 1 1 auto;
+    }
+
+    &__buy {
+        @include flex(center, center);
+
+        span {
+            @include flex(center, center);
+            @include fontArguments($mainFont, 500);
+            @include adaptivFont(15, 15);
+            position: absolute;
+            right: 20px;
+            min-width: 28px;
+            width: 28px;
+            height: 28px;
+            background-color: #fff;
+            color: $textColor;
+            border-radius: 50%;
+        }
+    }
+
+    &__cart {
+        @include flex(center, center);
+        @extend %btn, %w-bg-r-btn, %w-opacity;
+        position: relative;
+        width: 115px;
+        height: 70px;
+
+        button {
+            position: absolute;
+            content: "";
+            width: 100%;
+            height: 100%;
+            background: url(data:image/svg+xml,%3Csvg%20version%3D%221.1%22%20baseProfile%3D%22full%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20xmlns%3Aev%3D%22http%3A%2F%2Fwww.w3.org%2F2001%2Fxml-events%22%20xml%3Aspace%3D%22preserve%22%20x%3D%220px%22%20y%3D%220px%22%20width%3D%2223px%22%20height%3D%2221px%22%20%20viewBox%3D%220%200%2023%2021%22%20preserveAspectRatio%3D%22none%22%20shape-rendering%3D%22geometricPrecision%22%3E%3Cpath%20fill%3D%22%23fff%22%20d%3D%22M0%202H2.3132L7.06665%2014.359C7.21519%2014.7452%207.58623%2015%208%2015H18C18.4089%2015%2018.7766%2014.751%2018.9285%2014.3714L22.9285%204.37139C23.0517%204.0633%2023.0141%203.71414%2022.8281%203.43937C22.642%203.1646%2022.3318%203%2022%203H9V5H20.523L17.323%2013H8.6868L3.93335%200.641021C3.78481%200.254829%203.41377%200%203%200H0V2ZM7%2019.0001C7%2017.8955%207.89543%2017.0001%209%2017.0001C10.1046%2017.0001%2011%2017.8955%2011%2019.0001C11%2020.1047%2010.1046%2021.0001%209%2021.0001C7.89543%2021.0001%207%2020.1047%207%2019.0001ZM15%2019.0001C15%2017.8955%2015.8954%2017.0001%2017%2017.0001C18.1046%2017.0001%2019%2017.8955%2019%2019.0001C19%2020.1047%2018.1046%2021.0001%2017%2021.0001C15.8954%2021.0001%2015%2020.1047%2015%2019.0001Z%22%2F%3E%3C%2Fsvg%3E)
+                30px 50% no-repeat;
+            pointer-events: none;
+        }
+    }
+}
+
+.main-content {
+    @include flex(space-between, flex-start, $gap: 20px);
+    margin: 30px 0px;
+
+    &__asidebar {
+        flex: 0 0 280px;
+    }
+
+    &__outlet {
+        flex: 1 1 auto;
+    }
+}

@@ -1,0 +1,106 @@
+@import "@/styles/general/mixin";
+@import "@/styles/general/ui";
+@import "@/styles/general/variables";
+
+.contacts {
+    &__body {
+        @include flex(space-between, center, $gap: 10px);
+    }
+
+    &__phone {
+        @include pseudo() {
+            width: 45px;
+            height: 45px;
+            left: -63px;
+            top: calc(50% - 22.5px);
+            background: url("../../assets/icons/red-phone-icon.svg") 50% no-repeat;
+        }
+
+        P {
+            @include fontArguments($textfont);
+            @include adaptivFont(15, 15);
+            color: $textColorLighter;
+        }
+    }
+
+    &__arrow {
+        position: absolute;
+        width: 40px;
+        height: 40px;
+        font-size: 0;
+        right: -45px;
+        top: 16%;
+        background: url("../../assets/icons/dark-down-arrow.svg") 50% no-repeat;
+        cursor: pointer;
+    }
+
+    &__workday {
+        margin-top: 5px;
+    }
+
+    &__text {
+        margin-bottom: 5px;
+    }
+
+    &__number {
+        @include fontArguments($mainFont, $fontWeight: 700);
+        @include adaptivFont(20, 17);
+        color: #000;
+    }
+
+    &__recall {
+        flex: 0 0 210px;
+        @extend %btn, %w-r-btn;
+        padding: 16px 20px;
+    }
+}
+
+.contacts-modal {
+    &__content {
+        position: relative;
+        background-color: #fff;
+        border-bottom-left-radius: 6px;
+        border-bottom-right-radius: 6px;
+        border-top-left-radius: 6px;
+        padding: 10px;
+    }
+
+    &__item {
+        @include fontArguments($textfont, 15px);
+        color: $textColorLighter;
+        margin-bottom: 20px;
+        &:last-child {
+            margin-bottom: 0px;
+        }
+    }
+
+    &__text {
+        margin-bottom: 4px;
+    }
+
+    &__number {
+        @include fontArguments($mainFont, 20px, 700);
+        color: #000;
+    }
+}
+
+.modal-messenger {
+    @include flex(center, center);
+    min-height: 20px;
+    background-color: #2ea8e3;
+    border-radius: 6px;
+    padding: 20px;
+    margin-top: 30px;
+    cursor: pointer;
+
+    &__title {
+        @include fontArguments($mainFont, 15px, 600);
+        color: #fff;
+    }
+
+    &__icon {
+        height: 18px;
+        width: 18px;
+        margin-left: 15px;
+    }
+}

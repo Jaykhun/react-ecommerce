@@ -1,5 +1,4 @@
 @import "@/styles/general/mixin";
-@import "@/styles/general/ui";
 
 .header {
   box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.08);
@@ -121,18 +120,6 @@
         width: 0;
         opacity: 0;
       }
-    }
-  }
-}
-
-@media screen and (max-width: 1260px) {
-  .header {
-    box-shadow: none;
-
-    &__body {
-      opacity: 0;
-      overflow: hidden;
-      pointer-events: none;
     }
   }
 }

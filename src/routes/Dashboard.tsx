@@ -1,11 +1,4 @@
-import { AttributeAdd, AttributeEdit, AttributeVariant } from '@/components/Attribute'
 import { SideBar, TopBar } from '@/pages/Admin'
-import { CategoriesAdd, CategoriesEdit } from '@/pages/Admin/Categories'
-import { CountriesAdd, CountriesEdit } from '@/pages/Admin/Countries'
-import { OrderStatusAdd, OrderStatusEdit } from '@/pages/Admin/OrderStatus'
-import { OrdersEdit, OrdersView } from '@/pages/Admin/Orders'
-import { ProductsAdd, ProductsEdit } from '@/pages/Admin/Products'
-import { UsersAdd, UsersEdit } from '@/pages/Admin/Users'
 import { Outlet } from "react-router-dom"
 
 const adminBodyStyle = {
@@ -26,28 +19,6 @@ const Dashboard = () => {
             <div className="admin-body" style={adminBodyStyle}>
                 {<Outlet />}
             </div>
-
-            <UsersAdd />
-            <UsersEdit />
-
-            <ProductsAdd />
-            <ProductsEdit />
-
-            <CountriesAdd />
-            <CountriesEdit />
-
-            <CategoriesAdd />
-            <CategoriesEdit />
-
-            <AttributeAdd />
-            <AttributeEdit />
-            <AttributeVariant />
-            
-            <OrdersEdit />
-            <OrdersView />
-
-            <OrderStatusAdd />
-            <OrderStatusEdit />
         </div>
     )
 }

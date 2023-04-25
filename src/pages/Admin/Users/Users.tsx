@@ -1,4 +1,4 @@
-import { UsersBody, UsersHeader } from './index'
+import { UsersAdd, UsersBody, UsersEdit, UsersHeader } from './index'
 import './Users.scss'
 
 const Users = () => {
@@ -6,6 +6,8 @@ const Users = () => {
         <div className='users'>
             <UsersHeader />
             <UsersBody />
+            <UsersAdd />
+            <UsersEdit />
         </div>
     )
 }

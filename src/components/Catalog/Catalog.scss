@@ -1,0 +1,108 @@
+@import "@/styles/general/mixin";
+@import "@/styles/general/ui";
+@import "@/styles/general/variables";
+
+.catalog {
+    @include flex(center, center);
+    @extend %btn, %w-bg-r-btn, %w-opacity;
+    height: 70px;
+    padding: 20px;
+    width: 280px;
+    &.catalog-active {
+        border-bottom-left-radius: 0px;
+        border-bottom-right-radius: 0px;
+    }
+
+    &__title {
+        margin-right: 20px;
+    }
+
+    &__icon {
+        width: 30px;
+        height: 100%;
+        background: url(data:image/svg+xml,%3Csvg%20version%3D%221.1%22%20baseProfile%3D%22full%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20xmlns%3Aev%3D%22http%3A%2F%2Fwww.w3.org%2F2001%2Fxml-events%22%20xml%3Aspace%3D%22preserve%22%20x%3D%220px%22%20y%3D%220px%22%20width%3D%2223px%22%20height%3D%2221px%22%20%20viewBox%3D%220%200%2023%2021%22%20preserveAspectRatio%3D%22none%22%20shape-rendering%3D%22geometricPrecision%22%3E%3Cpath%20fill%3D%22%23fff%22%20d%3D%22M0%200H20V2H0V0ZM0%208H20V10H0V8ZM20%2016H0V18H20V16Z%22%2F%3E%3C%2Fsvg%3E)
+            50% 50% no-repeat;
+        background-position: 50% 50%;
+        background-repeat: no-repeat;
+    }
+
+    &__menu {
+        position: absolute;
+        z-index: 2;
+        width: 280px;
+        background-color: #f7f7f7;
+        border: 1px solid rgba(0, 0, 0, 0.08);
+        border-bottom-left-radius: 6px;
+        border-bottom-right-radius: 6px;
+        height: 0;
+        margin-bottom: 30px;
+        opacity: 0;
+        overflow: hidden;
+        transition: all 0.3s;
+
+        &.catalog-active {
+            height: auto;
+            overflow: visible;
+            opacity: 1;
+        }
+    }
+}
+
+.catalog-list {
+    &__item {
+        color: $linkColor;
+        position: relative;
+        transition: all 0.3s;
+
+        &:hover {
+            color: $btnBorderColor;
+
+            .catalog-list__menu {
+                display: block;
+            }
+        }
+
+        &:not:last-child {
+            border-bottom: 1px solid hsla(0, 0%, 6%, 0.05);
+        }
+    }
+
+    &__link {
+        @include flex(flex-start, center, $gap: 10px);
+        @include fontArguments($textfont);
+        color: inherit;
+        padding: 20px;
+    }
+
+    &__sublevel {
+        padding: 15px 20px;
+        border-radius: 6px;
+        cursor: pointer;
+        &:hover {
+            background-color: $activeColor;
+
+            .catalog-list__title {
+                color: #fff;
+            }
+        }
+    }
+
+    &__menu {
+        display: none;
+        position: absolute;
+        top: 0;
+        z-index: 2;
+        right: -116%;
+        background-color: #fff;
+        width: 320px;
+        padding: 10px 10px;
+        border-radius: 6px;
+        box-shadow: 0px 4px 50px #0000001a;
+    }
+
+    &__title {
+        @include fontArguments($textfont);
+        font-size: 16px;
+        color: rgba(57, 57, 57, 0.7019607843);
+    }
+}

@@ -1,11 +1,13 @@
 import './Countries.scss'
-import { CountriesBody, CountriesHeader } from './index'
+import { CountriesAdd, CountriesBody, CountriesEdit, CountriesHeader } from './index'
 
 const Countries = () => {
     return (
         <div className='countries'>
             <CountriesHeader />
-            <CountriesBody/>
+            <CountriesBody />
+            <CountriesAdd />
+            <CountriesEdit />
         </div>
     )
 }

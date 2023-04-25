@@ -6,13 +6,13 @@
 
 // 1260 960 768 320
 
-body{
+body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
 }
 
-#root{
+#root {
     min-height: 100vh;
 }
 
@@ -39,14 +39,12 @@ footer {
 }
 
 @media screen and (max-width: 1260px) {
+    .wrapper {
+        width: 1260px;
+    }
+
     .container {
         padding: 0 30px;
-    }
-}
-
-@media screen and (max-width: 530px) {
-    .container {
-        padding: 0 10px;
     }
 }
 

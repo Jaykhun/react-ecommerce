@@ -1,11 +1,13 @@
-import { OrderStatusBody, OrderStatusHeader } from './index'
+import { OrderStatusAdd, OrderStatusBody, OrderStatusEdit, OrderStatusHeader } from './index'
 import './OrderStatus.scss'
 
 const OrderStatus = () => {
   return (
     <div className='orderStatus'>
-        <OrderStatusHeader/>
-        <OrderStatusBody/>
+      <OrderStatusHeader />
+      <OrderStatusBody />
+      <OrderStatusAdd />
+      <OrderStatusEdit />
     </div>
   )
 }
