@@ -4,7 +4,6 @@
 
 .item-product {
     margin-right: 50px;
-    cursor: pointer;
     &__img {
         padding: 10px;
         img {
@@ -25,7 +24,7 @@
         }
     }
 
-    &__discount{
+    &__discount {
         position: absolute;
         left: 15px;
         bottom: 8px;
@@ -47,6 +46,7 @@
         border-top-color: transparent;
         border-bottom-left-radius: 8px;
         border-bottom-right-radius: 8px;
+        cursor: pointer;
     }
 
     &__content {

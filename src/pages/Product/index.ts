@@ -1,6 +1,6 @@
 import Product from './Product'
+import ProductDetails from './ProductDetails'
 import ProductItem from './ProductItem'
-import ProductSlider from './ProductSlider'
 
-export { Product, ProductItem, ProductSlider }
+export { Product, ProductDetails, ProductItem }
 

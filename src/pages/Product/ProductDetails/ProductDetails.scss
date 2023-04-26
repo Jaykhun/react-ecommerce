@@ -1,0 +1,144 @@
+@import "@/styles/general/mixin";
+@import "@/styles/general/variables";
+@import "@/styles/general/ui";
+
+.product {
+    &__title {
+        @extend %title;
+        margin-bottom: 30px;
+    }
+
+    &__body {
+        @include flex(space-between, flex-start, $gap: 20px);
+        margin-bottom: 20px;
+    }
+
+    &__content {
+        flex: 0 0 65%;
+    }
+
+    &__control {
+        padding: 29px 40px 27px;
+        border-radius: 8px;
+        border: 1px solid #00000014;
+    }
+
+    &__info {
+        margin-top: 20px;
+    }
+
+    &__img {
+        flex: 1 1 auto;
+        img {
+            width: 265px;
+            height: 265px;
+            object-fit: cover;
+            border-radius: $borderRadius;
+        }
+    }
+
+    &__sale {
+        @extend %wordSale;
+        margin-bottom: 15px;
+    }
+
+    &__price {
+        @include flex(flex-start, center, $gap: 20px);
+    }
+
+    &__price-current {
+        @extend %currentPrice;
+        font-size: 28px;
+    }
+
+    &__price-past {
+        @extend %pastPrice;
+    }
+
+    &__buy {
+        @extend %btn, %w-bg-r-btn, %w-opacity;
+        padding: 20.5px 65px 20.5px 37px;
+        margin-top: 20px;
+        @include pseudo() {
+            background: url("data:image/svg+xml;charset=utf-8,%3Csvg baseProfile='full' xmlns='http://www.w3.org/2000/svg' xml:space='preserve' width='23' height='21' preserveAspectRatio='none' shape-rendering='geometricPrecision'%3E%3Cpath fill='%23fff' d='M0 2h2.313l4.754 12.359A1 1 0 0 0 8 15h10a1 1 0 0 0 .928-.629l4-10A1 1 0 0 0 22 3H9v2h11.523l-3.2 8H8.687L3.933.641A1 1 0 0 0 3 0H0v2Zm7 17a2 2 0 1 1 4 0 2 2 0 0 1-4 0Zm8 0a2 2 0 1 1 4 0 2 2 0 0 1-4 0Z'/%3E%3C/svg%3E")
+                50% no-repeat;
+            right: 30px;
+            top: 0;
+            z-index: 1;
+            width: 24px;
+            height: 100%;
+            pointer-events: none;
+        }
+    }
+
+    &__disabled {
+        cursor: not-allowed;
+        background-color: #101010;
+        color: #fff;
+    }
+
+    &__category {
+        @include fontArguments($textfont, 17px, 500);
+        color: $activeColor;
+        margin-bottom: 10px;
+    }
+
+    &__desc {
+        @include fontArguments($textfont);
+        color: #0f0f0fcc;
+        font-size: 16px;
+        padding: 0 0 15px px;
+    }
+
+    &__nav {
+        @include flex(space-between, center, $gap: 20px);
+        @include fontArguments($mainFont, 13px, 500);
+        background-color: #f7f7f7;
+        border-radius: $borderRadius;
+        color: $titleColor;
+        padding: 15px 65px;
+        a {
+            color: inherit;
+            @include pseudo() {
+                width: 20px;
+                height: 10px;
+                background: url(data:image/svg+xml,%3Csvg%20version%3D%221.1%22%20baseProfile%3D%22full%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20xmlns%3Aev%3D%22http%3A%2F%2Fwww.w3.org%2F2001%2Fxml-events%22%20xml%3Aspace%3D%22preserve%22%20x%3D%220px%22%20y%3D%220px%22%20width%3D%2220px%22%20height%3D%2210px%22%20%20viewBox%3D%220%200%2020%2010%22%20preserveAspectRatio%3D%22none%22%20shape-rendering%3D%22geometricPrecision%22%3E%22%3Cpath%20d%3D%22M2%205L1.29289%204.29289L0.585786%205L1.29289%205.70711L2%205ZM6.70711%208.29289L2.70711%204.29289L1.29289%205.70711L5.29289%209.70711L6.70711%208.29289ZM2.70711%205.70711L6.70711%201.70711L5.29289%200.292893L1.29289%204.29289L2.70711%205.70711ZM20%204H2V6H20V4Z%22%20fill%3D%22%23101010%22%3E%3C%2Fpath%3E%3C%2Fsvg%3E)
+                    50% 50% no-repeat;
+                top: 2px;
+                transition: all 0.3s;
+            }
+        }
+    }
+
+    &__previous {
+        &::before {
+            left: -35px;
+        }
+    }
+
+    &__next {
+        color: inherit;
+        &::before {
+            right: -35px;
+            transform: rotate(180deg);
+        }
+    }
+}
+
+.attribute-product {
+    margin-top: 30px;
+    &__name {
+        @include fontArguments($textfont, 15px, 500);
+        color: $activeColor;
+        margin-bottom: 7px;
+    }
+
+    &__variants{
+        @include flex($gap: 8px);
+        @include fontArguments($textfont, 15px);
+        color: $textColor;
+    }
+
+    &__variant{
+    }
+}

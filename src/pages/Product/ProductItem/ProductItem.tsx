@@ -1,6 +1,7 @@
 import { FetchProduct } from '@/models/productTypes'
 import { calculateDiscount } from '@/utils/calculateDiscount'
 import { FC } from 'react'
+import { useNavigate } from 'react-router-dom'
 import './ProductItem.scss'
 
 interface ProductItemProps {
@@ -9,6 +10,9 @@ interface ProductItemProps {
 
 const ProductItem: FC<ProductItemProps> = ({ product }) => {
     const { name, id, images, quantity, discount, price } = product
+    const navigate = useNavigate()
+    
+    const handleNavigate = () => navigate(`/product/${id}`)
 
     return (
         <div className='product__item item-product'>
@@ -20,7 +24,7 @@ const ProductItem: FC<ProductItemProps> = ({ product }) => {
                 }
             </div>
 
-            <div className="item-product__info">
+            <div className="item-product__info" onClick={handleNavigate}>
                 <div className="item-product__content">
                     <div className="item-product__name">{name}</div>
                     <div className="item-product__price">
