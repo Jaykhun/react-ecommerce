@@ -1,0 +1,64 @@
+@import "@/styles/general/mixin";
+@import "@/styles/general/variables";
+@import "@/styles/general/ui";
+
+.item-product {
+    margin-right: 50px;
+    cursor: pointer;
+    &__img {
+        padding: 10px;
+        img {
+            width: 265px;
+            height: 265px;
+            object-fit: contain;
+            border-radius: 8px;
+        }
+
+        @include pseudo() {
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #00000008;
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+        }
+    }
+
+    &__discount{
+        position: absolute;
+        left: 15px;
+        bottom: 8px;
+        @extend %priceDiscount;
+    }
+
+    &__price {
+        @include flex(space-between, $gap: 20px);
+        @extend %currentPrice;
+        padding: 7px 12px;
+    }
+
+    &__info {
+        min-height: 130px;
+        padding: 20px;
+        border-color: #00000014;
+        border-width: 1px;
+        border-style: solid;
+        border-top-color: transparent;
+        border-bottom-left-radius: 8px;
+        border-bottom-right-radius: 8px;
+    }
+
+    &__content {
+        @include flex(space-between, center, $gap: 10px);
+    }
+
+    &__name {
+        @extend %productName;
+    }
+
+    &__sale {
+        margin-top: 20px;
+        @extend %wordSale;
+    }
+}

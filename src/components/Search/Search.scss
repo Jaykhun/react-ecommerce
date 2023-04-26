@@ -74,7 +74,7 @@
 
         button {
             position: absolute;
-            left: 23px;
+            left: 33px;
             background-color: transparent;
         }
 
@@ -92,5 +92,6 @@
 
     &__parametr-btn {
         @extend %btn;
+        font-size: 15px;
     }
 }

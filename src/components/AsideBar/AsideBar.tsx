@@ -42,7 +42,7 @@ const AsideBar = () => {
 
               <div className="asidebar-best__discount">
                 <div className="asidebar-best__sale">sale</div>
-                <div className="asidebar-best__percent">{bestProduct?.discount} %</div>
+                <div className="asidebar-best__percent">-{bestProduct?.discount} %</div>
               </div>
 
               <div className="asidebar-best__price">

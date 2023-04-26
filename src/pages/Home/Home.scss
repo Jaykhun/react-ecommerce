@@ -1,0 +1,9 @@
+@import "@/styles/general/mixin";
+@import "@/styles/general/variables";
+@import "@/styles/general/ui";
+
+.home {
+    &__title {
+        @extend %title;
+    }
+}
