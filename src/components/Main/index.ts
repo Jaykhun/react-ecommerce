@@ -1,7 +1,7 @@
 import Main from './Main'
 import MainActions from './MainActions'
 import MainBody from './MainBody'
-import Maintop from './Maintop'
+import MainTop from './MainTop'
 
-export { Main, MainActions, MainBody, Maintop }
+export { Main, MainActions, MainBody, MainTop }
 

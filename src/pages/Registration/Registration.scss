@@ -1,0 +1,46 @@
+@import "@/styles/general/mixin";
+@import "@/styles/general/variables";
+@import "@/styles/general/ui";
+
+.registration {
+    &__title {
+        @extend %modalTitle;
+        margin-bottom: 20px;
+    }
+
+    &__form {
+        @include flex(space-between, flex-start, column, $gap: 20px);
+    }
+
+    &__details,
+    &__address,
+    &__numbers {
+        @include flex(space-between, flex-start, $wrap: wrap, $gap: 20px);
+        width: 100%;
+    }
+
+    &__info {
+        @include flex(space-between, flex-start, $gap: 20px);
+        width: 100%;
+    }
+
+    &__image{
+        width: 100%;
+    }
+
+    &__firstname,
+    &__lastname,
+    &__phone,
+    &__phoneType,
+    &__username,
+    &__password  {
+        flex: 0 0 47%;
+    }
+
+    &__postolcode,
+    &__city,
+    &__country,
+    &__street {
+        flex: 0 0 47%;
+    }
+}

@@ -1,7 +1,7 @@
-import { Link } from "react-router-dom"
+import UserMenu from '@/components/UserMenu'
 import { getToken } from '@/helpers/getToken'
 import { WebStoragePath } from '@/models/userServiceType'
-import UserMenu from '@/components/UserMenu'
+import { Link } from "react-router-dom"
 import './Header.scss'
 
 const Header = () => {
@@ -23,7 +23,7 @@ const Header = () => {
                         ? <UserMenu />
                         : <div className="header__register register">
                             <Link to="/login" className="register__login">Войти</Link>
-                            <Link to="/register" className="register__register">Регистрация</Link>
+                            <Link to="/registration" className="register__register">Регистрация</Link>
                         </div>
                     }
                 </section>

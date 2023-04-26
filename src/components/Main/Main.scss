@@ -36,8 +36,7 @@
 
         span {
             @include flex(center, center);
-            @include fontArguments($mainFont, 500);
-            @include adaptivFont(15, 15);
+            @include fontArguments($mainFont, 15px, 500);
             position: absolute;
             right: 20px;
             min-width: 28px;
@@ -77,6 +76,8 @@
     }
 
     &__outlet {
+        position: relative;
         flex: 1 1 auto;
+        min-height: 60vh;
     }
 }

@@ -9,10 +9,11 @@ import { Orders } from '@/pages/Admin/Orders'
 import { Products, ProductsDetails } from '@/pages/Admin/Products'
 import { Users, UsersDetails } from '@/pages/Admin/Users'
 import LogIn from '@/pages/LogIn'
+import Registration from '@/pages/Registration'
 import Dashboard from '@/routes/Dashboard'
 import Layout from '@/routes/Layout'
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import '@/styles/style.scss'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
 
 const App = () => {
   return (
@@ -42,6 +43,7 @@ const App = () => {
 
         <Route path='/' element={<Layout />}>
           <Route path='login' element={<LogIn />} />
+          <Route path='registration' element={<Registration/>}/>
         </Route>
       </Routes>
 
