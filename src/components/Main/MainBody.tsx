@@ -1,4 +1,5 @@
 import AsideBar from '@/components/AsideBar'
+import CallBack from '@/components/CallBack'
 import { ContactsModal } from '@/components/Contacts'
 import { Outlet } from 'react-router-dom'
 import { MainActions } from './index'
@@ -18,6 +19,7 @@ const MainBody = () => {
             </div>
 
             <ContactsModal />
+            <CallBack />
         </>
     )
 }

@@ -1,0 +1,32 @@
+@import "@/styles/general/mixin";
+@import "@/styles/general/ui";
+@import "@/styles/general/variables";
+
+.callback {
+    width: 300px;
+    &__title {
+        @extend %modalTitle;
+        margin-bottom: 20px;
+    }
+
+    &__form {
+        @include flex(space-between, flex-start, column, $gap: 20px);
+    }
+}
+
+.callback-form {
+    &__message,
+    &__name,
+    &__phone,
+    &__time {
+        width: 100%;
+    }
+
+    &__time {
+        @include flex(space-between, flex-start, column, $gap: 10px);
+    }
+
+    textarea {
+        min-height: 150px;
+    }
+}

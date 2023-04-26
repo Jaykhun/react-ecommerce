@@ -9,3 +9,7 @@ export interface ICall {
 export interface FetchCall extends ICall {
     id: number
 }
+
+export interface AddCall extends ICall {
+
+}
