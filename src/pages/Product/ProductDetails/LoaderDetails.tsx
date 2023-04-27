@@ -18,7 +18,6 @@ const LoaderDetails = () => {
           </div>
         </div>
 
-
         <div className="details-loader__img">
           <Loader width={300} height={350} borderRadius={6} />
         </div>

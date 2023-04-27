@@ -1,3 +1,4 @@
+import { Message } from '@/components/UI'
 import attributeApi from '@/store/api/attribute'
 import productApi from '@/store/api/product'
 import { calculateDiscount } from '@/utils/calculateDiscount'
@@ -11,6 +12,7 @@ const ProductDetails = () => {
   const { data: product, isLoading, isError, error } = productApi.useGetSingleProductQuery(Number(id), { skip: !id })
   const attribute = attributeApi.useGetSingleAttributeQuery(Number(product?.category.id), { skip: !product?.category.id })
 
+  if (isError) return <Message error={error} />
   if (isLoading) return <LoaderDetails />
 
   return (
