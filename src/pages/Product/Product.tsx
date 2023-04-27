@@ -1,11 +1,13 @@
 import { Message } from '@/components/UI'
 import { FetchProduct } from '@/models/productTypes'
-import '@/styles/slider/slick-theme.css'
-import '@/styles/slider/slick.css'
 import { FC } from 'react'
 import Slider from "react-slick"
-import './Product.scss'
 import ProductItem from './ProductItem'
+import ProductLoader from './ProductLoader'
+
+import '@/styles/slider/slick-theme.css'
+import '@/styles/slider/slick.css'
+import './Product.scss'
 
 interface ProductProps {
   products: FetchProduct[],
@@ -31,7 +33,12 @@ const Product: FC<ProductProps> = ({ products, state }) => {
     <div className='product-wrapper'>
       {
         state.isLoading
-          ? <p>Loading...</p>
+          ? <Slider {...settings}>
+            <ProductLoader />
+            <ProductLoader />
+            <ProductLoader />
+            <ProductLoader />
+          </Slider>
           : state.isError
             ? <Message error={state.error} />
             : products.length

@@ -1,6 +1,7 @@
 import { FetchProduct } from '@/models/productTypes'
 import { calculateDiscount } from '@/utils/calculateDiscount'
 import { FC } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 interface AsideBarItemProps {
     products: FetchProduct
@@ -8,9 +9,12 @@ interface AsideBarItemProps {
 
 const AsideBarItem: FC<AsideBarItemProps> = ({ products }) => {
     const { name, images, id, price, discount } = products
+    const navigate = useNavigate()
+
+    const handleNavigate = () => navigate(`/product/${id}`)
 
     return (
-        <div className="asidebar-discount__item">
+        <div className="asidebar-discount__item" onClick={handleNavigate}>
             <div className="asidebar-discount__top">
                 <div className="asidebar-discount__img">
                     <img

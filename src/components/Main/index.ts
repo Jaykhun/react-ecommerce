@@ -4,4 +4,3 @@ import MainBody from './MainBody'
 import MainTop from './MainTop'
 
 export { Main, MainActions, MainBody, MainTop }
-
