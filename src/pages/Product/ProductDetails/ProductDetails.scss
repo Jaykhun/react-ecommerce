@@ -133,9 +133,23 @@
         margin-bottom: 7px;
     }
 
-    &__variants{
+    &__variants {
         @include flex($gap: 8px);
         @include fontArguments($textfont, 15px);
         color: $textColor;
+    }
+}
+
+.details-loader {
+    &__name {
+        margin-bottom: 20px;
+    }
+    &__body {
+        @include flex(space-between, flex-start, $gap: 20px);
+        margin-bottom: 20px;
+    }
+
+    &__control{
+        margin-bottom: 20px;
     }
 }
