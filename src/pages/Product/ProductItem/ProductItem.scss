@@ -55,6 +55,10 @@
 
     &__name {
         @extend %productName;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        width: 120px;
     }
 
     &__sale {

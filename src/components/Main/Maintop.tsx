@@ -1,7 +1,7 @@
 import { Contacts } from '@/components/Contacts'
 import { Link } from 'react-router-dom'
 
-const Maintop = () => {
+const MainTop = () => {
     return (
         <section className="main-top">
             <div className="main-top__header">
@@ -16,4 +16,4 @@ const Maintop = () => {
     )
 }
 
-export default Maintop
+export default MainTop

@@ -34,10 +34,9 @@ const Product: FC<ProductProps> = ({ products, state }) => {
       {
         state.isLoading
           ? <Slider {...settings}>
-            <ProductLoader />
-            <ProductLoader />
-            <ProductLoader />
-            <ProductLoader />
+            {Array(4).fill(<ProductLoader />)
+              .map(loader => <div key={loader}>{loader}</div>)
+            }
           </Slider>
           : state.isError
             ? <Message error={state.error} />

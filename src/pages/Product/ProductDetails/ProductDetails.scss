@@ -79,15 +79,23 @@
 
     &__category {
         @include fontArguments($textfont, 17px, 500);
-        color: $activeColor;
-        margin-bottom: 10px;
+        color: $titleColor;
+        margin-bottom: 15px;
+        .product__txt {
+            margin-bottom: 5px;
+            display: block;
+        }
     }
 
     &__desc {
         @include fontArguments($textfont);
         color: #0f0f0fcc;
         font-size: 16px;
-        padding: 0 0 15px px;
+        line-height: 150%;
+        .product__txt {
+            margin-bottom: 5px;
+            display: block;
+        }
     }
 
     &__nav {
@@ -123,13 +131,19 @@
             transform: rotate(180deg);
         }
     }
+
+    &__txt {
+        color: $activeColor;
+        font-weight: 500;
+    }
 }
 
 .attribute-product {
     margin-top: 30px;
     &__name {
-        @include fontArguments($textfont, 15px, 500);
-        color: $activeColor;
+        @include flex(flex-start, flex-start, $gap: 10px);
+        @include fontArguments($textfont, 15px, 600);
+        color: $titleColor;
         margin-bottom: 7px;
     }
 
@@ -149,7 +163,7 @@
         margin-bottom: 20px;
     }
 
-    &__control{
+    &__control {
         margin-bottom: 20px;
     }
 }

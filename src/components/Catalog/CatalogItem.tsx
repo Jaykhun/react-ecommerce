@@ -1,6 +1,6 @@
 import { FetchCategory, ICategory } from '@/models/categoryTypes'
 import { FC } from 'react'
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 
 interface CatalogItemProps {
     category: FetchCategory
@@ -8,6 +8,9 @@ interface CatalogItemProps {
 
 const CatalogItem: FC<CatalogItemProps> = ({ category }) => {
     const { name, id, children_category } = category
+    const navigate = useNavigate()
+
+    const handleNavigate = (id: number) => navigate(`product/category/${id}`)
 
     return (
         <li className="catalog-list__item">
@@ -18,11 +21,10 @@ const CatalogItem: FC<CatalogItemProps> = ({ category }) => {
             {children_category?.length !== 0
                 ? <ul className="catalog-list__menu">
                     {children_category?.map((subCategory: ICategory) =>
-                        <li className="catalog-list__sublevel" key={subCategory.id}>
-                            <Link to={{ pathname: `product/category/${subCategory.id}` }}
-                                className="catalog-list__title">
+                        <li className="catalog-list__sublevel" onClick={() => handleNavigate(subCategory.id)} key={subCategory.id}>
+                            <div className="catalog-list__title">
                                 {subCategory.name}
-                            </Link>
+                            </div>
                         </li>)}
                 </ul>
                 : ''

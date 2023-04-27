@@ -10,7 +10,7 @@ import { Products, ProductsDetails } from '@/pages/Admin/Products'
 import { Users, UsersDetails } from '@/pages/Admin/Users'
 import Home from '@/pages/Home'
 import LogIn from '@/pages/LogIn'
-import { ProductDetails } from '@/pages/Product'
+import { ProductDetails, ProductSorted } from '@/pages/Product'
 import Registration from '@/pages/Registration'
 import Dashboard from '@/routes/Dashboard'
 import Layout from '@/routes/Layout'
@@ -44,12 +44,12 @@ const App = () => {
         </Route>
 
         <Route path='/' element={<Layout />}>
-          <Route index element={<Home/>} />
+          <Route index element={<Home />} />
           <Route path='login' element={<LogIn />} />
           <Route path='registration' element={<Registration />} />
-          
-          <Route path='product/:id' element={<ProductDetails/>} />
-         
+
+          <Route path='product/:id' element={<ProductDetails />} />
+          <Route path='product/category/:id' element={<ProductSorted />} />
         </Route>
       </Routes>
 

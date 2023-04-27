@@ -17,7 +17,7 @@ const ProductDetails = () => {
   if (isLoading) return <LoaderDetails />
 
   const pathHistory = {
-    path: String(product?.id),
+    path: String(product?.category.id),
     name: String(product?.category.name)
   }
 
@@ -56,22 +56,34 @@ const ProductDetails = () => {
           </div>
 
           <div className="product__info">
-            <div className="product__category">{product?.category.name}</div>
-            <div className="product__desc">{product?.description}</div>
+            <div className="product__category">
+              <span className='product__txt'>Категории</span>
+              <span>{product?.category.name}</span>
+            </div>
+            <div className="product__desc">
+              <span className='product__txt'>Описание </span>
+              <span>{product?.description}</span>
+            </div>
             {attribute.isLoading
               ? <Message formError='Идет загрузка атрибутов...' />
               : attribute.isError ?
                 <Message error={attribute.error} formError='Не удалось загузить атрибутов' />
                 : <div className="product__attribute attribute-product">
                   <div className="attribute-product__name">
-                    {attribute.data?.attribute_name}
+                    <span className='product__txt'>Атрибут</span>
+                    <span>{attribute.data?.attribute_name}</span>
                   </div>
 
-                  <div className="attribute-product__variants">
-                    {attribute.data?.variants.map(variant =>
-                      <div className='attribute-product__variant' key={variant.id}>{variant.value}</div>)
-                    }
-                  </div>
+                  {attribute.data?.variants.length
+                    ? <div className="attribute-product__variants">
+                      <span className='product__txt'>Варианты</span>
+
+                      {attribute.data?.variants.map(variant =>
+                        <div className='attribute-product__variant' key={variant.id}>{variant.value}</div>)
+                      }
+                    </div>
+                    : ''
+                  }
                 </div>
             }
           </div>

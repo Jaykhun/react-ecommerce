@@ -19,7 +19,7 @@ export const productApi = createApi({
             providesTags: ['product']
         }),
         getProductByCategory: build.query<FetchProduct[], number>({
-            query: (id) => `categories/${id}products`,
+            query: (id) => `categories/${id}/products`,
             providesTags: ['product']
         }),
         addProduct: build.mutation<FetchProduct, AddProduct>({
