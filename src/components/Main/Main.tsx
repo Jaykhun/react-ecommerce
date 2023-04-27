@@ -1,13 +1,12 @@
-import { MainBody } from './index'
+import { MainBody, Maintop } from './index'
 import './Main.scss'
-import MainTop from './MainTop'
 
 const Main = () => {
     return (
         <main className='main'>
             <div className="container">
-                <MainTop/>
-                <MainBody/>
+                <Maintop />
+                <MainBody />
             </div>
         </main>
     )

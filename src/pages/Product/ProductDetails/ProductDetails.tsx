@@ -1,3 +1,4 @@
+import Path from '@/components/Path'
 import { Message } from '@/components/UI'
 import attributeApi from '@/store/api/attribute'
 import productApi from '@/store/api/product'
@@ -15,8 +16,17 @@ const ProductDetails = () => {
   if (isError) return <Message error={error} />
   if (isLoading) return <LoaderDetails />
 
+  const pathHistory = {
+    path: String(product?.id),
+    name: String(product?.category.name)
+  }
+
+
   return (
     <div className='product'>
+      <div className="product__path">
+        <Path pathHistory={pathHistory} currentPage={product?.name} />
+      </div>
       <div className="product__title">{product?.name}</div>
       <div className="product__body">
         <div className="product__content">
@@ -48,17 +58,22 @@ const ProductDetails = () => {
           <div className="product__info">
             <div className="product__category">{product?.category.name}</div>
             <div className="product__desc">{product?.description}</div>
-            <div className="product__attribute attribute-product">
-              <div className="attribute-product__name">
-                {attribute.data?.attribute_name}
-              </div>
+            {attribute.isLoading
+              ? <Message formError='Идет загрузка атрибутов...' />
+              : attribute.isError ?
+                <Message error={attribute.error} formError='Не удалось загузить атрибутов' />
+                : <div className="product__attribute attribute-product">
+                  <div className="attribute-product__name">
+                    {attribute.data?.attribute_name}
+                  </div>
 
-              <div className="attribute-product__variants">
-                {attribute.data?.variants.map(variant =>
-                  <div className='attribute-product__variant' key={variant.id}>{variant.value}</div>)
-                }
-              </div>
-            </div>
+                  <div className="attribute-product__variants">
+                    {attribute.data?.variants.map(variant =>
+                      <div className='attribute-product__variant' key={variant.id}>{variant.value}</div>)
+                    }
+                  </div>
+                </div>
+            }
           </div>
         </div>
 

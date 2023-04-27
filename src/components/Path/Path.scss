@@ -1,0 +1,21 @@
+@import "@/styles/general/mixin";
+@import "@/styles/general/variables";
+@import "@/styles/general/ui";
+
+.path {
+    @include flex(flex-start, center, $gap: 20px);
+    @include fontArguments($textfont, 14px);
+    color: #39393966;
+    margin-bottom: 20px;
+
+    &__history {
+        background-color: #f7f7f7;
+        border-radius: 4px;
+        color: inherit;
+        padding: 7px 20px;
+    }
+
+    &__current {
+        background: transparent;
+    }
+}
