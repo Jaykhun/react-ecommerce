@@ -90,12 +90,15 @@
 }
 
 .total-cart {
-    @include flex(space-between, flex-start, column, $gap: 50px);
     flex: 0 0 300px;
     min-height: 150px;
-    padding: 20px 30px 30px;
-    background-color: #f7f7f7;
-    border-radius: 8px;
+
+    &__content {
+        @include flex(space-between, flex-start, column, $gap: 50px);
+        padding: 20px 30px 30px;
+        background-color: $mostUsedBcg;
+        border-radius: 8px;
+    }
 
     &__title {
         @include fontArguments($mainFont, 25px, 700);
@@ -113,5 +116,13 @@
 
     &__price {
         @include fontArguments($mainFont, 19px, 700);
+    }
+
+    &__buy{
+        text-align: center;
+        margin-top: 20px;
+        button{
+            width: 100%;
+        }
     }
 }

@@ -1,11 +1,12 @@
 import './Cart.scss'
-import { CartBody, CartHeader } from './index'
+import { CartBody, CartHeader, CartModal } from './index'
 
 const Cart = () => {
     return (
         <div className='cart'>
             <CartHeader />
             <CartBody />
+            <CartModal/>
         </div>
     )
 }

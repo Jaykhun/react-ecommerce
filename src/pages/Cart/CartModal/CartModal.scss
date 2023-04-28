@@ -1,0 +1,23 @@
+@import "@/styles/general/mixin";
+@import "@/styles/general/ui";
+@import "@/styles/general/variables";
+
+.cart-modal {
+    width: 300px;
+    &__title {
+        @extend %modalTitle;
+        margin-bottom: 20px;
+    }
+
+    &__txt {
+        @include fontArguments($textfont, 16px, 500);
+        color: $textColor;
+        span {
+            color: $activeColor;
+            margin: 0px 4px;
+            a {
+                color: inherit;
+            }
+        }
+    }
+}

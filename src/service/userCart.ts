@@ -4,12 +4,14 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
 interface UserCartStateType {
     products: CartProduct[],
-    totalPrice: number
+    totalPrice: number,
+    isCartModalOpen: boolean
 }
 
 const initialState: UserCartStateType = {
     products: [],
-    totalPrice: 0
+    totalPrice: 0,
+    isCartModalOpen: false
 }
 
 export const userCart = createSlice({
@@ -44,11 +46,19 @@ export const userCart = createSlice({
             }))
         },
 
-        counTotalPrice(state) {
-            console.log(1)
+        countTotalPrice(state) {
+            state.totalPrice = state.products.reduce((counter, { count, price, discount }) => {
+                const productPrice = discount > 0 ? calculateDiscount(price, discount) : price
+                return count * productPrice + counter
+            }, 0)
+        },
 
-            state.totalPrice = state.products.reduce((counter, { count, price, discount }) =>
-                count * discount > 0 ? calculateDiscount(price, discount) : price + counter, 0)
+        openCartModal(state) {
+            state.isCartModalOpen = true
+        },
+
+        closeCartModal(state) {
+            state.isCartModalOpen = false
         }
     }
 })

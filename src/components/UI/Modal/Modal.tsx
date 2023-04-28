@@ -1,5 +1,5 @@
 import clsx from 'clsx'
-import { FC, ReactNode, useEffect, useRef } from 'react'
+import { FC, ReactNode, useRef } from 'react'
 import { CSSTransition } from 'react-transition-group'
 import Loader from '../Loader'
 import Message from '../Message'
@@ -22,11 +22,9 @@ const Modal: FC<ModalProps> = ({ isOpen, handleClose, children, state }) => {
     const { isLoading, isError, error } = state
     const nodeRef = useRef(null)
 
-    useEffect(() => {
-        isOpen
-            ? document.body.classList.add('modal-active')
-            : document.body.classList.remove('modal-active')
-    }, [isOpen])
+    isOpen
+        ? document.body.classList.add('modal-active')
+        : document.body.classList.remove('modal-active')
 
     return (
         <CSSTransition
