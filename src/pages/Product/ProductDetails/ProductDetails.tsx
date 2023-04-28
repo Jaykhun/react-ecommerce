@@ -58,7 +58,7 @@ const ProductDetails = () => {
           <div className="product__info">
             <div className="product__category">
               <span className='product__txt'>Категории</span>
-              <span>{product?.category.name}</span>
+              <Link to={`/product/category/${product?.category.id}`}><span>{product?.category.name}</span></Link>
             </div>
             <div className="product__desc">
               <span className='product__txt'>Описание </span>

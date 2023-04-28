@@ -1,5 +1,6 @@
 import { contactsSlice } from '@/service/contactsSlice'
 import { menuSlice } from '@/service/menuSlice'
+import { userCart } from '@/service/userCart'
 import { configureStore } from '@reduxjs/toolkit'
 import { setupListeners } from '@reduxjs/toolkit/query'
 import callApi from './api/call'
@@ -27,6 +28,7 @@ export const store = configureStore({
         attributeSlice: attributeSlice.reducer,
         menuSlice: menuSlice.reducer,
         contactsSlice: contactsSlice.reducer,
+        userCart: userCart.reducer,
         [userApi.reducerPath]: userApi.reducer,
         [productApi.reducerPath]: productApi.reducer,
         [countryApi.reducerPath]: countryApi.reducer,

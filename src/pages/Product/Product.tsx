@@ -24,7 +24,7 @@ const Product: FC<ProductProps> = ({ products, state }) => {
     infinite: false,
     speed: 500,
     slidesToShow: 3,
-    slidesToScroll: 3,
+    slidesToScroll: 1,
     pauseOnHover: true,
     arrows: false,
   }
