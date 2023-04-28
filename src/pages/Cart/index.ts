@@ -1,2 +1,6 @@
 import Cart from './Cart'
-export default Cart
+import CartBody from './CartBody'
+import CartHeader from './CartHeader'
+
+export { Cart, CartBody, CartHeader }
+

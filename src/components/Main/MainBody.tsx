@@ -11,9 +11,12 @@ const MainBody = () => {
         <>
             <MainActions />
             <div className={clsx('main-content', { 'hide': pathname === '/cart' })}>
-                <div className={clsx('main-content__asidebar', { 'hide': pathname === '/cart' })}>
-                    <AsideBar />
-                </div>
+                {
+                    pathname !== '/cart'
+                    && <div className='main-content__asidebar'>
+                        <AsideBar />
+                    </div>
+                }
 
                 <div className="main-content__outlet">
                     <Outlet />

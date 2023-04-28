@@ -1,12 +1,12 @@
-import { useTypedSelector } from '@/hooks/useTypedSelector'
 import './Cart.scss'
+import { CartBody, CartHeader } from './index'
 
 const Cart = () => {
-    const { products } = useTypedSelector(state => state.userCart)
-
-    
     return (
-        <div>Cart</div>
+        <div className='cart'>
+            <CartHeader />
+            <CartBody />
+        </div>
     )
 }
 

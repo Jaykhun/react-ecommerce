@@ -16,7 +16,11 @@ const Path: FC<PathProps> = ({ pathHistory, currentPage }) => {
     return (
         <div className='path'>
             <Link to={'/'} className="path__history">Главаня</Link>
-            <Link className='path__history' to={`/product/category/${String(pathHistory?.path)}`}>{pathHistory?.name}</Link>
+            {pathHistory &&
+                <Link className='path__history' to={`/product/category/${String(pathHistory?.path)}`}>
+                    {pathHistory?.name}
+                </Link>
+            }
             <div className="path__current">{currentPage}</div>
         </div>
     )

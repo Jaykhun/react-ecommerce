@@ -1,0 +1,117 @@
+@import "@/styles/general/mixin";
+@import "@/styles/general/ui";
+@import "@/styles/general/variables";
+
+.cart {
+    &__title {
+        @extend %title;
+    }
+
+    &__body {
+        margin-top: 30px;
+    }
+
+    &__content {
+        @include flex(space-between, flex-start, $gap: 30px);
+    }
+
+    &__inner {
+        width: 100%;
+    }
+
+    &__products {
+        flex: 1 1 auto;
+    }
+
+    &__head {
+        @include flex(space-between, center, $gap: 10px);
+        background-color: #f7f7f7;
+        border-radius: 8px;
+        padding: 14px 15px;
+        margin-bottom: 20px;
+    }
+
+    &__heading {
+        @include flex(flex-start, center, $gap: 100px);
+        @include fontArguments($textfont, 15px);
+        color: #0f0f0f99;
+        flex: 0 0 52%;
+    }
+
+    &__footer {
+        @include flex(space-between, center, $gap: 20px);
+        @include fontArguments($mainFont, 15px, 600);
+        color: $titleColor;
+        margin-top: 30px;
+    }
+
+    &__back {
+        @extend %b-opacity;
+        background-color: $mostUsedBcg;
+        border-radius: 6px;
+        font-size: 15px;
+        padding: 13.5px 40px 13.5px 65px;
+        transition: all 0.2s;
+        @include pseudo($loc: before) {
+            width: 20px;
+            height: 10px;
+            background: url(data:image/svg+xml,%3Csvg%20version%3D%221.1%22%20baseProfile%3D%22full%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20xmlns%3Aev%3D%22http%3A%2F%2Fwww.w3.org%2F2001%2Fxml-events%22%20xml%3Aspace%3D%22preserve%22%20x%3D%220px%22%20y%3D%220px%22%20width%3D%2220px%22%20height%3D%2210px%22%20%20viewBox%3D%220%200%2020%2010%22%20preserveAspectRatio%3D%22none%22%20shape-rendering%3D%22geometricPrecision%22%3E%22%3Cpath%20d%3D%22M2%205L1.29289%204.29289L0.585786%205L1.29289%205.70711L2%205ZM6.70711%208.29289L2.70711%204.29289L1.29289%205.70711L5.29289%209.70711L6.70711%208.29289ZM2.70711%205.70711L6.70711%201.70711L5.29289%200.292893L1.29289%204.29289L2.70711%205.70711ZM20%204H2V6H20V4Z%22%20fill%3D%22%23101010%22%20opacity%3D%220.5%22%3E%3C%2Fpath%3E%3C%2Fsvg%3E)
+                50% no-repeat;
+            left: 32px;
+            top: 17px;
+            transition: all 0.3s;
+        }
+
+        &:hover::before {
+            background: url(data:image/svg+xml,%3Csvg%20version%3D%221.1%22%20baseProfile%3D%22full%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20xmlns%3Aev%3D%22http%3A%2F%2Fwww.w3.org%2F2001%2Fxml-events%22%20xml%3Aspace%3D%22preserve%22%20x%3D%220px%22%20y%3D%220px%22%20width%3D%2220px%22%20height%3D%2210px%22%20%20viewBox%3D%220%200%2020%2010%22%20preserveAspectRatio%3D%22none%22%20shape-rendering%3D%22geometricPrecision%22%3E%3Cpath%20d%3D%22M2%205L1.29289%204.29289L0.585786%205L1.29289%205.70711L2%205ZM6.70711%208.29289L2.70711%204.29289L1.29289%205.70711L5.29289%209.70711L6.70711%208.29289ZM2.70711%205.70711L6.70711%201.70711L5.29289%200.292893L1.29289%204.29289L2.70711%205.70711ZM20%204H2V6H20V4Z%22%20fill%3D%22%23fff%22%3E%3C%2Fpath%3E%3C%2Fsvg%3E)
+                50% no-repeat;
+        }
+    }
+
+    &__clear {
+        font-size: 13px;
+        padding: 3px 0;
+        transition: all 0.3s;
+        cursor: pointer;
+
+        @include pseudo() {
+            bottom: -4px;
+            right: 0;
+            width: 100%;
+            height: 2px;
+            background-color: #000;
+            transition: all 0.3s;
+        }
+
+        &:hover::before {
+            width: 0;
+        }
+    }
+}
+
+.total-cart {
+    @include flex(space-between, flex-start, column, $gap: 50px);
+    flex: 0 0 300px;
+    min-height: 150px;
+    padding: 20px 30px 30px;
+    background-color: #f7f7f7;
+    border-radius: 8px;
+
+    &__title {
+        @include fontArguments($mainFont, 25px, 700);
+    }
+
+    &__sum {
+        @include flex(space-between, center, $gap: 10px);
+        width: 100%;
+        color: $titleColor;
+    }
+
+    &__total {
+        @include fontArguments($textfont, 16px);
+    }
+
+    &__price {
+        @include fontArguments($mainFont, 19px, 700);
+    }
+}

@@ -69,6 +69,29 @@
     }
 }
 
+%b-opacity {
+    z-index: 1;
+    color: $titleColor;
+    @include pseudo($loc: after) {
+      top: 0;
+      left: 0;
+      width: 0;
+      height: 100%;
+      background-color: #000;
+      transition: all 0.3s;
+      z-index: -1;
+      border-radius: 6px;
+    }
+  
+    &:hover {
+      color: #fff;
+  
+      &::after {
+        width: 100%;
+      }
+    }
+  }
+
 %w-r-btn {
     @include adaptivFont(15, 15);
     display: block;

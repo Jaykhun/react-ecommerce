@@ -1,0 +1,98 @@
+@import "@/styles/general/mixin";
+@import "@/styles/general/ui";
+@import "@/styles/general/variables";
+
+.products-cart {
+    &__item {
+        @include flex(space-between, center, $gap: 20px);
+        padding: 10px 0px;
+        border-bottom: 1px solid #d9d9d966;
+    }
+
+    &__info {
+        @include flex(flex-start, center, $gap: 20px);
+        flex: 0 0 50%;
+    }
+
+    &__control {
+        @include flex(space-between, center, $gap: 20px);
+        flex: 1 1 auto;
+    }
+
+    &__brand {
+        @include flex(space-between, flex-start, column, $gap: 15px);
+        @include fontArguments($textfont, 15px);
+        color: #393939b3;
+    }
+
+    &__category {
+        color: $activeColor;
+        font-weight: 500;
+    }
+
+    &__img {
+        img {
+            width: 170px;
+            height: 180px;
+            border-radius: $borderRadius;
+        }
+    }
+
+    &__amount {
+        @include flex(space-between, center);
+        @include fontArguments($textfont, 15px, 500);
+        color: $titleColor;
+        background-color: #f7f7f7;
+        height: 44px;
+    }
+
+    &__increase,
+    &__descrease {
+        height: 44px;
+        width: 44px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    &__descrease {
+        background: url(data:image/svg+xml,%3Csvg%20version%3D%221.1%22%20baseProfile%3D%22full%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20xmlns%3Aev%3D%22http%3A%2F%2Fwww.w3.org%2F2001%2Fxml-events%22%20xml%3Aspace%3D%22preserve%22%20x%3D%220px%22%20y%3D%220px%22%20width%3D%2212px%22%20height%3D%222px%22%20%20viewBox%3D%220%200%2012%202%22%20preserveAspectRatio%3D%22none%22%20shape-rendering%3D%22geometricPrecision%22%3E%22%3Cpath%20d%3D%22M12%202L0%202V0L12%201.57361e-06V2Z%22%20fill%3D%22%23101010%22%3E%3C%2Fpath%3E%3C%2Fsvg%3E)
+            50% 50% no-repeat;
+        border: none;
+        &.disabled {
+            pointer-events: none;
+            background: url(data:image/svg+xml,%3Csvg%20version%3D%221.1%22%20baseProfile%3D%22full%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20xmlns%3Aev%3D%22http%3A%2F%2Fwww.w3.org%2F2001%2Fxml-events%22%20xml%3Aspace%3D%22preserve%22%20x%3D%220px%22%20y%3D%220px%22%20width%3D%2212px%22%20height%3D%222px%22%20%20viewBox%3D%220%200%2012%202%22%20preserveAspectRatio%3D%22none%22%20shape-rendering%3D%22geometricPrecision%22%3E%22%3Cpath%20d%3D%22M12%202L0%202V0L12%201.57361e-06V2Z%22%20fill%3D%22%23101010%22%20opacity%3D%220.1%22%3E%3C%2Fpath%3E%3C%2Fsvg%3E)
+                50% 50% no-repeat;
+            border: none;
+            box-shadow: none;
+        }
+    }
+
+    &__increase {
+        background: url(data:image/svg+xml,%3Csvg%20version%3D%221.1%22%20baseProfile%3D%22full%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20xmlns%3Aev%3D%22http%3A%2F%2Fwww.w3.org%2F2001%2Fxml-events%22%20xml%3Aspace%3D%22preserve%22%20x%3D%220px%22%20y%3D%220px%22%20width%3D%2212px%22%20height%3D%2212px%22%20%20viewBox%3D%220%200%2012%2012%22%20preserveAspectRatio%3D%22none%22%20shape-rendering%3D%22geometricPrecision%22%3E%22%3Cpath%20d%3D%22M7%200H5V5H0V7H5V12H7V7H12V5H7V0Z%22%20fill%3D%22%23101010%22%3E%3C%2Fpath%3E%3C%2Fsvg%3E)
+            50% 50% no-repeat;
+    }
+
+    &__count {
+        width: 40px;
+        height: 44px;
+        line-height: 44px;
+        text-align: center;
+        background-color: #f7f7f7;
+        border: none;
+    }
+
+    &__price,
+    &__sum {
+        @include fontArguments($mainFont, 17px, 700);
+        color: $titleColor;
+    }
+
+    &__delete {
+        background: url(data:image/svg+xml,%3Csvg%20version%3D%221.1%22%20baseProfile%3D%22full%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20xmlns%3Aev%3D%22http%3A%2F%2Fwww.w3.org%2F2001%2Fxml-events%22%20xml%3Aspace%3D%22preserve%22%20x%3D%220px%22%20y%3D%220px%22%20width%3D%2213px%22%20height%3D%2213px%22%20%20viewBox%3D%220%200%2013%2013%22%20preserveAspectRatio%3D%22none%22%20shape-rendering%3D%22geometricPrecision%22%3E%3Cpath%20fill%3D%22%23ccc%22%20d%3D%22M4.94975%206.36396L0%2011.3137L1.41421%2012.7279L6.36396%207.77817L11.3137%2012.7279L12.7279%2011.3137L7.77817%206.36396L12.7279%201.41421L11.3137%203.37175e-07L6.36396%204.94975L1.41421%200L6.7435e-07%201.41421L4.94975%206.36396Z%22%2F%3E%3C%2Fsvg%3E)
+            50% 50% no-repeat;
+        background-size: 10px 10px;
+        width: 39px;
+        height: 39px;
+        cursor: pointer;
+    }
+}

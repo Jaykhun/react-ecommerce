@@ -1,15 +1,23 @@
 import Path from '@/components/Path'
 import { Message } from '@/components/UI'
+import { useServiceActions } from '@/hooks/useServiceActions'
+import { useTypedSelector } from '@/hooks/useTypedSelector'
 import attributeApi from '@/store/api/attribute'
 import productApi from '@/store/api/product'
 import { calculateDiscount } from '@/utils/calculateDiscount'
 import clsx from 'clsx'
+import { Notify } from 'notiflix'
 import { Link, useParams } from 'react-router-dom'
 import LoaderDetails from './LoaderDetails'
 import './ProductDetails.scss'
 
 const ProductDetails = () => {
   const { id } = useParams()
+  const { products } = useTypedSelector(state => state.userCart)
+  const { addProduct } = useServiceActions()
+
+  const isExist = products.find(product => product.id === Number(id))
+
   const { data: product, isLoading, isError, error } = productApi.useGetSingleProductQuery(Number(id), { skip: !id })
   const attribute = attributeApi.useGetSingleAttributeQuery(Number(product?.category.id), { skip: !product?.category.id })
 
@@ -21,6 +29,14 @@ const ProductDetails = () => {
     name: String(product?.category.name)
   }
 
+  const handleAdd = () => {
+    product && addProduct({ ...product, count: 1 })
+    Notify.success('Продукт добавлен в корзину', {
+      clickToClose: true,
+      fontSize: '15px',
+      zindex: 9999
+    })
+  }
 
   return (
     <div className='product'>
@@ -46,11 +62,11 @@ const ProductDetails = () => {
                 </div>
               }
             </div>
-            <button className={
-              clsx('product__buy', {
-                'product__disabled': !product?.quantity
-              })}
-              disabled={!product?.quantity}>
+            <button className={clsx('product__buy',
+              { 'product__disabled': !product?.quantity || !!isExist })}
+              disabled={!product?.quantity || !!isExist}
+              onClick={handleAdd}
+            >
               В карзину
             </button>
           </div>
