@@ -1,7 +1,8 @@
+import { IToken, LogInType } from '@/models/userServiceType'
 import userApi from '@/store/api/user'
-import { IToken, LogInType } from '@models/userServiceType'
+import { createSlice } from '@reduxjs/toolkit'
 
-export const userService = userApi.injectEndpoints({
+export const userLogIn = userApi.injectEndpoints({
     endpoints: build => ({
         logIn: build.mutation<IToken, LogInType>({
             query: (user) => {
@@ -21,4 +22,22 @@ export const userService = userApi.injectEndpoints({
             }
         })
     })
+})
+
+interface UserCartStateType {
+    isTokenExist: boolean
+}
+
+const initialState: UserCartStateType = {
+    isTokenExist: false
+}
+
+export const tokenState = createSlice({
+    name: 'tokenState',
+    initialState,
+    reducers: {
+        changeTokenState(state) {
+            state.isTokenExist = !state.isTokenExist
+        }
+    }
 })

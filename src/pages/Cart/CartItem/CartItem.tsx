@@ -1,6 +1,6 @@
 import { useServiceActions } from '@/hooks/useServiceActions'
 import { CartProduct } from '@/models/userServiceType'
-import { calculateDiscount } from '@/utils/calculateDiscount'
+import { calcDiscount } from '@/utils/calcDiscount'
 import clsx from 'clsx'
 import { FC } from 'react'
 import { Link } from 'react-router-dom'
@@ -11,10 +11,10 @@ interface CartItemProps {
 }
 
 const CartItem: FC<CartItemProps> = ({ product }) => {
-    const { id, name, images, category, price, count, discount } = product
-    const productPrice = discount > 0 ? calculateDiscount(price, discount) : price
-
     const { increaseProduct, decreaseProduct, deleteProduct } = useServiceActions()
+
+    const { id, name, images, category, price, count, discount } = product
+    const productPrice = calcDiscount(price, discount)
 
     const handleIncrease = () => increaseProduct(id)
     const handleDecrease = () => decreaseProduct(id)

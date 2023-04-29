@@ -1,7 +1,7 @@
 import { Message } from '@/components/UI'
 import { FetchProduct } from '@/models/productTypes'
 import productApi from '@/store/api/product'
-import { calculateDiscount } from '@/utils/calculateDiscount'
+import { calcDiscount } from '@/utils/calcDiscount'
 import clsx from 'clsx'
 import Loader from 'react-loading-skeleton'
 import { useLocation, useNavigate } from 'react-router-dom'
@@ -56,7 +56,7 @@ const AsideBar = () => {
               <div className="asidebar-best__price">
                 <div className="asidebar-best__current-price">
                   {
-                    calculateDiscount(Number(bestProduct?.price), Number(bestProduct?.discount))
+                    calcDiscount(Number(bestProduct?.price), Number(bestProduct?.discount))
                   }
                   &#36;
                 </div>

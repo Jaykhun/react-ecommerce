@@ -1,10 +1,12 @@
 import UserMenu from '@/components/UserMenu'
 import { getToken } from '@/helpers/getToken'
+import { useTypedSelector } from '@/hooks/useTypedSelector'
 import { WebStoragePath } from '@/models/userServiceType'
 import { Link } from "react-router-dom"
 import './Header.scss'
 
 const Header = () => {
+    const { isTokenExist } = useTypedSelector(state => state.tokenState)
     const cookie = getToken(WebStoragePath.token)
 
     return (
@@ -19,7 +21,7 @@ const Header = () => {
                         </ul>
                     </nav>
 
-                    {cookie
+                    {cookie || isTokenExist
                         ? <UserMenu />
                         : <div className="header__register register">
                             <Link to="/login" className="register__login">Войти</Link>

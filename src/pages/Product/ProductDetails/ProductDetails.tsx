@@ -4,7 +4,7 @@ import { useServiceActions } from '@/hooks/useServiceActions'
 import { useTypedSelector } from '@/hooks/useTypedSelector'
 import attributeApi from '@/store/api/attribute'
 import productApi from '@/store/api/product'
-import { calculateDiscount } from '@/utils/calculateDiscount'
+import { calcDiscount } from '@/utils/calcDiscount'
 import clsx from 'clsx'
 import { Notify } from 'notiflix'
 import { Link, useParams } from 'react-router-dom'
@@ -51,7 +51,7 @@ const ProductDetails = () => {
             <div className="product__price">
               <div className="product__price-current">
                 {product?.discount
-                  ? calculateDiscount(product?.price, product?.discount)
+                  ? calcDiscount(product?.price, product?.discount)
                   : product?.price
                 } $
               </div>

@@ -1,12 +1,15 @@
-import { NavLink } from "react-router-dom"
 import { Message } from '@/components/UI'
-import userApi from '@/store/api/user'
-import { getToken } from '@/helpers/getToken'
 import { deleteToken } from '@/helpers/deleteToken'
+import { getToken } from '@/helpers/getToken'
+import { useServiceActions } from '@/hooks/useServiceActions'
 import { WebStoragePath } from '@/models/userServiceType'
+import userApi from '@/store/api/user'
+import { NavLink, useNavigate } from "react-router-dom"
 import './UserMenu.scss'
 
 const UserMenu = () => {
+    const { changeTokenState } = useServiceActions()
+    const navigate = useNavigate()
     const token = getToken(WebStoragePath.token)
     const users = userApi.useGetAllUsersQuery()
 
@@ -17,11 +20,16 @@ const UserMenu = () => {
     const isError = users.isError || user.isError
     const error = users.error || user.error
 
-    const handleLogOut = () => deleteToken(WebStoragePath.token)
+    const handleLogOut = () => {
+        deleteToken(WebStoragePath.token)
+        changeTokenState()
+        navigate('/')
+    }
 
     return (
         <div className='user-menu'>
-            {isError ? <Message error={error} formError='Не удалось загрузить user' />
+            {isError
+                ? <Message error={error} formError='Не удалось загрузить user' />
                 : <div className="user-menu__body">
                     <div className="user-menu__img">
                         <img src={user.data?.user_detail.user_image} alt={user.data?.username} />
@@ -42,7 +50,7 @@ const UserMenu = () => {
                             </li>
                         }
 
-                        <li className="user-menu__item" onClick={handleLogOut}><NavLink to="/">Выйти</NavLink></li>
+                        <li className="user-menu__logout" onClick={handleLogOut}>Выйти</li>
                     </ul>
                     }
                 </div>

@@ -6,7 +6,7 @@ import { AddOrder } from '@/models/orderTypes'
 import { WebStoragePath } from '@/models/userServiceType'
 import { orderApi } from '@/store/api/order'
 import userApi from '@/store/api/user'
-import { getCurrentDateFormatted } from '@/utils/dateFormat'
+import { getCurrentFormattedDate } from '@/utils/formatDate'
 import { Notify } from 'notiflix'
 import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
@@ -30,7 +30,7 @@ const CartBody = () => {
             const order: AddOrder = {
                 order: {
                     user_id: Number(user?.id),
-                    order_date: getCurrentDateFormatted(),
+                    order_date: getCurrentFormattedDate(),
                     address_id: Number(user?.addresses[0].id),
                     order_status_id: 1
                 },

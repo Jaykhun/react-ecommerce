@@ -1,5 +1,5 @@
 import { FetchProduct } from '@/models/productTypes'
-import { calculateDiscount } from '@/utils/calculateDiscount'
+import { calcDiscount } from '@/utils/calcDiscount'
 import { FC } from 'react'
 import { useNavigate } from 'react-router-dom'
 import './ProductItem.scss'
@@ -29,7 +29,7 @@ const ProductItem: FC<ProductItemProps> = ({ product }) => {
                     <div className="item-product__name">{name}</div>
                     <div className="item-product__price">
                         {discount
-                            ? calculateDiscount(price, discount)
+                            ? calcDiscount(price, discount)
                             : price
                         } $
                     </div>

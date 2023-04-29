@@ -1,5 +1,5 @@
 import { FetchProduct } from '@/models/productTypes'
-import { calculateDiscount } from '@/utils/calculateDiscount'
+import { calcDiscount } from '@/utils/calcDiscount'
 import { FC } from 'react'
 import { useNavigate } from 'react-router-dom'
 
@@ -23,7 +23,7 @@ const AsideBarItem: FC<AsideBarItemProps> = ({ products }) => {
                 </div>
 
                 <div className="asidebar-discount__price">
-                    <span className="asidebar-discount__current-price">{calculateDiscount(price, discount)} &#36;</span>
+                    <span className="asidebar-discount__current-price">{calcDiscount(price, discount)} &#36;</span>
                     <span className="asidebar-discount__past-price">{price} &#36;</span>
                 </div>
             </div>

@@ -1,5 +1,5 @@
 import { CartProduct } from '@/models/userServiceType'
-import { calculateDiscount } from '@/utils/calculateDiscount'
+import { calcDiscount } from '@/utils/calcDiscount'
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
 interface UserCartStateType {
@@ -48,7 +48,7 @@ export const userCart = createSlice({
 
         countTotalPrice(state) {
             state.totalPrice = state.products.reduce((counter, { count, price, discount }) => {
-                const productPrice = discount > 0 ? calculateDiscount(price, discount) : price
+                const productPrice = discount > 0 ? calcDiscount(price, discount) : price
                 return count * productPrice + counter
             }, 0)
         },

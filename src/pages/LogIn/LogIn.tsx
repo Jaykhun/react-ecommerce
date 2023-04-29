@@ -1,7 +1,8 @@
 import { Button, Loader, Message } from '@/components/UI'
 import { setToken } from '@/helpers/setToken'
-import { LogInType } from '@models/userServiceType'
-import { userService } from '@/service/userService'
+import { useServiceActions } from '@/hooks/useServiceActions'
+import { LogInType } from '@/models/userServiceType'
+import { userLogIn } from '@/service/userService'
 import { ErrorMessage } from '@hookform/error-message'
 import { Notify } from 'notiflix'
 import { useEffect } from 'react'
@@ -10,9 +11,11 @@ import { useNavigate } from 'react-router-dom'
 import './LogIn.scss'
 
 const LogIn = () => {
-  const { register, handleSubmit, formState: { errors }, reset } = useForm<LogInType>({ mode: 'onBlur' })
-  const [logIn, { data: token, isLoading, isSuccess }] = userService.useLogInMutation()
+  const { changeTokenState } = useServiceActions()
   const navigate = useNavigate()
+  const { register, handleSubmit, formState: { errors }, reset } = useForm<LogInType>({ mode: 'onBlur' })
+
+  const [logIn, { data: token, isLoading, isSuccess }] = userLogIn.useLogInMutation()
 
   const VALIDATION_RULES = {
     required: 'Поле обязательно к заполнению',
@@ -44,6 +47,7 @@ const LogIn = () => {
   useEffect(() => {
     if (isSuccess && token) {
       setToken(token.access_token)
+      changeTokenState()
     }
   }, [token])
 
