@@ -83,6 +83,7 @@
 
     &__price,
     &__sum {
+        flex: 0 0 20%;
         @include fontArguments($mainFont, 17px, 700);
         color: $titleColor;
     }
