@@ -1,5 +1,6 @@
 import { getToken } from '@/helpers/getToken'
 import { AddOrder, EditOrder, FetchOrder } from '@/models/orderTypes'
+import { WebStoragePath } from '@/models/userServiceType'
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/dist/query/react'
 
 const url = 'https://ecommerce.icedev.uz/'
@@ -9,7 +10,7 @@ export const orderApi = createApi({
     baseQuery: fetchBaseQuery({
         baseUrl: url,
         prepareHeaders: (headers) => {
-            const token = getToken('token')
+            const token = getToken(WebStoragePath.token)
             headers.set('Authorization', `Bearer ${token}`)
             return headers
         }

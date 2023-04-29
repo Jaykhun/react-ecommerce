@@ -41,7 +41,6 @@ const ProductsEdit = () => {
     }
 
     const onSubmit: SubmitHandler<EditProduct> = async (data) => {
-        console.log(data)
         try {
             await editProduct({ data: data, id: productId }).unwrap()
             Notify.success(`${product?.name} успешно изменен`, {
@@ -134,14 +133,18 @@ const ProductsEdit = () => {
                                                 defaultOptions
                                                 loadOptions={loadOptions}
                                                 onBlur={field.onBlur}
-                                                getOptionValue={value => value.name}
-                                                getOptionLabel={value => value.name}
+                                                getOptionValue={(value: FetchCategory) => value.name}
+                                                getOptionLabel={(value: FetchCategory) => value.name}
                                                 onChange={(newValue: any) => field.onChange(newValue.id)}
                                                 value={categories?.find((value: FetchCategory) => value.id === field.value)}
                                             />
                                         ))}
                                     />
                             }
+
+                            <ErrorMessage name='category_id' errors={errors}
+                                render={(data) => <Message formError={data.message} />}
+                            />
                         </div>
 
                         <div className="products-edit__quantity">
@@ -161,7 +164,7 @@ const ProductsEdit = () => {
                         <div className="products-edit__discount">
                             <label htmlFor='discount' className='input__label'>Скидка %</label>
                             <input type='number' id='discount' className='input__style'
-                                defaultValue={product?.quantity}
+                                defaultValue={product?.discount}
                                 {...register('discount', {
                                     required: 'Поле обязательно к заполнению',
                                     min: { value: 1, message: 'Минимум 1 процентов' },

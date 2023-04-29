@@ -15,7 +15,6 @@ import { ProductDetails, ProductSorted } from '@/pages/Product'
 import Registration from '@/pages/Registration'
 import Dashboard from '@/routes/Dashboard'
 import Layout from '@/routes/Layout'
-import ServiceLayout from '@/routes/ServiceLayout'
 import '@/styles/style.scss'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 
@@ -53,10 +52,6 @@ const App = () => {
 
           <Route path='product/:id' element={<ProductDetails />} />
           <Route path='product/category/:id' element={<ProductSorted />} />
-
-        </Route>
-
-        <Route path='/' element={<ServiceLayout />}>
 
         </Route>
       </Routes>

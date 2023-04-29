@@ -1,5 +1,6 @@
 import { getToken } from '@/helpers/getToken'
-import { AddUser, EditUser, FetchUser } from '@models/userTypes'
+import { WebStoragePath } from '@/models/userServiceType'
+import { AddUser, EditUser, FetchUser } from '@/models/userTypes'
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 
 const url = 'https://ecommerce.icedev.uz/'
@@ -9,7 +10,7 @@ export const userApi = createApi({
     baseQuery: fetchBaseQuery({
         baseUrl: url,
         prepareHeaders: (headers) => {
-            const token = getToken('token')
+            const token = getToken(WebStoragePath.token)
             headers.set('Authorization', `Bearer ${token}`)
             return headers
         }

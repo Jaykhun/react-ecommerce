@@ -21,7 +21,7 @@ const OrdersItem: FC<OrdersItemProps> = ({ order }) => {
   const [deleteOrder, { isLoading }] = orderApi.useDeleteOrderMutation()
 
   const handleView = () => openOrderDetailsModal(order_details)
-  const handleEdit = () => openOrderEditModal(id)
+  const handleEdit = () => openOrderEditModal(order_status.id)
   const handleDelete = async () => {
     try {
       await deleteOrder({ userId: user_id, orderId: id }).unwrap()

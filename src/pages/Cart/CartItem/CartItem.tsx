@@ -28,7 +28,7 @@ const CartItem: FC<CartItemProps> = ({ product }) => {
                 </div>
                 <div className="products-cart__brand">
                     <div className="products-cart__name">{name}</div>
-                    <Link to={`/product/category/${id}`} className="products-cart__category">{category.name}</Link>
+                    <Link to={`/product/category/${category.id}`} className="products-cart__category">{category.name}</Link>
                 </div>
             </div>
             <div className="products-cart__control">

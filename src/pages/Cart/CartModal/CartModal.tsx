@@ -24,7 +24,7 @@ const CartModal = () => {
                         <div className="cart-modal__txt">
                             Похоже у вас нет аккаунта, пожалуйста
                             <span><Link to={'/registration'} onClick={handleClose}>зарегистрируйтесь</Link></span>
-                            если есть то <span> <Link to={'/login'} onClick={handleClose}>войдите</Link></span>
+                            если есть аккаунт то <span> <Link to={'/login'} onClick={handleClose}>войдите</Link></span>
                         </div>
                     </div>
                 </div>
