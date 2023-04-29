@@ -4,16 +4,16 @@ import productApi from '@/store/api/product'
 import './Home.scss'
 
 const Home = () => {
-    const { data: products = [], isLoading, isError, error } = productApi.useGetAllProductsQuery()
+    const { data: products = [], isLoading, isError, error, isSuccess } = productApi.useGetAllProductsQuery()
     const bestProducts: FetchProduct[] = []
 
     products.some((product) => {
         if (product.discount > 0) {
-          bestProducts.push(product)
+            bestProducts.push(product)
         }
-    
+
         return bestProducts.length === 7
-      })
+    })
 
     const state = {
         isLoading: isLoading,

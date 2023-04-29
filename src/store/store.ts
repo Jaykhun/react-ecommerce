@@ -1,7 +1,9 @@
 import { contactsSlice } from '@/service/contactsSlice'
 import { menuSlice } from '@/service/menuSlice'
+import { productsSlice } from '@/service/productsSlice'
 import { userCart } from '@/service/userCart'
 import { tokenState } from '@/service/userService'
+import { productSlice } from '@/store/slices/productSlice'
 import { configureStore } from '@reduxjs/toolkit'
 import { setupListeners } from '@reduxjs/toolkit/query'
 import callApi from './api/call'
@@ -15,7 +17,6 @@ import { categorySlice } from './slices/categorySlice'
 import { countrySlice } from './slices/countrySlice'
 import { orderSlice } from './slices/orderSlice'
 import { orderStatusSlice } from './slices/orderStatusSlice'
-import { productSlice } from './slices/productSlice'
 import { userSlice } from './slices/userSlice'
 
 export const store = configureStore({
@@ -31,6 +32,7 @@ export const store = configureStore({
         contactsSlice: contactsSlice.reducer,
         userCart: userCart.reducer,
         tokenState: tokenState.reducer,
+        productsSlice: productsSlice.reducer,
         [userApi.reducerPath]: userApi.reducer,
         [productApi.reducerPath]: productApi.reducer,
         [countryApi.reducerPath]: countryApi.reducer,

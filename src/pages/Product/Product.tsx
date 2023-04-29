@@ -10,7 +10,7 @@ import '@/styles/slider/slick.css'
 import './Product.scss'
 
 interface ProductProps {
-  products: FetchProduct[],
+  products: FetchProduct[]
   state: {
     isLoading: boolean
     isError: boolean
@@ -18,7 +18,8 @@ interface ProductProps {
   }
 }
 
-const Product: FC<ProductProps> = ({ products, state }) => {
+const Product: FC<ProductProps> = ({products,  state }) => {
+  
   const settings = {
     dots: true,
     infinite: false,

@@ -8,11 +8,11 @@ import './Catalog.scss'
 import CatalogItem from './CatalogItem'
 
 const Catalog = () => {
-    const { openCatalogMenu } = useServiceActions()
+    const { handleCatalogMenu } = useServiceActions()
     const { isCatalogMenuOpen } = useTypedSelector(state => state.menuSlice)
     const { data: categories, isLoading, isError, error } = categoryApi.useGetAllCategoriesQuery()
 
-    const handleOpen = () => openCatalogMenu()
+    const handleOpen = () => handleCatalogMenu()
 
     return (
         <>

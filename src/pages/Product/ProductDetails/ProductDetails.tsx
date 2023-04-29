@@ -7,22 +7,26 @@ import productApi from '@/store/api/product'
 import { calcDiscount } from '@/utils/calcDiscount'
 import clsx from 'clsx'
 import { Notify } from 'notiflix'
+import { useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import LoaderDetails from './LoaderDetails'
 import './ProductDetails.scss'
 
 const ProductDetails = () => {
   const { id } = useParams()
-  const { products } = useTypedSelector(state => state.userCart)
   const { addProduct } = useServiceActions()
+  const { products: cartProducts } = useTypedSelector(state => state.userCart)
+  const [currentIndex, setCurrentIndex] = useState(0)
 
-  const isExist = products.find(product => product.id === Number(id))
+  const { data: product, isFetching, isError, error } = productApi.useGetSingleProductQuery(Number(id), { skip: !id })
+  const { data: products = [] } = productApi.useGetAllProductsQuery()
 
-  const { data: product, isLoading, isError, error } = productApi.useGetSingleProductQuery(Number(id), { skip: !id })
   const attribute = attributeApi.useGetSingleAttributeQuery(Number(product?.category.id), { skip: !product?.category.id })
 
+  const isExist = cartProducts.find(product => product.id === Number(id))
+
   if (isError) return <Message error={error} />
-  if (isLoading) return <LoaderDetails />
+  if (isFetching) return <LoaderDetails />
 
   const pathHistory = {
     path: String(product?.category.id),
@@ -36,6 +40,13 @@ const ProductDetails = () => {
       fontSize: '15px',
       zindex: 9999
     })
+  }
+
+  const handleFind = () => {
+    const index = products.findIndex(product => product.id === Number(id))
+    if (index > 0) {
+      setCurrentIndex(index)
+    }
   }
 
   return (
@@ -112,12 +123,12 @@ const ProductDetails = () => {
 
       <div className="product__footer">
         <div className="product__nav">
-          <Link to={`/product/${Number(id) - 1}`} className="product__previous">
+          <Link to={`/product/${Number(products[currentIndex - 1]?.id)}`} className="product__previous" onClick={handleFind}>
             Предыдущий
           </Link>
 
-          <Link to={`/product/${Number(id) + 1}`} className="product__next">
-            Предыдущий
+          <Link to={`/product/${Number(products[currentIndex + 1]?.id)}`} className="product__next" onClick={handleFind}>
+            Следующий
           </Link>
         </div>
       </div>
