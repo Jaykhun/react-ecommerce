@@ -1,6 +1,7 @@
 import ScrollToTop from '@/helpers/scrollToTop'
 import AdminAccess from '@/hoc/AdminAccess'
 import UserAccess from '@/hoc/UserAccess'
+import NotFound from '@/pages/404'
 import { Admin } from '@/pages/Admin'
 import { Calls } from '@/pages/Admin/Calls'
 import { Categories, CategoriesDetails } from '@/pages/Admin/Categories'
@@ -41,6 +42,8 @@ const App = () => {
 
             <Route path='categories' element={<Categories />} />
             <Route path='categories/:id' element={<CategoriesDetails />} />
+
+            <Route path='*' element={<NotFound />} />
           </Route>
         </Route>
 
@@ -56,6 +59,8 @@ const App = () => {
 
           <Route path='product/:id' element={<ProductDetails />} />
           <Route path='product/category/:id' element={<ProductSorted />} />
+
+          <Route path='*' element={<NotFound />} />
         </Route>
       </Routes>
     </BrowserRouter>

@@ -21,7 +21,7 @@ export const orderApi = createApi({
             query: () => 'orders/',
             providesTags: ['orders']
         }),
-        getSingleOrder: build.query<FetchOrder, number>({
+        getSingleOrder: build.query<FetchOrder[], number>({
             query: (id) => `orders/${id}`,
             providesTags: ['orders']
         }),
