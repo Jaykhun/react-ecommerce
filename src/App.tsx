@@ -1,5 +1,6 @@
 import ScrollToTop from '@/helpers/scrollToTop'
 import AdminAccess from '@/hoc/AdminAccess'
+import UserAccess from '@/hoc/UserAccess'
 import { Admin } from '@/pages/Admin'
 import { Calls } from '@/pages/Admin/Calls'
 import { Categories, CategoriesDetails } from '@/pages/Admin/Categories'
@@ -12,6 +13,7 @@ import { Cart } from '@/pages/Cart'
 import Home from '@/pages/Home'
 import LogIn from '@/pages/LogIn'
 import { ProductDetails, ProductSorted } from '@/pages/Product'
+import Profile from '@/pages/Profile'
 import Registration from '@/pages/Registration'
 import Dashboard from '@/routes/Dashboard'
 import Layout from '@/routes/Layout'
@@ -22,11 +24,14 @@ const App = () => {
   return (
     <BrowserRouter>
       <ScrollToTop />
-
       <Routes>
         <Route element={<AdminAccess />}>
           <Route path='admin' element={<Dashboard />}>
             <Route index element={<Admin />} />
+            <Route path='countries' element={<Countries />} />
+            <Route path='orders' element={<Orders />} />
+            <Route path='status' element={<OrderStatus />} />
+            <Route path='calls' element={<Calls />} />
 
             <Route path='users' element={<Users />} />
             <Route path='users/:id' element={<UsersDetails />} />
@@ -36,11 +41,6 @@ const App = () => {
 
             <Route path='categories' element={<Categories />} />
             <Route path='categories/:id' element={<CategoriesDetails />} />
-
-            <Route path='countries' element={<Countries />} />
-            <Route path='orders' element={<Orders />} />
-            <Route path='status' element={<OrderStatus />} />
-            <Route path='calls' element={<Calls />} />
           </Route>
         </Route>
 
@@ -50,12 +50,14 @@ const App = () => {
           <Route path='registration' element={<Registration />} />
           <Route path='cart' element={<Cart />} />
 
+          <Route element={<UserAccess />}>
+            <Route path='profile' element={<Profile />} />
+          </Route>
+
           <Route path='product/:id' element={<ProductDetails />} />
           <Route path='product/category/:id' element={<ProductSorted />} />
-
         </Route>
       </Routes>
-
     </BrowserRouter>
   )
 }

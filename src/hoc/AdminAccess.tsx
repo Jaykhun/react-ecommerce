@@ -1,8 +1,9 @@
 import { getToken } from '@/helpers/getToken'
+import { WebStoragePath } from '@/models/userServiceType'
 import { Navigate, Outlet } from 'react-router-dom'
 
 const AdminAccess = () => {
-    const token = getToken('token')
+    const token = getToken(WebStoragePath.token)
 
     return (
         <>

@@ -2,7 +2,7 @@ import { contactsSlice } from '@/service/contactsSlice'
 import { menuSlice } from '@/service/menuSlice'
 import { productsSlice } from '@/service/productsSlice'
 import { userCart } from '@/service/userCart'
-import { tokenState } from '@/service/userService'
+import { userState } from '@/service/userService'
 import { bindActionCreators } from "@reduxjs/toolkit"
 import { useDispatch } from "react-redux"
 
@@ -10,7 +10,7 @@ const allActions = {
     ...menuSlice.actions,
     ...contactsSlice.actions,
     ...userCart.actions,
-    ...tokenState.actions,
+    ...userState.actions,
     ...productsSlice.actions
 }
 

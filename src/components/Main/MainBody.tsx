@@ -10,7 +10,7 @@ const MainBody = () => {
     return (
         <>
             <MainActions />
-            <div className={clsx('main-content', { 'hide': pathname === '/cart' })}>
+            <div className={clsx('main-content', { 'hide': pathname === '/cart'})}>
                 {
                     pathname !== '/cart'
                     && <div className='main-content__asidebar'>

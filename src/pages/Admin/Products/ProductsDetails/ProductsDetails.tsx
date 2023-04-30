@@ -74,10 +74,7 @@ const ProductsDetails = () => {
                                     <span>{product?.discount} %</span>
                                 </div>
 
-                                <div className="products-details__discount">
-                                    <span className="products-details__txt">скидка:</span>
-                                    <Attribute id={Number(product?.category.id)}/>
-                                </div>
+                                <Attribute id={Number(product?.category.id)} />
                             </div>
                         </>
             }

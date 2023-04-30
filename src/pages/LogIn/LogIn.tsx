@@ -11,7 +11,7 @@ import { useNavigate } from 'react-router-dom'
 import './LogIn.scss'
 
 const LogIn = () => {
-  const { changeTokenState } = useServiceActions()
+  const { getUser: changeTokenState } = useServiceActions()
   const navigate = useNavigate()
   const { register, handleSubmit, formState: { errors }, reset } = useForm<LogInType>({ mode: 'onBlur' })
 

@@ -6,7 +6,7 @@ import { Link } from "react-router-dom"
 import './Header.scss'
 
 const Header = () => {
-    const { isTokenExist } = useTypedSelector(state => state.tokenState)
+    const { userId } = useTypedSelector(state => state.userState)
     const cookie = getToken(WebStoragePath.token)
 
     return (
@@ -21,7 +21,7 @@ const Header = () => {
                         </ul>
                     </nav>
 
-                    {cookie || isTokenExist
+                    {cookie || userId
                         ? <UserMenu />
                         : <div className="header__register register">
                             <Link to="/login" className="register__login">Войти</Link>

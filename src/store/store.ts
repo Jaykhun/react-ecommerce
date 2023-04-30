@@ -2,7 +2,7 @@ import { contactsSlice } from '@/service/contactsSlice'
 import { menuSlice } from '@/service/menuSlice'
 import { productsSlice } from '@/service/productsSlice'
 import { userCart } from '@/service/userCart'
-import { tokenState } from '@/service/userService'
+import { userState } from '@/service/userService'
 import { productSlice } from '@/store/slices/productSlice'
 import { configureStore } from '@reduxjs/toolkit'
 import { setupListeners } from '@reduxjs/toolkit/query'
@@ -31,7 +31,7 @@ export const store = configureStore({
         menuSlice: menuSlice.reducer,
         contactsSlice: contactsSlice.reducer,
         userCart: userCart.reducer,
-        tokenState: tokenState.reducer,
+        userState: userState.reducer,
         productsSlice: productsSlice.reducer,
         [userApi.reducerPath]: userApi.reducer,
         [productApi.reducerPath]: productApi.reducer,

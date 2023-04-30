@@ -4,15 +4,16 @@ import { getToken } from '@/helpers/getToken'
 import { useServiceActions } from '@/hooks/useServiceActions'
 import { WebStoragePath } from '@/models/userServiceType'
 import userApi from '@/store/api/user'
+import { useEffect } from 'react'
 import { NavLink, useNavigate } from "react-router-dom"
 import './UserMenu.scss'
 
 const UserMenu = () => {
-    const { changeTokenState } = useServiceActions()
     const navigate = useNavigate()
+    const { getUser } = useServiceActions()
     const token = getToken(WebStoragePath.token)
+    
     const users = userApi.useGetAllUsersQuery()
-
     const currentUser = users.data?.find(user => user.username === token?.sub)
     const user = userApi.useGetSingleUserQuery(Number(currentUser?.id), { skip: !currentUser?.id })
 
@@ -22,9 +23,17 @@ const UserMenu = () => {
 
     const handleLogOut = () => {
         deleteToken(WebStoragePath.token)
-        changeTokenState()
+        getUser(0)
         navigate('/')
     }
+
+    useEffect(() => {
+        if (user.isSuccess) {
+            getUser(user.data.id)
+        }
+    }, [user.isSuccess])
+
+
 
     return (
         <div className='user-menu'>

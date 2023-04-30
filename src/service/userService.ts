@@ -1,6 +1,6 @@
 import { IToken, LogInType } from '@/models/userServiceType'
 import userApi from '@/store/api/user'
-import { createSlice } from '@reduxjs/toolkit'
+import { PayloadAction, createSlice } from '@reduxjs/toolkit'
 
 export const userLogIn = userApi.injectEndpoints({
     endpoints: build => ({
@@ -25,19 +25,19 @@ export const userLogIn = userApi.injectEndpoints({
 })
 
 interface UserCartStateType {
-    isTokenExist: boolean
+    userId?: number
 }
 
 const initialState: UserCartStateType = {
-    isTokenExist: false
+    userId: 0
 }
 
-export const tokenState = createSlice({
-    name: 'tokenState',
+export const userState = createSlice({
+    name: 'userState',
     initialState,
     reducers: {
-        changeTokenState(state) {
-            state.isTokenExist = !state.isTokenExist
+        getUser(state, actions: PayloadAction<number| undefined>) {
+            state.userId = actions.payload
         }
     }
 })
