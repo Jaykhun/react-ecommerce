@@ -11,7 +11,7 @@ const allActions = {
     ...contactsSlice.actions,
     ...userCart.actions,
     ...userState.actions,
-    ...productsSlice.actions
+    ...productsSlice.actions,
 }
 
 export const useServiceActions = () => {

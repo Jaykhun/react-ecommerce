@@ -11,6 +11,10 @@ export const userLogIn = userApi.injectEndpoints({
                     password: user.password,
                 })
 
+
+                console.log(params.toString());
+                
+
                 return {
                     url: `token`,
                     method: 'POST',

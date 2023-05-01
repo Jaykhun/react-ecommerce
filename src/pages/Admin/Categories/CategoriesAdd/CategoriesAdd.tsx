@@ -8,6 +8,7 @@ import { Notify } from 'notiflix'
 import { Controller, SubmitHandler, useForm } from 'react-hook-form'
 import makeAnimated from 'react-select/animated'
 import AsyncSelect from 'react-select/async'
+import './CategoriesAdd.scss'
 
 const CategoriesAdd = () => {
     const { closeCategoryAddModal } = useActions()
@@ -54,12 +55,12 @@ const CategoriesAdd = () => {
     
     return (
         <Modal isOpen={isOpenAddModal} state={modalState} handleClose={closeCategoryAddModal}>
-            <div className='categories-edit'>
-                <div className="categories-edit__body">
-                    <div className="categories-edit__title">Изменить данные</div>
+            <div className='categories-add'>
+                <div className="categories-add__body">
+                    <div className="categories-add__title">Добавить Категории</div>
 
-                    <form className="categories-edit__form" onSubmit={handleSubmit(onSubmit)}>
-                        <div className="categories-edit__name">
+                    <form className="categories-add__form" onSubmit={handleSubmit(onSubmit)}>
+                        <div className="categories-add__name">
                             <label htmlFor='name' className='input__label'>Название</label>
                             <input type='text' id='name' className='input__style'
                                 {...register('name', {
@@ -73,7 +74,7 @@ const CategoriesAdd = () => {
                             />
                         </div>
 
-                        <div className="categories-edit__parent">
+                        <div className="categories-add__parent">
                             <label htmlFor='name' className='input__label'>Родительский</label>
                             {categoriesIsLoading
                                 ? <Message formError='Идет загрузка категории...' />
