@@ -1,3 +1,4 @@
+import Path from '@/components/Path'
 import { Loader, Message } from '@/components/UI'
 import { useTypedSelector } from '@/hooks/useTypedSelector'
 import userApi from '@/store/api/user'
@@ -14,6 +15,7 @@ const Profile = () => {
                 : isError
                     ? <Message error={error} />
                     : <>
+                        <Path currentPage='Профиль' />
                         <div className="profile__title">Профиль</div>
 
                         <div className="profile__body">
