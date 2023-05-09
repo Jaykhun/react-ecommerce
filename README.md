@@ -30,6 +30,11 @@ The project is a web application that provides customers with a user-friendly on
 - User authentication and account management
 - Leave a back call
 
+### Login to Admin Panel
+Login: jaykhun
+<br/>
+Password: jaykhun
+
 ## Technologies Used
 My Ecommerce Project is built using the following technologies:
 
