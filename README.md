@@ -36,7 +36,7 @@ Login: jaykhun
 Password: jaykhun
 
 <p align="center">
-      <img src="https://www.simpleimageresizer.com/_uploads/photos/22845046/Screenshot_1_1_0.png">
+      <img src="https://i.imgur.com/lvni8eI.png">
 </p>
 
 ## Technologies Used
